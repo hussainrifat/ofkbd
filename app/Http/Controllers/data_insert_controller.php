@@ -13,7 +13,7 @@ class data_insert_controller extends Controller
     {
         std_registration::create($request->all());
         return view('homepage');
-        // file_put_contents('file.txt','Hello');
+        file_put_contents('file.txt','Hello');
         
     }
 
