@@ -20,9 +20,9 @@
 
 <body>
 @csrf
-<section class="bgimage" style="background-image: url('{{ asset('assets/img/slider-bg-1.png')}}'">
+<section class="bgregisterimage" style="background-image: url('{{ asset('assets/img/slider-bg-1.png')}}'">
 
-<div class="container register">
+{{-- <div class="container register"> --}}
     <div class="container register">
         <div class="row">
             <div class="col-md-3 register-left">
@@ -46,17 +46,20 @@
                         <div class="row register-form">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="std_name" id="std_name" placeholder="Your Name" value="" />
+                                    <span>Enter Your Name</span>
+                                    <input type="text" class="form-control" name="name" id="name" placeholder="Your Name" value="" />
                                     <span style="color: red" id="std_name_error"> </span>
                                 </div>
 
                                 <div class="form-group">
+                                    <span>Enter Your Institute Name</span>
                                     <input type="text" class="form-control" name="std_institute" id="std_institute" placeholder="Your Institute Name" value="" />
                                     <span style="color: red" id="std_institute_error"> </span>
 
                                 </div>
                                 
                                 <div class="form-group">
+                                    <span>Enter Your Class</span>
                                     <input type="text" class="form-control" name="std_class" id="std_class" placeholder="Your Class" value="" />
                                     <span style="color: red" id="std_class_error"> </span>
 
@@ -68,26 +71,28 @@
                             <div class="col-md-6">
                               
                                 <div class="form-group">
-                                    <input type="text" minlength="10" maxlength="10" name="std_number" id="std_number" name="txtEmpPhone" class="form-control" placeholder="Your Mobile Number" value="" />
+                                    <span>Enter Your Contact Number</span>
+                                    <input type="text" minlength="10" maxlength="10" name="contact_number" id="contact_number" name="txtEmpPhone" class="form-control" placeholder="Your Mobile Number" value="" />
                                     <span style="color: red" id="std_number_error"> </span>
 
                                 </div>
                                 
                               
                                 <div class="form-group">
-                                    <input type="email" class="form-control" name="std_email" id="std_email" placeholder="Your Email" value="" />
+                                    <span>Enter Your Email</span>
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" value="" />
                                     <span style="color: red" id="std_email_error"> </span>
 
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control" name="std_password" id="std_password" placeholder="Password" value="" />
+                                    <span>Enter Your Password</span>
+                                    <input type="password" class="form-control" name="password" id="password" placeholder="Password" value="" />
                                     <span style="color: red" id="std_password_error"> </span>
 
                                 </div>
                               
-                                
                              
-                              
+                                <span>Already Registered? <a href="{{url('/login')}}"> Sign In </a> From Here</span>
                                 <button id="registerstudent" class="btnRegister">Sign Up</button>
 
                             </div>
@@ -98,40 +103,38 @@
                         <div class="row register-form">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="ins_name" name="ins_name"  placeholder="Your Name" value="" />
+                                    <span>Enter Your Name</span>
+                                    <input type="text" class="form-control" id="ins_name"  placeholder="Your Name" value="" />
                                     <span style="color: red" id="ins_name_error"> </span>
 
                                 </div>
                                 
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="ins_institute"  placeholder="Your Institute Name" value="" />
-                                    <span style="color: red" id="ins_institute_error"> </span>
-
-                                    
-
-                                    
-                                </div>
+                                
                                 
                                 <div class="form-group">
-                                    <input type="text" minlength="10" maxlength="10" id="ins_number"  name="txtEmpPhone" class="form-control" placeholder="Your Mobile Number" value="" />
+                                    <span>Enter Your Contact Number</span>
+                                    <input type="text" minlength="10" maxlength="10" id="ins_contact_number"   class="form-control" placeholder="Your Mobile Number" value="" />
                                     <span style="color: red" id="ins_number_error"> </span>
 
                                 </div>
-                                
+                                <div class="form-group">
+                                    <span>Enter Your Email</span>
+
+                                    <input type="email" class="form-control" id="ins_email"   placeholder="Your Email" value="" />
+                                    <span style="color: red" id="ins_email_error"> </span>
+
+                                </div>
                           
 
 
                             </div>
                             <div class="col-md-6">
 
-                                <div class="form-group">
-                                    <input type="email" class="form-control" id="ins_email"  placeholder="Your Email" value="" />
-                                    <span style="color: red" id="ins_email_error"> </span>
-
-                                </div>
+                    
 
                                 <div class="form-group">
-                                    <input type="password" class="form-control" id="ins_password"  placeholder="Password" value="" />
+                                    <span>Enter Your Password</span>
+                                    <input type="password" class="form-control" id="ins_password"   placeholder="Password" value="" />
                                     <span style="color: red" id="ins_password_error"> </span>
 
                                 </div>
@@ -139,7 +142,8 @@
                                 
                                 
                                 <div class="form-group">
-                                    <select class="form-control" id="ins_expertise" >
+                                    <span>Please Select Your Expertise</span>
+                                    <select class="form-control" id="expertise"  >
                                         
                                         <option class="hidden"  selected disabled>Please select your Expertise</option>
                                         <option>Art</option>
@@ -152,7 +156,7 @@
                                     <span style="color: red" id="ins_expertise_error"> </span>
 
                                 </div>
-                              
+                              <span>Already Registered? <a href="{{url('/login')}}"> Sign In </a> From Here</span>
                                 <button id="registerinstructor" class="btnRegister">Sign Up</button>
                             </div>
                         </div>
@@ -160,8 +164,11 @@
                 </div>
             </div>
         </div>
+       
+  
+    </div>
 
-            </div>
+    
 </section>
 
 </body> 

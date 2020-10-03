@@ -15,13 +15,14 @@ class CreateStdRegistrationsTable extends Migration
     {
         Schema::create('std_registrations', function (Blueprint $table) {
             $table->id();
-            $table->string('std_name');
-            $table->string('std_institute');
+            $table->bigInteger('user_id')->unsigned();
             $table->string('std_class');
-            $table->string('std_number');
-            $table->string('std_email');
-            $table->string('std_password');
+            $table->string('std_institute');
             $table->timestamps();
+
+            $table->foreign('user_id')
+            ->references('id')->on('users')
+            ->onDelete('cascade');
         });
     }
 

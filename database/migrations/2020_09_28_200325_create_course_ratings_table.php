@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOtpsTable extends Migration
+class CreateCourseRatingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,22 @@ class CreateOtpsTable extends Migration
      */
     public function up()
     {
-        Schema::create('otps', function (Blueprint $table) {
+        Schema::create('course_ratings', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('course_id')->unsigned();
+            $table->string('review_rating');
             $table->bigInteger('user_id')->unsigned();
-            $table->string('otp');
+            $table->string('active_rating_status')->nullable();
+            $table->timestamps();
 
             $table->foreign('user_id')
             ->references('id')->on('users')
             ->onDelete('cascade');
 
+
+            $table->foreign('course_id')
+            ->references('id')->on('courses')
+            ->onDelete('cascade');
         });
     }
 
@@ -32,6 +39,6 @@ class CreateOtpsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('otps');
+        Schema::dropIfExists('course_ratings');
     }
 }

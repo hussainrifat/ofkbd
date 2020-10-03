@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','CustomController@home');
 Route::get('/register','CustomController@register');
+Route::get('/login','CustomController@login');
+
 Route::get('/homepage','CustomController@homepage');
 Route::get('/main','CustomController@main');
 

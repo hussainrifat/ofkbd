@@ -12,7 +12,9 @@ $(function(){
     $('#std_number_error').hide();
     $('#std_email_error').hide();
     $('#std_password_error').hide();
-    $('#ins_name_error').hide();
+   
+
+ $('#ins_name_error').hide();
     $('#ins_institute_error').hide();
     $('#ins_number_error').hide();
     $('#ins_email_error').hide();
@@ -23,13 +25,11 @@ $(function(){
 
 
 
-
-
 // student data validation
 
-    $('#std_name').focusout(function()
+    $('#name').focusout(function()
     {
-        if($('#std_name').val().length==0)
+        if($('#name').val().length==0)
         {
             $('#std_name_error').html("Name Field Is Required");
             $('#std_name_error').show();
@@ -67,9 +67,9 @@ $(function(){
     });
 
 
-    $('#std_number').focusout(function()
+    $('#contact_number').focusout(function()
     {
-        if($('#std_number').val().length==0)
+        if($('#contact_number').val().length==0)
         {
             $('#std_number_error').html("Number Field Is Required");
             $('#std_number_error').show();
@@ -82,12 +82,12 @@ $(function(){
 
 
 
-    $("#std_email").focusout(function()
+    $("#email").focusout(function()
     {
 
      //alert("ok")
 
-     if($("#std_email").val().length == 0)
+     if($("#email").val().length == 0)
 
       {
          $("#std_email_error").html("Email field is required");
@@ -99,7 +99,7 @@ $(function(){
 
      var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
 
- if(!pattern.test($("#std_email").val())) {
+ if(!pattern.test($("#email").val())) {
       $("#std_email_error").html("Invalid Email Address");
       $("#std_email_error").show();
       //return false;
@@ -108,7 +108,7 @@ $(function(){
     {
      $("#std_email_error").hide();
         
-        var email = $("#std_email").val();
+        var email = $("#email").val();
         var formData = new FormData();
         formData.append('email',email);
         formData.append('email_check','email_check');
@@ -143,10 +143,10 @@ $(function(){
     });
 
 
-     $("#std_password").focusout(function()
+     $("#password").focusout(function()
        {
 
-       if($("#std_password").val().length == 0)
+       if($("#password").val().length == 0)
 
       {
          $("#std_password_error").html("password field is required");
@@ -155,7 +155,7 @@ $(function(){
      else
      {
 
-      if( $("#std_password").val().length<8)
+      if( $("#password").val().length<8)
       {
         $("#std_password_error").html("Minimum 8 character required");
           $("#std_password_error").show();
@@ -164,7 +164,7 @@ $(function(){
       else
       {
        var password_reg_ex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])");
-       if(!password_reg_ex.test($("#std_password").val())) {
+       if(!password_reg_ex.test($("#password").val())) {
       $("#std_password_error").html("password should contain One Uppercase, One lowercase,one number,one special character");
       $("#std_password_error").show();
       //return false;
@@ -198,25 +198,12 @@ $(function(){
    
        });
    
-       $('#ins_institute').focusout(function(){
-   
-           if($('#ins_institute').val().length==0)
-           {
-               $('#ins_institute_error').html("Institute Name Is Required");
-               $('#ins_institute_error').show();
-           }
-   
-           else
-           $('#ins_institute_error').hide();
-   
-   
-       });
 
 
 
-       $('#ins_number').focusout(function()
+       $('#ins_contact_number').focusout(function()
     {
-        if($('#ins_number').val().length==0)
+        if($('#ins_contact_number').val().length==0)
         {
             $('#ins_number_error').html("Number Field Is Required");
             $('#ins_number_error').show();
@@ -246,7 +233,7 @@ $(function(){
 
      var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
 
- if(!pattern.test($("#ins_email").val())) {
+ if(!pattern.test($("#email").val())) {
       $("#ins_email_error").html("Invalid Email Address");
       $("#ins_email_error").show();
       //return false;
@@ -255,7 +242,7 @@ $(function(){
     {
      $("#ins_email_error").hide();
         
-        var email = $("#ins_email").val();
+        var email = $("#email").val();
         var formData = new FormData();
         formData.append('email',email);
         formData.append('email_check','email_check');
