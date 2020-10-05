@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ins_registraion;
 use App\ins_registration;
 use App\instructor_registration;
 use App\std_registration;
@@ -39,13 +40,34 @@ class data_insert_controller extends Controller
     }
 
 
-    // public function insert_instructor_data(Request $request)
-    // {
-    //     ins_registration::create($request->all());
-    //     return view('homepage');
+    public function insert_instructor_data(Request $request)
+    {
+        // ins_registration::create($request->all());
+        // return view('homepage');
+
+        $name= $request->ins_name;
+        $contact_number= $request->ins_number;
+        $email= $request->ins_email;
+        // $password= $request->password;
+        $password=Hash::make($request->ins_password);
+        $expertise= $request->ins_expertise;
+
+        user::create([
+        'name'=>$name, 
+        'contact_number'=>$contact_number,
+        'email'=>$email,        
+        'password' =>$password,
+        ]);
+        $user_id = User::where("email",$email)->first()->id;
+        ins_registraion::create([
+            'user_id'=>$user_id,
+            'expertise'=>$expertise,
+            ]);
+
+
 
         
-    // }
+    }
 
 
 

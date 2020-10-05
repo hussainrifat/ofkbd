@@ -19,29 +19,28 @@ $(function(){
     var ins_password=$("#ins_password").val();
     var ins_expertise=$("#expertise").val();
   
-    alert(ins_name+' '+ins_email+' '+expertise+' '+ins_password+' '+ins_name);
+    // alert(ins_name+' '+ins_email+' '+expertise+' '+ins_password+' '+ins_name);
   
   
-  // var formdata= new FormData();
-  // formdata.append('ins_name',ins_name);
-  // formdata.append('ins_institute',ins_institute);
-  // formdata.append('ins_number',ins_number);
-  // formdata.append('ins_email',ins_email);
-  // formdata.append('ins_password',ins_password);
-  // formdata.append('ins_expertise',ins_expertise);
+  var formdata= new FormData();
+  formdata.append('ins_name',ins_name);
+  formdata.append('ins_number',ins_number);
+  formdata.append('ins_email',ins_email);
+  formdata.append('ins_password',ins_password);
+  formdata.append('ins_expertise',ins_expertise);
   
   
-  // $.ajax({
-  //   processData:false,
-  //   contentType:false,
-  //   data:formdata,
-  //   type:"post",
-  //   url:"insert_instructor_data",
-  //   success:function(data)
-  //   {
-  //    alert("Instructor Registration Completed");
-  //   }
-  // });
+  $.ajax({
+    processData:false,
+    contentType:false,
+    data:formdata,
+    type:"post",
+    url:"insert_instructor_data",
+    success:function(data)
+    {
+     alert("Instructor Registration Completed");
+    }
+  });
   
   
   

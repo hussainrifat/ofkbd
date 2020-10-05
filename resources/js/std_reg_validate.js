@@ -233,7 +233,7 @@ $(function(){
 
      var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
 
- if(!pattern.test($("#email").val())) {
+ if(!pattern.test($("#ins_email").val())) {
       $("#ins_email_error").html("Invalid Email Address");
       $("#ins_email_error").show();
       //return false;

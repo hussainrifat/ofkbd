@@ -1,0 +1,180 @@
+/*--
+Author: Colorlib
+Author URL: https://colorlib.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+--*/
+/*-- reset --*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6,  blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, nav ul, nav li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+  }
+
+
+  .button:focus, .button.active, .button.active:focus {
+    color: white !important;
+}
+ 
+
+  h1 {
+	font-size: 10px;
+	text-align: center;
+	color: #fff;
+	font-weight: 400;
+	text-transform: capitalize;
+	letter-spacing: 4px;
+	font-family: 'poppins';
+  }
+  
+  /*-- main --*/
+  .main-w3layouts {
+	padding: 3em 0 1em;
+  }
+  
+  .main-agileinfo {
+	width: 35%;
+	margin: 3em auto;
+	background: rgba(0, 0, 0, 0.18);
+	background-size: cover;
+  }
+  
+  .agileits-top {
+	padding: 3em;
+  }
+  
+  input {
+	font-size: 15px;
+	color: #fff;
+	font-weight: 500;
+	width: 94.5%;
+	display: block;
+	border: none;
+	padding: 0.8em;
+	border: solid 1px white;
+	-webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+	transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+	background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #fff 4%);
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #fff 4%);
+	background-position: -800px 0;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	color: #fff;
+	font-family: 'Poppins';
+  }
+  
+  input.email, input.text.w3lpass {
+	margin: 2em 0;
+  }
+  
+  .text:focus, .text:valid {
+	box-shadow: none;
+	outline: none;
+	background-position: 0 0;
+  }
+  
+  .text:focus::-webkit-input-placeholder, .text:valid::-webkit-input-placeholder {
+	color: rgba(255, 255, 255, 0.7);
+	font-size: .9em;
+	-webkit-transform: translateY(-30px);
+	-moz-transform: translateY(-30px);
+	-o-transform: translateY(-30px);
+	-ms-transform: translateY(-30px);
+	transform: translateY(-30px);
+	visibility: visible !important;
+  }
+  
+  ::-webkit-input-placeholder {
+	color: #fff;
+	font-weight: 100;
+  }
+  
+  :-moz-placeholder {
+	/* Firefox 18- */
+	color: #fff;
+  }
+  
+  ::-moz-placeholder {
+	/* Firefox 19+ */
+	color: #fff;
+  }
+  
+  :-ms-input-placeholder {
+	color: #fff;
+  }
+  
+  input[type="submit"] {
+	font-size: .9em;
+	color: #fff;
+	background: #504096;
+	outline: none;
+	border: 1px solid white;
+	cursor: pointer;
+	padding: 0.9em;
+	-webkit-appearance: none;
+	width: 100%;
+	margin: 2em 0;
+	letter-spacing: 4px;
+  }
+  
+  input[type="submit"]:hover {
+	-webkit-transition: .5s all;
+	-moz-transition: .5s all;
+	-o-transition: .5s all;
+	-ms-transition: .5s all;
+	transition: .5s all;
+	background: #063e81;
+  }
+  
+  .agileits-top p {
+	font-size: 1em;
+	color: #fff;
+	text-align: center;
+	letter-spacing: 1px;
+	font-weight: 300;
+  }
+  
+  .agileits-top p a {
+	color: #fff;
+	-webkit-transition: .5s all;
+	-moz-transition: .5s all;
+	transition: .5s all;
+	font-weight: 600;
+  }
+  
+  .agileits-top p a:hover {
+	font-weight: 800;
+
+	color: #063e81;
+  }
+  
+  /*-- //main --*/
+  /*-- checkbox --*/
+  .wthree-text label {
+	font-size: 2px;
+	font-weight: 500;
+	color: #fff;
+	font-weight: 200;
+	cursor: pointer;
+	position: relative;
+  }
+  
+
+
+  
+
+  
+  @keyframes rippling {
+	50% {
+	  border-left-color: #fff;
+	}
+  
+	100% {
+	  border-bottom-color: #fff;
+	  border-left-color: #fff;
+	}
+  }
+  
