@@ -53,7 +53,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto"><a><img src="assets/img/logo.png" alt="Logo" style="width:100px;height:1497px"></a></h1>
+      <h1 class="logo mr-auto"><a href="{{url('/')}}"><img src="assets/img/logo.png" alt="Logo" style="width:100px;height:1497px"></a></h1>
 
     
     
@@ -79,8 +79,7 @@
               <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li>
-          <li><a href="index.html">বাংলা</a></li>
-          <li><a href="about.html">Sign In</a></li>
+          <li><a href="{{url('/login')}}">Sign In</a></li>
 
 
 

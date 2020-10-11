@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\ins_registraion;
 use App\ins_registration;
 use App\instructor_registration;
+use App\otp;
 use App\std_registration;
 use App\User;
+use Session;
 // use Hash;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -23,7 +25,6 @@ class data_insert_controller extends Controller
         $std_class= $request->class;
         $contact_number= $request->contact_number;
         $email= $request->email;
-        // $password= $request->password;
         $password=Hash::make($request->password);
 
         User::create([
@@ -31,13 +32,62 @@ class data_insert_controller extends Controller
         'contact_number'=>$contact_number,
         'email'=>$email,        'password' =>$password,
         ]);
+
+
         $user_id = User::where("email",$email)->first()->id;
+        Session::put('user_id',$user_id);
+        //file_put_contents("tes.txt",Session::get('user_id'));
+        $this->send_otp($user_id);
         std_registration::create([
             'std_institute'=>$std_institute,
             'user_id'=>$user_id,
             'std_class'=>$std_class]);
-    
     }
+
+   function send_otp($user_id)
+   {
+    $otp=mt_rand(1000,9999); 
+     if(otp::where('user_id',$user_id)->first())
+     {
+         otp::where('user_id',$user_id)->update(['otp'=>$otp]);
+     }
+     else{
+        otp::create([
+            'user_id'=>$user_id,
+            'otp'=>$otp,
+        ]);
+     }  
+
+    
+    
+
+ 
+   }
+
+   public function match_otp(Request $request)
+   {
+      $user_otp= $request->user_otp;
+      $user_id= Session::get('user_id');
+
+
+    //   $q=(otp::where('user_id',$user_id)->select('otp'))->pluck('otp');
+      $q=((otp::where('user_id',$user_id)->select('otp'))->first()->otp);
+
+
+
+    file_put_contents("tes.txt",$q);
+
+    if($q=$user_otp)
+      {
+            echo("OTP Matched");
+
+        }
+        else {
+            echo("OTP Doesnot Matched");
+      }
+       
+    
+   }
 
 
     public function insert_instructor_data(Request $request)

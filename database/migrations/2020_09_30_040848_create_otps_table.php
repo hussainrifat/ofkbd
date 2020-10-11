@@ -16,7 +16,9 @@ class CreateOtpsTable extends Migration
         Schema::create('otps', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned();
-            $table->string('otp');
+            $table->string('otp');            
+            $table->timestamps();
+
 
             $table->foreign('user_id')
             ->references('id')->on('users')

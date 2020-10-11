@@ -77,12 +77,44 @@ $(function(){
       success:function(data)
       {
        alert("Student Registration Completed");
+     window.location.href ="otp"
       }
     });
-  
 
   });
   
-  
+  $("#login").on('click',function()
+  {
+    alert("Login");
+
+  });
+
+
+  $("#otp").on('click',function()
+  {
+    var user_otp=$("#user_otp").val();
+        // alert(user_otp);
+
+    var formdata= new FormData();
+    formdata.append('user_otp',user_otp);
+
+    $.ajax({
+      processData:false,
+      contentType:false,
+      data:formdata,
+      type:"post",
+      url:"match_otp",
+      success:function(data)
+      {
+
+        window.location.href ="homepage"
+
+      }
+    });
+
+
+    // alert("OTP");
+
+  });
 });
 

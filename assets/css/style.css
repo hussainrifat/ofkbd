@@ -9,8 +9,8 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Open Sans", sans-serif;
-  color: #444444;
+  font-family: 'Roboto', sans-serif;
+  color: #444444 !important;
 }
 
 a {
@@ -23,15 +23,16 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Roboto", sans-serif;
+
+  font-family: 'Roboto', sans-serif;
   font-size: 150px;
   font-weight: bold;
 }
 
 p {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 20px;
-  font-weight: 400;
+  font-weight: bold;
 
 }
 
@@ -78,7 +79,7 @@ p {
 .bgimage h5 {
   color:white;
   font-size:70px;
-  font-family:"Roboto";
+  font-family: 'Roboto', sans-serif;
   margin-top: 160px;
   
  
@@ -193,7 +194,8 @@ margin-left: 0px;
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
 }
 
 #header .logo a {
@@ -236,8 +238,8 @@ margin-left: 0px;
   color: #ffffff;
   transition: 0.3s;
   font-size: 15px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
 }
 
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
@@ -285,7 +287,7 @@ margin-left: 0px;
 
 .nav-menu .drop-down > a:after {
   content: "\ea99";
-  font-family: IcoFont;
+  font-family: 'Roboto', sans-serif;
   padding-left: 5px;
 }
 
@@ -306,7 +308,7 @@ margin-left: 0px;
 
 .nav-menu .drop-down .drop-down > a:after {
   content: "\eaa0";
-  font-family: IcoFont;
+  font-family: 'Roboto', sans-serif;
   position: absolute;
   right: 15px;
 }
@@ -393,7 +395,7 @@ margin-left: 0px;
 
 .mobile-nav .drop-down > a:after {
   content: "\ea99";
-  font-family: IcoFont;
+  font-family: 'Roboto', sans-serif;
   padding-left: 10px;
   position: absolute;
   right: 15px;
@@ -479,7 +481,7 @@ margin-left: 0px;
   font-weight: 700;
   line-height: 56px;
   color: #fff;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 #hero h2 {
@@ -489,7 +491,7 @@ margin-left: 0px;
 }
 
 #hero .btn-get-started {
-  font-family: "Raleway", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 15px;
   letter-spacing: 1px;
@@ -552,7 +554,7 @@ section {
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #aaaaaa;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .section-title h2::after {
@@ -570,7 +572,8 @@ section {
   font-size: 36px;
   font-weight: 700;
   text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
   color: #37423b;
 }
 
@@ -669,7 +672,7 @@ section {
 .counts .counters p {
   padding: 0;
   margin: 0 0 20px 0;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 18px;
   font-weight: 600;
   color: #ffffff;
@@ -708,7 +711,7 @@ section {
 .why-us .content .more-btn i {
   font-size: 14px;
   font-weight: 600;
-  font-family: "Roboto";
+  font-family: 'Roboto', sans-serif;
 }
 
 .why-us .content .more-btn:hover {
@@ -1053,7 +1056,7 @@ section {
   font-weight: 400;
   font-size: 16px;
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .course-details .course-info p {
@@ -1227,7 +1230,7 @@ section {
   font-size: 36px;
   color: #063e81;
   font-weight: 600;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin-bottom: 20px;
 }
 
@@ -1283,7 +1286,7 @@ section {
   transition: none;
   font-size: 14px;
   font-weight: 400;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 600;
   transition: 0.3s;
 }
@@ -1498,7 +1501,7 @@ section {
   font-size: 14px;
   line-height: 24px;
   margin-bottom: 0;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #777777;
 }
 

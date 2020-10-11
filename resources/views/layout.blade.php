@@ -16,11 +16,13 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  
   {{-- <link rel="stylesheet" href="{{asset('assets')}}/googlefont.css?{{time()}}"> --}}
 
   {{-- font awesome icon --}}
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@100&display=swap" rel="stylesheet">
   {{-- <link rel="stylesheet" href="{{asset('assets')}}/font-awesome.min.css?{{time()}}"> --}}
 
 
@@ -73,7 +75,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto"><a><img src="assets/img/logo.png" alt="Logo" style="width:100px;height:1497px"></a></h1>
+      <h1 class="logo mr-auto"><a href="{{url('/')}}"><img src="assets/img/logo.png" alt="Logo" style="width:100px;height:1497px"></a></h1>
 
     
     

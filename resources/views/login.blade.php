@@ -30,7 +30,7 @@
                 <p style="font-size: 30px;font-weight:600">Good to see you again! </p>
                 <p>By logging into OFK, you agree to our Terms of use and Privacy Policy.</p>
 				<form action="#" method="post">
-					<input class="text email" type="email" name="contact_number" placeholder="Enter Your Number" required="">
+					<input class="text email" type="number" name="contact_number" placeholder="Enter Your Number" required="">
 					<input class="text" type="password" name="password" placeholder="Password" required="">
 					<div class="wthree-text">
 					
@@ -39,13 +39,13 @@
                     <br>
 
                     <div class="text-center .text-white">
-                        <button   type="button" class="btn btn-warning">Log In</button>
+                        <button   type="button" id="login" class="btn btn-warning">Log In</button>
 
                     </div>
                     
                 </form>
                 <br>
-				<p>Don't have an Account? <a href="#"> Register Now!</a></p>
+				<p>Don't have an Account? <a href="{{url('/register')}}"> Register Now!</a></p>
 			</div>
 		</div>
 </section>

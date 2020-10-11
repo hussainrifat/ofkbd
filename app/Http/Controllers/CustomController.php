@@ -22,6 +22,10 @@ class CustomController extends Controller
         return view('homepage');
     }
 
+    public function otp(){
+        return view('otp');
+    }
+
     public function main(){
         return view('main');
     }

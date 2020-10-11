@@ -15,13 +15,20 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/','CustomController@home');
-Route::get('/register','CustomController@register');
+Route::get('register','CustomController@register');
 Route::get('/login','CustomController@login');
 
 Route::get('/homepage','CustomController@homepage');
 Route::get('/main','CustomController@main');
 
+Route::get('otp','CustomController@otp');
+
+
 
 Route::post('std_data_insert','data_insert_controller@std_data_insert');
 Route::post('insert_instructor_data','data_insert_controller@insert_instructor_data');
+Route::post('send_otp','data_insert_controller@send_otp');
+Route::post('match_otp','data_insert_controller@match_otp');
+
+
 
