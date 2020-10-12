@@ -231,7 +231,7 @@
     height: 60px;
     padding: 0;
     border: 0;
-    background: #ed2a26;
+    background: #063e91;
     color: #fff;
     font-size: 30px;
     margin: 0;
@@ -241,7 +241,7 @@
 
 .collapse_menu:hover {
 	color: #fff;
-	background: #af1f24;
+	background: #f7c700;
 }
 
 .collapse_menu .collapse_menu--icon {

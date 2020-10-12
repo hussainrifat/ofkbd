@@ -2,17 +2,17 @@
 <html lang="en">
 
 	
-<!-- Mirrored from gambolthemes.net/html-items/cursus_demo_f12/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 11 Oct 2020 02:31:38 GMT -->
+<!-- Mirrored from gambolthemes.net/html-items/OFK_demo_f12/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 11 Oct 2020 02:31:38 GMT -->
 <head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, shrink-to-fit=9">
 		<meta name="description" content="Gambolthemes">
 		<meta name="author" content="Gambolthemes">		
-		<title>Cursus - Index</title>
+		<title>OFK - Index</title>
 		
 		<!-- Favicon Icon -->
-		<link rel="icon" type="image/png" href="assets\frontend\images\fav.png">
+		<link rel="icon" type="image/png" href="assets\frontend\images\logo.png">
 		
 		<!-- Stylesheets -->
     
@@ -43,7 +43,7 @@
 			<span class="collapse_menu--label"></span>
 		</button>
 		<div class="main_logo" id="logo">
-			<a href="index-2.html"><img src="assets\frontend\images\logo.svg" alt=""></a>
+			<a href="index-2.html"><img src="assets\frontend\images\logo.png" style="width:80px" alt=""></a>
 			<a href="index-2.html"><img class="logo-inverse" src="assets\frontend\images\ct_logo.svg" alt=""></a>
 		</div>
 		<div class="top-category">
@@ -51,19 +51,15 @@
 				<div class="ui simple dropdown item">
 					<a href="#" class="option_links p-0" title="categories"><i class="uil uil-apps"></i></a>
 					<div class="menu dropdown_category5">
-						<a href="#" class="item channel_item">Development</a>
-						<a href="#" class="item channel_item">Business</a>
-						<a href="#" class="item channel_item">Finance & Accounting</a>
-						<a href="#" class="item channel_item">IT & Software</a>
-						<a href="#" class="item channel_item">Office Productivity</a>
-						<a href="#" class="item channel_item">Personal Development</a>
-						<a href="#" class="item channel_item">Design</a>
-						<a href="#" class="item channel_item">Marketing</a>
-						<a href="#" class="item channel_item">Lifestyle</a>
-						<a href="#" class="item channel_item">Photography</a>
-						<a href="#" class="item channel_item">Health & Fitness</a>
-						<a href="#" class="item channel_item">Music</a>
-						<a href="#" class="item channel_item">Teaching & Academics</a>
+						<a href="#" class="item channel_item">Art</a>
+						<a href="#" class="item channel_item">Craft</a>
+						<a href="#" class="item channel_item">Calligraphy</a>
+						<a href="#" class="item channel_item">Rubiks Cube Solving</a>
+						<a href="#" class="item channel_item">Case Solving</a>
+						<a href="#" class="item channel_item">Programming</a>
+						<a href="#" class="item channel_item">Robotics</a>
+						<a href="#" class="item channel_item">Web Design</a>
+		
 					</div>
 				</div>
 			</div>
@@ -71,7 +67,7 @@
 		<div class="search120">
 			<div class="ui search">
 			  <div class="ui left icon input swdh10">
-				<input class="prompt srch10" type="text" placeholder="Search for Tuts Videos, Tutors, Tests and more..">
+				<input class="prompt srch10" type="text" placeholder="Learn Anything From OFK For Free">
 				<i class='uil uil-search-alt icon icon1'></i>
 			  </div>
 			</div>
@@ -82,8 +78,9 @@
 					<a href="create_new_course.html" class="upload_btn" title="Create New Course">Create New Course</a>
 				</li>
 				<li>
-					<a href="shopping_cart.html" class="option_links" title="cart"><i class='uil uil-shopping-cart-alt'></i><span class="noti_count">2</span></a>
+					<a href="create_new_course.html" class="upload_btn" title="Donate Now">Donate Now</a>
 				</li>
+			
 				<li class="ui dropdown">
 					<a href="#" class="option_links" title="Messages"><i class='uil uil-envelope-alt'></i><span class="noti_count">3</span></a>
 					<div class="menu dropdown_ms">
@@ -91,8 +88,8 @@
 							<div class="profile_link">
 								<img src="assets\frontend\images\left-imgs/img-6.jpg" alt="">
 								<div class="pd_content">
-									<h6>Zoena Singh</h6>
-									<p>Hi! Sir, How are you. I ask you one thing please explain it this video price.</p>
+									<h6>Faisal Ahmed Shopnil</h6>
+									<p>Hi! Sir, How are you. Can you please Explain me something?</p>
 									<span class="nm_time">2 min ago</span>
 								</div>							
 							</div>							
@@ -101,7 +98,7 @@
 							<div class="profile_link">
 								<img src="assets\frontend\images\left-imgs/img-5.jpg" alt="">
 								<div class="pd_content">
-									<h6>Joy Dua</h6>
+									<h6>Hussain Rifat</h6>
 									<p>Hello, I paid you video tutorial but did not play error 404.</p>
 									<span class="nm_time">10 min ago</span>
 								</div>							
@@ -183,7 +180,7 @@
 								</span>
 							</a>
 						</div>
-						<a href="instructor_dashboard.html" class="item channel_item">Cursus dashboard</a>						
+						<a href="instructor_dashboard.html" class="item channel_item">OFK dashboard</a>						
 						<a href="membership.html" class="item channel_item">Paid Memberships</a>
 						<a href="setting.html" class="item channel_item">Setting</a>
 						<a href="help.html" class="item channel_item">Help</a>
@@ -195,6 +192,10 @@
 		</div>
 	</header>
 	<!-- Header End -->
+
+
+
+
 	<!-- Left Sidebar Start -->
 	<nav class="vertical_nav">
 		<div class="left_section menu_left" id="js-menu" >
@@ -206,18 +207,7 @@
 							<span class="menu--label">Home</span>
 						</a>
 					</li>
-					<li class="menu--item">
-						<a href="live_streams.html" class="menu--link" title="Live Streams">
-							<i class='uil uil-kayak menu--icon'></i>
-							<span class="menu--label">Live Streams</span>
-						</a>
-					</li>
-					<li class="menu--item">
-						<a href="explore.html" class="menu--link" title="Explore">
-							<i class='uil uil-search menu--icon'></i>
-							<span class="menu--label">Explore</span>
-						</a>
-					</li>
+
 					<li class="menu--item menu--item__has_sub_menu">
 						<label class="menu--link" title="Categories">
 							<i class='uil uil-layers menu--icon'></i>
@@ -225,46 +215,37 @@
 						</label>
 						<ul class="sub_menu">
 							<li class="sub_menu--item">
-								<a href="#" class="sub_menu--link">Development</a>
+								<a href="#" class="sub_menu--link">Art</a>
 							</li>
 							<li class="sub_menu--item">
-								<a href="#" class="sub_menu--link">Business</a>
+								<a href="#" class="sub_menu--link">Craft</a>
 							</li>
 							<li class="sub_menu--item">
-								<a href="#" class="sub_menu--link">Finance & Accounting</a>
+								<a href="#" class="sub_menu--link">Calligraphy</a>
 							</li>
 							<li class="sub_menu--item">
-								<a href="#.html" class="sub_menu--link">IT & Software</a>
+								<a href="#.html" class="sub_menu--link">Programming</a>
 							</li>
 							<li class="sub_menu--item">
-								<a href="#" class="sub_menu--link">Office Productivity</a>
+								<a href="#" class="sub_menu--link">Robotics</a>
 							</li>
 							<li class="sub_menu--item">
-								<a href="#" class="sub_menu--link">Personal Development</a>
+								<a href="#" class="sub_menu--link">Web Design</a>
 							</li>
 							<li class="sub_menu--item">
 								<a href="#" class="sub_menu--link">Design</a>
 							</li>
-							<li class="sub_menu--item">
-								<a href="#" class="sub_menu--link">Marketing</a>
-							</li>
-							<li class="sub_menu--item">
-								<a href="#" class="sub_menu--link">Lifestyle</a>
-							</li>
-							<li class="sub_menu--item">
-								<a href="#" class="sub_menu--link">Photography</a>
-							</li>
-							<li class="sub_menu--item">
-								<a href="#" class="sub_menu--link">Health & Fitness</a>
-							</li>
-							<li class="sub_menu--item">
-								<a href="#" class="sub_menu--link">Music</a>
-							</li>
-							<li class="sub_menu--item">
-								<a href="#" class="sub_menu--link">Teaching & Academics</a>
-							</li>
+							
 						</ul>
 					</li>
+					
+					<li class="menu--item">
+						<a href="explore.html" class="menu--link" title="Explore">
+							<i class='uil uil-search menu--icon'></i>
+							<span class="menu--label">Explore</span>
+						</a>
+					</li>
+					
 					<li class="menu--item  menu--item__has_sub_menu">
 						<label class="menu--link" title="Tests">
 						  <i class='uil uil-clipboard-alt menu--icon'></i>
@@ -364,37 +345,17 @@
 					</li>
 				</ul>
 			</div>
-			<div class="left_section">
-				<h6 class="left_title">SUBSCRIPTIONS</h6>
-				<ul>
-					<li class="menu--item">
-						<a href="instructor_profile_view.html" class="menu--link user_img">
-							<img src="assets\frontend\images\left-imgs/img-1.jpg" alt="">
-							Rock Smith
-							<div class="alrt_dot"></div>
-						</a>
-					</li>
-					<li class="menu--item">
-						<a href="instructor_profile_view.html" class="menu--link user_img">
-							<img src="assets\frontend\images\left-imgs/img-2.jpg" alt="">
-							Jassica William
-						</a>
-						<div class="alrt_dot"></div>
-					</li>
-					<li class="menu--item">
-						<a href="all_instructor.html" class="menu--link" title="Browse Instructors">
-						  <i class='uil uil-plus-circle menu--icon'></i>
-						  <span class="menu--label">Browse Instructors</span>
-						</a>
-					</li>
-				</ul>
-			</div>
+
+
+		
+
+
 			<div class="left_section pt-2">
 				<ul>
 					<li class="menu--item">
 						<a href="setting.html" class="menu--link" title="Setting">
 							<i class='uil uil-cog menu--icon'></i>
-							<span class="menu--label">Setting</span>
+							<span class="menu--label">Settings</span>
 						</a>
 					</li>
 					<li class="menu--item">
@@ -417,40 +378,36 @@
 					</li>
 				</ul>
 			</div>
+
+
 			<div class="left_footer">
-				<ul>
-					<li><a href="about_us.html">About</a></li>
-					<li><a href="press.html">Press</a></li>
-					<li><a href="contact_us.html">Contact Us</a></li>
-					<li><a href="coming_soon.html">Advertise</a></li>
-					<li><a href="coming_soon.html">Developers</a></li>
-					<li><a href="terms_of_use.html">Copyright</a></li>
-					<li><a href="terms_of_use.html">Privacy Policy</a></li>
-					<li><a href="terms_of_use.html">Terms</a></li>
-				</ul>
+				
 				<div class="left_footer_content">
-					<p>© 2020 <strong>Cursus</strong>. All Rights Reserved.</p>
+					<p>© 2020 <strong>OFK</strong>. All Rights Reserved.</p>
 				</div>
 			</div>
 		</div>
 	</nav>
 	<!-- Left Sidebar End -->
-	<!-- Body Start -->
+
+
+
+	<!-- OFK Main Body Start -->
 	<div class="wrapper">
 		<div class="sa4d25">
 			<div class="container-fluid">			
 				<div class="row">
 					<div class="col-xl-9 col-lg-8">
 						<div class="section3125">
-							<h4 class="item_title">Live Streams</h4>
-							<a href="live_streams.html" class="see150">See all</a>
+							<h4 class="item_title">Featured Instructors</h4>
+							<a href="live_streams.html" class="see150">Explore all</a>
 							<div class="la5lo1">
 								<div class="owl-carousel live_stream owl-theme">
 									<div class="item">
 										<div class="stream_1">
 											<a href="live_output.html" class="stream_bg">
 												<img src="assets\frontend\images\left-imgs/img-1.jpg" alt="">
-												<h4>John Doe</h4>
+												<h4>Saif Abrar</h4>
 												<p>live<span></span></p>
 											</a>
 										</div>
@@ -459,25 +416,17 @@
 										<div class="stream_1">
 											<a href="live_output.html" class="stream_bg">
 												<img src="assets\frontend\images\left-imgs/img-2.jpg" alt="">
-												<h4>Jassica</h4>
+												<h4>Nabila Kader</h4>
 												<p>live<span></span></p>
 											</a>
 										</div>
 									</div>
-									<div class="item">
-										<div class="stream_1">
-											<a href="live_output.html" class="stream_bg">
-												<img src="assets\frontend\images\left-imgs/img-9.jpg" alt="">
-												<h4>Edututs+</h4>
-												<p>live<span></span></p>
-											</a>
-										</div>
-									</div>
+								
 									<div class="item">
 										<div class="stream_1">
 											<a href="live_output.html" class="stream_bg">
 												<img src="assets\frontend\images\left-imgs/img-3.jpg" alt="">
-												<h4>Joginder Singh</h4>
+												<h4>Zubair Ahmed Rabby</h4>
 												<p>live<span></span></p>
 											</a>
 										</div>
@@ -486,7 +435,7 @@
 										<div class="stream_1">
 											<a href="live_output.html" class="stream_bg">
 												<img src="assets\frontend\images\left-imgs/img-4.jpg" alt="">
-												<h4>Zoena</h4>
+												<h4>Sanjima Islam</h4>
 												<p>live<span></span></p>
 											</a>
 										</div>
@@ -495,7 +444,7 @@
 										<div class="stream_1">
 											<a href="live_output.html" class="stream_bg">
 												<img src="assets\frontend\images\left-imgs/img-5.jpg" alt="">
-												<h4>Albert Dua</h4>
+												<h4>Sadman Sakib</h4>
 												<p>live<span></span></p>
 											</a>
 										</div>
@@ -504,7 +453,7 @@
 										<div class="stream_1">
 											<a href="live_output.html" class="stream_bg">
 												<img src="assets\frontend\images\left-imgs/img-6.jpg" alt="">
-												<h4>Ridhima</h4>
+												<h4>Sadia Zaman Suha</h4>
 												<p>live<span></span></p>
 											</a>
 										</div>
@@ -513,26 +462,18 @@
 										<div class="stream_1">
 											<a href="live_output.html" class="stream_bg">
 												<img src="assets\frontend\images\left-imgs/img-7.jpg" alt="">
-												<h4>Amritpal</h4>
+												<h4>Abeed Mahmud</h4>
 												<p>live<span></span></p>
 											</a>
 										</div>
 									</div>
-									<div class="item">
-										<div class="stream_1">
-											<a href="live_output.html" class="stream_bg">
-												<img src="assets\frontend\images\left-imgs/img-8.jpg" alt="">
-												<h4>Jimmy</h4>
-												<p>live<span></span></p>
-											</a>
-										</div>
-									</div>
+								
 								</div>
 							</div>
 						</div>
 						<div class="section3125 mt-50">
-							<h4 class="item_title">Featured Courses</h4>
-							<a href="#" class="see150">See all</a>
+							<h4 class="item_title">Courses</h4>
+							<a href="#" class="see150">Explore all</a>
 							<div class="la5lo1">
 								<div class="owl-carousel featured_courses owl-theme">
 									<div class="item">
@@ -998,79 +939,8 @@
 											</div>
 										</div>
 									</div>
-									<div class="item">
-										<div class="fcrse_1 mb-20">
-											<a href="#" class="fcrse_img">
-												<img src="assets\frontend\images\courses/img-12.jpg" alt="">
-												<div class="course-overlay">
-													<div class="crse_reviews">
-														<i class='uil uil-star'></i>3.5
-													</div>
-													<span class="play_btn1"><i class="uil uil-play"></i></span>
-													<div class="crse_timer">
-														28 hours
-													</div>
-												</div>
-											</a>
-											<div class="fcrse_content">
-												<div class="eps_dots more_dropdown">
-													<a href="#"><i class='uil uil-ellipsis-v'></i></a>
-													<div class="dropdown-content">
-														<span><i class='uil uil-share-alt'></i>Share</span>
-														<span><i class="uil uil-heart"></i>Save</span>
-														<span><i class='uil uil-ban'></i>Not Interested</span>
-														<span><i class="uil uil-windsock"></i>Report</span>
-													 </div>																											
-												</div>
-												<div class="vdtodt">
-													<span class="vdt14">45 views</span>
-													<span class="vdt14">20 hours ago</span>
-												</div>
-												<a href="course_detail_view.html" class="crse14s">Advanced CSS and Sass: Flexbox, Grid, Animations and More!</a>
-												<a href="#" class="crse-cate">Development | Sass</a>
-												<div class="auth1lnkprce">
-													<p class="cr1fot">By <a href="#">Rock William</a></p>
-													<div class="prce142">$6</div>
-													<button class="shrt-cart-btn" title="cart"><i class="uil uil-shopping-cart-alt"></i></button>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="item">
-										<div class="fcrse_1 mb-20">
-											<a href="#" class="fcrse_img">
-												<img src="assets\frontend\images\courses/img-13.jpg" alt="">
-												<div class="course-overlay">
-													<span class="play_btn1"><i class="uil uil-play"></i></span>
-													<div class="crse_timer">
-														30 hours
-													</div>
-												</div>
-											</a>
-											<div class="fcrse_content">
-												<div class="eps_dots more_dropdown">
-													<a href="#"><i class='uil uil-ellipsis-v'></i></a>
-													<div class="dropdown-content">
-														<span><i class='uil uil-share-alt'></i>Share</span>
-														<span><i class="uil uil-heart"></i>Save</span>
-														<span><i class='uil uil-ban'></i>Not Interested</span>
-														<span><i class="uil uil-windsock"></i>Report</span>
-													 </div>																											
-												</div>
-												<div class="vdtodt">
-													<span class="vdt14">20 Views</span>
-													<span class="vdt14">1 day ago</span>
-												</div>
-												<a href="course_detail_view.html" class="crse14s">The Complete Node.js Developer Course (3rd Edition)</a>
-												<a href="#" class="crse-cate">Development | Node.js</a>
-												<div class="auth1lnkprce">
-													<p class="cr1fot">By <a href="#">John Doe</a></p>
-													<div class="prce142">$3</div>
-													<button class="shrt-cart-btn" title="cart"><i class="uil uil-shopping-cart-alt"></i></button>
-												</div>
-											</div>											
-										</div>
-									</div>
+									
+									
 									<div class="item">
 										<div class="fcrse_1 mb-20">
 											<a href="#" class="fcrse_img">
@@ -1147,55 +1017,10 @@
 								</div>
 							</div>
 						</div>
-						<div class="section3126">
-							<div class="row">
-								<div class="col-xl-6 col-lg-12 col-md-6">
-									<div class="value_props">
-										<div class="value_icon">
-											<i class='uil uil-history'></i>
-										</div>
-										<div class="value_content">
-											<h4>Go at your own pace</h4>
-											<p>Enjoy lifetime access to courses on Edututs+'s website</p>
-										</div>
-									</div>
-								</div>
-								<div class="col-xl-6 col-lg-12 col-md-6">
-									<div class="value_props">
-										<div class="value_icon">
-											<i class='uil uil-user-check'></i>
-										</div>
-										<div class="value_content">
-											<h4>Learn from industry experts</h4>
-											<p>Select from top instructors around the world</p>
-										</div>
-									</div>
-								</div>
-								<div class="col-xl-6 col-lg-12 col-md-6">
-									<div class="value_props">
-										<div class="value_icon">
-											<i class='uil uil-play-circle'></i>
-										</div>
-										<div class="value_content">
-											<h4>Find video courses on almost any topic</h4>
-											<p>Build your library for your career and personal growth</p>
-										</div>
-									</div>
-								</div>
-								<div class="col-xl-6 col-lg-12 col-md-6">
-									<div class="value_props">
-										<div class="value_icon">
-											<i class='uil uil-presentation-play'></i>
-										</div>
-										<div class="value_content">
-											<h4>100,000 online courses</h4>
-											<p>Explore a variety of fresh topics</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="section3125 mt-50">
+						
+
+						{{-- Popular Instructor Section Start Here (Expand) --}}
+						{{-- <div class="section3125 mt-50">
 							<h4 class="item_title">Popular Instructors</h4>
 							<a href="all_instructor.html" class="see150">See all</a>
 							<div class="la5lo1">
@@ -1410,7 +1235,9 @@
 									</div>
 								</div>
 							</div>
-						</div>	
+						</div>	 --}}
+						{{-- Popular Instructor Section End Here --}}
+
 					</div>
 					<div class="col-xl-3 col-lg-4">
 						<div class="right_side">
@@ -1420,62 +1247,32 @@
 								</div>
 								<div class="tutor_content_dt">
 									<div class="tutor150">
-										<a href="my_instructor_profile_view.html" class="tutor_name">Joginder Singh</a>
+										<a href="my_instructor_profile_view.html" class="tutor_name">Saif Abrar</a>
 										<div class="mef78" title="Verify">
 											<i class="uil uil-check-circle"></i>
 										</div>
 									</div>
-									<div class="tutor_cate">Web Developer, Designer, and Teacher</div>
-									<ul class="tutor_social_links">
-										<li><a href="#" class="fb"><i class="fab fa-facebook-f"></i></a></li>
-										<li><a href="#" class="tw"><i class="fab fa-twitter"></i></a></li>
-										<li><a href="#" class="ln"><i class="fab fa-linkedin-in"></i></a></li>
-										<li><a href="#" class="yu"><i class="fab fa-youtube"></i></a></li>
-									</ul>
-									<div class="tut1250">
-										<span class="vdt15">615K Students</span>
-										<span class="vdt15">12 Courses</span>
-									</div>
+									<div class="tutor_cate">Web Instructor</div>
 									<a href="my_instructor_profile_view.html" class="prfle12link">Go To Profile</a>
 								</div> 
 							</div>
-							<div class="fcrse_3">
-								<div class="cater_ttle">
-									<h4>Live Streaming</h4>
-								</div>
-								<div class="live_text">
-									<div class="live_icon"><i class="uil uil-kayak"></i></div>
-									<div class="live-content">
-										<p>Set up your channel and stream live to your students</p>
-										<button class="live_link" onclick="window.location.href = 'add_streaming.html';">Get Started</button>
-										<span class="livinfo">Info : This feature only for 'Instructors'.</span>
-									</div>
-								</div>
-							</div>
-							<div class="get1452">
-								<h4>Get personalized recommendations</h4>
-								<p>Answer a few questions for your top picks</p>
-								<button class="Get_btn" onclick="window.location.href = '#';">Get Started</button>
-							</div>
+						
 							<div class="fcrse_3">
 								<div class="cater_ttle">
 									<h4>Top Categories</h4>
 								</div>
 								<ul class="allcate15">
-									<li><a href="#" class="ct_item"><i class='uil uil-arrow'></i>Development</a></li>
-									<li><a href="#" class="ct_item"><i class='uil uil-graph-bar'></i>Business</a></li>
-									<li><a href="#" class="ct_item"><i class='uil uil-monitor'></i>IT and Software</a></li>
-									<li><a href="#" class="ct_item"><i class='uil uil-ruler'></i>Design</a></li>
-									<li><a href="#" class="ct_item"><i class='uil uil-chart-line'></i>Marketing</a></li>
-									<li><a href="#" class="ct_item"><i class='uil uil-book-open'></i>Personal Development</a></li>
-									<li><a href="#" class="ct_item"><i class='uil uil-camera'></i>Photography</a></li>
-									<li><a href="#" class="ct_item"><i class='uil uil-music'></i>Music</a></li>
+									<li><a href="#" class="ct_item"><i class='uil uil-arrow'></i>Art</a></li>
+									<li><a href="#" class="ct_item"><i class='uil uil-graph-bar'></i>Craft</a></li>
+									<li><a href="#" class="ct_item"><i class='uil uil-monitor'></i>Robotics</a></li>
+									<li><a href="#" class="ct_item"><i class='uil uil-ruler'></i>Programming</a></li>
+						
 								</ul>
 							</div>
 							<div class="strttech120">
 								<h4>Become an Instructor</h4>
-								<p>Top instructors from around the world teach millions of students on Cursus. We provide the tools and skills to teach what you love.</p>
-								<button class="Get_btn" onclick="window.location.href = '#';">Start Teaching</button>
+								<p>Start Your Instructor Journey With OFK.</p>
+								<button class="Get_btn" onclick="window.location.href = 'register';">Register As Instructor</button>
 							</div>
 						</div>
 					</div>
@@ -1585,7 +1382,7 @@
 					</div>
 					<div class="col-lg-3 col-md-3 col-sm-6">
 						<div class="item_f3">
-							<a href="#" class="btn1542">Teach on Cursus</a>
+							<a href="#" class="btn1542">Teach on OFK</a>
 							<div class="lng_btn">
 								<div class="ui language bottom right pointing dropdown floating" id="languages" data-content="Select Language">
 									<a href="#"><i class='uil uil-globe lft'></i>Language<i class='uil uil-angle-down rgt'></i></a>
@@ -1706,7 +1503,7 @@
 											</a>
 										</li>
 										<li>
-											<p>© 2020 <strong>Cursus</strong>. All Rights Reserved.</p>
+											<p>© 2020 <strong>OFK</strong>. All Rights Reserved.</p>
 										</li>
 									</ul>
 								</div>
@@ -1732,7 +1529,7 @@
 
 	<script src="{{asset('assets')}}/frontend\js\vertical-responsive-menu.min.js"></script>
 	<script src="{{asset('assets')}}/frontend\js\jquery-3.3.1.min.js"></script>
-	<script src="{{asset('assets')}}\frontend\vendor\bootstrap\js\bootstrap.bundle.min.js"></script>
+	<script src="{{asset('assets')}}\ frontend\vendor\bootstrap\js\bootstrap.bundle.min.js"></script>
 	<script src="{{asset('assets')}}/frontend\vendor\OwlCarousel\owl.carousel.js"></script>
 	<script src="{{asset('assets')}}/frontend\vendor\semantic\semantic.min.js"></script>
 	<script src="assets\frontend\js\custom.js"></script>
@@ -1740,5 +1537,5 @@
 	
 </body>
 
-<!-- Mirrored from gambolthemes.net/html-items/cursus_demo_f12/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 11 Oct 2020 02:32:55 GMT -->
+<!-- Mirrored from gambolthemes.net/html-items/OFK_demo_f12/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 11 Oct 2020 02:32:55 GMT -->
 </html>

@@ -23,6 +23,13 @@ Route::get('/main','CustomController@main');
 
 Route::get('otp','CustomController@otp');
 
+// Instructor Pages
+Route::get('instructor_home','CustomController@instructor_home');
+Route::get('instructor_home_layout','CustomController@instructor_home_layout');
+Route::get('instructor_dahsboard','CustomController@instructor_dahsboard');
+Route::get('create_course','CustomController@create_course');
+
+
 
 
 Route::post('std_data_insert','data_insert_controller@std_data_insert');
