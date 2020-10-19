@@ -73,84 +73,12 @@
 		</div>
 		<div class="header_right">
 			<ul>
-				<li>
-					<a href="{{url('create_course')}}" class="upload_btn" title="Create New Course">Create New Course</a>
-				</li>
+			
 				<li>
 					<a href="{{url('donate_now')}}" class="upload_btn" title="Donate Now">Donate Now</a>
 				</li>
 			
-				<li class="ui dropdown">
-					<a href="#" class="option_links" title="Messages"><i class='uil uil-envelope-alt'></i><span class="noti_count">3</span></a>
-					<div class="menu dropdown_ms">
-						<a href="#" class="channel_my item">
-							<div class="profile_link">
-								<img src="assets\frontend\images\left-imgs/img-6.jpg" alt="">
-								<div class="pd_content">
-									<h6>Faisal Ahmed Shopnil</h6>
-									<p>Hi! Sir, How are you. Can you please Explain me something?</p>
-									<span class="nm_time">2 min ago</span>
-								</div>							
-							</div>							
-						</a>
-						<a href="#" class="channel_my item">
-							<div class="profile_link">
-								<img src="assets\frontend\images\left-imgs/img-5.jpg" alt="">
-								<div class="pd_content">
-									<h6>Hussain Rifat</h6>
-									<p>Hello, I paid you video tutorial but did not play error 404.</p>
-									<span class="nm_time">10 min ago</span>
-								</div>							
-							</div>							
-						</a>
-						<a href="#" class="channel_my item">
-							<div class="profile_link">
-								<img src="assets\frontend\images\left-imgs/img-8.jpg" alt="">
-								<div class="pd_content">
-									<h6>Jass</h6>
-									<p>Thanks Sir, Such a nice video.</p>
-									<span class="nm_time">25 min ago</span>
-								</div>							
-							</div>							
-						</a>
-						<a class="vbm_btn" href="instructor_messages.html">View All <i class='uil uil-arrow-right'></i></a>
-					</div>
-				</li>
-				<li class="ui dropdown">
-					<a href="#" class="option_links" title="Notifications"><i class='uil uil-bell'></i><span class="noti_count">3</span></a>
-					<div class="menu dropdown_mn">
-						<a href="#" class="channel_my item">
-							<div class="profile_link">
-								<img src="assets\frontend\images\left-imgs/img-1.jpg" alt="">
-								<div class="pd_content">
-									<h6>Rock William</h6>
-									<p>Like Your Comment On Video <strong>How to create sidebar menu</strong>.</p>
-									<span class="nm_time">2 min ago</span>
-								</div>							
-							</div>							
-						</a>
-						<a href="#" class="channel_my item">
-							<div class="profile_link">
-								<img src="assets\frontend\images\left-imgs/img-2.jpg" alt="">
-								<div class="pd_content">
-									<h6>Jassica Smith</h6>
-									<p>Added New Review In Video <strong>Full Stack PHP Developer</strong>.</p>
-									<span class="nm_time">12 min ago</span>
-								</div>							
-							</div>							
-						</a>
-						<a href="#" class="channel_my item">
-							<div class="profile_link">
-								<img src="assets\frontend\images\left-imgs/img-9.jpg" alt="">
-								<div class="pd_content">
-									<p> Your Membership Approved <strong>Upload Video</strong>.</p>
-									<span class="nm_time">20 min ago</span>
-								</div>							
-							</div>							
-						</a>
-						<a class="vbm_btn" href="instructor_notifications.html">View All <i class='uil uil-arrow-right'></i></a>
-					</div>
-				</li>
+				
 				<li class="ui dropdown">
 					<a href="#" class="opts_account" title="Account">
 						<img src="assets\frontend\images\hd_dp.jpg" alt="">
@@ -215,7 +143,7 @@
 					</li>
 
 					<li class="menu--item">
-						<a href="{{url('create_course')}}" class="menu--link" title="Courses">
+						<a href="{{url('course')}}" class="menu--link" title="Courses">
 							<i class='uil uil-book-alt menu--icon'></i>
 							<span class="menu--label">Courses</span>
 						</a>
@@ -242,39 +170,9 @@
 						</a>
 					</li>
 
-					<li class="menu--item menu--item__has_sub_menu">
-						<label class="menu--link" title="Categories">
-							<i class='uil uil-layers menu--icon'></i>
-							<span class="menu--label">Categories</span>
-						</label>
-						<ul class="sub_menu">
-							<li class="sub_menu--item">
-								<a href="#" class="sub_menu--link">Art</a>
-							</li>
-							<li class="sub_menu--item">
-								<a href="#" class="sub_menu--link">Craft</a>
-							</li>
-							<li class="sub_menu--item">
-								<a href="#" class="sub_menu--link">Calligraphy</a>
-							</li>
-							<li class="sub_menu--item">
-								<a href="#.html" class="sub_menu--link">Programming</a>
-							</li>
-							<li class="sub_menu--item">
-								<a href="#" class="sub_menu--link">Robotics</a>
-							</li>
-							<li class="sub_menu--item">
-								<a href="#" class="sub_menu--link">Web Design</a>
-							</li>
-							<li class="sub_menu--item">
-								<a href="#" class="sub_menu--link">Design</a>
-							</li>
-							
-						</ul>
-					</li>
 					
-				
 					
+	
 		
 					<li class="menu--item">
 						<a href="saved_courses.html" class="menu--link" title="Saved Courses">
@@ -282,26 +180,7 @@
 						  <span class="menu--label">Saved Courses</span>
 						</a>
 					</li>
-					<li class="menu--item  menu--item__has_sub_menu">
-						<label class="menu--link" title="Pages">
-						  <i class='uil uil-file menu--icon'></i>
-						  <span class="menu--label">Quick Link</span>
-						</label>
-						<ul class="sub_menu">
-							<li class="sub_menu--item">
-								<a href="about_us.html" class="sub_menu--link">About</a>
-							</li>
-							<li class="sub_menu--item">
-								<a href="sign_in.html" class="sub_menu--link">Sign In</a>
-							</li>
-							<li class="sub_menu--item">
-								<a href="sign_up.html" class="sub_menu--link">Sign Up</a>
-							</li>
-		
-						
-		
-						</ul>
-					</li>
+				
 				</ul>
 			</div>
 
@@ -311,24 +190,7 @@
 
 			<div class="left_section pt-2">
 				<ul>
-					<li class="menu--item">
-						<a href="setting.html" class="menu--link" title="Setting">
-							<i class='uil uil-cog menu--icon'></i>
-							<span class="menu--label">Settings</span>
-						</a>
-					</li>
-					<li class="menu--item">
-						<a href="help.html" class="menu--link" title="Help">
-							<i class='uil uil-question-circle menu--icon'></i>
-							<span class="menu--label">Help</span>
-						</a>
-					</li>
-					<li class="menu--item">
-						<a href="report_history.html" class="menu--link" title="Report History">
-							<i class='uil uil-windsock menu--icon'></i>
-							<span class="menu--label">Report History</span>
-						</a>
-					</li>
+					
 					<li class="menu--item">
 						<a href="feedback.html" class="menu--link" title="Send Feedback">
 							<i class='uil uil-comment-alt-exclamation menu--icon'></i>
@@ -358,140 +220,7 @@
 		<footer class="footer mt-30">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-3 col-md-3 col-sm-6">
-						<div class="item_f1">
-							<a href="about_us.html">About</a>
-							<a href="our_blog.html">Blog</a>
-							<a href="career.html">Careers</a>
-							<a href="press.html">Press</a>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-6">
-						<div class="item_f1">
-							<a href="help.html">Help</a>
-							<a href="coming_soon.html">Advertise</a>
-							<a href="coming_soon.html">Developers</a>
-							<a href="contact_us.html">Contact Us</a>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-6">
-						<div class="item_f1">
-							<a href="terms_of_use.html">Copyright Policy</a>
-							<a href="terms_of_use.html">Terms</a>
-							<a href="terms_of_use.html">Privacy Policy</a>
-							<a href="sitemap.html">Sitemap</a>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-6">
-						<div class="item_f3">
-							<a href="#" class="btn1542">Teach on OFK</a>
-							<div class="lng_btn">
-								<div class="ui language bottom right pointing dropdown floating" id="languages" data-content="Select Language">
-									<a href="#"><i class='uil uil-globe lft'></i>Language<i class='uil uil-angle-down rgt'></i></a>
-									<div class="menu">
-										<div class="scrolling menu">
-											<div class="item" data-percent="100" data-value="en" data-english="English">
-												<span class="description">English</span>
-												English
-											</div>
-											<div class="item" data-percent="94" data-value="da" data-english="Danish">
-												<span class="description">dansk</span>
-												Danish
-											</div>
-											<div class="item" data-percent="94" data-value="es" data-english="Spanish">
-												<span class="description">Español</span>
-												Spanish
-											</div>
-											<div class="item" data-percent="34" data-value="zh" data-english="Chinese">
-												<span class="description">简体中文</span>
-												Chinese
-											</div>
-											<div class="item" data-percent="54" data-value="zh_TW" data-english="Chinese (Taiwan)">
-												<span class="description">中文 (臺灣)</span>
-												Chinese (Taiwan)
-											</div>
-											<div class="item" data-percent="79" data-value="fa" data-english="Persian">
-												<span class="description">پارسی</span>
-												Persian
-											</div>
-											<div class="item" data-percent="41" data-value="fr" data-english="French">
-												<span class="description">Français</span>
-												French
-											</div>
-											<div class="item" data-percent="37" data-value="el" data-english="Greek">
-												<span class="description">ελληνικά</span>
-												Greek
-											</div>
-											<div class="item" data-percent="37" data-value="ru" data-english="Russian">
-												<span class="description">Русский</span>
-												Russian
-											</div>
-											<div class="item" data-percent="36" data-value="de" data-english="German">
-												<span class="description">Deutsch</span>
-												German
-											</div>
-											<div class="item" data-percent="23" data-value="it" data-english="Italian">
-												<span class="description">Italiano</span>
-												Italian
-											</div>
-											<div class="item" data-percent="21" data-value="nl" data-english="Dutch">
-												<span class="description">Nederlands</span>
-												Dutch
-											</div>
-											<div class="item" data-percent="19" data-value="pt_BR" data-english="Portuguese">
-												<span class="description">Português(BR)</span>
-												Portuguese
-											</div>
-											<div class="item" data-percent="17" data-value="id" data-english="Indonesian">
-												<span class="description">Indonesian</span>
-												Indonesian
-											</div>
-											<div class="item" data-percent="12" data-value="lt" data-english="Lithuanian">
-												<span class="description">Lietuvių</span>
-												Lithuanian
-											</div>
-											<div class="item" data-percent="11" data-value="tr" data-english="Turkish">
-												<span class="description">Türkçe</span>
-												Turkish
-											</div>
-											<div class="item" data-percent="10" data-value="kr" data-english="Korean">
-												<span class="description">한국어</span>
-												Korean
-											</div>
-											<div class="item" data-percent="7" data-value="ar" data-english="Arabic">
-												<span class="description">العربية</span>
-												Arabic
-											</div>
-											<div class="item" data-percent="6" data-value="hu" data-english="Hungarian">
-												<span class="description">Magyar</span>
-												Hungarian
-											</div>
-											<div class="item" data-percent="6" data-value="vi" data-english="Vietnamese">
-												<span class="description">tiếng Việt</span>
-												Vietnamese
-											</div>
-											<div class="item" data-percent="5" data-value="sv" data-english="Swedish">
-												<span class="description">svenska</span>
-												Swedish
-											</div>
-											<div class="item" data-precent="4" data-value="pl" data-english="Polish">
-												<span class="description">polski</span>
-												Polish
-											</div>
-											<div class="item" data-percent="6" data-value="ja" data-english="Japanese">
-												<span class="description">日本語</span>
-												Japanese
-											</div>
-											<div class="item" data-percent="0" data-value="ro" data-english="Romanian">
-												<span class="description">românește</span>
-												Romanian
-											</div>										
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					
 					<div class="col-lg-12">
 						<div class="footer_bottm">
 							<div class="row">
@@ -539,5 +268,4 @@
 	
 </body>
 
-<!-- Mirrored from gambolthemes.net/html-items/OFK_demo_f12/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 11 Oct 2020 02:32:55 GMT -->
 </html>

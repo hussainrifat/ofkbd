@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+// Registration Pages
+
 Route::get('/','CustomController@home');
 Route::get('register','CustomController@register');
 Route::get('/login','CustomController@login');
-
-Route::get('/homepage','CustomController@homepage');
 Route::get('/main','CustomController@main');
 
 Route::get('otp','CustomController@otp');
@@ -29,6 +29,11 @@ Route::get('instructor_home_layout','CustomController@instructor_home_layout');
 Route::get('instructor_dahsboard','CustomController@instructor_dahsboard');
 Route::get('create_course','CustomController@create_course');
 
+
+// Course Pages
+Route::get('art','CustomController@art');
+Route::get('course','CustomController@course');
+Route::get('course_details','CustomController@course_details');
 
 
 

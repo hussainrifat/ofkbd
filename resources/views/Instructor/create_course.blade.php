@@ -19,7 +19,7 @@
                             <div class="step-tab-panel step-tab-info active" id="tab_step1"> 
                                 <div class="tab-from-content">
                                     <div class="title-icon">
-                                        <h3 class="title"><i class="uil uil-info-circle"></i>General Information</h3>
+                                        <h3 class="title"><i class="uil uil-info-circle"></i>Course Information</h3>
                                     </div>
                                     <div class="course__form">
                                         <div class="general_info10">
@@ -114,7 +114,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="view_img_right">	
-                                                            <h4>Cover Image</h4>
+                                                            <h4>Course Thumbnail Image</h4>
                                                             <p>Upload your course image here. It must meet our course image quality standards to be accepted. Important guidelines: 750x422 pixels; .jpg, .jpeg,. gif, or .png. no text on the image.</p>
                                                             <div class="upload__input">
                                                                 <div class="input-group">
@@ -130,7 +130,7 @@
                                             
                                                 </div>
                                                 <div class="col-lg-2 col-md-12">
-                                                    <button class="part_btn_save prt-sv" type="submit">Save Lecture</button>
+                                                    <button class="part_btn_save prt-sv" type="submit">Add New Course</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -147,7 +147,7 @@
                                         <div class="row">
                                             <div class="col-lg-12">		
                                                 <div class="extra_info">		
-                                                    <h4 class="part__title">Add Video</h4>
+                                                    <h4 class="part__title">Add New Video</h4>
                                                 </div>
                                                 <div class="view_info10">
                                                     <div class="row">
@@ -172,14 +172,13 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-4 col-md-6">	
-                                                            <div class="ui search focus mt-30 lbel25">
-                                                                <label>Time Duration</label>
-                                                                <div class="ui left icon input swdh19">
-                                                                    <input class="prompt srch_explore" type="number" name="sort" min="0" max="100" placeholder="0">															
-                                                                </div>
-                                                            </div>										
-                                                        </div>
+                                                        <div class="ui search focus mt-30 lbel25">
+                                                            <label>Time Duration*</label>
+                                                            <div class="ui left icon input swdh19 swdh55">
+                                                                <input class="prompt srch_explore" type="number" min="0" name="duration" required="" placeholder="0">															
+                                                                <div class="badge_min">Minutes</div>
+                                                            </div>
+                                                        </div>	
                                                         <div class="col-lg-12 col-md-12">	
                                                             <div class="course_des_textarea mt-30 lbel25">
                                                                 <label>Description*</label>
@@ -207,16 +206,10 @@
                                                         </div>
  
                                                         <div class="col-lg-5 col-md-6">															
-                                                            <div class="ui search focus mt-30 lbel25">
-                                                                <label>Time Duration*</label>
-                                                                <div class="ui left icon input swdh19 swdh55">
-                                                                    <input class="prompt srch_explore" type="number" min="0" name="duration" required="" placeholder="0">															
-                                                                    <div class="badge_min">Minutes</div>
-                                                                </div>
-                                                            </div>									
+                                                         								
                                                         </div>
-                                                        <div class="col-lg-2 col-md-12">
-                                                            <button class="part_btn_save prt-sv" type="submit">Save Lecture</button>
+                                                        <div class="col-lg-12 col-md-12">
+                                                            <button class="part_btn_save prt-sv" type="submit">Add a Video</button>
                                                         </div>
                                                         <div class="col-lg-12 col-md-12">
                                                             <div class="table-responsive mt-50 mb-0">
@@ -305,111 +298,9 @@
                                  </div>
                             </div>
                             
-                            <div class="step-tab-panel step-tab-amenities" id="tab_step4">
-                                <div class="tab-from-content">
-                                    <div class="title-icon">
-                                        <h3 class="title"><i class="uil uil-file-copy-alt"></i>Extra Information</h3>
-                                    </div>
-                                   <div class="course__form">
-                                        <div class="row">
-                                            <div class="col-lg-12">		
-                                                <div class="extra_info">		
-                                                    <h4 class="part__title">Captions</h4>
-                                                </div>
-                                                <div class="view_info10">
-                                                    <div class="row">
-                                                        <div class="col-md-4">
-                                                            <div class="caption__check mt-30">
-                                                                <div class="ui form">
-                                                                    <div class="grouped fields">										
-                                                                        <div class="ui form checkbox_sign cp_458">
-                                                                            <div class="inline field">
-                                                                                <div class="ui checkbox mncheck">
-                                                                                    <input type="checkbox" tabindex="0" class="hidden">
-                                                                                    <label>English<span class="filter__counter">(300)</span></label>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="ui form checkbox_sign cp_458">
-                                                                            <div class="inline field">
-                                                                                <div class="ui checkbox mncheck">
-                                                                                    <input type="checkbox" tabindex="0" class="hidden">
-                                                                                    <label>Español<span class="filter__counter">(210)</span></label>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="ui form checkbox_sign cp_458">
-                                                                            <div class="inline field">
-                                                                                <div class="ui checkbox mncheck">
-                                                                                    <input type="checkbox" tabindex="0" class="hidden">
-                                                                                    <label>Português<span class="filter__counter">(170)</span></label>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="ui form checkbox_sign cp_458">
-                                                                            <div class="inline field">
-                                                                                <div class="ui checkbox mncheck">
-                                                                                    <input type="checkbox" tabindex="0" class="hidden">
-                                                                                    <label>Italiano<span class="filter__counter">(174)</span></label>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="ui form checkbox_sign cp_458">
-                                                                            <div class="inline field">
-                                                                                <div class="ui checkbox mncheck">
-                                                                                    <input type="checkbox" tabindex="0" class="hidden">
-                                                                                    <label>Français<span class="filter__counter">(120)</span></label>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="ui form checkbox_sign cp_458">
-                                                                            <div class="inline field">
-                                                                                <div class="ui checkbox mncheck">
-                                                                                    <input type="checkbox" tabindex="0" class="hidden">
-                                                                                    <label>Polski<span class="filter__counter">(130)</span></label>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="ui form checkbox_sign cp_458">
-                                                                            <div class="inline field">
-                                                                                <div class="ui checkbox mncheck">
-                                                                                    <input type="checkbox" tabindex="0" class="hidden">
-                                                                                    <label>Deutsch<span class="filter__counter">(30)</span></label>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="ui form checkbox_sign cp_458">
-                                                                            <div class="inline field">
-                                                                                <div class="ui checkbox mncheck">
-                                                                                    <input type="checkbox" tabindex="0" class="hidden">
-                                                                                    <label>Bahasa Indonesia<span class="filter__counter">(20)</span></label>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="ui form checkbox_sign cp_458">
-                                                                            <div class="inline field">
-                                                                                <div class="ui checkbox mncheck">
-                                                                                    <input type="checkbox" tabindex="0" class="hidden">
-                                                                                    <label>ภาษาไทย<span class="filter__counter">(10)</span></label>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                 </div>
-                            </div>
                            
                         </div>
                         <div class="step-footer step-tab-pager">
-                            <button data-direction="prev" class="btn btn-default steps_btn">PREVIOUS</button>
-                            <button data-direction="next" class="btn btn-default steps_btn">Next</button>
                             <button data-direction="finish" class="btn btn-default steps_btn">Submit for Review</button>
                         </div>
                 </div>

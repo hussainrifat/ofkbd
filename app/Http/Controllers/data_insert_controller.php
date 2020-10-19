@@ -70,21 +70,18 @@ class data_insert_controller extends Controller
       $user_id= Session::get('user_id');
 
 
-    //   $q=(otp::where('user_id',$user_id)->select('otp'))->pluck('otp');
-      $q=((otp::where('user_id',$user_id)->select('otp'))->first()->otp);
+    //   $q=otp::where('user_id',$user_id)->where('otp',$user_otp)->first();
+    //   $q->otp;
+    // file_put_contents("tes.txt",$q);
 
-
-
-    file_put_contents("tes.txt",$q);
-
-    if($q=$user_otp)
+    if(otp::where('user_id',$user_id)->where('otp',$user_otp)->first())
       {
-            echo("OTP Matched");
 
-        }
+     echo "ok"; }
+     
         else {
-            echo("OTP Doesnot Matched");
-      }
+            echo "not ok";
+        }
        
     
    }
@@ -93,12 +90,10 @@ class data_insert_controller extends Controller
     public function insert_instructor_data(Request $request)
     {
         // ins_registration::create($request->all());
-        // return view('homepage');
 
         $name= $request->ins_name;
         $contact_number= $request->ins_number;
         $email= $request->ins_email;
-        // $password= $request->password;
         $password=Hash::make($request->ins_password);
         $expertise= $request->ins_expertise;
 
@@ -109,13 +104,17 @@ class data_insert_controller extends Controller
         'password' =>$password,
         ]);
         $user_id = User::where("email",$email)->first()->id;
+        Session::put('user_id',$user_id);
+
         ins_registraion::create([
             'user_id'=>$user_id,
             'expertise'=>$expertise,
             ]);
 
 
-
+            //file_put_contents("tes.txt",Session::get('user_id'));
+            $this->send_otp($user_id);
+        
         
     }
 

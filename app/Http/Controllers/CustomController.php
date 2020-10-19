@@ -11,11 +11,11 @@ class CustomController extends Controller
     }
 
     public function register(){
-        return view('register');
+        return view('registration/register');
     }
 
     public function login(){
-        return view('login');
+        return view('registration/login');
     }
 
     public function homepage(){
@@ -23,7 +23,7 @@ class CustomController extends Controller
     }
 
     public function otp(){
-        return view('otp');
+        return view('registration/otp');
     }
 
     public function main(){
@@ -42,6 +42,18 @@ class CustomController extends Controller
     
     public function create_course(){
         return view('instructor/create_course');
+    }
+
+    public function art(){
+        return view('course/art');
+    }
+
+    public function course(){
+        return view('course/course');
+    }
+
+    public function course_details(){
+        return view('course/course_details');
     }
 
 

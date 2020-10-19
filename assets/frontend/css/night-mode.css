@@ -2094,17 +2094,7 @@ Night Mood
     box-shadow: 0px 2px 10px 0px #0000001a;
 }
 
-.night-mode #logo img {
-      display:none;
-  }
- .night-mode #logo .logo-inverse{
-      display:inline !important
-  }
- 
-/* Titles & texts */
-.night-mode .uk-h1, .night-mode h1, .night-mode .uk-h2, .night-mode h2, .night-mode .uk-h3, .night-mode h3, .night-mode .uk-h4, .night-mode h4, .night-mode .uk-h5, .night-mode h5, .night-mode .uk-h6, .night-mode h6, .night-mode .uk-text-black, .night-mode .uk-text-danger, .night-mode .uk-text-primary, .night-mode .uk-text-sucess, .night-mode .uk-text-muted, .night-mode .uk-card-default .uk-card-title, .night-mode .uk-card-default, .night-mode .uk-text-lead, .night-mode .text-black, .night-mode .text-danger, .night-mode .text-primary, .night-mode .text-sucess, .night-mode .text-muted, .night-mode .text-lead, .night-mode .section-header-left>*,.night-mode .contact-list-box p {
-    color: #fff !important;
-}
+
 
 
 /* button hover */

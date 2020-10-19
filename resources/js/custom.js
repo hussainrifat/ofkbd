@@ -39,6 +39,7 @@ $(function(){
     success:function(data)
     {
      alert("Instructor Registration Completed");
+     window.location.href ="otp"
     }
   });
   
@@ -107,7 +108,18 @@ $(function(){
       success:function(data)
       {
 
-        window.location.href ="homepage"
+        var msg=$.trim(data);
+        if(msg=='ok')
+        {
+          alert("OTP Matched");
+         window.location.href ="instructor_home"
+
+        }
+
+        else{
+          alert("OTP Doesn't Matched");
+        }
+        // window.location.href ="homepage"
 
       }
     });
