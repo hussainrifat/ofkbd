@@ -42,8 +42,8 @@
 			<span class="collapse_menu--label"></span>
 		</button>
 		<div class="main_logo" id="logo">
-			<a href="{{url('instructor_home')}}"><img src="assets\frontend\images\logo.png" style="width:80px" alt=""></a>
-			<a href="instructor_home"><img class="logo-inverse" src="assets\frontend\images\ct_logo.svg" alt=""></a>
+			<a href="{{url('student_home')}}"><img src="assets\frontend\images\logo.png" style="width:80px" alt=""></a>
+			<a href="student_home"><img class="logo-inverse" src="assets\frontend\images\ct_logo.svg" alt=""></a>
 		</div>
 		<div class="top-category">
 			<div class="ui compact menu cate-dpdwn">
@@ -129,32 +129,27 @@
 			<div class="left_section">
 				<ul>
 					<li class="menu--item">
-						<a href="{{url('instructor_home')}}" class="menu--link" title="Home">
+						<a href="{{url('student_home')}}" class="menu--link" title="Home">
 							<i class='uil uil-home-alt menu--icon'></i>
 							<span class="menu--label">Home</span>
 						</a>
 					</li>
 			
 					<li class="menu--item">
-						<a href="{{url('instructor_dahsboard')}}" class="menu--link" title="Dashboard">
+						<a href="{{url('student_dashboard')}}" class="menu--link" title="Dashboard">
 							<i class="uil uil-apps menu--icon"></i>
-							<span class="menu--label">Instructor Dashboard</span>
+							<span class="menu--label">Student Dashboard</span>
 						</a>
 					</li>
 
 					<li class="menu--item">
-						<a href="{{url('instructor_courses')}}" class="menu--link" title="Courses">
+						<a href="{{url('course')}}" class="menu--link" title="Courses">
 							<i class='uil uil-book-alt menu--icon'></i>
-							<span class="menu--label">My Courses</span>
+							<span class="menu--label">Courses</span>
 						</a>
 					</li>
 
-					<li class="menu--item">
-						<a href="{{url('create_course')}}" class="menu--link" title="Create Course">
-							<i class='uil uil-plus-circle menu--icon'></i>
-							<span class="menu--label">Create New Course</span>
-						</a>
-					</li>
+
 
 					<li class="menu--item">
 						<a href="instructor_all_reviews.html" class="menu--link" title="Reviews">
@@ -215,7 +210,7 @@
 
 	<!-- OFK Main Body Start -->
 	<div class="wrapper">
-		@yield('instructor_content')
+		@yield('student_content')
 
 		<footer class="footer mt-30">
 			<div class="container">

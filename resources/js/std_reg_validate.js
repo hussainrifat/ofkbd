@@ -1,10 +1,7 @@
 $(function(){
 
-
+//  fetch_expertise();
   
-
-
-
 
     $('#std_name_error').hide();
     $('#std_institute_error').hide();
@@ -75,8 +72,43 @@ $(function(){
             $('#std_number_error').show();
         }
         else
-        $('#std_number_error').hide();
 
+        {
+          $('#std_number_error').hide();
+
+
+          var contact_number = $("#contact_number").val();
+                var formData = new FormData();
+                formData.append('contact_number',contact_number);
+                formData.append('number_check','number_check');
+          
+              $.ajax({
+               processData:false,
+               contentType:false,
+               data:formData,
+               type:"post",
+               url:"number_check",
+               success:function(data)
+               {
+                 var msg  = $.trim(data);
+          
+                //  alert(msg);
+          
+                 if(msg =='match')
+                 {
+               $("#std_number_error").html("Contact Number Already Exist");
+               $("#std_number_error").show();
+                 }
+                 else
+                 {
+                    $("#std_number_error").hide();
+                 }
+                 //alert('ok');
+               }
+           });
+        }
+
+    
     });
 
 
@@ -118,15 +150,17 @@ $(function(){
        contentType:false,
        data:formData,
        type:"post",
-       url:"data.php",
+       url:"email_check",
        success:function(data)
        {
          var msg  = $.trim(data);
 
-         if(msg =='not_ok')
+        //  alert(msg);
+
+         if(msg =='match')
          {
        $("#std_email_error").html("Email Already Exist");
-      $("#std_email_error").show();
+       $("#std_email_error").show();
          }
          else
          {
@@ -209,7 +243,41 @@ $(function(){
             $('#ins_number_error').show();
         }
         else
-        $('#ins_number_error').hide();
+        {
+    
+          $("#ins_number_error").hide();
+            
+          var contact_number = $("#ins_contact_number").val();
+          var formData = new FormData();
+          formData.append('contact_number',contact_number);
+          formData.append('number_check','number_check');
+    
+        $.ajax({
+         processData:false,
+         contentType:false,
+         data:formData,
+         type:"post",
+         url:"number_check",
+         success:function(data)
+         {
+           var msg  = $.trim(data);
+    
+          //  alert(msg);
+    
+           if(msg =='match')
+           {
+         $("#ins_number_error").html("Contact Number Already Exist");
+         $("#ins_number_error").show();
+           }
+           else
+           {
+              $("#ins_number_error").hide();
+           }
+           //alert('ok');
+         }
+     });
+    
+        }
 
     });
 
@@ -240,34 +308,38 @@ $(function(){
     }
     else
     {
-     $("#ins_email_error").hide();
+    
+      $("#ins_email_error").hide();
         
-        var email = $("#email").val();
-        var formData = new FormData();
-        formData.append('email',email);
-        formData.append('email_check','email_check');
+      var email = $("#ins_email").val();
+      var formData = new FormData();
+      formData.append('email',email);
+      formData.append('email_check','email_check');
 
-      $.ajax({
-       processData:false,
-       contentType:false,
-       data:formData,
-       type:"post",
-       url:"data.php",
-       success:function(data)
+    $.ajax({
+     processData:false,
+     contentType:false,
+     data:formData,
+     type:"post",
+     url:"email_check",
+     success:function(data)
+     {
+       var msg  = $.trim(data);
+
+      //  alert(msg);
+
+       if(msg =='match')
        {
-         var msg  = $.trim(data);
-
-         if(msg =='not_ok')
-         {
-       $("#ins_email_error").html("Email Already Exist");
-      $("#ins_email_error").show();
-         }
-         else
-         {
-            $("#ins_email_error").hide();
-         }
+     $("#ins_email_error").html("Email Already Exist");
+     $("#ins_email_error").show();
        }
-   });
+       else
+       {
+          $("#ins_email_error").hide();
+       }
+       //alert('ok');
+     }
+ });
 
     }
   }

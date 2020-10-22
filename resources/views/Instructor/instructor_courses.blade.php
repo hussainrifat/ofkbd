@@ -1,5 +1,5 @@
-@extends('student_layout')
-@section('student_content')
+@extends('instructor_home_layout')
+@section('instructor_content')
 
 <div class="sa4d25">
     <div class="container-fluid">			

@@ -28,6 +28,13 @@ Route::get('instructor_home','CustomController@instructor_home');
 Route::get('instructor_home_layout','CustomController@instructor_home_layout');
 Route::get('instructor_dahsboard','CustomController@instructor_dahsboard');
 Route::get('create_course','CustomController@create_course');
+Route::get('instructor_courses','CustomController@instructor_courses');
+
+
+// Student Pages
+Route::get('student_home','CustomController@student_home');
+Route::get('student_layout','CustomController@student_layout');
+Route::get('student_dashboard','CustomController@student_dashboard');
 
 
 // Course Pages
@@ -42,5 +49,10 @@ Route::post('insert_instructor_data','data_insert_controller@insert_instructor_d
 Route::post('send_otp','data_insert_controller@send_otp');
 Route::post('match_otp','data_insert_controller@match_otp');
 
+
+// Checking
+Route::post('email_check','data_insert_controller@email_check');
+Route::post('number_check','data_insert_controller@number_check');
+Route::post('login_check','data_insert_controller@login_check');
 
 

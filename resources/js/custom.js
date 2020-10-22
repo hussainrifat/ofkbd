@@ -86,7 +86,38 @@ $(function(){
   
   $("#login").on('click',function()
   {
-    alert("Login");
+
+    var contact_number=$("#contact_number").val();
+    var password=$("#password").val();
+    var formdata= new FormData();
+    formdata.append('contact_number',contact_number);
+    formdata.append('password',password);
+
+    $.ajax({
+      processData:false,
+      contentType:false,
+      data:formdata,
+      type:"post",
+      url:"login_check",
+      success:function(data)
+      {
+
+        var msg= $.trim(data);
+        if(msg=='student')
+        {
+          window.location.href ="student_home"
+        }
+        else if(msg=='instructor')
+        {
+          window.location.href ="instructor_home"
+        }
+
+
+        
+      
+      }
+    });
+
 
   });
 
@@ -112,7 +143,7 @@ $(function(){
         if(msg=='ok')
         {
           alert("OTP Matched");
-         window.location.href ="instructor_home"
+         window.location.href ="login"
 
         }
 

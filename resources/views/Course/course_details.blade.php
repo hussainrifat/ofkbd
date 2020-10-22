@@ -1,6 +1,5 @@
-@extends('instructor_home_layout')
-@section('instructor_content')
-
+@extends('student_layout')
+@section('student_content')
 
 <div class="_215b01">
     <div class="container-fluid">			
@@ -1821,6 +1820,7 @@
     </div>
 </div>
 
+<script></script>
 
 {{-- OFK MAIN BODY END --}}
 @endsection

@@ -64,7 +64,7 @@
                                                     <div class="mt-30 lbel25">
                                                         <label>Course Category*</label>
                                                     </div>
-                                                    <select class="ui hj145 dropdown cntry152 prompt srch_explore">
+                                                    <select class="ui hj145 dropdown cntry152 prompt srch_explore" id="experties">
                                                         <option value="">Select Category</option>
                                                         <option value="1">Art</option>
                                                         <option value="2">Craft</option>
@@ -307,6 +307,16 @@
             </div>
         </div>
     </div> 
+
+
+    <script>
+        function fetch_expert()
+        {
+            var msg = $data;
+            $("#expertise").html(msg);
+
+        }
+    </script>
 
     {{-- <script src="{{asset('assets')}}/frontend\js/jquery-steps.min.js"></script>
 

@@ -17,7 +17,9 @@ class data_insert_controller extends Controller
 {
     public function std_data_insert(Request $request)
     {
-
+        // $data=" <option value="$">Art</option>"
+        // $date ="Craft";
+        // echo $date;
         // std_registration::create($request->all());
 
         $name= $request->name;
@@ -27,17 +29,19 @@ class data_insert_controller extends Controller
         $email= $request->email;
         $password=Hash::make($request->password);
 
+
         User::create([
         'name'=>$name, 
         'contact_number'=>$contact_number,
-        'email'=>$email,        'password' =>$password,
+        'email'=>$email,        
+        'password' =>$password,
         ]);
 
 
         $user_id = User::where("email",$email)->first()->id;
         Session::put('user_id',$user_id);
-        //file_put_contents("tes.txt",Session::get('user_id'));
         $this->send_otp($user_id);
+
         std_registration::create([
             'std_institute'=>$std_institute,
             'user_id'=>$user_id,
@@ -113,9 +117,39 @@ class data_insert_controller extends Controller
 
 
             //file_put_contents("tes.txt",Session::get('user_id'));
-            $this->send_otp($user_id);
+            $this->send_otp($user_id);        
         
-        
+    }
+
+
+    public function email_check(Request $request)
+    {
+        $email= $request->email;
+
+                if(user::where('email',$email)->first())
+                {
+          
+               echo "match"; }
+               
+                  else {
+                      echo "not match";
+                  }
+
+    }
+
+    public function number_check(Request $request)
+    {
+        $contact_number= $request->contact_number;
+
+                if(user::where('contact_number',$contact_number)->first())
+                {
+          
+               echo "match"; }
+               
+                  else {
+                      echo "not match";
+                  }
+
     }
 
 

@@ -15,7 +15,6 @@
 <script src="{asset('assets')}}/registrationbootstrap2.min.css"></script> --}}
 
 
-<!------ Include the above in your HEAD tag ---------->
 </head>
 
 
@@ -30,8 +29,8 @@
                 <p style="font-size: 30px;font-weight:600">Good to see you again! </p>
                 <p>By logging into OFK, you agree to our Terms of use and Privacy Policy.</p>
 				<form action="#" method="post">
-					<input class="text email" type="number" name="contact_number" placeholder="Enter Your Number" required="">
-					<input class="text" type="password" name="password" placeholder="Password" required="">
+					<input class="text email" type="number" id="contact_number" placeholder="Enter Your Number" required="">
+					<input class="text" type="password" id="password" placeholder="Password" required="">
 					<div class="wthree-text">
 					
 						<div class="clear"> </div>

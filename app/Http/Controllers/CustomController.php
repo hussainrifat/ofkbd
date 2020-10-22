@@ -31,6 +31,8 @@ class CustomController extends Controller
     }
 
 
+
+    // Instructor Function
     public function instructor_home(){
         return view('instructor/instructor_home');
     }
@@ -38,6 +40,22 @@ class CustomController extends Controller
     public function instructor_dahsboard(){
         return view('instructor/instructor_dahsboard');
     }
+
+    public function instructor_courses(){
+        return view('instructor/instructor_courses');
+    }
+
+
+        // Student Function
+        public function student_home(){
+            return view('student/student_home');
+        }
+
+        public function student_dashboard(){
+            return view('student/student_dashboard');
+        }
+
+
 
     
     public function create_course(){
