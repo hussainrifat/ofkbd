@@ -41,6 +41,8 @@ class data_insert_controller extends Controller
         $user_id = User::where("email",$email)->first()->id;
         Session::put('user_id',$user_id);
         $this->send_otp($user_id);
+        // $this->login_check($user_id);
+
 
         std_registration::create([
             'std_institute'=>$std_institute,
@@ -73,10 +75,6 @@ class data_insert_controller extends Controller
       $user_otp= $request->user_otp;
       $user_id= Session::get('user_id');
 
-
-    //   $q=otp::where('user_id',$user_id)->where('otp',$user_otp)->first();
-    //   $q->otp;
-    // file_put_contents("tes.txt",$q);
 
     if(otp::where('user_id',$user_id)->where('otp',$user_otp)->first())
       {
@@ -117,7 +115,8 @@ class data_insert_controller extends Controller
 
 
             //file_put_contents("tes.txt",Session::get('user_id'));
-            $this->send_otp($user_id);        
+            $this->send_otp($user_id);
+        
         
     }
 
@@ -151,6 +150,34 @@ class data_insert_controller extends Controller
                   }
 
     }
+
+
+    public function login_check(Request $request){
+        $contact_number=$request->contact_number;
+        $password=$request->password;
+
+
+
+        if (user::where('contact_number', $contact_number)->where('password', $password)->first()) {
+
+            $temp_id= User::where("contact_number",$contact_number)->first()->id;
+
+            if (ins_registraion::where('user_id', $temp_id)->first()) {
+                echo "instructor";
+            } 
+            
+            else if(std_registration::where('user_id', $temp_id)->first()) {
+                echo "student";
+            } 
+            
+        }
+        else {
+            echo "information Doesn't Matched";
+        }
+    }
+        
+
+           
 
 
 

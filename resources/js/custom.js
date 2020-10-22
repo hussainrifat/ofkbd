@@ -107,14 +107,14 @@ $(function(){
         {
           window.location.href ="student_home"
         }
+
         else if(msg=='instructor')
         {
           window.location.href ="instructor_home"
         }
 
-
-        
-      
+        else 
+        alert("Contact Number and Password Doesn't Matched")
       }
     });
 
