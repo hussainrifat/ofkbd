@@ -157,16 +157,17 @@ class data_insert_controller extends Controller
         $password=$request->password;
 
 
-
         if (user::where('contact_number', $contact_number)->where('password', $password)->first()) {
 
-            $temp_id= User::where("contact_number",$contact_number)->first()->id;
+            $user_id= User::where("contact_number",$contact_number)->first()->id;
+            Session::put($user_id);
 
-            if (ins_registraion::where('user_id', $temp_id)->first()) {
+
+            if (ins_registraion::where('user_id', $user_id)->first()) {
                 echo "instructor";
             } 
             
-            else if(std_registration::where('user_id', $temp_id)->first()) {
+            else if(std_registration::where('user_id', $user_id)->first()) {
                 echo "student";
             } 
             
@@ -175,6 +176,7 @@ class data_insert_controller extends Controller
             echo "information Doesn't Matched";
         }
     }
+
         
 
            

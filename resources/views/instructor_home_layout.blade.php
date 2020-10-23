@@ -107,12 +107,9 @@
 								</span>
 							</a>
 						</div>
-						<a href="instructor_dashboard.html" class="item channel_item">OFK dashboard</a>						
-						<a href="membership.html" class="item channel_item">Paid Memberships</a>
-						<a href="setting.html" class="item channel_item">Setting</a>
-						<a href="help.html" class="item channel_item">Help</a>
-						<a href="feedback.html" class="item channel_item">Send Feedback</a>
-						<a href="sign_in.html" class="item channel_item">Sign Out</a>
+						<a href="{{url('instructor_dashboard')}}" class="item channel_item">OFK dashboard</a>						
+						<a href="{{url('instructor_feedback')}}" class="item channel_item">Send Feedback</a>
+						<a href="{{url('sign_out')}}" class="item channel_item">Sign Out</a>
 					</div>
 				</li>
 			</ul>

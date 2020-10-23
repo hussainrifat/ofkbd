@@ -74,6 +74,10 @@ class CustomController extends Controller
         return view('course/course_details');
     }
 
+    public function sign_out(Request $request){
+        return view('registration/login');
+    }
+
 
 
    

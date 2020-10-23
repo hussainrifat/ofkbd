@@ -62,23 +62,7 @@
           <li class="active"><a href="{{url('/')}}">Home</a></li>
           <li><a href="#about">Services</a></li>
           <li><a href="#why-us">About Us</a></li>
-          <li class="drop-down"><a href="">Tutorial</a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="drop-down"><a href="#">Deep Drop Down</a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
+     
           <li><a href="{{url('/login')}}">Sign In</a></li>
 
 

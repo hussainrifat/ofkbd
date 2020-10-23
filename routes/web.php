@@ -20,8 +20,9 @@ Route::get('/','CustomController@home');
 Route::get('register','CustomController@register');
 Route::get('/login','CustomController@login');
 Route::get('/main','CustomController@main');
-
 Route::get('otp','CustomController@otp');
+Route::get('sign_out','CustomController@sign_out');
+
 
 // Instructor Pages
 Route::get('instructor_home','CustomController@instructor_home');
@@ -54,5 +55,6 @@ Route::post('match_otp','data_insert_controller@match_otp');
 Route::post('email_check','data_insert_controller@email_check');
 Route::post('number_check','data_insert_controller@number_check');
 Route::post('login_check','data_insert_controller@login_check');
+
 
 
