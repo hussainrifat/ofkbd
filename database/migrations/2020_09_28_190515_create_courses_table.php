@@ -20,12 +20,13 @@ class CreateCoursesTable extends Migration
             $table->string('course_description');
             $table->string('course_time_duration');
             $table->string('course_image');
+            $table->string('course_category');
             $table->string('course_active_status')->nullable();
             $table->string('course_delete_status')->nullable();
             $table->timestamps();
 
             $table->foreign('instructor_id')
-            ->references('id')->on('ins_registraions')
+            ->references('id')->on('users')
             ->onDelete('cascade');
         });
     }

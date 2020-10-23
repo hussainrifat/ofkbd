@@ -40,8 +40,10 @@ Route::get('student_dashboard','CustomController@student_dashboard');
 
 // Course Pages
 Route::get('art','CustomController@art');
+Route::get('courses','CustomController@courses');
 Route::get('course','CustomController@course');
 Route::get('course_details','CustomController@course_details');
+Route::get('course_view','CustomController@course_view');
 
 
 
@@ -55,6 +57,11 @@ Route::post('match_otp','data_insert_controller@match_otp');
 Route::post('email_check','data_insert_controller@email_check');
 Route::post('number_check','data_insert_controller@number_check');
 Route::post('login_check','data_insert_controller@login_check');
+
+
+// Adding Video & Courses
+Route::post('create_course','data_insert_controller@create_course');
+
 
 
 

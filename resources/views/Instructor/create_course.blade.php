@@ -28,7 +28,7 @@
                                                     <div class="ui search focus mt-30 lbel25">
                                                         <label>Course Title*</label>
                                                         <div class="ui left icon input swdh19">
-                                                            <input class="prompt srch_explore" type="text" placeholder="Insert your course title." name="title" data-purpose="edit-course-title" maxlength="60" id="main[title]" value="">															
+                                                            <input class="prompt srch_explore" type="text" placeholder="Insert your course title." id="course_name"  maxlength="60">															
                                                             <div class="badge_num">60</div>
                                                         </div>
                                                     </div>									
@@ -38,21 +38,12 @@
                                                     <div class="course_des_textarea mt-30 lbel25">
                                                         <label>Course Description*</label>
                                                         <div class="course_des_bg">
-                                                            <ul class="course_des_ttle">
-                                                                <li><a href="#"><i class="uil uil-bold"></i></a></li>
-                                                                <li><a href="#"><i class="uil uil-italic"></i></a></li>
-                                                                <li><a href="#"><i class="uil uil-list-ul"></i></a></li>
-                                                                <li><a href="#"><i class="uil uil-left-to-right-text-direction"></i></a></li>
-                                                                <li><a href="#"><i class="uil uil-right-to-left-text-direction"></i></a></li>
-                                                                <li><a href="#"><i class="uil uil-list-ui-alt"></i></a></li>
-                                                                <li><a href="#"><i class="uil uil-link"></i></a></li>
-                                                                <li><a href="#"><i class="uil uil-text-size"></i></a></li>
-                                                                <li><a href="#"><i class="uil uil-text"></i></a></li>
-                                                            </ul>
+                                                    
                                                             <div class="textarea_dt">															
                                                                 <div class="ui form swdh339">
                                                                     <div class="field">
-                                                                        <textarea rows="5" name="description" id="id_course_description" placeholder="Insert your course description"></textarea>
+
+                                                                        <textarea rows="5" name="description" id="course_description" placeholder="Insert your course description"></textarea>
                                                                     </div>
                                                                 </div>										
                                                             </div>
@@ -60,31 +51,35 @@
                                                     </div>
                                                 </div>
                                        
+                                           
+
+                                                <div class="col-lg-5 col-md-6">															
+                                                    <div class="ui search focus mt-30 lbel25">
+                                                        <label>Course Time Duration*</label>
+                                                        <div class="ui left icon input swdh19 swdh55">
+                                                            <input class="prompt srch_explore" id="course_time_duration" type="number" min="0" name="duration" required="" placeholder="0">															
+                                                            <div class="badge_min">Minutes</div>
+                                                        </div>
+                                                    </div>									
+                                                </div>
+
                                                 <div class="col-lg-4 col-md-6">
                                                     <div class="mt-30 lbel25">
                                                         <label>Course Category*</label>
                                                     </div>
-                                                    <select class="ui hj145 dropdown cntry152 prompt srch_explore" id="experties">
+                                                    <select class="ui hj145 dropdown cntry152 prompt srch_explore" id="course_category">
                                                         <option value="">Select Category</option>
-                                                        <option value="1">Art</option>
-                                                        <option value="2">Craft</option>
-                                                        <option value="3">Calligraphy</option>
-                                                        <option value="4">Programming</option>
-                                                        <option value="5">Robotics</option>
-                                                        <option value="6">Critical Thinking</option>
-                                                        <option value="7">Design</option>
+                                                        <option value="art">Art</option>
+                                                        <option value="craft">Craft</option>
+                                                        <option value="calligraphy">Calligraphy</option>
+                                                        <option value="robotics">Robotics</option>
+                                                        <option value="programming">Programming</option>
+                                                        <option value="web_design">Web Design</option>
+                                                        <option value="case_solving">Case Solving</option>
+                                                        <option value="rubiks_cube_solving">Rubiks Cube Solving</option>
+
                                                 
                                                     </select>
-                                                </div>
-
-                                                <div class="col-lg-5 col-md-6">															
-                                                    <div class="ui search focus mt-30 lbel25">
-                                                        <label>Time Duration*</label>
-                                                        <div class="ui left icon input swdh19 swdh55">
-                                                            <input class="prompt srch_explore" type="number" min="0" name="duration" required="" placeholder="0">															
-                                                            <div class="badge_min">Minutes</div>
-                                                        </div>
-                                                    </div>									
                                                 </div>
 
                                           
@@ -92,51 +87,52 @@
             												
                                             </div>
                                         </div>
-                                   
 
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="step-tab-panel step-tab-gallery" id="tab_step2">
-                                <div class="tab-from-content">
-                                    <div class="title-icon">
-                                        <h3 class="title"><i class="uil uil-image-upload"></i>Add Course Thumbnail Image</h3>
-                                    </div>
-                                    <div class="course__form">
-                                        <div class="view_info10">
-                                            <div class="row">
-                                                <div class="col-lg-12">	
-                                                    <div class="view_all_dt">	
-                                                        <div class="view_img_left">	
-                                                            <div class="view__img">	
-                                                                <img src="assets\frontend\images\courses\add_img.jpg" alt="">
+                                        {{-- image --}}
+
+                                       
+                                       
+                                                    <div class="col-lg-12">	
+                                                        <div class="view_all_dt">	
+                                                            <div class="view_img_left">	
+                                                                <div class="view__img">	
+                                                                    <img class="insert_course_image" src="assets\frontend\images\courses\add_img.jpg" alt="">
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="view_img_right">	
-                                                            <h4>Course Thumbnail Image</h4>
-                                                            <p>Upload your course image here. It must meet our course image quality standards to be accepted. Important guidelines: 750x422 pixels; .jpg, .jpeg,. gif, or .png. no text on the image.</p>
-                                                            <div class="upload__input">
-                                                                <div class="input-group">
-                                                                    <div class="custom-file">
-                                                                        <input type="file" class="custom-file-input" id="inputGroupFile04">
-                                                                        <label class="custom-file-label" for="inputGroupFile04">No Choose file</label>
+                                                            <div class="view_img_right">	
+                                                                <h4>Course Thumbnail Image</h4>
+                                                                <p>Upload your course image here. It must meet our course image quality standards to be accepted. Important guidelines: 750x422 pixels; .jpg, .jpeg,. gif, or .png. no text on the image.</p>
+                                                                <div class="upload__input">
+                                                                    <div class="input-group">
+                                                                        <div class="custom-file">
+                                                                            <input type="file" class="custom-file-input" id="course_image" onchange="readURL(this)">
+                                                                            <label class="custom-file-label insert_course_image_label" for="inputGroupFile04">No Choose file</label>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        
+                                                
                                                     </div>
-                                                    
-                                            
-                                                </div>
-                                                <div class="col-lg-2 col-md-12">
-                                                    <button class="part_btn_save prt-sv" type="submit">Add New Course</button>
-                                                </div>
-                                            </div>
-                                        </div>
+                                                    <div class="col-lg-2 col-md-12">
+                                                        <button class="part_btn_save prt-sv" type="button" id="create_course">Add New Course</button>
+                                                    </div>
+                                      
+                                   
+
+                                    </div>
+                                </div>
+
+
+                                <div class="step-tab-panel step-tab-gallery" id="tab_step2">
+                                    <div class="tab-from-content">
+                                        
                                     </div>
                                 </div>
                             </div>
+                            
+                            
 
                              <div class="step-tab-panel step-tab-location" id="tab_step3">
                                 <div class="tab-from-content">

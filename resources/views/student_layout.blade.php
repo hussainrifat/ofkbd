@@ -29,6 +29,8 @@
 		<link href="{{asset('assets')}}/frontend\vendor\bootstrap\css\bootstrap.min.css?{{time()}}" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="{{asset('assets')}}/frontend\vendor\semantic\semantic.min.css?{{time()}}">	
 
+			{{-- csrf token --}}
+<meta name="csrf-token" content="{{ csrf_token() }}">
 	</head>
 
 <body>
@@ -140,7 +142,7 @@
 					</li>
 
 					<li class="menu--item">
-						<a href="{{url('course')}}" class="menu--link" title="Courses">
+						<a href="{{url('courses')}}" class="menu--link" title="Courses">
 							<i class='uil uil-book-alt menu--icon'></i>
 							<span class="menu--label">Courses</span>
 						</a>
@@ -250,14 +252,16 @@
 	</div>
 	<!-- Body End -->
 
-	<script src="{{asset('assets')}}/frontend\js\vertical-responsive-menu.min.js"></script>
-	<script src="{{asset('assets')}}/frontend\js\jquery-3.3.1.min.js"></script>
-	<script src="{{asset('assets')}}\frontend\vendor\bootstrap\js\bootstrap.bundle.min.js"></script>
-	<script src="{{asset('assets')}}/frontend\vendor\OwlCarousel\owl.carousel.js"></script>
-	<script src="{{asset('assets')}}/frontend\vendor\semantic\semantic.min.js"></script>
-	<script src="{{asset('assets')}}/frontend\js\custom.js"></script>
-	<script src="{{asset('assets')}}/frontend\js\custom1.js"></script>
-	<script src="{{asset('assets')}}/frontend\js\night-mode.js"></script>
+
+	<script src="{{asset('assets')}}/frontend\js\vertical-responsive-menu.min.js?{{time()}}"></script>
+	<script src="{{asset('assets')}}/frontend\js\jquery-3.3.1.min.js?{{time()}}"></script>
+	<script src="{{asset('assets')}}\frontend\vendor\bootstrap\js\bootstrap.bundle.min.js?{{time()}}"></script>
+	<script src="{{asset('assets')}}/frontend\vendor\OwlCarousel\owl.carousel.js?{{time()}}"></script>
+	<script src="{{asset('assets')}}/frontend\vendor\semantic\semantic.min.js?{{time()}}"></script>
+	<script src="{{asset('assets')}}/frontend\js\custom.js?{{time()}}"></script>
+	{{-- <script src="{{asset('assets')}}/frontend\js\custom1.js?{{time()}}"></script> --}}
+	<script src="{{asset('assets')}}/frontend\js\night-mode.js?{{time()}}"></script>
+	<script src="resources\js\custom.js?{{time()}}"></script>
 	
 </body>
 

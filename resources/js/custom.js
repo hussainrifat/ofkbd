@@ -159,5 +159,61 @@ $(function(){
     // alert("OTP");
 
   });
+
+    $("#create_course").on('click',function()
+    {
+
+    var course_name=$("#course_name").val();
+    var course_description=$("#course_description").val();
+    var course_time_duration=$("#course_time_duration").val();
+    var course_category=$("#course_category").val();
+    // alert(course_name+' '+course_description+' '+course_time_duration+' '+course_category+' '+course_image);
+
+
+
+    var formdata= new FormData();
+    formdata.append('course_name',course_name);
+    formdata.append('course_description',course_description);
+    formdata.append('course_time_duration',course_time_duration);
+    formdata.append('course_category',course_category);
+    formdata.append('course_image',$('#course_image')[0].files[0]);
+
+    $.ajax({
+      processData:false,
+      contentType:false,
+      data:formdata,
+      type:"post",
+      url:"create_course",
+      success:function(data)
+      {
+        alert("Course Created");
+
+
+      }
+    });
+   
+
+    });
+
 });
+
+function readURL(input) {
+  if (input.files && input.files[0]) {
+
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+
+      $('.insert_course_image').attr('src', e.target.result);
+
+      $('.insert_course_image_label').html(input.files[0].name);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+
+  } else {
+    removeUpload();
+  }
+}
+
 
