@@ -1,0 +1,1 @@
+[{"course_name":"New Course","course_duration":"2","course_image":"course_image\/1603486144.png","course_category":"robotics","instructor_name":"instructor"},{"course_name":"Art Beginner","course_duration":"1","course_image":"course_image\/1603487513.png","course_category":"robotics","instructor_name":"new instructor"}]

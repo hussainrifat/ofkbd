@@ -51,7 +51,6 @@ class CustomController extends Controller
 
         $course = Course::where('instructor_id',$instructor_id)->get();
         $user_name= User::where('id',$instructor_id)->first()->name;
-        $response= array();
     
         
         return view('instructor/instructor_courses',['courses'=>$course,'user_name'=>$user_name]);
@@ -85,13 +84,20 @@ class CustomController extends Controller
 
     public function course(Request $request){
          $request->name;
+         $response = array();
 
         $course= course::where('course_category',$request->name)->get();
-        // file_put_contents("category.txt",$data);
-
+        for($i=0;$i<sizeof($course);$i++)
+        {
+            $ins_id = $course[$i]->instructor_id;
+            $instructor_name = User::where('id',$ins_id)->first()->name;
+            array_push($response,['course_name'=>$course[$i]->course_name,'course_duration'=>$course[$i]->course_time_duration,'course_image'=>$course[$i]->course_image,'course_category'=>$course[$i]->course_category,'instructor_name'=>$instructor_name]);   
+        }
+        $course = json_decode(json_encode($response));
+        // file_put_contents('course.txt',json_encode($response));
         return view('course/course',['course'=>$course]);
 
-        
+
 
     }
 

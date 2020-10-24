@@ -38,7 +38,7 @@
                                 <a href="{{url('course_details')}}" class="crse14s">{{$course->course_name}}</a></a>
                                     <a href="{{url('art')}}" class="crse-cate">{{$course->course_category}}</a>
                                     <div class="auth1lnkprce">
-                                    <p class="cr1fot">Instructor Name: <a href="#"></a></p>
+                                    <p class="cr1fot">Instructor Name: <a href="">{{$course->instructor_name}}</a></p>
                                     </div>
                                 </div>
                             </div>											
