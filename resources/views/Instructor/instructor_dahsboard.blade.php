@@ -15,7 +15,7 @@
                 <div class="col-xl-3 col-lg-6 col-md-6">
                     <div class="card_dash">
                         <div class="card_dash_left">
-                            <h5>Total Sales</h5>
+                            <h5>My Courses</h5>
                             <h2>$350</h2>
                             <span class="crdbg_1">New $50</span>
                         </div>

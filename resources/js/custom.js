@@ -186,7 +186,9 @@ $(function(){
       url:"create_course",
       success:function(data)
       {
-        alert("Course Created");
+        alert("Your Course Created Succesfully");
+        window.location.href ="instructor_courses"
+
 
 
       }
@@ -215,5 +217,61 @@ function readURL(input) {
     removeUpload();
   }
 }
+
+
+function delete_course(id){
+
+  var course_id=id;
+  
+  var formdata= new FormData;
+  formdata.append('course_id',course_id);
+
+  $.ajax({
+    processData:false,
+    contentType:false,
+    data:formdata,
+    type:"post",
+    url:"delete_course",
+    success:function(data)
+    {
+      window.location.href ="instructor_courses"
+      alert("Are You Sure You Want to Delete This Course?");
+
+    }
+  });
+
+
+}
+
+
+
+// function course_details(id){
+
+//   var course_id=id;
+
+//   // alert (course_id);
+  
+//   var formdata= new FormData;
+//   formdata.append('course_id',course_id);
+//   formdata.append('course_details',course_details);
+
+
+//   $.ajax({
+//     processData:false,
+//     contentType:false,
+//     data:formdata,
+//     type:"post",
+//     url:"course_details",
+//     success:function(data)
+//     {
+//       // window.location.href ="course_details"
+//       console.log(data);
+//       // alert("Are You Sure You Want to Delete This Course?");
+
+//     }
+//   });
+
+
+// }
 
 

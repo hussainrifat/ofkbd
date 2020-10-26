@@ -178,7 +178,7 @@ class data_insert_controller extends Controller
             // $this->create_course($user_id);
 
             
-            file_put_contents("userid.txt",$user_id);
+            // file_put_contents("userid.txt",$user_id);
 
             // $this->create_course($user_id);
 

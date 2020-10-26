@@ -21,8 +21,10 @@
                                         </div>
                                         <span class="play_btn1"><i class="uil uil-play"></i></span>
                                         <div class="crse_timer">
-                                            25 hours
+                                           Duration: {{$course->course_duration}} Minutes
+                                            
                                         </div>
+                                        
                                     </div>
                                 </a>
                                 <div class="fcrse_content">
@@ -45,13 +47,6 @@
                         </div>
                         @endforeach
                         
-
-
-
-
-
-
-
 
                     </div>				
                 </div>				

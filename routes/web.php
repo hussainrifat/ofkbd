@@ -42,9 +42,18 @@ Route::get('student_dashboard','CustomController@student_dashboard');
 Route::get('art','CustomController@art');
 Route::get('courses','CustomController@courses');
 Route::get('course','CustomController@course');
-Route::get('course_details','CustomController@course_details');
+// Route::get('course_details','CustomController@course_details');
+
+// Route::get("/course_details", function(){
+//     return View ("course/course_details");
+//  });
+
+
 Route::get('course_view','CustomController@course_view');
 
+
+Route::post('delete_course','CustomController@delete_course');
+Route::get('course_details','CustomController@course_details');
 
 
 Route::post('std_data_insert','data_insert_controller@std_data_insert');

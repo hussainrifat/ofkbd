@@ -1,7 +1,9 @@
-@extends('student_layout')
-@section('student_content')
+@extends('instructor_home_layout')
+@section('instructor_content')
 
 <div class="_215b01">
+    {{-- @foreach($course_details as $course) --}}
+
     <div class="container-fluid">			
         <div class="row">
             <div class="col-lg-12">
@@ -9,28 +11,19 @@
                     <div class="row justify-content-center">						
                         <div class="col-xl-4 col-lg-5 col-md-6">						
                             <div class="preview_video">						
-                                <a href="#" class="fcrse_img" data-toggle="modal" data-target="#videoModal">
-                                    <img src="assets\frontend\images\courses/art-1.jpg" alt="">
+                                <a href="{{$course_details->course_image}}" class="fcrse_img" data-toggle="modal" data-target="#videoModal">
+                                    <img src="{{$course_details->course_image}}" alt="">
                                     <div class="course-overlay">
-                                        <div class="badge_seller">Bestseller</div>
                                         <span class="play_btn1"><i class="uil uil-play"></i></span>
                                         <span class="_215b02">Preview this course</span>
                                     </div>
                                 </a>
                             </div>
-                            <div class="_215b10">										
-                                <a href="#" class="_215b11">										
-                                    <span><i class="uil uil-heart"></i></span>Save
-                                </a>
-                                <a href="#" class="_215b12">										
-                                    <span><i class="uil uil-windsock"></i></span>Report abuse
-                                </a>
-                            </div>
+                         
                         </div>
                         <div class="col-xl-8 col-lg-7 col-md-6">
                             <div class="_215b03">
-                                <h2>আর্টের হাতেখড়ি</h2>
-                                <span class="_215b04">হ্যালো বন্ধুরা, আর্টের হাতেখড়ি  কোর্সে তোমাদের স্বাগতম জানাচ্ছি। এই কোর্সটিতে তোমরা শিখতে পারবে কিভাবে তুমি খুব সহজে বিভিন্ন ধরণের ফুল এবং ফল আঁকতে এবং রঙ করতে পারবে।
+                                <h2>{{$course_details->course_name}}</h2>
 
                                 </span>
                             </div>
@@ -43,7 +36,7 @@
                           
                             
                             <div class="_215b05">										
-                                Last updated 1/2020
+                                Last updated {{$course_details->updated_at}}
                             </div>
                             <ul class="_215b31">										
                                 <li><button class="btn_adcart">Enroll Now</button></li>
@@ -55,6 +48,7 @@
             </div>															
         </div>
     </div>
+    {{-- @endforeach --}}
 </div>
 <div class="_215b15 _byt1458">
     <div class="container-fluid">
@@ -63,12 +57,10 @@
                 <div class="user_dt5">
                     <div class="user_dt_left">
                         <div class="live_user_dt">
-                            <div class="user_img5">
-                                <a href="#"><img src="assets\frontend\images\left-imgs/img-4.jpg" alt=""></a>												
-                            </div>
+                           
                             <div class="user_cntnt">
-                                <a href="#" class="_df7852">Asfia Tabassum Borna</a>
-                                <button class="subscribe-btn">Subscribe</button>
+                                <a href="#" class="_df7852"> Instructor Name: {{$instructor_name}}</a>
+                                <button class="subscribe-btn">View All Course</button>
                             </div>
                         </div>
                     </div>
@@ -96,48 +88,14 @@
                         <div class="tab-pane fade show active" id="nav-about" role="tabpanel">
                             <div class="_htg451">
                                 <div class="_htg452">
-                                    <h3>কোর্সটি যাদের জন্যে উপযোগীঃ </h3>
+                                    <h3>About Course</h3>
                                     <ul>
-                                        <li><span class="_5f7g11">৫+ বয়সী যে কেউ এই কোর্সটি করতে পারবে                                        </span></li>
+                                        <li><span class="_5f7g11"> {{$course_details->course_description}}</span></li>
                                     </ul>
                                 </div>
-                                <div class="_htg452 mt-35">
-                                    <h3>যা যা দরকারঃ </h3>
-                                    <ul class="_abc124">
-                                        <li><span class="_5f7g11">কাগজ</span></li>
-                                        <li><span class="_5f7g11">কলম</span></li>
-                                        <li><span class="_5f7g11">রাবার</span></li>
-                                        <li><span class="_5f7g11">শাপনার</span></li>
-                                        <li><span class="_5f7g11">স্কেল</span></li>
-                                        <li><span class="_5f7g11">রং পেন্সিল</span></li>
-
-                                    </ul>
-                                   
-                                       
-                                </div>
+                        
                             
-                                <div class="_htgdrt mt-35">
-                                    <h3>যা শিখতে পারবে</h3>
-                                    <div class="_scd123">
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <ul class="_htg452 _abcd145">												
-                                                    <li><div class="_5f7g15"><i class="fas fa-check-circle"></i><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span></div></li>
-                                                    <li><div class="_5f7g15"><i class="fas fa-check-circle"></i><span>Donec ultricies elit porttitor, ultrices enim a, commodo dolor.</span></div></li>
-                                                    <li><div class="_5f7g15"><i class="fas fa-check-circle"></i><span>Nunc dapibus ligula sed justo porta, id volutpat odio iaculis.</span></div></li>
-                                                    <li><div class="_5f7g15"><i class="fas fa-check-circle"></i><span>Maecenas pharetra mi quis nisl mollis, molestie imperdiet lorem molestie.</span></div></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <ul class="_htg452 _abcd145">
-                                                    <li><div class="_5f7g15"><i class="fas fa-check-circle"></i><span>Nullam non lacus nibh. Etiam et fringilla neque, ut vulputate sapien. Sed vitae tortor gravida, interdum felis at, pulvinar enim. Integer tempor urna leo.</span></div></li>
-                                                    <li><div class="_5f7g15"><i class="fas fa-check-circle"></i><span>Phasellus ultrices tellus sed volutpat vestibulum. Curabitur aliquet dictum leo non congue.</span></div></li>
-                                                    <li><div class="_5f7g15"><i class="fas fa-check-circle"></i><span>In hac habitasse platea dictumst. Aenean vel fermentum neque.</span></div></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>							
+                    							
                             </div>							
                         </div>
                         <div class="tab-pane fade" id="nav-courses" role="tabpanel">

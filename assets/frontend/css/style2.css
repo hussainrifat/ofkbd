@@ -1969,7 +1969,7 @@ i.icon1 {
 }
 
 .item_f1 {
-	padding-top: 50px;
+	padding-top: 10px;
 }
 
 .item_f1 a {
@@ -1995,7 +1995,7 @@ i.icon1 {
 
 .btn1542 {
 	height: 40px;
-    padding: 10px 15px;
+    padding: 10px 10px;
     border: 0;
     border-radius: 20px;
     color: #fff;
@@ -2017,7 +2017,7 @@ i.icon1 {
 
 .lng_btn a {
 	height: 40px;
-    padding: 10px 15px;
+    padding: 10px 10px;
     border: 1px solid #fff;
     border-radius: 20px;
     color: #fff;
@@ -2040,8 +2040,7 @@ i.icon1 {
 }
 
 .footer_bottm {
-	margin-top: 50px;
-	padding: 20px 0;
+	padding: 10px 0;
 	border-top: 1px solid #454545;
 }
 

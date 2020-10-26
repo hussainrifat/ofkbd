@@ -37,8 +37,23 @@ class CustomController extends Controller
 
 
     // Instructor Function
-    public function instructor_home(){
-        return view('instructor/instructor_home');
+    public function instructor_home(Request $request){
+
+        $response = array();
+
+        // $course= course::all()->sortByDesc();
+                $course= course::all();
+
+        for($i=0;$i<sizeof($course);$i++)
+        {
+            $ins_id = $course[$i]->instructor_id;
+            $instructor_name = User::where('id',$ins_id)->first()->name;
+            array_push($response,['id'=>$course[$i]->id,'course_name'=>$course[$i]->course_name,'course_time_duration'=>$course[$i]->course_time_duration,'course_image'=>$course[$i]->course_image,'course_category'=>$course[$i]->course_category,'instructor_name'=>$instructor_name]);   
+        }
+        $course = json_decode(json_encode($response));
+        // file_put_contents('course.txt',json_encode($response));
+        return view('instructor/instructor_home',['course'=>$course]);
+        // return view('instructor/instructor_home');
     }
 
     public function instructor_dahsboard(){
@@ -59,7 +74,25 @@ class CustomController extends Controller
 
         // Student Function
         public function student_home(){
-            return view('student/student_home');
+            // return view('student/student_home');
+
+            $response = array();
+
+        $course= course::all();
+        for($i=0;$i<sizeof($course);$i++)
+        {
+            $ins_id = $course[$i]->instructor_id;
+            $instructor_name = User::where('id',$ins_id)->first()->name;
+            array_push($response,
+            ['course_name'=>$course[$i]->course_name,
+            'course_duration'=>$course[$i]->course_time_duration,
+            'course_image'=>$course[$i]->course_image,
+            'course_category'=>$course[$i]->course_category,
+            'instructor_name'=>$instructor_name]);   
+        }
+        $course = json_decode(json_encode($response));
+        // file_put_contents('course.txt',json_encode($response));
+        return view('student/student_home',['course'=>$course]);
         }
 
         public function student_dashboard(){
@@ -73,10 +106,29 @@ class CustomController extends Controller
         return view('instructor/create_course');
     }
 
-    public function art(){
-        $course= course::all();
-        return view('course/art');
+    public function delete_course(Request $request){
+        $course_id=$request->course_id;
+        $instructor_id=Session::get('user_id');
+        file_put_contents("Course_id.txt",$course_id);
+        $course=course::where('instructor_id',$instructor_id)->where('id',$course_id)->delete();
+
     }
+
+    
+    public function course_details(Request $request){
+
+        $course_id=$request->course;
+        $course_details= course::where('id',$course_id)->first();
+        $instructor_id=$course_details->instructor_id;
+        $instructor_name = User::where('id',$instructor_id)->first()->name;
+        // file_put_contents("test.txt",$instructor_name);
+
+
+        return view('course/course_details',['course_details'=>$course_details,'instructor_name'=>$instructor_name]);
+
+    }
+
+
 
     public function courses(){
         return view('course/courses');
@@ -101,9 +153,6 @@ class CustomController extends Controller
 
     }
 
-    public function course_details(){
-        return view('course/course_details');
-    }
 
     public function course_view(){
         

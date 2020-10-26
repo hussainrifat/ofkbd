@@ -14,7 +14,7 @@
                        @foreach($courses as $course)
                         <div class="col-lg-3 col-md-4">
                             <div class="fcrse_1 mb-30">
-                                <a href="{{url('course_details')}}" class="fcrse_img">
+                            <a href="course_details?course={{$course->id}}"  class="fcrse_img">
                                     <img src="{{$course->course_image}}" alt="">
                                     <div class="course-overlay">
                                         <div class="crse_reviews">
@@ -22,21 +22,21 @@
                                         </div>
                                         <span class="play_btn1"><i class="uil uil-play"></i></span>
                                         <div class="crse_timer">
-                                            25 hours
+                                            Duration: {{$course->course_time_duration}} Minutes
                                         </div>
                                     </div>
                                 </a>
                                 <div class="fcrse_content">
                                     <div class="eps_dots more_dropdown">
-                                        <a href="{{url('art')}}"><i class='uil uil-ellipsis-v'></i></a>
+                                        <a href="#"><i class='uil uil-ellipsis-v'></i></a>
                                         <div class="dropdown-content">
-                                            <span><i class='uil uil-share-alt'></i>Share</span>
-                                            <span><i class="uil uil-heart"></i>Save</span>
-                                            <span><i class="uil uil-windsock"></i>Report To Admin</span>
+                                            <span>Edit Course</span>
+                                            <span onclick=delete_course({{$course->id}})>Delete Course</span>
+                                            <span>Report To Admin</span>
                                          </div>																										
                                     </div>
                                   
-                                <a href="{{url('course_details')}}" class="crse14s">{{$course->course_name}}</a></a>
+                                <a href="course_details?course={{$course->id}}"  class="crse14s">{{$course->course_name}}</a></a>
                                     <a href="{{url('art')}}" class="crse-cate">{{$course->course_category}}</a>
                                     <div class="auth1lnkprce">
                                     <p class="cr1fot">Instructor Name: <a href="#">{{$user_name}}</a></p>
