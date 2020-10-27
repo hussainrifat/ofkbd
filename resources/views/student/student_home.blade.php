@@ -17,7 +17,7 @@
 
                             <div class="item">
                                 <div class="fcrse_1 mb-20">
-                                    <a href="course_detail_view.html" class="fcrse_img">
+                                    <a href="course_detail?course={{$course->course_id}}" class="fcrse_img">
                                         <img src="{{$course->course_image}}" alt="">
                                         <div class="course-overlay">
                                             <div class="badge_seller">Featured</div>
@@ -40,7 +40,7 @@
                                              </div>																										
                                         </div>
                                        
-                                        <a href="course_detail_view.html" class="crse14s">{{$course->course_name}}</a>
+                                        <a href="course_detail?course={{$course->course_id}}" class="crse14s">{{$course->course_name}}</a>
                                         <a href="#" class="crse-cate">{{$course->course_category}}</a>
                                         <div class="auth1lnkprce">
                                             <p class="cr1fot">By <a href="#">{{$course->instructor_name}}</a></p>

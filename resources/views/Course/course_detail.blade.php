@@ -1,5 +1,5 @@
-@extends('instructor_home_layout')
-@section('instructor_content')
+@extends('student_layout')
+@section('student_content')
 
 <div class="_215b01">
     {{-- @foreach($course_details as $course) --}}
@@ -60,9 +60,7 @@
                            
                             <div class="user_cntnt">
                                 <a href="#" class="_df7852"> Instructor Name: {{$instructor_name}}</a>
-
-                            <button  onclick="window.location.href='add_content?id={{$course_details->id}}'" class="subscribe-btn">Add New Content</button>
-
+                                <button class="subscribe-btn">View All Course</button>
                             </div>
                         </div>
                     </div>

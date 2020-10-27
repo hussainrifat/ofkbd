@@ -7,8 +7,6 @@ $(function(){
 }); 
 
 
-
-
   $("#registerinstructor").on('click',function()
   {
   
@@ -44,10 +42,7 @@ $(function(){
   });
   
   
-  
-  
   });
-
 
   $("#registerstudent").on('click',function()
   {
@@ -121,7 +116,6 @@ $(function(){
 
   });
 
-
   $("#otp").on('click',function()
   {
     var user_otp=$("#user_otp").val();
@@ -188,9 +182,40 @@ $(function(){
       {
         alert("Your Course Created Succesfully");
         window.location.href ="instructor_courses"
+      }
+    });
+   
+
+    });
+
+    $("#add_content").on('click',function()
+    {
+
+    var video_name=$("#video_name").val();
+    var video_description=$("#video_description").val();
+    var course_time_duration=$("#course_time_duration").val();
+    var course_category=$("#course_category").val();
+    // alert(course_name+' '+course_description+' '+course_time_duration+' '+course_category+' '+course_image);
 
 
 
+    var formdata= new FormData();
+    formdata.append('course_name',course_name);
+    formdata.append('course_description',course_description);
+    formdata.append('course_time_duration',course_time_duration);
+    formdata.append('course_category',course_category);
+    formdata.append('course_image',$('#course_image')[0].files[0]);
+
+    $.ajax({
+      processData:false,
+      contentType:false,
+      data:formdata,
+      type:"post",
+      url:"create_course",
+      success:function(data)
+      {
+        alert("Your Course Created Succesfully");
+        window.location.href ="add_content"
       }
     });
    
@@ -198,6 +223,7 @@ $(function(){
     });
 
 });
+
 
 function readURL(input) {
   if (input.files && input.files[0]) {
@@ -218,6 +244,24 @@ function readURL(input) {
   }
 }
 
+function videoIMG(input) {
+  if (input.files && input.files[0]) {
+
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+
+      // $('.insert_course_image').attr('src', e.target.result);
+
+      $('.insert_video_image_label').html(input.files[0].name);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+
+  } else {
+    removeUpload();
+  }
+}
 
 function delete_course(id){
 
@@ -240,38 +284,9 @@ function delete_course(id){
     }
   });
 
-
 }
 
 
 
-// function course_details(id){
-
-//   var course_id=id;
-
-//   // alert (course_id);
-  
-//   var formdata= new FormData;
-//   formdata.append('course_id',course_id);
-//   formdata.append('course_details',course_details);
-
-
-//   $.ajax({
-//     processData:false,
-//     contentType:false,
-//     data:formdata,
-//     type:"post",
-//     url:"course_details",
-//     success:function(data)
-//     {
-//       // window.location.href ="course_details"
-//       console.log(data);
-//       // alert("Are You Sure You Want to Delete This Course?");
-
-//     }
-//   });
-
-
-// }
 
 

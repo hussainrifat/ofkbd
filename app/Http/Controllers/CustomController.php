@@ -34,6 +34,10 @@ class CustomController extends Controller
         return view('main');
     }
 
+    public function admin_home(){
+        return view('admin/admin_home');
+    }
+
 
 
     // Instructor Function
@@ -42,7 +46,11 @@ class CustomController extends Controller
         $response = array();
 
         // $course= course::all()->sortByDesc();
-                $course= course::all();
+                $course= course::
+                orderBy('id','desc')
+                ->take(5)
+                ->get();
+             
 
         for($i=0;$i<sizeof($course);$i++)
         {
@@ -63,8 +71,12 @@ class CustomController extends Controller
     public function instructor_courses(){
 
         $instructor_id = Session::get('user_id');
-
-        $course = Course::where('instructor_id',$instructor_id)->get();
+    
+        
+        $course = Course::where('instructor_id',$instructor_id)
+        -> orderBy('id','desc')
+        ->take(5)
+        ->get();
         $user_name= User::where('id',$instructor_id)->first()->name;
     
         
@@ -78,13 +90,17 @@ class CustomController extends Controller
 
             $response = array();
 
-        $course= course::all();
+        
+        $course= course::
+        orderBy('id','desc')
+        ->get();
         for($i=0;$i<sizeof($course);$i++)
         {
             $ins_id = $course[$i]->instructor_id;
             $instructor_name = User::where('id',$ins_id)->first()->name;
             array_push($response,
-            ['course_name'=>$course[$i]->course_name,
+            ['course_id'=>$course[$i]->id,
+            'course_name'=>$course[$i]->course_name,
             'course_duration'=>$course[$i]->course_time_duration,
             'course_image'=>$course[$i]->course_image,
             'course_category'=>$course[$i]->course_category,
@@ -106,6 +122,10 @@ class CustomController extends Controller
         return view('instructor/create_course');
     }
 
+    public function add_content(){
+        return view('instructor/add_content');
+    }
+
     public function delete_course(Request $request){
         $course_id=$request->course_id;
         $instructor_id=Session::get('user_id');
@@ -113,6 +133,9 @@ class CustomController extends Controller
         $course=course::where('instructor_id',$instructor_id)->where('id',$course_id)->delete();
 
     }
+
+
+
 
     
     public function course_details(Request $request){
@@ -125,6 +148,20 @@ class CustomController extends Controller
 
 
         return view('course/course_details',['course_details'=>$course_details,'instructor_name'=>$instructor_name]);
+
+    }
+
+
+    public function course_detail(Request $request){
+
+        $course_id=$request->course;
+        $course_details= course::where('id',$course_id)->first();
+        $instructor_id=$course_details->instructor_id;
+        $instructor_name = User::where('id',$instructor_id)->first()->name;
+        file_put_contents("test.txt",$instructor_name);
+
+
+        return view('course/course_detail',['course_details'=>$course_details,'instructor_name'=>$instructor_name]);
 
     }
 
@@ -143,11 +180,11 @@ class CustomController extends Controller
         {
             $ins_id = $course[$i]->instructor_id;
             $instructor_name = User::where('id',$ins_id)->first()->name;
-            array_push($response,['course_name'=>$course[$i]->course_name,'course_duration'=>$course[$i]->course_time_duration,'course_image'=>$course[$i]->course_image,'course_category'=>$course[$i]->course_category,'instructor_name'=>$instructor_name]);   
+            array_push($response,['course_id'=>$course[$i]->id,'course_name'=>$course[$i]->course_name,'course_duration'=>$course[$i]->course_time_duration,'course_image'=>$course[$i]->course_image,'course_category'=>$course[$i]->course_category,'instructor_name'=>$instructor_name]);   
         }
         $course = json_decode(json_encode($response));
         // file_put_contents('course.txt',json_encode($response));
-        return view('course/course',['course'=>$course]);
+        return view('course/course',['courses'=>$course]);
 
 
 
@@ -160,6 +197,17 @@ class CustomController extends Controller
     }
 
     public function sign_out(Request $request){
+
+        if(session()->has('user_id'))
+        {
+
+            $user_id=Session::get('user_id');
+            // file_put_contents("logout1.txt",$user_id);
+
+            session()->pull('user_id',null);
+            $user_id=Session::get('user_id');
+            // file_put_contents("logout2.txt",$user_id);
+        }
         return view('registration/login');
     }
 

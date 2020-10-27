@@ -217,7 +217,7 @@
 	<div class="wrapper">
 		@yield('instructor_content')
 
-		<footer class="footer mt-30">
+		{{-- <footer class="footer mt-30">
 			<div class="container">
 				<div class="row">
 					
@@ -254,7 +254,10 @@
 					</div>
 				</div>
 			</div>
-		</footer>
+		</footer> --}}
+
+		
+
 	</div>
 	<!-- Body End -->
 

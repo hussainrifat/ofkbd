@@ -31,13 +31,13 @@
                                         <a href="#"><i class='uil uil-ellipsis-v'></i></a>
                                         <div class="dropdown-content">
                                             <span>Edit Course</span>
-                                            <span onclick=delete_course({{$course->id}})>Delete Course</span>
+                                            <span onclick="delete_course({{$course->id}})">Delete Course</span>
                                             <span>Report To Admin</span>
                                          </div>																										
                                     </div>
                                   
                                 <a href="course_details?course={{$course->id}}"  class="crse14s">{{$course->course_name}}</a></a>
-                                    <a href="{{url('art')}}" class="crse-cate">{{$course->course_category}}</a>
+                                    <a href="" class="crse-cate">{{$course->course_category}}</a>
                                     <div class="auth1lnkprce">
                                     <p class="cr1fot">Instructor Name: <a href="#">{{$user_name}}</a></p>
                                     </div>

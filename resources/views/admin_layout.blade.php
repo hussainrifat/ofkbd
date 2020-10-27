@@ -47,24 +47,7 @@
 			<a href="{{url('student_home')}}"><img src="assets\frontend\images\logo.png" style="width:80px" alt=""></a>
 			<a href="student_home"><img class="logo-inverse" src="assets\frontend\images\ct_logo.svg" alt=""></a>
 		</div>
-		<div class="top-category">
-			<div class="ui compact menu cate-dpdwn">
-				<div class="ui simple dropdown item">
-					<a href="#" class="option_links p-0" title="categories"><i class="uil uil-apps"></i></a>
-					<div class="menu dropdown_category5">
-						<a href="#" class="item channel_item">Art</a>
-						<a href="#" class="item channel_item">Craft</a>
-						<a href="#" class="item channel_item">Calligraphy</a>
-						<a href="#" class="item channel_item">Rubiks Cube Solving</a>
-						<a href="#" class="item channel_item">Case Solving</a>
-						<a href="#" class="item channel_item">Programming</a>
-						<a href="#" class="item channel_item">Robotics</a>
-						<a href="#" class="item channel_item">Web Design</a>
-		
-					</div>
-				</div>
-			</div>
-		</div>
+
 		<div class="search120">
 			<div class="ui search">
 			  <div class="ui left icon input swdh10">
@@ -128,23 +111,30 @@
 			<div class="left_section">
 				<ul>
 					<li class="menu--item">
-						<a href="{{url('student_home')}}" class="menu--link" title="Home">
+						<a href="{{url('admin_home')}}" class="menu--link" title="Home">
 							<i class='uil uil-home-alt menu--icon'></i>
 							<span class="menu--label">Home</span>
 						</a>
 					</li>
 			
 					<li class="menu--item">
-						<a href="{{url('student_dashboard')}}" class="menu--link" title="Dashboard">
+						<a href="{{url('admin_dashboard')}}" class="menu--link" title="Dashboard">
 							<i class="uil uil-apps menu--icon"></i>
-							<span class="menu--label">Student Dashboard</span>
+							<span class="menu--label">All Student</span>
+						</a>
+                    </li>
+                    
+                    <li class="menu--item">
+						<a href="{{url('admin_dashboard')}}" class="menu--link" title="Dashboard">
+							<i class="uil uil-apps menu--icon"></i>
+							<span class="menu--label">All Instructors</span>
 						</a>
 					</li>
 
 					<li class="menu--item">
 						<a href="{{url('courses')}}" class="menu--link" title="Courses">
 							<i class='uil uil-book-alt menu--icon'></i>
-							<span class="menu--label">Courses</span>
+							<span class="menu--label">All Courses</span>
 						</a>
 					</li>
 
@@ -153,7 +143,7 @@
 					<li class="menu--item">
 						<a href="instructor_all_reviews.html" class="menu--link" title="Reviews">
 						  <i class='uil uil-star menu--icon'></i>
-						  <span class="menu--label">Reviews</span>
+						  <span class="menu--label">All Reviews</span>
 						</a>
 					</li>
 
@@ -209,9 +199,9 @@
 
 	<!-- OFK Main Body Start -->
 	<div class="wrapper">
-		@yield('student_content')
+		@yield('admin_content')
 
-		{{-- <footer class="footer mt-30">
+		<footer class="footer mt-30">
 			<div class="container">
 				<div class="row">
 					
@@ -248,7 +238,7 @@
 					</div>
 				</div>
 			</div>
-		</footer> --}}
+		</footer>
 	</div>
 	<!-- Body End -->
 

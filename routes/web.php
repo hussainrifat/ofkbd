@@ -32,6 +32,10 @@ Route::get('create_course','CustomController@create_course');
 Route::get('instructor_courses','CustomController@instructor_courses');
 
 
+// Admin Pages
+Route::get('admin_home','CustomController@admin_home');
+
+
 // Student Pages
 Route::get('student_home','CustomController@student_home');
 Route::get('student_layout','CustomController@student_layout');
@@ -39,7 +43,7 @@ Route::get('student_dashboard','CustomController@student_dashboard');
 
 
 // Course Pages
-Route::get('art','CustomController@art');
+Route::get('add_content','CustomController@add_content');
 Route::get('courses','CustomController@courses');
 Route::get('course','CustomController@course');
 // Route::get('course_details','CustomController@course_details');
@@ -54,6 +58,7 @@ Route::get('course_view','CustomController@course_view');
 
 Route::post('delete_course','CustomController@delete_course');
 Route::get('course_details','CustomController@course_details');
+Route::get('course_detail','CustomController@course_detail');
 
 
 Route::post('std_data_insert','data_insert_controller@std_data_insert');

@@ -10,10 +10,10 @@
                 <div class="_14d25">
                     <div class="row">
                        
-                       @foreach($course as $course)
+                       @foreach($courses as $course)
                         <div class="col-lg-3 col-md-4">
                             <div class="fcrse_1 mb-30">
-                                <a href="{{url('course_details')}}" class="fcrse_img">
+                                <a href="course_detail?course={{$course->course_id}}" class="fcrse_img">
                                     <img src="{{$course->course_image}}" alt="">
                                     <div class="course-overlay">
                                         <div class="crse_reviews">
@@ -37,7 +37,7 @@
                                          </div>																										
                                     </div>
                                   
-                                <a href="{{url('course_details')}}" class="crse14s">{{$course->course_name}}</a></a>
+                                <a href="course_detail?course={{$course->course_id}}" class="crse14s">{{$course->course_name}}</a></a>
                                     <a href="{{url('art')}}" class="crse-cate">{{$course->course_category}}</a>
                                     <div class="auth1lnkprce">
                                     <p class="cr1fot">Instructor Name: <a href="">{{$course->instructor_name}}</a></p>

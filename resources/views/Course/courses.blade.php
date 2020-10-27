@@ -72,13 +72,13 @@
 
                         <div class="col-lg-3 col-md-4">
                             <div class="courseblock mb-30">
-                                <a href="course_detail_view.html" class="fcrse_img">
+                                <a href="{{url('course?name=programming')}}" class="fcrse_img">
                                     <img src="assets\frontend\images\courses/programming-icon.png" alt="">
                                  
                                 </a>
                                 <div class="course_content">
                                   
-                                <a href="{{url('course?name=web')}}" class="coursefont">Programming Language</a>                                   
+                                <a href="{{url('course?name=programming')}}" class="coursefont">Programming Language</a>                                   
                                 </div>
                             </div>											
                         </div>
@@ -88,13 +88,13 @@
 
                         <div class="col-lg-3 col-md-4">
                             <div class="courseblock mb-30">
-                                <a href="{{url('course?name=web')}}" class="fcrse_img">
+                                <a href="{{url('course?name=web_design')}}" class="fcrse_img">
                                     <img src="assets\frontend\images\courses/web-icon.png" alt="">
                                  
                                 </a>
                                 <div class="course_content">
                                    
-                                <a href="{{url('course?name=web')}}" class="coursefont">Web Design </a>                                   
+                                <a href="{{url('course?name=web_design')}}" class="coursefont">Web Design </a>                                   
                                 </div>
                             </div>											
                         </div>
@@ -102,26 +102,26 @@
 
                         <div class="col-lg-3 col-md-4">
                             <div class="courseblock mb-30">
-                                <a href="{{url('course?name=casesolving')}}" class="fcrse_img">
+                                <a href="{{url('course?name=case_solving')}}" class="fcrse_img">
                                     <img src="assets\frontend\images\courses/case-icon.png" alt="">
                                  
                                 </a>
                                 <div class="course_content">
                                    
-                                <a href="{{url('course?name=casesolving')}}" class="coursefont">Case Solving </a>                                   
+                                <a href="{{url('course?name=case_solving')}}" class="coursefont">Case Solving </a>                                   
                                 </div>
                             </div>											
                         </div>
 
                         <div class="col-lg-3 col-md-4">
                             <div class="courseblock mb-30">
-                                <a href="course_detail_view.html" class="fcrse_img">
+                                <a href="{{url('course?name=rubiks_cube_solving')}}" class="fcrse_img">
                                     <img src="assets\frontend\images\courses/rubi-icon.png" alt="">
                                  
                                 </a>
                                 <div class="course_content">
                                    
-                                <a href="{{url('rubi')}}" class="coursefont">Rubik's Cube </a>                                   
+                                <a href="{{url('course?name=rubiks_cube_solving')}}" class="coursefont">Rubik's Cube </a>                                   
                                 </div>
                             </div>											
                         </div>

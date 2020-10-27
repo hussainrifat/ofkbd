@@ -175,13 +175,6 @@ class data_insert_controller extends Controller
 
             $user_id= User::where("contact_number",$contact_number)->first()->id;
             Session::put('user_id',$user_id);
-            // $this->create_course($user_id);
-
-            
-            // file_put_contents("userid.txt",$user_id);
-
-            // $this->create_course($user_id);
-
 
             if (ins_registraion::where('user_id', $user_id)->first()) {
                 echo "instructor";
@@ -209,7 +202,7 @@ class data_insert_controller extends Controller
                 //$course_image= $request->course_image;
 
                 $instructor_id = Session::get('user_id');
-                file_put_contents("test.txt",$instructor_id);
+                // file_put_contents("test.txt",$instructor_id);
 
                 $course_image = time().'.'.request()->course_image->getClientOriginalExtension();               
                request()->course_image->move(base_path('course_image'), $course_image);
@@ -223,6 +216,10 @@ class data_insert_controller extends Controller
                     'course_category'=>$course_category, 
                     'course_image'=>"course_image/".$course_image, 
                     ]);
+
+                    $course_id=course::where('course_name',$course_name)->first()->id;
+                    session::put('course_id',$course_id);
+                    // file_put_contents("Course_id.txt",$course_id);
 
 
               
