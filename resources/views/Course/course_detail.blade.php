@@ -60,7 +60,9 @@
                            
                             <div class="user_cntnt">
                                 <a href="#" class="_df7852"> Instructor Name: {{$instructor_name}}</a>
-                                <button class="subscribe-btn">View All Course</button>
+
+                            {{-- <button  onclick="window.location.href='add_content?id={{$course_details->id}}'" class="subscribe-btn">Add New Content</button> --}}
+
                             </div>
                         </div>
                     </div>
@@ -89,9 +91,9 @@
                             <div class="_htg451">
                                 <div class="_htg452">
                                     <h3>About Course</h3>
-                                    <ul>
-                                        <li><span class="_5f7g11"> {{$course_details->course_description}}</span></li>
-                                    </ul>
+                                    
+                                <span class="_5f7g11"> {{$course_details->course_description}}</span>
+                                   
                                 </div>
                         
                             
@@ -100,128 +102,43 @@
                         </div>
                         <div class="tab-pane fade" id="nav-courses" role="tabpanel">
                             <div class="crse_content">
-                                <h3>Course content</h3>
-                                <div class="_112456">
-                                    <ul class="accordion-expand-holder">
-                                        <li><span class="accordion-expand-all _d1452">Expand all</span></li>
-                                        <li><span class="_fgr123"> 10 lectures</span></li>
-                                        <li><span class="_fgr123">01:06:29</span></li>
-                                    </ul>
-                                </div>
-                                <div id="accordion" class="ui-accordion ui-widget ui-helper-reset">
-                                    <a href="javascript:void(0)" class="accordion-header ui-accordion-header ui-helper-reset ui-state-default ui-accordion-icons ui-corner-all">												
-                                        <div class="section-header-left">
-                                            <span class="section-title-wrapper">
-                                                <i class='uil uil-presentation-play crse_icon'></i>
-                                                <span class="section-title-text">প্রথম অধ্যায়ঃ বিভিন্ন ধরণের ফল (পার্ট ১)</span>
-                                            </span>
-                                        </div>
-                                        <div class="section-header-right">
-                                            <span class="num-items-in-section">8 lectures</span>
-                                            <span class="section-header-length">22:08</span>
-                                        </div>
-                                    </a>
-                                    <div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom">
-                                        <div class="lecture-container">
-                                            <div class="left-content">
-                                                <i class='uil uil-file icon_142'></i>
-                                                <div class="top">
-                                                    <div class="title">How to Draw Apple</div>
-                                                </div>
-                                            </div>
-                                            <div class="details">
-                                                <span class="content-summary">00:12</span>
-                                            </div>
-                                        </div>
-                                        <div class="lecture-container">
-                                            <div class="left-content">
-                                                <i class='uil uil-file icon_142'></i>
-                                                <div class="top">
-                                                    <div class="title">How to Draw Apple Banana</div>
-                                                </div>
-                                            </div>
-                                            <div class="details">
-                                                <span class="content-summary">01:42</span>
-                                            </div>
-                                        </div>
-                                        <div class="lecture-container">
-                                            <div class="left-content">
-                                                <i class='uil uil-file icon_142'></i>
-                                                <div class="top">
-                                                    <div class="title">How to Draw Mango</div>
-                                                </div>
-                                            </div>
-                                            <div class="details">
-                                                <span class="content-summary">00:51</span>
-                                            </div>
-                                        </div>
-         
-                                    
-                                
-                                
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="table-responsive mt-50 mb-0">
+                                        <table class="table ucp-table">
+                                            <thead class="thead-s">
+                                                <tr>
+                                                    <th class="cell-ta">Video Title</th>
+                                                    <th class="text-center" scope="col">Video Time Duration</th>
+                                                    <th class="text-center" scope="col">Video Description</th>
+                                                    <th class="text-center" scope="col">Edit</th>
+                                                    <th class="text-center" scope="col">Delete</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    
+                                                @foreach ($videoes as $video)
+
+                                                <tr>
+                                                        
+                                                    <td class="cell-ta">{{$video->video_title}}</td>
+                                                    <td class="text-center">{{$video->video_time_duration}} Minutes</td>
+                                                    <td class="text-center">{{$video->video_description}}</td>
+                                                    <td class="text-center">
+                                                  <a href="#" title="Edit" class="gray-s"><i class="uil uil-edit-alt"></i></a>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <a href="#" title="Delete" class="gray-s"><i class="uil uil-trash-alt"></i></a>
+                                                    </td>
+
+                                                </tr> 
+                                                @endforeach
+
+                                               
+                
+                                            </tbody>
+                                        </table>
                                     </div>
-                                    <a href="javascript:void(0)" class="accordion-header ui-accordion-header ui-helper-reset ui-state-default ui-accordion-icons ui-corner-all">												
-                                        <div class="section-header-left">
-                                            <span class="section-title-wrapper">
-                                                <i class='uil uil-presentation-play crse_icon'></i>
-                                                <span class="section-title-text">দ্বিতীয় অধ্যায়ঃ বিভিন্ন ধরণের ফল (পার্ট ২)</span>
-                                            </span>
-                                        </div>
-                                        <div class="section-header-right">
-                                            <span class="num-items-in-section">6 lectures</span>
-                                            <span class="section-header-length">27:26</span>
-                                        </div>
-                                    </a>
-                                    <div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom">
-                                        <div class="lecture-container">
-                                            <div class="left-content">
-                                                <i class='uil uil-play-circle icon_142'></i>
-                                                <div class="top">
-                                                    <div class="title">How to Draw Papaya</div>
-                                                </div>
-                                            </div>
-                                            <div class="details">
-                                            <a href="#" class="preview-text">Preview</a>
-                                                <span class="content-summary">01.40</span>
-                                            </div>
-                                        </div>
-                                        <div class="lecture-container">
-                                            <div class="left-content">
-                                                <i class='uil uil-file icon_142'></i>
-                                                <div class="top">
-                                                    <div class="title">How to Draw Pineapple</div>
-                                                </div>
-                                            </div>
-                                            <div class="details">
-                                                <span class="content-summary">00:30</span>
-                                            </div>
-                                        </div>
-                                        <div class="lecture-container">
-                                            <div class="left-content">
-                                                <i class='uil uil-play-circle icon_142'></i>
-                                                <div class="top">
-                                                    <div class="title">How to Draw Watermilon</div>
-                                                </div>
-                                            </div>
-                                            <div class="details">
-                                                <span class="content-summary">03:11</span>
-                                            </div>
-                                        </div>
-                                       
-                                    <a href="javascript:void(0)" class="accordion-header ui-accordion-header ui-helper-reset ui-state-default ui-accordion-icons ui-corner-all">												
-                                        <div class="section-header-left">
-                                            <span class="section-title-wrapper">
-                                                <i class='uil uil-presentation-play crse_icon'></i>
-                                                <span class="section-title-text">Introduction to HTML</span>
-                                            </span>
-                                        </div>
-                                        <div class="section-header-right">
-                                            <span class="num-items-in-section">13 lectures</span>
-                                            <span class="section-header-length">58:55</span>
-                                        </div>
-                                    </a>
-                                    
-                                    								
                                 </div>
                             </div>
                         </div>
@@ -369,7 +286,6 @@
     </div>
 </div>
 
-<script></script>
 
 {{-- OFK MAIN BODY END --}}
 @endsection

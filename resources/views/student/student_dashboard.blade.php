@@ -9,69 +9,131 @@
     <div class="sa4d25">
         <div class="container-fluid">			
             <div class="row">
-                <div class="col-lg-12">	
-                    <h2 class="st_title"><i class="uil uil-apps"></i> Instructor Dashboard</h2>
+               
+                
+                <div class="col-lg-12 col-md-12">
+                    <table class="table ucp-table">
+                        <thead class="thead-s">
+                            <tr>
+                                <th class="cell-ta">Registration Number</th>
+                                <th class="cell-ta">Name</th>
+                                <th class="text-center" >Email</th>
+                                <th class="text-center" >Password</th>
+                                <th class="text-center" >Edit</th>
+                                <th class="text-center" >Delete</th>
+    
+                            </tr>
+                        </thead>
+                        <tbody>
+                                
+                            {{-- @foreach ($users as $user)  --}}
+    
+                             <tr>
+                                <td class="cell-ta">OFK{{$student->id}}</td>
+                                <td class="cell-ta">{{$student->name}}</td>
+                                <td class="text-center">{{$student->email}}</td>
+                                <td class="text-center">{{$student->password}}</td>
+                                <td class="text-center">
+                                    <button type="button" class="btn btn-danger" class="uil uil-trash-alt" data-dismiss="modal" data-target="#editModal" onClick="update_data" >Update</button>
+                                </td>
+                                <td class="text-center">
+                                <button type="button" class="btn btn-danger" class="uil uil-trash-alt" data-dismiss="modal" data-target="#deleteModal" onClick="update_data" >Delete</button>
+
+                                </td>
+    
+                            </tr>  
+                             {{-- @endforeach --}}
+    
+                        </tbody>
+                    </table>
                 </div>
-                <div class="col-xl-3 col-lg-6 col-md-6">
-                    <div class="card_dash">
-                        <div class="card_dash_left">
-                            <h5>Total Sales</h5>
-                            <h2>$350</h2>
-                            <span class="crdbg_1">New $50</span>
-                        </div>
-                        <div class="card_dash_right">
-                            <img src="images/dashboard/achievement.svg" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-6">
-                    <div class="card_dash">
-                        <div class="card_dash_left">
-                            <h5>Total Enroll</h5>
-                            <h2>1500</h2>
-                            <span class="crdbg_2">New 125</span>
-                        </div>
-                        <div class="card_dash_right">
-                            <img src="images/dashboard/graduation-cap.svg" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-6">
-                    <div class="card_dash">
-                        <div class="card_dash_left">
-                            <h5>Total Courses</h5>
-                            <h2>130</h2>
-                            <span class="crdbg_3">New 5</span>
-                        </div>
-                        <div class="card_dash_right">
-                            <img src="images/dashboard/online-course.svg" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-6">
-                    <div class="card_dash">
-                        <div class="card_dash_left">
-                            <h5>Total Students</h5>
-                            <h2>2650</h2>
-                            <span class="crdbg_4">New 245</span>
-                        </div>
-                        <div class="card_dash_right">
-                            <img src="images/dashboard/knowledge.svg" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="card_dash1">
-                        <div class="card_dash_left1">
-                            <i class="uil uil-book-alt"></i>
-                            <h1>Jump Into Course Creation</h1>
-                        </div>
-                        <div class="card_dash_right1">
-                            <button class="create_btn_dash" onclick="window.location.href = 'create_new_course.html';">Create Your Course</button>
-                        </div>
-                    </div>
-                </div>					
             </div>
+
+            </div>
+
+            <div class="modal" id="editModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+          
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h4 class="modal-title">User Information</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+          
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                      <div class="form-group">
+                          <label>Enter Your Name</label>
+                          <input type="text" id="name" placeholder="Enter Your Name" class="form-control">
+          
+                      </div>
+          
+                       <div class="form-group">
+                          <label>Enter Your Email</label>
+                          <input type="text" id="email" placeholder="Enter Your Roll" class="form-control">
+                      </div>
+          
+                       <div class="form-group">
+                          <label>Enter Your Password</label>
+                          <input type="text" id="student_class" placeholder="Enter Your Class" class="form-control">
+          
+                      </div>
+          
+                    </div>
+          
+          
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger"  data-toggle="modal" data-dismiss="modal" onClick="update_data" >Update</button>
+                    </div>
+          
+                  </div>
+                </div>
+              </div>
+
+
+              
+            <div class="modal" id="deleteModal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+          
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h4 class="modal-title">User Information</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+          
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                      <div class="form-group">
+                          <label>Enter Your Name</label>
+                          <input type="text" id="name" placeholder="Enter Your Name" class="form-control">
+          
+                      </div>
+          
+                       <div class="form-group">
+                          <label>Enter Your Email</label>
+                          <input type="text" id="email" placeholder="Enter Your Roll" class="form-control">
+                      </div>
+          
+                       <div class="form-group">
+                          <label>Enter Your Password</label>
+                          <input type="text" id="student_class" placeholder="Enter Your Class" class="form-control">
+          
+                      </div>
+          
+                    </div>
+          
+          
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-dismiss="modal" onClick="update_data" >Update</button>
+                    </div>
+          
+                  </div>
+                </div>
+              </div>
+
+</div>
            
         </div>
     </div>

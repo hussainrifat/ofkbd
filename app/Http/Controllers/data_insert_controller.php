@@ -9,6 +9,8 @@ use App\otp;
 use App\std_registration;
 use App\User;
 use App\course;
+use App\video;
+
 
 use Session;
 // use Hash;
@@ -71,6 +73,12 @@ class data_insert_controller extends Controller
         ]);
         $user_id = User::where("email",$email)->first()->id;
         Session::put('user_id',$user_id);
+      
+
+
+      
+
+
         $this->send_otp($user_id);
 
 
@@ -174,7 +182,15 @@ class data_insert_controller extends Controller
         if (user::where('contact_number', $contact_number)->where('password', $password)->first()) {
 
             $user_id= User::where("contact_number",$contact_number)->first()->id;
+            $user_email= User::where("contact_number",$contact_number)->first()->email;
+            $user_name= User::where("contact_number",$contact_number)->first()->name;
+
             Session::put('user_id',$user_id);
+            Session::put('user_name',$user_name);
+            Session::put('user_email',$user_email);
+            file_put_contents("session.txt",$user_name);
+
+
 
             if (ins_registraion::where('user_id', $user_id)->first()) {
                 echo "instructor";
@@ -226,9 +242,26 @@ class data_insert_controller extends Controller
 
     }
 
-        
 
-           
+    public function insert_content(Request $request){
+
+        $video_name=$request->video_name;
+        $video_link=$request->video_link;
+        $video_description= $request->video_description;
+        $video_time_duration= $request->video_time_duration;
+        $course_id=$request->course_id;
+
+
+                   file_put_contents("video.txt",$course_id);
+
+                   video::create([
+                    'video_title'=>$video_name, 
+                    'video_embed'=>$video_link, 
+                    'video_description'=>$video_description, 
+                    'video_time_duration'=>$video_time_duration, 
+                    'course_id'=>$course_id, 
+                    ]);
+                }
 
 
 

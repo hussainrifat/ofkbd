@@ -47,24 +47,7 @@
 			<a href="{{url('student_home')}}"><img src="assets\frontend\images\logo.png" style="width:80px" alt=""></a>
 			<a href="student_home"><img class="logo-inverse" src="assets\frontend\images\ct_logo.svg" alt=""></a>
 		</div>
-		<div class="top-category">
-			<div class="ui compact menu cate-dpdwn">
-				<div class="ui simple dropdown item">
-					<a href="#" class="option_links p-0" title="categories"><i class="uil uil-apps"></i></a>
-					<div class="menu dropdown_category5">
-						<a href="#" class="item channel_item">Art</a>
-						<a href="#" class="item channel_item">Craft</a>
-						<a href="#" class="item channel_item">Calligraphy</a>
-						<a href="#" class="item channel_item">Rubiks Cube Solving</a>
-						<a href="#" class="item channel_item">Case Solving</a>
-						<a href="#" class="item channel_item">Programming</a>
-						<a href="#" class="item channel_item">Robotics</a>
-						<a href="#" class="item channel_item">Web Design</a>
-		
-					</div>
-				</div>
-			</div>
-		</div>
+	
 		<div class="search120">
 			<div class="ui search">
 			  <div class="ui left icon input swdh10">
@@ -91,15 +74,15 @@
 								<img src="assets\frontend\images\hd_dp.jpg" alt="">
 								<div class="pd_content">
 									<div class="rhte85">
-										<h6>Joginder Singh</h6>
+										<h6>{{Session::get('user_name')}}</h6>
 										<div class="mef78" title="Verify">
 											<i class='uil uil-check-circle'></i>
 										</div>
 									</div>
-									<span>gambol943@gmail.com</span>
+									<h6>{{Session::get('user_email')}}</h6>
 								</div>							
 							</div>
-							<a href="my_instructor_profile_view.html" class="dp_link_12">View Instructor Profile</a>						
+							<a href="{{url('student_dashboard')}}" class="dp_link_12">View Student Profile</a>						
 						</div>
 						<div class="night_mode_switch__btn">
 							<a href="#" id="night-mode" class="btn-night-mode">
@@ -109,8 +92,6 @@
 								</span>
 							</a>
 						</div>
-						<a href="{{url('student_dashboard')}}" class="item channel_item">OFK dashboard</a>						
-						<a href="{{url('student_feedback')}}" class="item channel_item">Send Feedback</a>
 						<a href="{{url('sign_out')}}" class="item channel_item">Sign Out</a>
 					</div>
 				</li>
@@ -137,7 +118,7 @@
 					<li class="menu--item">
 						<a href="{{url('student_dashboard')}}" class="menu--link" title="Dashboard">
 							<i class="uil uil-apps menu--icon"></i>
-							<span class="menu--label">Student Dashboard</span>
+							<span class="menu--label">Student Profile</span>
 						</a>
 					</li>
 

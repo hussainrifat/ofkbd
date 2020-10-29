@@ -112,8 +112,42 @@ $(function(){
         alert("Contact Number and Password Doesn't Matched")
       }
     });
+  });
 
 
+  $("#admin_login").on('click',function()
+  {
+
+    var contact_number=$("#contact_number").val();
+    var password=$("#password").val();
+    var formdata= new FormData();
+    formdata.append('contact_number',contact_number);
+    formdata.append('password',password);
+
+    $.ajax({
+      processData:false,
+      contentType:false,
+      data:formdata,
+      type:"post",
+      url:"admin_login_check",
+      success:function(data)
+      {
+
+        var msg= $.trim(data);
+        if(msg=='student')
+        {
+          window.location.href ="student_home"
+        }
+
+        else if(msg=='instructor')
+        {
+          window.location.href ="instructor_home"
+        }
+
+        else 
+        alert("Contact Number and Password Doesn't Matched")
+      }
+    });
   });
 
   $("#otp").on('click',function()
@@ -191,31 +225,34 @@ $(function(){
     $("#add_content").on('click',function()
     {
 
+    var course_id= $("#hidden_input").val();
     var video_name=$("#video_name").val();
+    var video_link=$("#video_embed").val();
     var video_description=$("#video_description").val();
-    var course_time_duration=$("#course_time_duration").val();
-    var course_category=$("#course_category").val();
-    // alert(course_name+' '+course_description+' '+course_time_duration+' '+course_category+' '+course_image);
+    var video_time_duration=$("#video_time_duration").val();
+    // alert(course_id);
 
 
 
     var formdata= new FormData();
-    formdata.append('course_name',course_name);
-    formdata.append('course_description',course_description);
-    formdata.append('course_time_duration',course_time_duration);
-    formdata.append('course_category',course_category);
-    formdata.append('course_image',$('#course_image')[0].files[0]);
+    formdata.append('video_name',video_name);
+    formdata.append('video_link',video_link);
+    formdata.append('video_description',video_description);
+    formdata.append('video_time_duration',video_time_duration);
+    formdata.append('course_id',course_id);
+
 
     $.ajax({
       processData:false,
       contentType:false,
       data:formdata,
       type:"post",
-      url:"create_course",
+      url:"insert_content",
       success:function(data)
       {
-        alert("Your Course Created Succesfully");
-        window.location.href ="add_content"
+        alert("Your Content Added Succesfully");
+      
+        location.reload();
       }
     });
    
@@ -286,6 +323,52 @@ function delete_course(id){
 
 }
 
+
+
+function editUserInfo(id){
+  var formdata= new FormData;
+  formdata.append('id',id);
+
+  $.ajax({
+    processData:false,
+    contentType:false,
+    data:formdata,
+    type:"post",
+    url:"editSudentInfo",
+    success:function(data)
+    {
+      a = JSON.parse(data)
+      id = $("#edit-student-id").val(a.id);
+      name = $("#edit-student-name").val(a.name);
+      email = $("#edit-student-email").val(a.email);
+      student_class = $("#edit-student-student_class").val(a.class);
+      contact_number = $("#edit-student-contact_number").val(a.contact_number);
+      student_institute = $("#edit-student-student_institute").val(a.institute);
+    }
+  });
+
+}
+
+function updateUserInfo() {
+  var formdata= new FormData;
+  formdata.append('id',$("#edit-student-id").val());
+  formdata.append('name',$("#edit-student-name").val());
+  formdata.append('email',$("#edit-student-email").val());
+  formdata.append('class',$("#edit-student-student_class").val());
+  formdata.append('contact_number',$("#edit-student-contact_number").val());
+  formdata.append('institute',$("#edit-student-student_institute").val());
+  $.ajax({
+    processData:false,
+    contentType:false,
+    data:formdata,
+    type:"post",
+    url:"updateSudentInfo",
+    success:function(data)
+    {
+      location.reload();
+    }
+  });
+}
 
 
 

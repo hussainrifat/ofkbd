@@ -47,31 +47,48 @@
                             <img src="images/dashboard/online-course.svg" alt="">
                         </div>
                     </div>
+                </div>	
+                
+                
+                <div class="col-lg-12 col-md-12">
+                    <table class="table ucp-table">
+                        <thead class="thead-s">
+                            <tr>
+                                <th class="cell-ta">Registration Number</th>
+                                <th class="cell-ta">Name</th>
+                                <th class="text-center" >Email</th>
+                                <th class="text-center" >Password</th>
+                                <th class="text-center" >Edit</th>
+                                <th class="text-center" >Delete</th>
+    
+                            </tr>
+                        </thead>
+                        <tbody>
+                                
+                            {{-- @foreach ($users as $user)  --}}
+    
+                             <tr>
+                                <td class="cell-ta">OFK{{$instructor->id}}</td>
+                                <td class="cell-ta">{{$instructor->name}}</td>
+                                <td class="text-center">{{$instructor->email}}</td>
+                                <td class="text-center">{{$instructor->password}}</td>
+                                <td class="text-center">
+                              <a href="#" title="Edit" class="gray-s"><i class="uil uil-edit-alt"></i></a>
+                                </td>
+                                <td class="text-center">
+                                    <a href="#" title="Delete" class="gray-s"><i class="uil uil-trash-alt"></i></a>
+                                </td>
+    
+                            </tr>  
+                             {{-- @endforeach --}}
+    
+                        </tbody>
+                    </table>
                 </div>
-                <div class="col-xl-3 col-lg-6 col-md-6">
-                    <div class="card_dash">
-                        <div class="card_dash_left">
-                            <h5>Total Students</h5>
-                            <h2>2650</h2>
-                            <span class="crdbg_4">New 245</span>
-                        </div>
-                        <div class="card_dash_right">
-                            <img src="images/dashboard/knowledge.svg" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="card_dash1">
-                        <div class="card_dash_left1">
-                            <i class="uil uil-book-alt"></i>
-                            <h1>Jump Into Course Creation</h1>
-                        </div>
-                        <div class="card_dash_right1">
-                            <button class="create_btn_dash" onclick="window.location.href = 'create_new_course.html';">Create Your Course</button>
-                        </div>
-                    </div>
-                </div>					
             </div>
+
+
+            
            
         </div>
     </div>

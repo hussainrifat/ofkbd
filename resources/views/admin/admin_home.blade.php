@@ -2,73 +2,115 @@
 @section('admin_content')
 
 
-<head>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-  
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
-</head>
 <div class="sa4d25">
     <div class="container-fluid">			
         <div class="row">
-            <div class="col-xl-12 col-lg-12">
+                    <div class="crse_content">
+                        <div class="col-lg-12 col-md-12">
+                                <table class="table ucp-table">
+                                    <thead class="thead-s">
+                                        <tr>
+                                            <th class="cell-ta">Name</th>
+                                            <th class="text-center" >Email</th>
+                                            <th class="text-center">Contact Number</th>
+                                            <th class="text-center">Student Class</th>
+                                            <th class="text-center">Student Institute</th>
+                                            <th class="text-center" >Edit</th>
+                                            <th class="text-center" >Delete</th>
 
-                <div class="page-container">
-                    <div class="main-content">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4>Data Table</h4>
-                                <p>DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, built upon the foundations of progressive enhancement, that adds all of these advanced features to any HTML table. Below is an example of zero configuration.</p>
-                                <div class="m-t-25">
-                                    <table id="student_table" class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Student Name</th>
-                                                <th>Email</th>
-                                                <th>Contact</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                           
-                                          
-                                        </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                </div>
-                               
-                               
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                            
+                                        @foreach ($users as $user) 
+
+                                         <tr>
+                                                
+                                            <td class="cell-ta">{{$user->name}}</td>
+                                            <td class="text-center">{{$user->email}} </td>
+                                            <td class="text-center">{{$user->contact_number}}</td>
+                                            <td class="text-center">{{$user->class}}</td>
+                                            <td class="text-center">{{$user->institute}}</td>
+
+
+                                            <td class="text-center">
+
+                                                    <button onclick="editUserInfo({{$user->id}})"  data-toggle="modal" data-target="#editModal" title="Edit" class="gray-s"><i class="uil uil-edit-alt"></i></button>
+                                            </td>
+                                            <td class="text-center">
+                                                <a href="#" title="Delete" class="gray-s"><i class="uil uil-trash-alt"></i></a>
+                                            </td>
+
+                                        </tr>  
+                                         @endforeach
+        
+                                    </tbody>
+                                </table>
                             </div>
-                        </div>
-    
-                    </div>
-                </div>
-    
-       
-    
-               
+
+
+                            <div class="modal" id="editModal">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                          
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                      <h4 class="modal-title">User Information</h4>
+                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                          
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                      <div class="form-group">
+                                          <label>Enter Your id</label>
+                                          <input type="text" id="edit-student-id" placeholder="Enter Your ID" class="form-control">
+                          
+                                      </div>
+                                      <div class="form-group">
+                                          <label>Enter Your Name</label>
+                                          <input type="text" id="edit-student-name" placeholder="Enter Your Name" class="form-control">
+                          
+                                      </div>
+                          
+                                       <div class="form-group">
+                                          <label>Enter Your Email</label>
+                                          <input type="text" id="edit-student-email" placeholder="Enter Your Roll" class="form-control">
+                                      </div>
+                                       <div class="form-group">
+                                          <label>Enter Your Contact Number</label>
+                                          <input type="text" id="edit-student-contact_number" placeholder="Enter Contact Number" class="form-control">
+                                      </div>
+                          
+                                       <div class="form-group">
+                                          <label>Enter Your Class</label>
+                                          <input type="text" id="edit-student-student_class" placeholder="Enter Your Class" class="form-control">
+                          
+                                      </div>
+
+                                       <div class="form-group">
+                                          <label>Enter Your Institute</label>
+                                          <input type="text" id="edit-student-student_institute" placeholder="Enter Your Institute" class="form-control">
+                          
+                                      </div>
+                          
+                                    </div>
+                          
+                          
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-danger" onclick="updateUserInfo()"  >Update</button>
+                                    </div>
+                          
+                                  </div>
+                                </div>
+                              </div>
+                
             </div>
           
 
         </div>
     </div>
-</div>
+</div> 
 
 
-<script>
-    $(document).ready( function () {
-    $('#student_table').DataTable();
-} );
-</script>
 {{-- OFK MAIN BODY END --}}
 @endsection

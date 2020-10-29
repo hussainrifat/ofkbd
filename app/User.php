@@ -8,7 +8,16 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+    public function user()
+    {
+        return $this->belongsTo('App\std_registration', 'user_id', 'id');
+    }
+    
     // use Notifiable;
+    public function student()
+    {
+        return $this->belongsTo('App\std_registraion', 'user_id', 'id');
+    }
 
     /**
      * The attributes that are mass assignable.

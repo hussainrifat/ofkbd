@@ -39,25 +39,27 @@
                                                             <div class="ui search focus mt-30 lbel25">
                                                                 <label>Video Title*</label>
                                                                 <div class="ui left icon input swdh19">
-                                                                    <input class="prompt srch_explore" type="text" placeholder="Insert your lecture title." id="video_title" data-purpose="edit-course-title" maxlength="60" id="lecture[title]" value="">															
+                                                                   <?php
+                                                                    $id = $_GET['id'];
+
+                                                                    ?>
+                                                                    <input class="prompt srch_explore" type="text" placeholder="Insert your lecture title." id="video_name" data-purpose="edit-course-title" maxlength="60" id="lecture[title]" value="">	
+                                                                <input type="hidden" id="hidden_input" value="{{$id}}">														
                                                                 </div>
                                                             </div>									
                                                         </div>
                                                         <div class="col-lg-4 col-md-6">
-                                                            <div class="part_input mt-30 lbel25">
-                                                                <label>File*</label>
-                                                                <div class="input-group">
-                                                                    <div class="custom-file">
-                                                                        <input type="file" class="custom-file-input" id="video_image" onchange="videoIMG(this)">
-                                                                        <label class="custom-file-label insert_video_image_label" >No Choose file </label>
-                                                                    </div>
+                                                            <div class="ui search focus mt-30 lbel25">
+                                                                <label>Video Link*</label>
+                                                                <div class="ui left icon input swdh19">
+                                                                    <input class="prompt srch_explore" type="text" placeholder="Insert your video embed link" id="video_embed" data-purpose="edit-course-title" maxlength="60" id="lecture[title]" value="">															
                                                                 </div>
-                                                            </div>
+                                                            </div>	
                                                         </div>
                                                         <div class="ui search focus mt-30 lbel25">
                                                             <label>Time Duration*</label>
                                                             <div class="ui left icon input swdh19 swdh55">
-                                                                <input class="prompt srch_explore" type="number" min="0" id="video_duration" required="" placeholder="0">															
+                                                                <input class="prompt srch_explore" type="number" min="0" id="video_time_duration" required="" placeholder="0">															
                                                                 <div class="badge_min">Minutes</div>
                                                             </div>
                                                         </div>	
@@ -83,112 +85,27 @@
                                                         <div class="col-lg-12 col-md-12">
                                                             <button class="part_btn_save prt-sv" type="button" id="add_content">Add New Video</button>
                                                         </div>
-                                                        <div class="col-lg-12 col-md-12">
-                                                            <div class="table-responsive mt-50 mb-0">
-                                                                <table class="table ucp-table">
-                                                                    <thead class="thead-s">
-                                                                        <tr>
-                                                                            <th class="text-center" scope="col">Lecture</th>
-                                                                            <th class="cell-ta">Title</th>
-                                                                            <th class="text-center" scope="col">Volume</th>
-                                                                            <th class="text-center" scope="col">Duration</th>
-                                                                            <th class="text-center" scope="col">Page</th>
-                                                                            <th class="text-center" scope="col">File</th>
-                                                                            <th class="text-center" scope="col">Controls</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td class="text-center">1</td>
-                                                                            <td class="cell-ta">Lecture Content Title</td>
-                                                                            <td class="text-center">25</td>
-                                                                            <td class="text-center">6</td>
-                                                                            <td class="text-center">0</td>
-                                                                            <td class="text-center"><a href="#">Video</a></td>
-                                                                            <td class="text-center">
-                                                                                <a href="#" title="Edit" class="gray-s"><i class="uil uil-edit-alt"></i></a>
-                                                                                <a href="#" title="Delete" class="gray-s"><i class="uil uil-trash-alt"></i></a>
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td class="text-center">2</td>
-                                                                            <td class="cell-ta">Lecture Content Title</td>
-                                                                            <td class="text-center">25</td>
-                                                                            <td class="text-center">0</td>
-                                                                            <td class="text-center">3</td>
-                                                                            <td class="text-center"><a href="#">File</a></td>
-                                                                            <td class="text-center">
-                                                                                <a href="#" title="Edit" class="gray-s"><i class="uil uil-edit-alt"></i></a>
-                                                                                <a href="#" title="Delete" class="gray-s"><i class="uil uil-trash-alt"></i></a>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-12 col-md-12">
-                                                            <div class="save_content">
-                                                                <button class="save_content_btn" type="Submit">Save Course Content</button>
-                                                            </div>
-                                                        </div>
+                                                        
+                                                      
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="table-responsive mt-30">
-                                        <table class="table ucp-table" id="content-table">
-                                            <thead class="thead-s">
-                                                <tr>
-                                                    <th class="text-center" scope="col">Content</th>
-                                                    <th class="cell-ta">Title</th>
-                                                    <th class="text-center" scope="col">lectures</th>
-                                                    <th class="text-center" scope="col">Volume</th>
-                                                    <th class="text-center" scope="col">Duration</th>
-                                                    <th class="text-center" scope="col">Upload Date</th>
-                                                    <th class="text-center" scope="col">Files</th>
-                                                    <th class="text-center" scope="col">Controls</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="text-center">1</td>
-                                                    <td class="cell-ta">Course Content Title</td>
-                                                    <td class="text-center">5</td>
-                                                    <td class="text-center">50</td>
-                                                    <td class="text-center">15</td>
-                                                    <td class="text-center">6 April 2019</td>
-                                                    <td class="text-center"><a href="#">View</a></td>
-                                                    <td class="text-center">
-                                                        <a href="#" title="Edit" class="gray-s"><i class="uil uil-edit-alt"></i></a>
-                                                        <a href="#" title="Delete" class="gray-s"><i class="uil uil-trash-alt"></i></a>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                    
                                  </div>
                             </div>
                             
                            
                         </div>
-                        <div class="step-footer step-tab-pager">
-                            <button data-direction="finish" class="btn btn-default steps_btn">Submit for Review</button>
-                        </div>
+                      
                 </div>
             </div>
         </div>
     </div> 
 
 
-    <script>
-        function fetch_expert()
-        {
-            var msg = $data;
-            $("#expertise").html(msg);
-
-        }
-    </script>
+  
 
     {{-- <script src="{{asset('assets')}}/frontend\js/jquery-steps.min.js"></script>
 

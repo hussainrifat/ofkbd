@@ -8,4 +8,5 @@ class std_registration extends Model
 {
     protected $fillable = [
        'user_id','std_class', 'std_institute'];
+
 }

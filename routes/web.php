@@ -23,6 +23,9 @@ Route::get('/main','CustomController@main');
 Route::get('otp','CustomController@otp');
 Route::get('sign_out','CustomController@sign_out');
 
+// Layout Pages
+Route::get('instructor_home_layout','CustomController@instructor_home_layout');
+
 
 // Instructor Pages
 Route::get('instructor_home','CustomController@instructor_home');
@@ -33,7 +36,7 @@ Route::get('instructor_courses','CustomController@instructor_courses');
 
 
 // Admin Pages
-Route::get('admin_home','CustomController@admin_home');
+Route::get('admin_home','admin_controller@admin_home');
 
 
 // Student Pages
@@ -44,6 +47,7 @@ Route::get('student_dashboard','CustomController@student_dashboard');
 
 // Course Pages
 Route::get('add_content','CustomController@add_content');
+Route::post('insert_content','data_insert_controller@insert_content');
 Route::get('courses','CustomController@courses');
 Route::get('course','CustomController@course');
 // Route::get('course_details','CustomController@course_details');
@@ -76,6 +80,11 @@ Route::post('login_check','data_insert_controller@login_check');
 // Adding Video & Courses
 Route::post('create_course','data_insert_controller@create_course');
 
+
+
+// Edit And Update
+Route::post('editSudentInfo','admin_controller@editstudentinfo');
+Route::post('updateSudentInfo','admin_controller@updateSudentInfo');
 
 
 
