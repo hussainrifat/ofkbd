@@ -118,10 +118,10 @@ $(function(){
   $("#admin_login").on('click',function()
   {
 
-    var contact_number=$("#contact_number").val();
+    var username=$("#username").val();
     var password=$("#password").val();
     var formdata= new FormData();
-    formdata.append('contact_number',contact_number);
+    formdata.append('username',username);
     formdata.append('password',password);
 
     $.ajax({
@@ -134,18 +134,13 @@ $(function(){
       {
 
         var msg= $.trim(data);
-        if(msg=='student')
+        if(msg=='admin')
         {
-          window.location.href ="student_home"
-        }
-
-        else if(msg=='instructor')
-        {
-          window.location.href ="instructor_home"
+          window.location.href ="admin_all_students"
         }
 
         else 
-        alert("Contact Number and Password Doesn't Matched")
+        alert("User Name and Password Doesn't Matched")
       }
     });
   });
@@ -324,8 +319,8 @@ function delete_course(id){
 }
 
 
-
-function editUserInfo(id){
+// Admin Student Edit, Delete Funcion
+  function editUserInfo(id){
   var formdata= new FormData;
   formdata.append('id',id);
 
@@ -334,7 +329,7 @@ function editUserInfo(id){
     contentType:false,
     data:formdata,
     type:"post",
-    url:"editSudentInfo",
+    url:"editStudentInfo",
     success:function(data)
     {
       a = JSON.parse(data)
@@ -362,7 +357,7 @@ function updateUserInfo() {
     contentType:false,
     data:formdata,
     type:"post",
-    url:"updateSudentInfo",
+    url:"updateStudentInfo",
     success:function(data)
     {
       location.reload();
@@ -370,6 +365,100 @@ function updateUserInfo() {
   });
 }
 
+
+function deleteUserInfo(id){
+
+  var user_id=id;
+  
+  var formdata= new FormData;
+  formdata.append('user_id',user_id);
+
+  $.ajax({
+    processData:false,
+    contentType:false,
+    data:formdata,
+    type:"post",
+    url:"deleteStudentInfo",
+    success:function(data)
+    {
+      window.location.href ="admin_all_students"
+      alert("Are You Sure You Want to Delete This Course?");
+
+    }
+  });
+
+}
+
+
+// Admin Instructor Edit, Delete Funcion
+
+function editInstructorInfo(id){
+
+  var formdata= new FormData;
+  formdata.append('id',id);
+
+  $.ajax({
+    processData:false,
+    contentType:false,
+    data:formdata,
+    type:"post",
+    url:"editInstructorInfo",
+    success:function(data)
+    {
+      a = JSON.parse(data)
+      id = $("#edit-instructor-id").val(a.id);
+      name = $("#edit-instructor-name").val(a.name);
+      email = $("#edit-instructor-email").val(a.email);
+      contact_number = $("#edit-instructor-contact_number").val(a.contact_number);
+    }
+  });
+
+}
+
+
+function updateInstructorInfo() {
+  var formdata= new FormData;
+  formdata.append('id',$("#edit-instructor-id").val());
+  formdata.append('name',$("#edit-instructor-name").val());
+  formdata.append('email',$("#edit-instructor-email").val());
+  formdata.append('contact_number',$("#edit-instructor-contact_number").val());
+  
+  $.ajax({
+    processData:false,
+    contentType:false,
+    data:formdata,
+    type:"post",
+    url:"updateInstructorInfo",
+    success:function(data)
+    {
+      location.reload();
+    }
+  });
+}
+
+
+function deleteInstructorInfo(id){
+
+  var user_id=id;
+  
+  var formdata= new FormData;
+  formdata.append('user_id',user_id);
+
+  $.ajax({
+    processData:false,
+    contentType:false,
+    data:formdata,
+    type:"post",
+    url:"deleteInstructorInfo",
+    success:function(data)
+    {
+      window.location.href ="admin_all_instructors"
+      alert("Are You Sure You Want to Delete This Instructor Informatio?");
+
+    }
+  });
+
+}
 
 
 

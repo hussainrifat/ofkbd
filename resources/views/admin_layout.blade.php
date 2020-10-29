@@ -44,7 +44,7 @@
 			<span class="collapse_menu--label"></span>
 		</button>
 		<div class="main_logo" id="logo">
-			<a href="{{url('student_home')}}"><img src="assets\frontend\images\logo.png" style="width:80px" alt=""></a>
+			<a href="{{url('admin_all_students')}}"><img src="assets\frontend\images\logo.png" style="width:80px" alt=""></a>
 			<a href="student_home"><img class="logo-inverse" src="assets\frontend\images\ct_logo.svg" alt=""></a>
 		</div>
 
@@ -59,30 +59,27 @@
 		<div class="header_right">
 			<ul>
 			
-				<li>
-					<a href="{{url('donate_now')}}" class="upload_btn" title="Donate Now">Donate Now</a>
-				</li>
+			
 			
 				
 				<li class="ui dropdown">
 					<a href="#" class="opts_account" title="Account">
-						<img src="assets\frontend\images\hd_dp.jpg" alt="">
+						<img src="assets\frontend\images\user.png" alt="">
 					</a>
 					<div class="menu dropdown_account">
 						<div class="channel_my">
 							<div class="profile_link">
-								<img src="assets\frontend\images\hd_dp.jpg" alt="">
+								<img src="assets\frontend\images\user.png" alt="">
 								<div class="pd_content">
 									<div class="rhte85">
-										<h6>Joginder Singh</h6>
+										<h6>admin</h6>
 										<div class="mef78" title="Verify">
 											<i class='uil uil-check-circle'></i>
 										</div>
 									</div>
-									<span>gambol943@gmail.com</span>
+									<span>admin@mail.com</span>
 								</div>							
 							</div>
-							<a href="my_instructor_profile_view.html" class="dp_link_12">View Instructor Profile</a>						
 						</div>
 						<div class="night_mode_switch__btn">
 							<a href="#" id="night-mode" class="btn-night-mode">
@@ -92,8 +89,6 @@
 								</span>
 							</a>
 						</div>
-						<a href="{{url('student_dashboard')}}" class="item channel_item">OFK dashboard</a>						
-						<a href="{{url('student_feedback')}}" class="item channel_item">Send Feedback</a>
 						<a href="{{url('sign_out')}}" class="item channel_item">Sign Out</a>
 					</div>
 				</li>
@@ -110,29 +105,24 @@
 		<div class="left_section menu_left" id="js-menu" >
 			<div class="left_section">
 				<ul>
-					<li class="menu--item">
-						<a href="{{url('admin_home')}}" class="menu--link" title="Home">
-							<i class='uil uil-home-alt menu--icon'></i>
-							<span class="menu--label">Home</span>
-						</a>
-					</li>
+				
 			
 					<li class="menu--item">
-						<a href="{{url('admin_dashboard')}}" class="menu--link" title="Dashboard">
-							<i class="uil uil-apps menu--icon"></i>
+						<a href="{{url('admin_all_students')}}" class="menu--link" title="Dashboard">
+							<i class='uil uil-home-alt menu--icon'></i>
 							<span class="menu--label">All Student</span>
 						</a>
                     </li>
                     
                     <li class="menu--item">
-						<a href="{{url('admin_dashboard')}}" class="menu--link" title="Dashboard">
+						<a href="{{url('admin_all_instructors')}}" class="menu--link" title="Dashboard">
 							<i class="uil uil-apps menu--icon"></i>
 							<span class="menu--label">All Instructors</span>
 						</a>
 					</li>
 
 					<li class="menu--item">
-						<a href="{{url('courses')}}" class="menu--link" title="Courses">
+						<a href="{{url('admin_all_courses')}}" class="menu--link" title="Courses">
 							<i class='uil uil-book-alt menu--icon'></i>
 							<span class="menu--label">All Courses</span>
 						</a>
@@ -141,48 +131,16 @@
 
 
 					<li class="menu--item">
-						<a href="instructor_all_reviews.html" class="menu--link" title="Reviews">
+						<a href="{{url('admin_all_reviews')}}" class="menu--link" title="Reviews">
 						  <i class='uil uil-star menu--icon'></i>
 						  <span class="menu--label">All Reviews</span>
 						</a>
 					</li>
 
-					<li class="menu--item">
-						<a href="instructor_verification.html" class="menu--link" title="Verification">
-						  <i class='uil uil-check-circle menu--icon'></i>
-						  <span class="menu--label">Verification</span>
-						</a>
-					</li>
-
-					
-					
-	
-		
-					<li class="menu--item">
-						<a href="saved_courses.html" class="menu--link" title="Saved Courses">
-						  <i class="uil uil-heart-alt menu--icon"></i>
-						  <span class="menu--label">Saved Courses</span>
-						</a>
-					</li>
-				
 				</ul>
 			</div>
 
 
-		
-
-
-			<div class="left_section pt-2">
-				<ul>
-					
-					<li class="menu--item">
-						<a href="feedback.html" class="menu--link" title="Send Feedback">
-							<i class='uil uil-comment-alt-exclamation menu--icon'></i>
-							<span class="menu--label">Send Feedback</span>
-						</a>
-					</li>
-				</ul>
-			</div>
 
 
 			<div class="left_footer">
@@ -201,44 +159,7 @@
 	<div class="wrapper">
 		@yield('admin_content')
 
-		<footer class="footer mt-30">
-			<div class="container">
-				<div class="row">
-					
-					<div class="col-lg-12">
-						<div class="footer_bottm">
-							<div class="row">
-								<div class="col-md-6">
-									<ul class="fotb_left">
-										<li>
-											<a href="{{url('instructor_home')}}">
-												<div class="footer_logo">
-													<img src="assets\frontend\images\logo1.svg" alt="">
-												</div>
-											</a>
-										</li>
-										<li>
-											<p>© 2020 <strong>OFK</strong>. All Rights Reserved.</p>
-										</li>
-									</ul>
-								</div>
-								<div class="col-md-6">
-									<div class="edu_social_links">
-										<a href="#"><i class="fab fa-facebook-f"></i></a>
-										<a href="#"><i class="fab fa-twitter"></i></a>
-										<a href="#"><i class="fab fa-google-plus-g"></i></a>
-										<a href="#"><i class="fab fa-linkedin-in"></i></a>
-										<a href="#"><i class="fab fa-instagram"></i></a>
-										<a href="#"><i class="fab fa-youtube"></i></a>
-										<a href="#"><i class="fab fa-pinterest-p"></i></a>
-									</div>
-								</div>		
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</footer>
+		
 	</div>
 	<!-- Body End -->
 

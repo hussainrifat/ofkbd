@@ -8,15 +8,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link href="{{asset('assets')}}/css/util.css?{{time()}}" rel="stylesheet">
 
-
-
-{{-- <script src="{asset('assets')}}/js\rejistrationjquery.min.js"></script>
-<script src="{asset('assets')}}/js\registrationbootstrap.min.js"></script>
-<script src="{asset('assets')}}/registrationbootstrap2.min.css"></script> --}}
-
-
 </head>
-
 
 
 <body>
@@ -28,7 +20,7 @@
 			<div class="agileits-top">
                 <p style="font-size: 30px;font-weight:600">Hi Admin! Good to see you again! </p>
 				<form action="#" method="post">
-					<input class="text email" type="number" id="contact_number" placeholder="Enter Your Number" required="">
+					<input class="text email" type="text" id="username" placeholder="Enter Your User Name" required="">
 					<input class="text" type="password" id="password" placeholder="Password" required="">
 					<div class="wthree-text">
 					

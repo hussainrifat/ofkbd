@@ -6,6 +6,7 @@
     <div class="container-fluid">			
         <div class="row">
                     <div class="crse_content">
+                        <h1>Instructor Information</h1>
                         <div class="col-lg-12 col-md-12">
                                 <table class="table ucp-table">
                                     <thead class="thead-s">
@@ -13,31 +14,27 @@
                                             <th class="cell-ta">Name</th>
                                             <th class="text-center" >Email</th>
                                             <th class="text-center">Contact Number</th>
-                                            <th class="text-center">Student Class</th>
-                                            <th class="text-center">Student Institute</th>
-                                            <th class="text-center" >Edit</th>
+                                            <th class="text-center" >Edit Information</th>
                                             <th class="text-center" >Delete</th>
 
                                         </tr>
                                     </thead>
                                     <tbody>
                                             
-                                        @foreach ($users as $user) 
+                                        @foreach ($instructors as $instructor) 
 
                                          <tr>
                                                 
-                                            <td class="cell-ta">{{$user->name}}</td>
-                                            <td class="text-center">{{$user->email}} </td>
-                                            <td class="text-center">{{$user->contact_number}}</td>
-                                            <td class="text-center">{{$user->class}}</td>
-                                            <td class="text-center">{{$user->institute}}</td>
+                                            <td class="cell-ta">{{$instructor->name}}</td>
+                                            <td class="text-center">{{$instructor->email}} </td>
+                                            <td class="text-center">{{$instructor->contact_number}}</td>
                                             <td class="text-center">
 
-                                            <button onclick="editUserInfo({{$user->id}})"  data-toggle="modal" data-target="#editModal" title="Edit" class="gray-s"><i class="uil uil-edit-alt"></i></button>
+                                            <button onclick="editInstructorInfo({{$instructor->id}})"  data-toggle="modal" data-target="#editModal" title="Edit" class="gray-s"><i class="uil uil-edit-alt"></i></button>
                                             </td>
 
                                             <td class="text-center">
-                                                <button onclick="deleteUserInfo({{$user->id}})"  data-toggle="modal" data-target="#deleteStudentModal" title="delete" class="gray-s"><i class="uil uil-trash-alt">
+                                                <button onclick="deleteInstructorInfo({{$instructor->id}})"  data-toggle="modal" data-target="#deleteStudentModal" title="delete" class="gray-s"><i class="uil uil-trash-alt">
                                                     </i></button>
 
                                                 
@@ -57,49 +54,41 @@
                           
                                     <!-- Modal Header -->
                                     <div class="modal-header">
-                                      <h4 class="modal-title">User Information</h4>
+                                      <h4 class="modal-title">Instructor Information</h4>
                                       <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     </div>
                           
                                     <!-- Modal body -->
                                     <div class="modal-body">
-                                      <div class="form-group">
-                                          <label>Enter Your id</label>
-                                          <input type="text" id="edit-student-id" placeholder="Enter Your ID" class="form-control">
-                          
-                                      </div>
+
+                                        <div class="form-group">
+                                            <input type="hidden" id="edit-instructor-id" placeholder="Enter Your ID" class="form-control">
+                            
+                                        </div>
+                                     
                                       <div class="form-group">
                                           <label>Enter Your Name</label>
-                                          <input type="text" id="edit-student-name" placeholder="Enter Your Name" class="form-control">
+                                          <input type="text" id="edit-instructor-name" placeholder="Enter Your Name" class="form-control">
                           
                                       </div>
                           
                                        <div class="form-group">
                                           <label>Enter Your Email</label>
-                                          <input type="text" id="edit-student-email" placeholder="Enter Your Roll" class="form-control">
+                                          <input type="text" id="edit-instructor-email" placeholder="Enter Your Roll" class="form-control">
                                       </div>
                                        <div class="form-group">
                                           <label>Enter Your Contact Number</label>
-                                          <input type="text" id="edit-student-contact_number" placeholder="Enter Contact Number" class="form-control">
+                                          <input type="text" id="edit-instructor-contact_number" placeholder="Enter Contact Number" class="form-control">
                                       </div>
                           
-                                       <div class="form-group">
-                                          <label>Enter Your Class</label>
-                                          <input type="text" id="edit-student-student_class" placeholder="Enter Your Class" class="form-control">
-                          
-                                      </div>
-
-                                       <div class="form-group">
-                                          <label>Enter Your Institute</label>
-                                          <input type="text" id="edit-student-student_institute" placeholder="Enter Your Institute" class="form-control">
-                          
-                                      </div>
+                                     
+                                 
                           
                                     </div>
                           
                           
                                     <div class="modal-footer">
-                                      <button type="button" class="btn btn-danger" onclick="updateUserInfo()"  >Update</button>
+                                      <button type="button" class="btn btn-danger" onclick="updateInstructorInfo()"  >Update</button>
                                     </div>
                           
                                   </div>

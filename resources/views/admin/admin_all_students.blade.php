@@ -64,8 +64,7 @@
                                     <!-- Modal body -->
                                     <div class="modal-body">
                                       <div class="form-group">
-                                          <label>Enter Your id</label>
-                                          <input type="text" id="edit-student-id" placeholder="Enter Your ID" class="form-control">
+                                          <input type="hidden" id="edit-student-id" placeholder="Enter Your ID" class="form-control">
                           
                                       </div>
                                       <div class="form-group">

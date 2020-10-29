@@ -259,17 +259,6 @@ class CustomController extends Controller
     }
 
 
-    
-    // public function course_content_instructor_view(){
-
-    //     // $course_content= video::all();
-    //     // return view('course/course_details',['course'=>$course]);
-
-
-    // }
-
-
-
    
 }
 

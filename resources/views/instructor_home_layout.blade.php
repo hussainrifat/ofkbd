@@ -67,12 +67,12 @@
 				
 				<li class="ui dropdown">
 					<a href="#" class="opts_account" title="Account">
-						<img src="assets\frontend\images\hd_dp.jpg" alt="">
+						<img src="assets\frontend\images\user.png" alt="">
 					</a>
 					<div class="menu dropdown_account">
 						<div class="channel_my">
 							<div class="profile_link">
-								<img src="assets\frontend\images\hd_dp.jpg" alt="">
+								<img src="assets\frontend\images\user.png" alt="">
 								<div class="pd_content">
 									<div class="rhte85">
 										<h6>{{Session::get('user_name')}}</h6>
@@ -144,23 +144,9 @@
 						</a>
 					</li>
 
-					<li class="menu--item">
-						<a href="instructor_verification.html" class="menu--link" title="Verification">
-						  <i class='uil uil-check-circle menu--icon'></i>
-						  <span class="menu--label">Verification</span>
-						</a>
-					</li>
+				
 
-					
-					
-	
 		
-					<li class="menu--item">
-						<a href="saved_courses.html" class="menu--link" title="Saved Courses">
-						  <i class="uil uil-heart-alt menu--icon"></i>
-						  <span class="menu--label">Saved Courses</span>
-						</a>
-					</li>
 				
 				</ul>
 			</div>
@@ -172,12 +158,7 @@
 			<div class="left_section pt-2">
 				<ul>
 					
-					<li class="menu--item">
-						<a href="feedback.html" class="menu--link" title="Send Feedback">
-							<i class='uil uil-comment-alt-exclamation menu--icon'></i>
-							<span class="menu--label">Send Feedback</span>
-						</a>
-					</li>
+				
 				</ul>
 			</div>
 

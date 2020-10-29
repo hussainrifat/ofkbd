@@ -23,6 +23,8 @@ Route::get('/main','CustomController@main');
 Route::get('otp','CustomController@otp');
 Route::get('sign_out','CustomController@sign_out');
 
+
+
 // Layout Pages
 Route::get('instructor_home_layout','CustomController@instructor_home_layout');
 
@@ -35,8 +37,6 @@ Route::get('create_course','CustomController@create_course');
 Route::get('instructor_courses','CustomController@instructor_courses');
 
 
-// Admin Pages
-Route::get('admin_home','admin_controller@admin_home');
 
 
 // Student Pages
@@ -82,9 +82,25 @@ Route::post('create_course','data_insert_controller@create_course');
 
 
 
+
+// Admin Pages
+Route::get('admin_all_instructors','admin_controller@view_admin_all_instructors');
+Route::get('admin_all_students','admin_controller@admin_all_students');
+Route::get('admin_login','admin_controller@admin_login');
+Route::post('admin_login_check','admin_controller@admin_login_check');
+
+
 // Edit And Update
-Route::post('editSudentInfo','admin_controller@editstudentinfo');
-Route::post('updateSudentInfo','admin_controller@updateSudentInfo');
+Route::post('editStudentInfo','admin_controller@editStudentInfo');
+Route::post('updateStudentInfo','admin_controller@updateStudentInfo');
+Route::post('deleteStudentInfo','admin_controller@deleteStudentInfo');
+
+
+Route::post('editInstructorInfo','admin_controller@editInstructorInfo');
+Route::post('updateInstructorInfo','admin_controller@updateInstructorInfo');
+Route::post('deleteInstructorInfo','admin_controller@deleteInstructorInfo');
+
+
 
 
 
