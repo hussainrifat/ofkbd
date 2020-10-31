@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\course;
+use App\std_registration;
 use App\User;
 use App\video;
 use Session;
@@ -138,14 +139,25 @@ class CustomController extends Controller
 
             $student_id=Session::get('user_id');
             $student_info= user::where('id',$student_id)->first();
+            $student_class= std_registration::where('user_id',$student_id)->first()->std_class;
+            $student_institute= std_registration::where('user_id',$student_id)->first()->std_institute;
+
             // $course_number=course::get();
             // $instructor_temp_id= course::where('instructor_id',$instructor_id)->first();
     
     
     
         
-            return view('student/student_dashboard',['student'=>$student_info]);
+            return view('student/student_dashboard',['student'=>$student_info,'std_class'=>$student_class,'std_institute'=>$student_institute]);
         }
+
+
+    
+
+
+
+
+
 
         public function instructor_home_layout(){
 
@@ -194,6 +206,7 @@ class CustomController extends Controller
 
     }
 
+    
     // Student Single Course Content Controller
 
     public function course_detail(Request $request){

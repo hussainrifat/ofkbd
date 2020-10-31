@@ -6,16 +6,15 @@
     <div class="container-fluid">			
         <div class="row">
                     <div class="crse_content">
-                        <h1>Student Information</h1>
+                        <h1>Course Information</h1>
                         <div class="col-lg-12 col-md-12">
                                 <table class="table ucp-table">
                                     <thead class="thead-s">
                                         <tr>
-                                            <th class="cell-ta">Name</th>
-                                            <th class="text-center" >Email</th>
-                                            <th class="text-center">Contact Number</th>
-                                            <th class="text-center">Student Class</th>
-                                            <th class="text-center">Student Institute</th>
+                                            <th class="cell-ta">Course Name</th>
+                                            <th class="text-center">Course Category</th>
+                                            <th class="text-center">Course Time Duration</th>
+                                            <th class="text-center">Instructor Name</th>
                                             <th class="text-center" >Edit</th>
                                             <th class="text-center" >Delete</th>
 
@@ -23,22 +22,21 @@
                                     </thead>
                                     <tbody>
                                             
-                                        @foreach ($users as $user) 
+                                        @foreach ($courses as $course) 
 
                                          <tr>
                                                 
-                                            <td class="cell-ta">{{$user->name}}</td>
-                                            <td class="text-center">{{$user->email}} </td>
-                                            <td class="text-center">{{$user->contact_number}}</td>
-                                            <td class="text-center">{{$user->class}}</td>
-                                            <td class="text-center">{{$user->institute}}</td>
+                                            <td class="cell-ta">{{$course->course_name}}</td>
+                                            <td class="text-center">{{$course->course_category}} </td>
+                                            <td class="text-center">{{$course->course_time_duration}} Minutes </td>
+                                            <td class="text-center">{{$course->instructor_name}} </td>
                                             <td class="text-center">
 
-                                            <button onclick="editUserInfo({{$user->id}})"  data-toggle="modal" data-target="#editModal" title="Edit" class="gray-s"><i class="uil uil-edit-alt"></i></button>
+                                            <button onclick="editCourseInfo({{$course->course_id}})"  data-toggle="modal" data-target="#editModal" title="Edit" class="gray-s"><i class="uil uil-edit-alt"></i></button>
                                             </td>
 
                                             <td class="text-center">
-                                                <button onclick="deleteUserInfo({{$user->id}})"  data-toggle="modal" data-target="#deleteStudentModal" title="delete" class="gray-s"><i class="uil uil-trash-alt">
+                                                <button onclick="deleteCourseInfo({{$course->course_id}})"  data-toggle="modal" data-target="#deleteStudentModal" title="delete" class="gray-s"><i class="uil uil-trash-alt">
                                                     </i></button>
 
                                                 

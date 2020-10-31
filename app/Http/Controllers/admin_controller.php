@@ -134,7 +134,129 @@ class admin_controller extends Controller
             $user_id=$request->user_id;
             $user=user::where('id',$user_id)->delete();
         }
-    
+
+
+
+        // Course Start Here
+
+        public function admin_all_courses(){
+            $data = array();
+            $courses= course::get();
+            for($i=0;$i<sizeof($courses);$i++)
+            {
+                $instructor_id=$courses[$i]->instructor_id;
+                $instructor_info= user::where('id',$instructor_id)->first();
+        
+                $course_id=$courses[$i]->id;
+                $course_name=$courses[$i]->course_name;
+                $course_description=$courses[$i]->course_description;
+                $course_category=$courses[$i]->course_category;
+                $course_time_duration=$courses[$i]->course_time_duration;
+                $instructor_name=$instructor_info->name;
+
+        
+                array_push($data,['instructor_name'=>$instructor_name,'course_id'=>$course_id,'course_name'=>$course_name,'course_description'=>$course_description,'course_category'=>$course_category,'course_time_duration'=>$course_time_duration,'course_name'=>$course_name]);
+                
+            }
+        
+                return view('admin/admin_all_courses',['courses'=>json_decode(json_encode($data))]);
+            }
+
+            
+            public function deleteCourseInfo(Request $request){
+                $course_id=$request->course_id;
+                $id=user::where('id',$course_id)->delete();
+            }
+
+
+
+
+            //Instructor Profile Start Here
+
+
+                public function  viewInstructorProfileInfo(Request $request){
+                    $instructors= ins_registraion::where('user_id',$request->id)->first();
+                    $user_info= user::where('id',$request->id)->first();
+                    $name=$user_info->name;
+                    $email=$user_info->email;
+                    $contact_number=$user_info->contact_number;
+                    $password=$user_info->password;
+
+                    return json_encode(['id'=>$request->id,'name'=>$name,'email'=>$email,'contact_number'=>$contact_number,'password'=>$password]);
+                }
+
+
+                public function updateInstructorProfileInfo(Request $request)
+                {
+                    // ins_registration::where('user_id',$request->id)->update(['expertise'=>$request->expertise]);
+                    user::where('id',$request->id)->update(['name'=>$request->name,'contact_number'=>$request->contact_number,'email'=>$request->email,'password'=>$request->password]);
+                }
+
+
+                public function updateInstructorPasswordInfo(Request $request)
+                {
+                    // ins_registration::where('user_id',$request->id)->update(['expertise'=>$request->expertise]);
+                    // user::where('id',$request->id)->where('password',$request->oldpassword)
+                    // ->update(['password'=>$request->newpassword]);
+                    file_put_contents("password.txt",$request->oldpassword);
+
+                    if(user::where('id',$request->id)->where('password',$request->oldpassword)->first())
+                    {
+                        user::where('id',$request->id)->update(['password'=>$request->newpassword]);
+              
+                   echo "ok"; }
+                   
+                      else {
+                          echo "not ok";
+                      }
+
+                }
+
+
+                public function viewStudentDashboardProfileInfo(Request $request){
+
+                    $student= std_registration::where('user_id',$request->id)->first();
+                    $data = array();
+                    $user_id=$student->user_id;
+
+                    $user_info= user::where('id',$user_id)->first();
+                
+                    $name=$user_info->name;
+                    $email=$user_info->email;
+                    $contact_number=$user_info->contact_number;
+                    $class=$student->std_class;
+                    $instutite=$student->std_institute;
+                
+                    return json_encode(['id'=>$request->id,'name'=>$name,'email'=>$email,'contact_number'=>$contact_number,'class'=>$class,'institute'=>$instutite]);
+
+
+
+                        
+                    }
+
+
+
+
+                    
+    public function viewCourseContentInfo(Request $request){
+        $video_id= video::where('id',$request->id)->first();
+        $video_title=$video_id->video_title;
+        $video_time_duration=$video_id->video_time_duration;
+        $video_embed=$video_id->video_embed;
+        $video_description=$video_id->video_description;
+
+       
+        return json_encode(['video_id'=>$request->video_id,'video_title'=>$video_title,'video_time_duration'=>$video_time_duration,'video_embed'=>$video_embed,'video_description'=>$video_description,]);
+    }
+                
+        
+               
 
 
 }
+
+
+
+/// Courses
+
+

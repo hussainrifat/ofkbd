@@ -86,6 +86,8 @@ Route::post('create_course','data_insert_controller@create_course');
 // Admin Pages
 Route::get('admin_all_instructors','admin_controller@view_admin_all_instructors');
 Route::get('admin_all_students','admin_controller@admin_all_students');
+Route::get('admin_all_courses','admin_controller@admin_all_courses');
+
 Route::get('admin_login','admin_controller@admin_login');
 Route::post('admin_login_check','admin_controller@admin_login_check');
 
@@ -99,6 +101,23 @@ Route::post('deleteStudentInfo','admin_controller@deleteStudentInfo');
 Route::post('editInstructorInfo','admin_controller@editInstructorInfo');
 Route::post('updateInstructorInfo','admin_controller@updateInstructorInfo');
 Route::post('deleteInstructorInfo','admin_controller@deleteInstructorInfo');
+
+
+Route::post('deleteCourseInfo','admin_controller@deleteCourseInfo');
+
+
+
+Route::post('viewInstructorProfileInfo','admin_controller@viewInstructorProfileInfo');
+Route::post('updateInstructorProfileInfo','admin_controller@updateInstructorProfileInfo');
+Route::post('updateInstructorPasswordInfo','admin_controller@updateInstructorPasswordInfo');
+
+Route::post('viewStudentDashboardProfileInfo','admin_controller@viewStudentDashboardProfileInfo');
+
+
+Route::post('viewCourseContentInfo','admin_controller@viewCourseContentInfo');
+
+
+
 
 
 

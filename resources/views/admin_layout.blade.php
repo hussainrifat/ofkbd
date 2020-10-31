@@ -173,6 +173,8 @@
 	{{-- <script src="{{asset('assets')}}/frontend\js\custom1.js?{{time()}}"></script> --}}
 	<script src="{{asset('assets')}}/frontend\js\night-mode.js?{{time()}}"></script>
 	<script src="resources\js\custom.js?{{time()}}"></script>
+	<script src="resources\js\admin.js?{{time()}}"></script>
+
 	
 </body>
 

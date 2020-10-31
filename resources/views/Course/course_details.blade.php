@@ -107,7 +107,9 @@
                                                 <tr>
                                                     <th class="cell-ta">Video Title</th>
                                                     <th class="text-center" scope="col">Video Time Duration</th>
+                                                    <th class="text-center" scope="col">Video Link</th>
                                                     <th class="text-center" scope="col">Video Description</th>
+
                                                     <th class="text-center" scope="col">Edit</th>
                                                     <th class="text-center" scope="col">Delete</th>
 
@@ -120,15 +122,22 @@
                                                 <tr>
                                                         
                                                     <td class="cell-ta">{{$video->video_title}}</td>
+                                                    
                                                     <td class="text-center">{{$video->video_time_duration}} Minutes</td>
+                                                    <td class="cell-ta">{{$video->video_embed}}</td>
+
                                                     <td class="text-center">{{$video->video_description}}</td>
                                                     <td class="text-center">
-                                                  <a href="#" title="Edit" class="gray-s"><i class="uil uil-edit-alt"></i></a>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <a href="#" title="Delete" class="gray-s"><i class="uil uil-trash-alt"></i></a>
+                                                        <button onclick="editCourseModal({{$video->id}})"  data-toggle="modal" data-target="#editCourseModal" title="Edit" class="gray-s"><i class="uil uil-edit-alt"></i></button>
                                                     </td>
 
+
+                                                    <td class="text-center">
+                                                        <button onclick="deleteCourseContentInfo({{$video->id}})"  data-toggle="modal" data-target="#deleteStudentModal" title="delete" class="gray-s"><i class="uil uil-trash-alt">
+                                                            </i></button>
+        
+                                                        
+                                                    </td>
                                                 </tr> 
                                                 @endforeach
 
@@ -136,10 +145,73 @@
                 
                                             </tbody>
                                         </table>
+
+
+                                        <div class="modal" id="editCourseModal">
+                                            <div class="modal-dialog">
+                                              <div class="modal-content">
+                                      
+                                                <!-- Modal Header -->
+                                                <div class="modal-header">
+                                                  <h4 class="modal-title">Video Information</h4>
+                                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                      
+                                                <!-- Modal body -->
+                                                <div class="modal-body">
+                              
+                                                    <div class="form-group">
+                                                        <input type="hidden" id="edit-video-id" placeholder="Enter Your ID" class="form-control">
+                                        
+                                                    </div>
+                                                 
+                                                  <div class="form-group">
+                                                      <label>Video Title</label>
+                                                      <input type="text" id="edit-video-title" class="form-control">
+                                      
+                                                  </div>
+                
+                                                  <div class="form-group">
+                                                    <label>Video Description</label>
+                                                    <input type="text" id="edit-video-description" class="form-control">
+                                    
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Video Time Duration</label>
+                                                    <input type="text" id="edit-video-time-description" class="form-control">
+                                    
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Video Embed</label>
+                                                    <input type="text" id="edit-video-embed" class="form-control">
+                                    
+                                                </div>
+                                      
+                                                  
+                                                
+                                                </div>
+                                      
+                                      
+                                                <div class="modal-footer">
+                                                  <button type="button" class="btn btn-danger" onclick="updateCourseContentInfo()"  >Update</button>
+                                                </div>
+                                      
+                                              </div>
+                                            </div>
+                                          </div>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                    
+
+
+
+
                         <div class="tab-pane fade" id="nav-reviews" role="tabpanel">
                             <div class="student_reviews">
                                 <div class="row">
