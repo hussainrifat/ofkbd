@@ -44,44 +44,19 @@
 
 
                             <li>
-
-                                <div class="video-responsive">
-                                    <iframe src="https://www.youtube.com/embed/9gTw2EDkaDQ" frameborder="0"
-                                        uk-video="automute: true" allowfullscreen uk-responsive></iframe>
-                                </div>
-
-                            </li>
-                            <li>
-                                <div class="video-responsive">
-                                    <iframe src="https://www.youtube.com/embed/YcApt9RgiT0" frameborder="0"
-                                        allowfullscreen></iframe>
-                                </div>
+                                
+                                @foreach ($contents as $content)
+                                <li>
+                                    <div class="video-responsive">
+                                        <iframe src="{{$content->video_embed}}" frameborder="0"
+                                            uk-video="automute: true" allowfullscreen uk-responsive></iframe>
+                                    </div>
+                                </li>
+                            @endforeach
 
                             </li>
-                            <li>
-                                <div class="video-responsive">
-                                    <iframe src="https://www.youtube.com/embed/CGSdK7FI9MY" frameborder="0"
-                                        allowfullscreen uk-responsive></iframe>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="video-responsive">
-                                    <iframe src="https://www.youtube.com/embed/4I1WgJz_lmA" frameborder="0"
-                                        allowfullscreen uk-responsive></iframe>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="video-responsive">
-                                    <iframe src="https://www.youtube.com/embed/dDn9uw7N9Xg" frameborder="0"
-                                        allowfullscreen uk-responsive></iframe>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="video-responsive">
-                                    <iframe src="https://www.youtube.com/embed/CPcS4HtrUEU" frameborder="0"
-                                        allowfullscreen uk-responsive></iframe>
-                                </div>
-                            </li>
+                           
+                         
 
                         </ul>
 
@@ -93,64 +68,38 @@
 
                 <div class="course-sidebar">
                     <div class="course-sidebar-title">
-                        <h3> Table of Contents </h3>
+                        <h3> Table of Course Contents </h3>
                     </div>
                     <div class="course-sidebar-container" data-simplebar>
 
                         <ul class="course-video-list-section" uk-accordion>
 
-                            <li>
-                                <a class="uk-accordion-title" href="#"> Getting Started with HTML5 </a>
-                                <div class="uk-accordion-content">
-                                    <!-- course-video-list -->
-                                    <ul class="course-video-list highlight-watched">
-                                        <li class="watched"> <a href="#"> What Is HTML? <span> 2 min </span> </a> </li>
-                                        <li class="watched"> <a href="#"> Introduction to HTML5 <span> 3 min </span>
-                                            </a>
-                                        </li>
-                                        <li class="watched"> <a href="#"> Getting the Browser <span> 5 min </span> </a>
-                                        </li>
-                                        <li class="watched"> <a href="#"> Setting Up the Editor <span> 2 min </span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
+                   
+                            <?php
+                            $id = $_GET['id'];
 
+                            ?>
                             <li class="uk-open">
-                                <a class="uk-accordion-title" href="#"> Your First webpage </a>
                                 <div class="uk-accordion-content">
                                     <!-- course-video-list -->
+
+
+                                   
                                     <ul class="course-video-list highlight-watched"
                                         uk-switcher=" connect: #video-slider  ; animation: uk-animation-slide-right-small, uk-animation-slide-left-medium">
-                                        <li class="watched"> <a href="#"> Creating First Page <span> 23 min </span> </a>
+
+                                        @foreach ($contents as $content)
+                                <li class="watched"> <a href="{{$content->video_embed}}"> {{$content->video_title}} <span> 
+                                    {{$content->video_time_duration}} Min </span> </a>
                                         </li>
-                                        <li> <a href="#"> Headings in HTML <span> 23 min </span> </a> </li>
-                                        <li> <a href="#"> The paragraph tag <span> 23 min </span> </a> </li>
-                                        <li> <a href="#"> Emphasis and Strong Tag <span> 23 min </span> </a> </li>
-                                        <li> <a href="#"> Text Formatting <span> 23 min </span> </a> </li>
-                                        <li> <a href="#"> Working with Images <span> 23 min </span> </a> </li>
+                                        @endforeach
                                     </ul>
+
 
                                 </div>
                             </li>
 
-                            <li>
-                                <a class="uk-accordion-title" href="#"> Some Special Tags </a>
-                                <div class="uk-accordion-content">
-                                    <!-- course-video-list -->
-                                    <ul class="course-video-list">
-                                        <li> <a href="course-lesson-1.html"> Inserting Images <span> 23 min </span> </a> </li>
-                                        <li> <a href="course-lesson-1.html"> Constructing Lists <span> 23 min </span> </a> </li>
-                                        <li> <a href="course-lesson-1.html"> Horizontal Rule Tag <span> 23 min </span> </a> </li>
-                                        <li> <a href="course-lesson-1.html"> Validation <span> 23 min </span> </a> </li>
-                                        <li> <a href="course-lesson-1.html"> Comments Tag <span> 23 min </span> </a> </li>
-                                    </ul>
-                                </div>
-                            </li>
-
- 
-
+                        
                         </ul>
 
                     </div>

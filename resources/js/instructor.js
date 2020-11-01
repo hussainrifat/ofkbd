@@ -1,3 +1,111 @@
+// Instructor Course Delete
+
+
+function delete_course(id){
+
+  var course_id=id;
+  
+  var formdata= new FormData;
+  formdata.append('course_id',course_id);
+
+  $.ajax({
+    processData:false,
+    contentType:false,
+    data:formdata,
+    type:"post",
+    url:"delete_course",
+    success:function(data)
+    {
+      window.location.href ="instructor_courses"
+      alert("Are You Sure You Want to Delete This Course?");
+
+    }
+  });
+
+}
+
+
+
+// Instructor Course Content Edit & Update
+
+
+function editCourseModal(id){
+  
+  var formdata= new FormData;
+  formdata.append('id',id);
+
+  $.ajax({
+    processData:false,
+    contentType:false,
+    data:formdata,
+    type:"post",
+    url:"viewCourseContentInfo",
+    success:function(data)
+    {
+      a = JSON.parse(data)
+      id = $("#edit-video-id").val(a.id);
+      video_title = $("#edit-video-title").val(a.video_title);
+      video_time_duration = $("#edit-video-time-description").val(a.video_time_duration);
+      video_embed = $("#edit-video-embed").val(a.video_embed);
+      video_description = $("#edit-video-description").val(a.video_description);
+
+    }
+  });
+
+}
+
+
+function updateCourseContentInfo() {
+
+      var formdata= new FormData;
+      formdata.append('id',$("#edit-video-id").val());
+      formdata.append('video_title',$("#edit-video-title").val());
+      formdata.append('video_description',$("#edit-video-description").val());
+      formdata.append('video_time_duration',$("#edit-video-time-description").val());
+      formdata.append('video_embed',$("#edit-video-embed").val());
+
+
+      $.ajax({
+        processData:false,
+        contentType:false,
+        data:formdata,
+        type:"post",
+        url:"updateCourseContentInfo",
+        success:function(data)
+        {
+          location.reload();
+        }
+      });
+
+    }
+
+
+    function deleteCourseContentInfo(id){
+  
+      var id=id;
+      
+      var formdata= new FormData;
+      formdata.append('id',id);
+    
+      $.ajax({
+        processData:false,
+        contentType:false,
+        data:formdata,
+        type:"post",
+        url:"deleteCourseContentInfo",
+        success:function(data)
+        {
+          window.location.href ="course_details"
+          alert("Are You Sure You Want to Delete This Video?");
+    
+        }
+      });
+
+    
+    }
+
+
+
 // Instructor Profile Edit
 
 

@@ -50,13 +50,8 @@
     
                         </tbody>
                     </table>
-                </div>
-            </div>
 
-            </div>
-
-            
-
+                    
             <div class="modal" id="editModal">
               <div class="modal-dialog">
                 <div class="modal-content">
@@ -71,7 +66,7 @@
                   <div class="modal-body">
 
                       <div class="form-group">
-                          <input type="hidden" id="edit-student-id" placeholder="Enter Your ID" class="form-control">
+                          <input type="text" id="edit-student-id" placeholder="Enter Your ID" class="form-control">
           
                       </div>
                    
@@ -90,13 +85,15 @@
                         <input type="text" id="edit-student-contact_number" placeholder="Enter Contact Number" class="form-control" >
                     </div>
                     <div class="form-group">
-                      <label>Enter Your Contact Number</label>
-                      <input type="text" id="edit-student-student-class" placeholder="Enter Your Class" class="form-control" >
+                      <label>Enter Your Your Class</label>
+                      <input type="text" id="edit-student-student_class" placeholder="Enter Your Class" class="form-control" >
                   </div>
+
                   <div class="form-group">
-                    <label>Enter Your Contact Number</label>
-                    <input type="text" id="#edit-student-student_institute" placeholder="Enter Your Institute" class="form-control" >
+                    <label>Enter Your Your Institute</label>
+                    <input type="text" id="edit-student-student_institute" placeholder="Enter Your Institute" class="form-control" >
                 </div>
+                 
               
                   </div>
         
@@ -108,6 +105,15 @@
                 </div>
               </div>
             </div>
+
+
+                </div>
+            </div>
+
+            </div>
+
+            
+
 
 
 
@@ -126,26 +132,26 @@
                   <div class="modal-body">
 
                       <div class="form-group">
-                          <input type="hidden" id="edit-instructor-id" placeholder="Enter Your ID" class="form-control">
+                          <input type="hidden" id="edit-student-id" placeholder="Enter Your ID" class="form-control">
           
                       </div>
                    
                     <div class="form-group">
                         <label>Enter Your Old Password</label>
-                        <input type="text" id="edit-instructor-old-password" class="form-control">
+                        <input type="text" id="edit-student-old-password" class="form-control">
         
                     </div>
         
                      <div class="form-group">
                         <label>Enter Your New Password</label>
-                        <input type="text" id="edit-instructor-new-password"  class="form-control" >
+                        <input type="text" id="edit-student-new-password"  class="form-control" >
                     </div>
                   
                   </div>
         
         
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" onclick="updateInstructorPasswordInfo(({{$student->id}}))"  >Update</button>
+                    <button type="button" class="btn btn-danger" onclick="updatestudentPasswordInfo(({{$student->id}}))"  >Update</button>
                   </div>
         
                 </div>

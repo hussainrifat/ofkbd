@@ -111,13 +111,15 @@ Route::post('viewInstructorProfileInfo','admin_controller@viewInstructorProfileI
 Route::post('updateInstructorProfileInfo','admin_controller@updateInstructorProfileInfo');
 Route::post('updateInstructorPasswordInfo','admin_controller@updateInstructorPasswordInfo');
 
+
 Route::post('viewStudentDashboardProfileInfo','admin_controller@viewStudentDashboardProfileInfo');
+Route::post('updateStudentProfileInfo','admin_controller@updateStudentProfileInfo');
+Route::post('updatestudentPasswordInfo','admin_controller@updatestudentPasswordInfo');
 
 
 Route::post('viewCourseContentInfo','admin_controller@viewCourseContentInfo');
-
-
-
+Route::post('updateCourseContentInfo','admin_controller@updateCourseContentInfo');
+Route::post('deleteCourseContentInfo','admin_controller@deleteCourseContentInfo');
 
 
 

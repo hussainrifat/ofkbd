@@ -13,7 +13,7 @@ use App\video;
 
 
 use Session;
-// use Hash;
+
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
@@ -25,14 +25,14 @@ class data_insert_controller extends Controller
     public function std_data_insert(Request $request)
     {
         
-        // std_registration::create($request->all());
-
         $name= $request->name;
         $std_institute= $request->institute;
         $std_class= $request->class;
         $contact_number= $request->contact_number;
         $email= $request->email;
         $password=Hash::make($request->password);
+        // $password=$request->password;
+
 
 
         User::create([
@@ -74,11 +74,6 @@ class data_insert_controller extends Controller
         $user_id = User::where("email",$email)->first()->id;
         Session::put('user_id',$user_id);
       
-
-
-      
-
-
         $this->send_otp($user_id);
 
 
@@ -132,9 +127,6 @@ class data_insert_controller extends Controller
 
            // OTP Match Ends Here
 
-
-
-    
     
            // Registration Email And Mobile Number Check Start Here
 
@@ -236,9 +228,7 @@ class data_insert_controller extends Controller
                     $course_id=course::where('course_name',$course_name)->first()->id;
                     session::put('course_id',$course_id);
                     // file_put_contents("Course_id.txt",$course_id);
-
-
-              
+       
 
     }
 

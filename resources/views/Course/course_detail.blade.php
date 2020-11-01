@@ -39,7 +39,7 @@
                                 Last updated {{$course_details->updated_at}}
                             </div>
                             <ul class="_215b31">										
-                                <li><button class="btn_adcart">Enroll Now</button></li>
+                                <button  onclick="window.location.href='course_view?id={{$course_details->id}}'" class="subscribe-btn">Enroll Now</button>
                             </ul>
                      
                         </div>							
@@ -110,8 +110,7 @@
                                                     <th class="cell-ta">Video Title</th>
                                                     <th class="text-center" scope="col">Video Time Duration</th>
                                                     <th class="text-center" scope="col">Video Description</th>
-                                                    <th class="text-center" scope="col">Edit</th>
-                                                    <th class="text-center" scope="col">Delete</th>
+                                               
 
                                                 </tr>
                                             </thead>
@@ -124,12 +123,8 @@
                                                     <td class="cell-ta">{{$video->video_title}}</td>
                                                     <td class="text-center">{{$video->video_time_duration}} Minutes</td>
                                                     <td class="text-center">{{$video->video_description}}</td>
-                                                    <td class="text-center">
-                                                  <a href="#" title="Edit" class="gray-s"><i class="uil uil-edit-alt"></i></a>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <a href="#" title="Delete" class="gray-s"><i class="uil uil-trash-alt"></i></a>
-                                                    </td>
+                                               
+                                                  
 
                                                 </tr> 
                                                 @endforeach

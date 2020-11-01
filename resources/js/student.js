@@ -18,69 +18,69 @@
         id = $("#edit-student-id").val(a.id);
         name = $("#edit-student-name").val(a.name);
         email = $("#edit-student-email").val(a.email);
-        student_class = $("#edit-student-student_class").val(a.class);
         contact_number = $("#edit-student-contact_number").val(a.contact_number);
-        student_institute = $("#edit-student-student_institute").val(a.institute);
+        std_class = $("#edit-student-student_class").val(a.std_class);
+        std_institute= $("edit-student-student_institute").val(a.std_institute);
 
-        alert(id);
       }
-
 
     });
   
   }
   
   
-//   function updateInstructorProfileInfo() {
-//     var formdata= new FormData;
-//     formdata.append('id',$("#edit-instructor-id").val());
-//     formdata.append('name',$("#edit-instructor-name").val());
-//     formdata.append('email',$("#edit-instructor-email").val());
-//     formdata.append('contact_number',$("#edit-instructor-contact_number").val());
-//     formdata.append('password',$("#edit-instructor-password").val());
+  function updateStudentProfileInfo() {
+    var formdata= new FormData;
+    formdata.append('id',$("#edit-student-id").val());
+    formdata.append('name',$("#edit-student-name").val());
+    formdata.append('email',$("#edit-student-email").val());
+    formdata.append('contact_number',$("#edit-student-contact_number").val());
+    formdata.append('std_class',$("#edit-student-student_class").val());
+    formdata.append('std_institute',$("edit-student-student_institute").val());
+
+
+    $.ajax({
+      processData:false,
+      contentType:false,
+      data:formdata,
+      type:"post",
+      url:"updateStudentProfileInfo",
+      success:function(data)
+      {
+        location.reload();
+      }
+    });
+  }
   
-//     $.ajax({
-//       processData:false,
-//       contentType:false,
-//       data:formdata,
-//       type:"post",
-//       url:"updateInstructorProfileInfo",
-//       success:function(data)
-//       {
-//         location.reload();
-//       }
-//     });
-//   }
   
   
+  function updatestudentPasswordInfo(id) {
   
-//   function updateInstructorPasswordInfo(id) {
+    var formdata= new FormData;
+    var oldpassword=$("#edit-student-old-password").val();
+      var newpassword=$("#edit-student-new-password").val();
+     formdata.append('id',id);
+     formdata.append('oldpassword',oldpassword);
+     formdata.append('newpassword',newpassword);
   
-//     var formdata= new FormData;
-//     var oldpassword=$("#edit-instructor-old-password").val();
-//       var newpassword=$("#edit-instructor-new-password").val();
-//      formdata.append('id',id);
-//      formdata.append('oldpassword',oldpassword);
-//      formdata.append('newpassword',newpassword);
+    $.ajax({
+      processData:false,
+      contentType:false,
+      data:formdata,
+      type:"post",
+      url:"updatestudentPasswordInfo",
+      success:function(data)
+      {
   
-//     $.ajax({
-//       processData:false,
-//       contentType:false,
-//       data:formdata,
-//       type:"post",
-//       url:"updateInstructorPasswordInfo",
-//       success:function(data)
-//       {
+        var msg= $.trim(data);
+          if(msg=='ok')
+          {
+            alert("Password Changed Successfully");
+            location.reload();
+          }
   
-//         var msg= $.trim(data);
-//           if(msg=='ok')
-//           {
-//             alert("Password Matched");
-//             location.reload();
-//           }
-  
-//           else 
-//           alert("Old Password Doesn't Matched")
-//       }
-//     });
-//   }
+          else 
+          alert("Old Password Doesn't Matched");
+      }
+    });
+  }

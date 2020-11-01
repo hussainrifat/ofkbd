@@ -126,7 +126,6 @@ class admin_controller extends Controller
 
         public function updateInstructorInfo(Request $request)
         {
-            // ins_registration::where('user_id',$request->id)->update(['expertise'=>$request->expertise]);
             user::where('id',$request->id)->update(['name'=>$request->name,'contact_number'=>$request->contact_number,'email'=>$request->email]);
         }
 
@@ -188,16 +187,13 @@ class admin_controller extends Controller
 
                 public function updateInstructorProfileInfo(Request $request)
                 {
-                    // ins_registration::where('user_id',$request->id)->update(['expertise'=>$request->expertise]);
                     user::where('id',$request->id)->update(['name'=>$request->name,'contact_number'=>$request->contact_number,'email'=>$request->email,'password'=>$request->password]);
                 }
 
 
                 public function updateInstructorPasswordInfo(Request $request)
                 {
-                    // ins_registration::where('user_id',$request->id)->update(['expertise'=>$request->expertise]);
-                    // user::where('id',$request->id)->where('password',$request->oldpassword)
-                    // ->update(['password'=>$request->newpassword]);
+                  
                     file_put_contents("password.txt",$request->oldpassword);
 
                     if(user::where('id',$request->id)->where('password',$request->oldpassword)->first())
@@ -216,22 +212,45 @@ class admin_controller extends Controller
                 public function viewStudentDashboardProfileInfo(Request $request){
 
                     $student= std_registration::where('user_id',$request->id)->first();
-                    $data = array();
-                    $user_id=$student->user_id;
 
+                    $user_id=$student->user_id;
                     $user_info= user::where('id',$user_id)->first();
-                
                     $name=$user_info->name;
                     $email=$user_info->email;
                     $contact_number=$user_info->contact_number;
-                    $class=$student->std_class;
-                    $instutite=$student->std_institute;
-                
-                    return json_encode(['id'=>$request->id,'name'=>$name,'email'=>$email,'contact_number'=>$contact_number,'class'=>$class,'institute'=>$instutite]);
+                    $std_class=$student->std_class;
+                    $std_institute=$student->std_institute;
 
-
+                    return json_encode(['id'=>$request->id,'name'=>$name,'email'=>$email,'contact_number'=>$contact_number,'std_class'=>$std_class,'std_institute'=>$std_institute]);
 
                         
+                    }
+
+
+                    public function updateStudentProfileInfo(Request $request)
+                    {
+
+                        std_registration::where('user_id',$request->id)->update(['std_class'=>$request->std_class,'std_institute'=>$request->std_institute]);
+                        user::where('id',$request->id)->update(['name'=>$request->name,'contact_number'=>$request->contact_number,'email'=>$request->email]);
+                
+                    }
+
+
+                    public function updatestudentPasswordInfo(Request $request)
+                    {
+                      
+                        file_put_contents("password.txt",$request->oldpassword);
+    
+                        if(user::where('id',$request->id)->where('password',$request->oldpassword)->first())
+                        {
+                            user::where('id',$request->id)->update(['password'=>$request->newpassword]);
+                  
+                       echo "ok"; }
+                       
+                          else {
+                              echo "not ok";
+                          }
+    
                     }
 
 
@@ -239,14 +258,27 @@ class admin_controller extends Controller
 
                     
     public function viewCourseContentInfo(Request $request){
-        $video_id= video::where('id',$request->id)->first();
-        $video_title=$video_id->video_title;
-        $video_time_duration=$video_id->video_time_duration;
-        $video_embed=$video_id->video_embed;
-        $video_description=$video_id->video_description;
 
+        $id=$request->id;
+        $video_info= video::where('id',$request->id)->first();
+        $video_title=$video_info->video_title;
+        $video_time_duration=$video_info->video_time_duration;
+        $video_embed=$video_info->video_embed;
+        $video_description=$video_info->video_description;
        
-        return json_encode(['video_id'=>$request->video_id,'video_title'=>$video_title,'video_time_duration'=>$video_time_duration,'video_embed'=>$video_embed,'video_description'=>$video_description,]);
+        return json_encode(['id'=>$id,'video_title'=>$video_title,'video_time_duration'=>$video_time_duration,'video_embed'=>$video_embed,'video_description'=>$video_description,]);
+    }
+
+
+    public function updateCourseContentInfo(Request $request)
+    {
+
+        video::where('id',$request->id)->update(['video_title'=>$request->video_title,'video_description'=>$request->video_description,'video_time_duration'=>$request->video_time_duration,'video_embed'=>$request->video_embed]);
+    }
+
+    public function deleteCourseContentInfo(Request $request){
+        $id=$request->id;
+        $id=video::where('id',$id)->delete();
     }
                 
         
@@ -255,8 +287,5 @@ class admin_controller extends Controller
 
 }
 
-
-
-/// Courses
 
 

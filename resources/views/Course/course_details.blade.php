@@ -39,7 +39,8 @@
                                 Last updated {{$course_details->updated_at}}
                             </div>
                             <ul class="_215b31">										
-                                <li><button class="btn_adcart">Enroll Now</button></li>
+                                <button  onclick="window.location.href='course_view?id={{$course_details->id}}'" class="subscribe-btn">Course View</button>
+
                             </ul>
                      
                         </div>							
@@ -139,6 +140,61 @@
                                                         
                                                     </td>
                                                 </tr> 
+
+                                                <div class="modal" id="editCourseModal">
+                                                    <div class="modal-dialog">
+                                                      <div class="modal-content">
+                                              
+                                                        <!-- Modal Header -->
+                                                        <div class="modal-header">
+                                                          <h4 class="modal-title">Video Information</h4>
+                                                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        </div>
+                                              
+                                                        <!-- Modal body -->
+                                                        <div class="modal-body">
+                                      
+                                                            <div class="form-group">
+                                                                <input type="text" id="edit-video-id" placeholder="Enter Your ID" class="form-control">
+                                                
+                                                            </div>
+                                                         
+                                                          <div class="form-group">
+                                                              <label>Video Title</label>
+                                                              <input type="text" id="edit-video-title" class="form-control">
+                                              
+                                                          </div>
+                        
+                                                          <div class="form-group">
+                                                            <label>Video Description</label>
+                                                            <input type="text" id="edit-video-description" class="form-control">
+                                            
+                                                        </div>
+        
+                                                        <div class="form-group">
+                                                            <label>Video Time Duration</label>
+                                                            <input type="text" id="edit-video-time-description" class="form-control">
+                                            
+                                                        </div>
+        
+                                                        <div class="form-group">
+                                                            <label>Video Embed</label>
+                                                            <input type="text" id="edit-video-embed" class="form-control">
+                                            
+                                                        </div>
+                                              
+                                                          
+                                                        
+                                                        </div>
+                                              
+                                              
+                                                        <div class="modal-footer">
+                                                          <button type="button" class="btn btn-danger" onclick="updateCourseContentInfo({{$video->id}})"  >Update</button>
+                                                        </div>
+                                              
+                                                      </div>
+                                                    </div>
+                                                  </div>
                                                 @endforeach
 
                                                
@@ -147,60 +203,7 @@
                                         </table>
 
 
-                                        <div class="modal" id="editCourseModal">
-                                            <div class="modal-dialog">
-                                              <div class="modal-content">
-                                      
-                                                <!-- Modal Header -->
-                                                <div class="modal-header">
-                                                  <h4 class="modal-title">Video Information</h4>
-                                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                </div>
-                                      
-                                                <!-- Modal body -->
-                                                <div class="modal-body">
-                              
-                                                    <div class="form-group">
-                                                        <input type="hidden" id="edit-video-id" placeholder="Enter Your ID" class="form-control">
-                                        
-                                                    </div>
-                                                 
-                                                  <div class="form-group">
-                                                      <label>Video Title</label>
-                                                      <input type="text" id="edit-video-title" class="form-control">
-                                      
-                                                  </div>
-                
-                                                  <div class="form-group">
-                                                    <label>Video Description</label>
-                                                    <input type="text" id="edit-video-description" class="form-control">
                                     
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label>Video Time Duration</label>
-                                                    <input type="text" id="edit-video-time-description" class="form-control">
-                                    
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label>Video Embed</label>
-                                                    <input type="text" id="edit-video-embed" class="form-control">
-                                    
-                                                </div>
-                                      
-                                                  
-                                                
-                                                </div>
-                                      
-                                      
-                                                <div class="modal-footer">
-                                                  <button type="button" class="btn btn-danger" onclick="updateCourseContentInfo()"  >Update</button>
-                                                </div>
-                                      
-                                              </div>
-                                            </div>
-                                          </div>
 
                                     </div>
                                 </div>

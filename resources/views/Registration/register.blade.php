@@ -47,23 +47,50 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <span>Enter Your Name</span>
-                                    <input type="text" value="sample name" class="form-control" name="name" id="name" placeholder="Your Name" value="" />
+                                    <input type="text" value="" class="form-control" name="name" id="name" placeholder="Your Name" value="" />
                                     <span style="color: red" id="std_name_error"> </span>
                                 </div>
 
                                 <div class="form-group">
                                     <span>Enter Your Institute Name</span>
-                                    <input type="text" value="sample school" class="form-control" name="std_institute" id="std_institute" placeholder="Your Institute Name" value="" />
+                                    <input type="text" value="" class="form-control" name="std_institute" id="std_institute" placeholder="Your Institute Name" value="" />
                                     <span style="color: red" id="std_institute_error"> </span>
 
                                 </div>
                                 
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <span>Enter Your Class</span>
-                                    <input type="text" value="sample class" class="form-control" name="std_class" id="std_class" placeholder="Your Class" value="" />
+                                    <input type="text" value="" class="form-control" name="std_class" id="std_class" placeholder="Your Class" value="" />
+                                    <span style="color: red" id="std_class_error"> </span>
+
+                                </div> --}}
+
+                                <div class="form-group">
+                                    <span>Please Select Your Class</span>
+                                    <select class="form-control" id="std_class"  >
+                                        
+                                        <option class="hidden"  selected disabled>Please select your Class</option>
+                                        <option>Class 1</option>
+                                        <option>Class 2</option>
+                                        <option>Class 3</option>
+                                        <option>Class 4</option>
+                                        <option>Class 5</option>
+                                        <option>Class 6</option>
+                                        <option>Class 7</option>
+                                        <option>Class 8</option>
+                                        <option>Class 9</option>
+                                        <option>Class 10</option>
+                                        <option>Class 11</option>
+                                        <option>Class 12</option>
+
+                                    </select>
                                     <span style="color: red" id="std_class_error"> </span>
 
                                 </div>
+
+
+
+
                                 
                                 
                                 
@@ -72,7 +99,7 @@
                               
                                 <div class="form-group">
                                     <span>Enter Your Contact Number</span>
-                                    <input type="text" value="sample contact" minlength="10" maxlength="10" name="contact_number" id="contact_number" name="txtEmpPhone" class="form-control" placeholder="Your Mobile Number" value="" />
+                                    <input type="text" value="" minlength="11" maxlength="11" name="contact_number" id="contact_number" name="txtEmpPhone" class="form-control" placeholder="Your Mobile Number" value="" />
                                     <span style="color: red" id="std_number_error"> </span>
 
                                 </div>
@@ -80,13 +107,13 @@
                               
                                 <div class="form-group">
                                     <span>Enter Your Email</span>
-                                    <input type="email" value="sampleemail@gmail.com" class="form-control" name="email" id="email" placeholder="Your Email" value="" />
+                                    <input type="email" value="" class="form-control" name="email" id="email" placeholder="Your Email" value="" />
                                     <span style="color: red" id="std_email_error"> </span>
 
                                 </div>
                                 <div class="form-group">
                                     <span>Enter Your Password</span>
-                                    <input type="password" value="aaAA12#$$dfsd" class="form-control" name="password" id="password" placeholder="Password" value="" />
+                                    <input type="password" value="" class="form-control" id="password" placeholder="Password" value="" />
                                     <span style="color: red" id="std_password_error"> </span>
 
                                 </div>
@@ -113,7 +140,7 @@
                                 
                                 <div class="form-group">
                                     <span>Enter Your Contact Number</span>
-                                    <input type="text" value="sample number" minlength="10" maxlength="10" id="ins_contact_number"   class="form-control" placeholder="Your Mobile Number" value="" />
+                                    <input type="text" value="sample number" minlength="11" maxlength="11" id="ins_contact_number"   class="form-control" placeholder="Your Mobile Number" value="" />
                                     <span style="color: red" id="ins_number_error"> </span>
 
                                 </div>

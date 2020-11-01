@@ -14,6 +14,8 @@ class CustomController extends Controller
 
 
 {
+
+
     public function home(){
         return view('home');
     }
@@ -56,7 +58,6 @@ class CustomController extends Controller
                 orderBy('id','desc')
                 ->take(5)
                 ->get();
-             
 
         for($i=0;$i<sizeof($course);$i++)
         {
@@ -83,11 +84,6 @@ class CustomController extends Controller
         $course_number=course::get();
         $instructor_temp_id= course::where('instructor_id',$instructor_id)->first();
 
-
-
-
-
-
         return view('instructor/instructor_dahsboard',['instructor'=>$instructor_info]);
     }
 
@@ -95,7 +91,6 @@ class CustomController extends Controller
 
         $instructor_id = Session::get('user_id');
     
-        
         $course = Course::where('instructor_id',$instructor_id)
         -> orderBy('id','desc')
         ->take(5)
@@ -135,6 +130,8 @@ class CustomController extends Controller
         return view('student/student_home',['course'=>$course,]);
         }
 
+
+
         public function student_dashboard(){
 
             $student_id=Session::get('user_id');
@@ -142,30 +139,19 @@ class CustomController extends Controller
             $student_class= std_registration::where('user_id',$student_id)->first()->std_class;
             $student_institute= std_registration::where('user_id',$student_id)->first()->std_institute;
 
-            // $course_number=course::get();
-            // $instructor_temp_id= course::where('instructor_id',$instructor_id)->first();
-    
-    
-    
-        
             return view('student/student_dashboard',['student'=>$student_info,'std_class'=>$student_class,'std_institute'=>$student_institute]);
         }
 
 
-    
 
+        // public function instructor_home_layout(){
 
+        //     $user_name= Session::get('user_name');
+        //     $user_email= Session::get('user_email');
+        //     return view('instructor_home_layout',['user_name'=>$user_name,'user_email'=>$user_email]);
 
+        // }
 
-
-
-        public function instructor_home_layout(){
-
-            $user_name= Session::get('user_name');
-            $user_email= Session::get('user_email');
-            return view('instructor_home_layout',['user_name'=>$user_name,'user_email'=>$user_email]);
-
-        }
 
 
 
@@ -186,7 +172,6 @@ class CustomController extends Controller
         $course=course::where('instructor_id',$instructor_id)->where('id',$course_id)->delete();
 
     }
-
 
 
 
@@ -223,13 +208,15 @@ class CustomController extends Controller
     }
 
 
-        // Student Course Category View Content Controller
+        // Student Course Category (ART/CRAFT) View Content Controller
 
     public function courses(){
         return view('course/courses');
     }
 
-        // Student Courses View Content Controller
+
+
+        // Student Courses Category Content View Content Controller
 
     public function course(Request $request){
          $request->name;
@@ -251,10 +238,36 @@ class CustomController extends Controller
     }
 
 
-    public function course_view(){
+
+    public function course_view(Request $request){
+
+        $id=$request->id;
+
+        $video_view=video::where('course_id',$id)->get();
+        file_put_contents('content.txt',$video_view);
+
+        $response = array();
+
+        for($i=0;$i<sizeof($video_view);$i++)
+        {
+            $video_title=$video_view[$i]->video_title;            
+            $video_time_duration=$video_view[$i]->video_time_duration;
+            $video_embed=$video_view[$i]->video_embed;
+
+            // file_put_contents('content.txt',$video_name);
+
+            array_push($response,['video_title'=>$video_title,'video_time_duration'=>$video_time_duration,'video_embed'=>$video_embed]);
+        }
         
-        return view('course/course_view');
+        $content = json_decode(json_encode($response));
+
+
+        return view('course/course_view',['contents'=>$content]);
+
+
     }
+
+
 
     public function sign_out(Request $request){
 

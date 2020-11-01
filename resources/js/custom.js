@@ -54,8 +54,6 @@ $(function(){
     var email=$("#email").val();
     var password=$("#password").val();
   
-    // alert(std_number+' '+std_email+' '+std_password+' '+std_name+' '+std_institute);
-    
     var formdata= new FormData();
     formdata.append('name',name);
     formdata.append('institute',std_institute);
@@ -295,58 +293,8 @@ function videoIMG(input) {
   }
 }
 
-function delete_course(id){
 
-  var course_id=id;
-  
-  var formdata= new FormData;
-  formdata.append('course_id',course_id);
-
-  $.ajax({
-    processData:false,
-    contentType:false,
-    data:formdata,
-    type:"post",
-    url:"delete_course",
-    success:function(data)
-    {
-      window.location.href ="instructor_courses"
-      alert("Are You Sure You Want to Delete This Course?");
-
-    }
-  });
-
-}
-
-
-
-
-
-function editCourseModal(id){
-  
-  var formdata= new FormData;
-  formdata.append('id',id);
-
-  $.ajax({
-    processData:false,
-    contentType:false,
-    data:formdata,
-    type:"post",
-    url:"viewCourseContentInfo",
-    success:function(data)
-    {
-      a = JSON.parse(data)
-      video_id = $("#edit-video-id").val(a.video_id);
-      video_title = $("#edit-video-title").val(a.video_title);
-      video_description = $("#edit-video-description").val(a.video_description);
-      video_time_duration = $("#edit-video-time-description").val(a.video_time_duration);
-      video_embed = $("#edit-video-embed").val(a.video_embed);
-
-    }
-  });
-
-}
-
+// Instructor Course Delete
 
 
 
