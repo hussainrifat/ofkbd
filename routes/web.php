@@ -58,6 +58,7 @@ Route::get('course','CustomController@course');
 
 
 Route::get('course_view','CustomController@course_view');
+Route::post('StudentCourseEnrollment','CustomController@StudentCourseEnrollment');
 
 
 Route::post('delete_course','CustomController@delete_course');
@@ -120,6 +121,22 @@ Route::post('updatestudentPasswordInfo','admin_controller@updatestudentPasswordI
 Route::post('viewCourseContentInfo','admin_controller@viewCourseContentInfo');
 Route::post('updateCourseContentInfo','admin_controller@updateCourseContentInfo');
 Route::post('deleteCourseContentInfo','admin_controller@deleteCourseContentInfo');
+
+
+
+// SSLCOMMERZ Start
+Route::get('/example1', 'SslCommerzPaymentController@exampleEasyCheckout');
+Route::get('/donation', 'SslCommerzPaymentController@exampleHostedCheckout');
+
+Route::post('/pay', 'SslCommerzPaymentController@index');
+Route::post('/pay-via-ajax', 'SslCommerzPaymentController@payViaAjax');
+
+Route::post('/success', 'SslCommerzPaymentController@success');
+Route::post('/fail', 'SslCommerzPaymentController@fail');
+Route::post('/cancel', 'SslCommerzPaymentController@cancel');
+
+Route::post('/ipn', 'SslCommerzPaymentController@ipn');
+//SSLCOMMERZ END
 
 
 

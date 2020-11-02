@@ -57,7 +57,7 @@
                                                     <div class="ui search focus mt-30 lbel25">
                                                         <label>Course Time Duration*</label>
                                                         <div class="ui left icon input swdh19 swdh55">
-                                                            <input class="prompt srch_explore" id="course_time_duration" type="number" min="0" name="duration" required="" placeholder="0">															
+                                                            <input class="prompt srch_explore" id="course_time_duration" type="time" min="0" name="duration" required="" placeholder="0">															
                                                             <div class="badge_min">Minutes</div>
                                                         </div>
                                                     </div>									

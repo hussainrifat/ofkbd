@@ -30,9 +30,7 @@
                                     <div class="eps_dots more_dropdown">
                                         <a href="#"><i class='uil uil-ellipsis-v'></i></a>
                                         <div class="dropdown-content">
-                                            <span>Edit Course</span>
                                             <span onclick="delete_course({{$course->id}})">Delete Course</span>
-                                            <span>Report To Admin</span>
                                          </div>																										
                                     </div>
                                   

@@ -39,8 +39,10 @@
                                 Last updated {{$course_details->updated_at}}
                             </div>
                             <ul class="_215b31">										
-                                <button  onclick="window.location.href='course_view?id={{$course_details->id}}'" class="subscribe-btn">Enroll Now</button>
-                            </ul>
+                                {{-- <button  onclick="window.location.href='course_view?id={{$course_details->id}}'" class="subscribe-btn">Enroll Now</button> --}}
+                                <button  onclick="StudentCourseEnrollment({{$course_details->id}})" class="subscribe-btn">Enroll Now</button>
+
+                                                       </ul>
                      
                         </div>							
                     </div>							

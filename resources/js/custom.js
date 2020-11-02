@@ -299,6 +299,63 @@ function videoIMG(input) {
 
 
 
+function StudentCourseEnrollment(id) {
+
+  var confirmation = confirm("Are you sure");
+
+  if (confirmation)
+  {
+     var formdata= new FormData();
+     formdata.append('id',id);
+
+     $.ajax({
+        processData:false,
+        contentType:false,
+        data:formdata,
+        type:"post",
+        url:"StudentCourseEnrollment",
+        success:function(data)
+        {
+          window.location.href='course_view?id='+id;
+          
+        }
+      });
+
+
+
+  }
+
+
+  
+  // var formdata= new FormData;
+  // var oldpassword=$("#edit-student-old-password").val();
+  //   var newpassword=$("#edit-student-new-password").val();
+  //  formdata.append('id',id);
+  //  formdata.append('oldpassword',oldpassword);
+  //  formdata.append('newpassword',newpassword);
+
+  // $.ajax({
+  //   processData:false,
+  //   contentType:false,
+  //   data:formdata,
+  //   type:"post",
+  //   url:"updatestudentPasswordInfo",
+  //   success:function(data)
+  //   {
+
+  //     var msg= $.trim(data);
+  //       if(msg=='ok')
+  //       {
+  //         alert("Password Changed Successfully");
+  //         location.reload();
+  //       }
+
+  //       else 
+  //       alert("Old Password Doesn't Matched");
+  //   }
+  // });
+}
+
 
 
 

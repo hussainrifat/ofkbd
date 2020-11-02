@@ -34,27 +34,27 @@
 
                 <div class="course-content bg-dark">
 
-                    <div class="course-header">
-                  
-                    </div>
+                   
 
                     <div class="course-content-inner">
 
                         <ul id="video-slider" class="uk-switcher">
 
 
-                            <li>
-                                
-                                @foreach ($contents as $content)
+                            
+                    
+                            @foreach ($contents as $content)
                                 <li>
+                                  
                                     <div class="video-responsive">
                                         <iframe src="{{$content->video_embed}}" frameborder="0"
                                             uk-video="automute: true" allowfullscreen uk-responsive></iframe>
                                     </div>
                                 </li>
                             @endforeach
+                              
 
-                            </li>
+                            
                            
                          
 
@@ -68,8 +68,13 @@
 
                 <div class="course-sidebar">
                     <div class="course-sidebar-title">
-                        <h3> Table of Course Contents </h3>
+                        <h3> Table of Contents </h3>
+
+                        <button type="button" onclick="goBack()" class="btn btn-primary btn-sm" style="margin-left: 20px">Back To Course</button>
+
+
                     </div>
+                    
                     <div class="course-sidebar-container" data-simplebar>
 
                         <ul class="course-video-list-section" uk-accordion>
@@ -89,7 +94,7 @@
                                         uk-switcher=" connect: #video-slider  ; animation: uk-animation-slide-right-small, uk-animation-slide-left-medium">
 
                                         @foreach ($contents as $content)
-                                <li class="watched"> <a href="{{$content->video_embed}}"> {{$content->video_title}} <span> 
+                                <li> <a href="{{$content->video_embed}}"> {{$content->video_title}} <span> 
                                     {{$content->video_time_duration}} Min </span> </a>
                                         </li>
                                         @endforeach
@@ -101,6 +106,7 @@
 
                         
                         </ul>
+
 
                     </div>
 
@@ -180,7 +186,14 @@
                 });
 
             });
+
+            function goBack() {
+      window.history.back();
+    }
         </script>
+
+
+
 
     <!-- javaScripts
     ================================================== -->

@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\course;
 use App\std_registration;
+use App\stu_course;
 use App\User;
 use App\video;
 use Session;
+use App\stu_courses;
 
 
 class CustomController extends Controller
@@ -234,6 +236,21 @@ class CustomController extends Controller
         return view('course/course',['courses'=>$course]);
 
 
+
+    }
+
+
+    public function StudentCourseEnrollment(Request $request)
+    {
+        $course_id=$request->id;
+        $user_id=Session::get('user_id');
+
+        stu_course::create([
+            'course_id'=>$course_id, 
+            'user_id'=>$user_id,
+            ]);
+
+            
 
     }
 

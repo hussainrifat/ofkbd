@@ -59,7 +59,7 @@
                                                         <div class="ui search focus mt-30 lbel25">
                                                             <label>Time Duration*</label>
                                                             <div class="ui left icon input swdh19 swdh55">
-                                                                <input class="prompt srch_explore" type="number" min="0" id="video_time_duration" required="" placeholder="0">															
+                                                                <input class="prompt srch_explore" type="text" min="0" id="video_time_duration" required="" placeholder="5:00">															
                                                                 <div class="badge_min">Minutes</div>
                                                             </div>
                                                         </div>	
@@ -84,6 +84,7 @@
                                                         </div>
                                                         <div class="col-lg-12 col-md-12">
                                                             <button class="part_btn_save prt-sv" type="button" id="add_content">Add New Video</button>
+                                                            <button class="part_btn_save prt-sv" onclick="goBack()" type="button">Back To Course</button>
                                                         </div>
                                                         
                                                       
@@ -107,14 +108,10 @@
 
   
 
-    {{-- <script src="{{asset('assets')}}/frontend\js/jquery-steps.min.js"></script>
-
-	<script>
-		$('#add-course-tab').steps({
-		  onFinish: function () {
-			alert('Wizard Completed');
-		  }
-		});		
-	</script> --}}
+  <script>
+        function goBack() {
+      window.history.back();
+    }
+  </script>
     
 @endsection
