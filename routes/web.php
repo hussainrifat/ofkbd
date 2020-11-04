@@ -43,6 +43,8 @@ Route::get('instructor_courses','CustomController@instructor_courses');
 Route::get('student_home','CustomController@student_home');
 Route::get('student_layout','CustomController@student_layout');
 Route::get('student_dashboard','CustomController@student_dashboard');
+Route::post('ReportToAdmin','CustomController@ReportToAdmin');
+
 
 
 // Course Pages
@@ -50,11 +52,6 @@ Route::get('add_content','CustomController@add_content');
 Route::post('insert_content','data_insert_controller@insert_content');
 Route::get('courses','CustomController@courses');
 Route::get('course','CustomController@course');
-// Route::get('course_details','CustomController@course_details');
-
-// Route::get("/course_details", function(){
-//     return View ("course/course_details");
-//  });
 
 
 Route::get('course_view','CustomController@course_view');
@@ -88,35 +85,49 @@ Route::post('create_course','data_insert_controller@create_course');
 Route::get('admin_all_instructors','admin_controller@view_admin_all_instructors');
 Route::get('admin_all_students','admin_controller@admin_all_students');
 Route::get('admin_all_courses','admin_controller@admin_all_courses');
+Route::get('admin_all_report','CustomController@admin_all_report');
 
 Route::get('admin_login','admin_controller@admin_login');
 Route::post('admin_login_check','admin_controller@admin_login_check');
 
 
 // Edit And Update
-Route::post('editStudentInfo','admin_controller@editStudentInfo');
+
+// Edit And Update Admin All Student Dahsboard
+
+Route::post('editStudentProfileInfo','admin_controller@editStudentProfileInfo');
 Route::post('updateStudentInfo','admin_controller@updateStudentInfo');
 Route::post('deleteStudentInfo','admin_controller@deleteStudentInfo');
 
+
+// Edit And Update Admin All Instructor Dahsboard
 
 Route::post('editInstructorInfo','admin_controller@editInstructorInfo');
 Route::post('updateInstructorInfo','admin_controller@updateInstructorInfo');
 Route::post('deleteInstructorInfo','admin_controller@deleteInstructorInfo');
 
 
+// Edit And Update Admin All Course Dahsboard
+
 Route::post('deleteCourseInfo','admin_controller@deleteCourseInfo');
 
 
+
+// Edit And Update Instructor Dahsboard
 
 Route::post('viewInstructorProfileInfo','admin_controller@viewInstructorProfileInfo');
 Route::post('updateInstructorProfileInfo','admin_controller@updateInstructorProfileInfo');
 Route::post('updateInstructorPasswordInfo','admin_controller@updateInstructorPasswordInfo');
 
 
+// Edit And Update Student Dahsboard
+
 Route::post('viewStudentDashboardProfileInfo','admin_controller@viewStudentDashboardProfileInfo');
 Route::post('updateStudentProfileInfo','admin_controller@updateStudentProfileInfo');
 Route::post('updatestudentPasswordInfo','admin_controller@updatestudentPasswordInfo');
 
+
+// Edit And Update Video Content Instructor Dashboard
 
 Route::post('viewCourseContentInfo','admin_controller@viewCourseContentInfo');
 Route::post('updateCourseContentInfo','admin_controller@updateCourseContentInfo');
@@ -126,7 +137,8 @@ Route::post('deleteCourseContentInfo','admin_controller@deleteCourseContentInfo'
 
 // SSLCOMMERZ Start
 Route::get('/example1', 'SslCommerzPaymentController@exampleEasyCheckout');
-Route::get('/donation', 'SslCommerzPaymentController@exampleHostedCheckout');
+Route::get('/instructor_donation', 'SslCommerzPaymentController@instructor_donation');
+Route::get('/student_donation', 'SslCommerzPaymentController@student_donation');
 
 Route::post('/pay', 'SslCommerzPaymentController@index');
 Route::post('/pay-via-ajax', 'SslCommerzPaymentController@payViaAjax');

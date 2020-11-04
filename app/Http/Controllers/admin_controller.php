@@ -10,6 +10,7 @@ use App\course;
 use App\ins_registraion;
 use App\video;
 use App\admin_login;
+use app\Report_admin;
 
 use function GuzzleHttp\json_decode;
 
@@ -63,7 +64,7 @@ class admin_controller extends Controller
         }
 
 
-    public function editStudentInfo(Request $request){
+    public function editStudentProfileInfo(Request $request){
         $students= std_registration::where('user_id',$request->id)->first();
         $user_info= user::where('id',$request->id)->first();
         $name=$user_info->name;
@@ -87,6 +88,9 @@ class admin_controller extends Controller
 
 
       // Admin Student Ends Here
+
+
+
 
        // Admin Instructor Start Here
 
@@ -164,8 +168,22 @@ class admin_controller extends Controller
             
             public function deleteCourseInfo(Request $request){
                 $course_id=$request->course_id;
-                $id=user::where('id',$course_id)->delete();
+                $id=course::where('id',$course_id)->delete();
             }
+
+
+            // Admin Report Start Here
+
+            // public function admin_all_report(){
+
+            //     $data=array();
+            //     $reports= report_admin::get();               
+            //         $course_id=$reports->course_id;
+            //         $report_description=$reports->course_id;
+            //         array_push($data,['course_id'=>$course_id,'report_description'=>$report_description]);
+            
+            //         return view('admin/admin_all_report',['reports'=>json_decode(json_encode($data))]);
+            //     }
 
 
 

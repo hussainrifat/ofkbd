@@ -1,7 +1,6 @@
 
-@extends('instructor_home_layout')
-@section('instructor_content')
-
+@extends('student_layout')
+@section('student_content')
 
 <head>
     <meta charset="utf-8">
@@ -39,14 +38,15 @@
     <div class="row">
      
         <div class="col-md-8 order-md-1">
-            <h4 class="mb-3">Donation</h4>
+            <h4 class="mb-3"><b>Give the gift of life-changing education!  </b></h4>
+            <span>A gift of 100 Taka monthly would make a big difference. We’re a Ed Tech that relies on support from people like you. Thank you!</span>
             <form action="{{ url('/pay') }}" method="POST" class="needs-validation">
                 <input type="hidden" value="{{ csrf_token() }}" name="_token" />
                 <div class="row">
                     <div class="col-md-12 mb-3">
                         <label for="firstName">Full name</label>
-                        <input type="text" name="name" class="form-control" id="customer_name" placeholder=""
-                               value="John Doe" required>
+                        <input type="text" name="name" class="form-control" id="customer_name" placeholder="Enter Your Name"
+                               required>
                         <div class="invalid-feedback">
                             Valid customer name is required.
                         </div>
@@ -59,8 +59,8 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">+88</span>
                         </div>
-                        <input type="text" name="phone" class="form-control" id="mobile" placeholder="Mobile"
-                               value="01711xxxxxx" required>
+                        <input type="text" name="phone" class="form-control" id="mobile" placeholder="Enter Your Mobile Number"
+                               value="" required>
                         <div class="invalid-feedback" style="width: 100%;">
                             Your Mobile number is required.
                         </div>
@@ -70,7 +70,7 @@
                 <div class="mb-3">
                     <label for="email">Email <span class="text-muted">(Optional)</span></label>
                     <input type="email" name="email" class="form-control" id="email"
-                           placeholder="you@example.com" value="you@example.com" required>
+                           placeholder="Enter Your Email" value="" required>
                     <div class="invalid-feedback">
                         Please enter a valid email address for shipping updates.
                     </div>
@@ -78,8 +78,8 @@
 
                 <div class="mb-3">
                     <label for="address">Address</label>
-                    <input type="text" class="form-control" id="address" placeholder="1234 Main St"
-                           value="93 B, New Eskaton Road" required>
+                    <input type="text" class="form-control" id="address" placeholder="Enter Your Full Address"
+                           value="" required>
                     <div class="invalid-feedback">
                         Please enter your shipping address.
                     </div>
@@ -121,9 +121,14 @@
 
                     <div class="custom-control custom-checkbox">
                       
-
-                    <label for="amount">Amount <span class="text-muted"></span></label>
+                    <label for="amount">Select amount (in BDT)                       
+                         <span class="text-muted"></span></label>
                     <input type="text" class="form-control" name="amount" id="total_amount" placeholder="Enter Your Amount">
+                    </div>
+                  
+                    <div class="col-md-4 mb-3">
+                        <span>You Can Donate Using</span>
+                        <img src="assets\img\payment.png" style="width: 100%" alt="Girl in a jacket">
                     </div>
                 </div>
                 <hr class="mb-4">
@@ -148,5 +153,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
 
 @endsection

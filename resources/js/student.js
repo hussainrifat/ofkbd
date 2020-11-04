@@ -84,3 +84,30 @@
       }
     });
   }
+
+
+  function SendReportToAdmin(course_id){
+
+    var report_description=$("#report_description").val();
+
+    var formdata= new FormData;
+    formdata.append('course_id',course_id);
+    formdata.append('report_description',report_description);
+
+    $.ajax({
+      processData:false,
+      contentType:false,
+      data:formdata,
+      type:"post",
+      url:"ReportToAdmin",
+      success:function(data)
+      {
+        alert("Dear Student, Thanks For Your Feedback. Your feedback helps our system learn when something isn't right. ");
+        location.reload();
+
+
+      }
+
+    });
+  
+  }

@@ -21,8 +21,8 @@ function editStudentProfileInfo(id){
         id = $("#edit-student-id").val(a.id);
         name = $("#edit-student-name").val(a.name);
         email = $("#edit-student-email").val(a.email);
-        student_class = $("#edit-student-student_class").val(a.class);
         contact_number = $("#edit-student-contact_number").val(a.contact_number);
+        student_class = $("#edit-student-student_class").val(a.class);
         student_institute = $("#edit-student-student_institute").val(a.institute);
       }
     });
@@ -67,7 +67,7 @@ function editStudentProfileInfo(id){
       success:function(data)
       {
         window.location.href ="admin_all_students"
-        alert("Are You Sure You Want to Delete This Course?");
+        confirm("Are You Sure You Want to Delete This Student Information?");
   
       }
     });
@@ -139,7 +139,7 @@ function editInstructorInfo(id){
       success:function(data)
       {
         window.location.href ="admin_all_instructors"
-        alert("Are You Sure You Want to Delete This Instructor Informatio?");
+        confirm("Are You Sure You Want to Delete This Instructor Information?");
   
       }
     });
@@ -157,6 +157,7 @@ function editInstructorInfo(id){
   function deleteCourseInfo(course_id){
   
     var course_id=course_id;
+
     
     var formdata= new FormData;
     formdata.append('course_id',course_id);
@@ -170,7 +171,7 @@ function editInstructorInfo(id){
       success:function(data)
       {
         window.location.href ="admin_all_courses"
-        alert("Are You Sure You Want to Delete This Course Informatio?");
+        alert("Are You Sure You Want to Delete This Course Information?");
   
       }
     });

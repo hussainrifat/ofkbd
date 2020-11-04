@@ -137,6 +137,13 @@
 						</a>
 					</li>
 
+					<li class="menu--item">
+						<a href="{{url('admin_all_report')}}" class="menu--link" title="Reviews">
+						  <i class='uil uil-fast-mail menu--icon'></i>
+						  <span class="menu--label">All Reports</span>
+						</a>
+					</li>
+
 				</ul>
 			</div>
 

@@ -32,7 +32,7 @@
                                         <a href=""><i class='uil uil-ellipsis-v'></i></a>
                                         <div class="dropdown-content">
                                           
-                                            <span><i class="uil uil-windsock"></i>Report To Admin</span>
+                                            <span  data-toggle="modal" data-target="#reporttoadmin" > <i class="uil uil-windsock"></i>Report To Admin</span>
                                          </div>																										
                                     </div>
                                   
@@ -42,7 +42,49 @@
                                     <p class="cr1fot">Instructor Name: <a href="">{{$course->instructor_name}}</a></p>
                                     </div>
                                 </div>
-                            </div>											
+
+                            
+                            </div>	
+                               {{-- //Modal Start --}}
+
+                                
+ <div class="modal" id="reporttoadmin">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Help us understand what's happening with this Course?</h4>
+        </span>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+
+            
+            <div class="textarea_dt">															
+                <div class="ui form swdh339">
+                    <div class="field">
+
+                        <textarea rows="5" name="description" id="report_description" placeholder=" How would you describe the problem? "></textarea>
+                    </div>
+                </div>										
+            </div>
+
+        </div>
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" onclick="SendReportToAdmin({{$course->course_id}})"  >Report To Admin</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+                                {{-- Modal Code End --}}										
                         </div>
                         @endforeach
                         

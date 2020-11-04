@@ -60,7 +60,7 @@
 			<ul>
 			
 				<li>
-					<a href="{{url('donate_now')}}" class="upload_btn" title="Donate Now">Donate Now</a>
+					<a href="{{url('student_donation')}}" class="upload_btn" title="Donate Now">Donate Now</a>
 				</li>
 			
 				
@@ -117,7 +117,7 @@
 			
 					<li class="menu--item">
 						<a href="{{url('student_dashboard')}}" class="menu--link" title="Dashboard">
-							<i class="uil uil-apps menu--icon"></i>
+							<i class="uil uil-user-square menu--icon"></i>
 							<span class="menu--label">Student Profile</span>
 						</a>
 					</li>
@@ -125,7 +125,14 @@
 					<li class="menu--item">
 						<a href="{{url('courses')}}" class="menu--link" title="Courses">
 							<i class='uil uil-book-alt menu--icon'></i>
-							<span class="menu--label">Courses</span>
+							<span class="menu--label">All Courses</span>
+						</a>
+					</li>
+
+					<li class="menu--item">
+						<a href="{{url('courses')}}" class="menu--link" title="Courses">
+							<i class='uil uil-bookmark-full menu--icon'></i>
+							<span class="menu--label">My Courses</span>
 						</a>
 					</li>
 
@@ -135,6 +142,14 @@
 						<a href="instructor_all_reviews.html" class="menu--link" title="Reviews">
 						  <i class='uil uil-star menu--icon'></i>
 						  <span class="menu--label">Reviews</span>
+						</a>
+					</li>
+
+					
+					<li class="menu--item">
+						<a href="{{url('student_donation')}}" class="menu--link">
+						  <i class='uil uil-money-withdraw menu--icon'></i>
+						  <span class="menu--label">Donate Now</span>
 						</a>
 					</li>
 
@@ -161,44 +176,7 @@
 	<div class="wrapper">
 		@yield('student_content')
 
-		{{-- <footer class="footer mt-30">
-			<div class="container">
-				<div class="row">
-					
-					<div class="col-lg-12">
-						<div class="footer_bottm">
-							<div class="row">
-								<div class="col-md-6">
-									<ul class="fotb_left">
-										<li>
-											<a href="{{url('instructor_home')}}">
-												<div class="footer_logo">
-													<img src="assets\frontend\images\logo1.svg" alt="">
-												</div>
-											</a>
-										</li>
-										<li>
-											<p>© 2020 <strong>OFK</strong>. All Rights Reserved.</p>
-										</li>
-									</ul>
-								</div>
-								<div class="col-md-6">
-									<div class="edu_social_links">
-										<a href="#"><i class="fab fa-facebook-f"></i></a>
-										<a href="#"><i class="fab fa-twitter"></i></a>
-										<a href="#"><i class="fab fa-google-plus-g"></i></a>
-										<a href="#"><i class="fab fa-linkedin-in"></i></a>
-										<a href="#"><i class="fab fa-instagram"></i></a>
-										<a href="#"><i class="fab fa-youtube"></i></a>
-										<a href="#"><i class="fab fa-pinterest-p"></i></a>
-									</div>
-								</div>		
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</footer> --}}
+
 	</div>
 	<!-- Body End -->
 

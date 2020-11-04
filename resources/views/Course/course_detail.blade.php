@@ -39,10 +39,13 @@
                                 Last updated {{$course_details->updated_at}}
                             </div>
                             <ul class="_215b31">										
-                                {{-- <button  onclick="window.location.href='course_view?id={{$course_details->id}}'" class="subscribe-btn">Enroll Now</button> --}}
+                        
                                 <button  onclick="StudentCourseEnrollment({{$course_details->id}})" class="subscribe-btn">Enroll Now</button>
 
+                      
                                                        </ul>
+
+                                                       
                      
                         </div>							
                     </div>							
@@ -62,9 +65,6 @@
                            
                             <div class="user_cntnt">
                                 <a href="#" class="_df7852"> Instructor Name: {{$instructor_name}}</a>
-
-                            {{-- <button  onclick="window.location.href='add_content?id={{$course_details->id}}'" class="subscribe-btn">Add New Content</button> --}}
-
                             </div>
                         </div>
                     </div>

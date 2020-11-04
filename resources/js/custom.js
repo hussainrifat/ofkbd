@@ -225,8 +225,6 @@ $(function(){
     var video_time_duration=$("#video_time_duration").val();
     // alert(course_id);
 
-
-
     var formdata= new FormData();
     formdata.append('video_name',video_name);
     formdata.append('video_link',video_link);
@@ -301,7 +299,7 @@ function videoIMG(input) {
 
 function StudentCourseEnrollment(id) {
 
-  var confirmation = confirm("Are you sure");
+  var confirmation = confirm("Are you sure you want to Enroll in this course?");
 
   if (confirmation)
   {
@@ -321,39 +319,7 @@ function StudentCourseEnrollment(id) {
         }
       });
 
-
-
   }
-
-
-  
-  // var formdata= new FormData;
-  // var oldpassword=$("#edit-student-old-password").val();
-  //   var newpassword=$("#edit-student-new-password").val();
-  //  formdata.append('id',id);
-  //  formdata.append('oldpassword',oldpassword);
-  //  formdata.append('newpassword',newpassword);
-
-  // $.ajax({
-  //   processData:false,
-  //   contentType:false,
-  //   data:formdata,
-  //   type:"post",
-  //   url:"updatestudentPasswordInfo",
-  //   success:function(data)
-  //   {
-
-  //     var msg= $.trim(data);
-  //       if(msg=='ok')
-  //       {
-  //         alert("Password Changed Successfully");
-  //         location.reload();
-  //       }
-
-  //       else 
-  //       alert("Old Password Doesn't Matched");
-  //   }
-  // });
 }
 
 

@@ -61,7 +61,7 @@
 			<ul>
 			
 				<li>
-					<a href="{{url('donate_now')}}" class="upload_btn" title="Donate Now">Donate Now</a>
+					<a href="{{url('instructor_donation')}}" class="upload_btn" title="Donate Now">Donate Now</a>
 				</li>
 			
 				
@@ -143,12 +143,17 @@
 						  <span class="menu--label">Reviews</span>
 						</a>
 					</li>
+			
 
-				
+					<li class="menu--item">
+						<a href="{{url('instructor_donation')}}" class="menu--link" title="Reviews">
+						  <i class='uil uil-money-withdraw menu--icon'></i>
+						  <span class="menu--label">Donate Now</span>
+						</a>
+					</li>
 
-		
-				
 				</ul>
+			
 			</div>
 
 

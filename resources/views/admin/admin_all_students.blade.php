@@ -34,7 +34,7 @@
                                             <td class="text-center">{{$user->institute}}</td>
                                             <td class="text-center">
 
-                                            <button onclick="editUserInfo({{$user->id}})"  data-toggle="modal" data-target="#editModal" title="Edit" class="gray-s"><i class="uil uil-edit-alt"></i></button>
+                                            <button onclick="editStudentProfileInfo({{$user->id}})"  data-toggle="modal" data-target="#editModal" title="Edit" class="gray-s"><i class="uil uil-edit-alt"></i></button>
                                             </td>
 
                                             <td class="text-center">

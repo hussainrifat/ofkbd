@@ -10,6 +10,7 @@ use App\User;
 use App\video;
 use Session;
 use App\stu_courses;
+use App\Report_admin;
 
 
 class CustomController extends Controller
@@ -249,10 +250,46 @@ class CustomController extends Controller
             'course_id'=>$course_id, 
             'user_id'=>$user_id,
             ]);
-
-            
-
     }
+
+
+    public function ReportToAdmin(Request $request)
+    {
+        $course_id=$request->course_id;
+        $user_id=Session::get('user_id');
+        $report_description=$request->report_description;
+        file_put_contents("report.txt",$course_id);
+
+
+        Report_admin::create([
+            'course_id'=>$course_id, 
+            'report_description'=>$report_description,
+            ]);
+    }
+
+
+    public function admin_all_report(){
+
+        $data=array();
+        $reports= report_admin::get();  
+        
+        
+        for($i=0;$i<sizeof($reports);$i++)
+        {
+            $course_id=$reports[$i]->course_id;
+            $course_name= course::where('id',$course_id)->first()->course_name; 
+            $course_category= course::where('id',$course_id)->first()->course_category; 
+
+            // file_put_contents("report.txt",$reports);
+            $report_description=$reports[$i]->report_description;
+            array_push($data,['course_id'=>$course_id,'course_name'=>$course_name,'course_category'=>$course_category,'report_description'=>$report_description]);
+
+
+        }
+    
+    
+            return view('admin/admin_all_report',['reports'=>json_decode(json_encode($data))]);
+        }
 
 
 

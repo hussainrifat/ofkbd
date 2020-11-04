@@ -14,9 +14,14 @@ class SslCommerzPaymentController extends Controller
         return view('exampleEasycheckout');
     }
 
-    public function exampleHostedCheckout()
+    public function instructor_donation()
     {
-        return view('exampleHosted');
+        return view('instructor/instructor_donation');
+    }
+
+    public function student_donation()
+    {
+        return view('student/student_donation');
     }
 
     public function index(Request $request)
