@@ -86,6 +86,33 @@
   }
 
 
+
+  function StudentCourseEnrollment(id) {
+
+    var confirmation = confirm("Are you sure you want to Enroll in this course?");
+  
+    if (confirmation)
+    {
+       var formdata= new FormData();
+       formdata.append('id',id);
+  
+       $.ajax({
+          processData:false,
+          contentType:false,
+          data:formdata,
+          type:"post",
+          url:"StudentCourseEnrollment",
+          success:function(data)
+          {
+            window.location.href='course_view?id='+id;
+            
+          }
+        });
+  
+    }
+  }
+
+
   function SendReportToAdmin(course_id){
 
     var report_description=$("#report_description").val();

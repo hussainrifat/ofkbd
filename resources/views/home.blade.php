@@ -323,213 +323,38 @@
 
         <div class="row" data-aos="zoom-in" data-aos-delay="100">
 
+          @foreach($course as $course)
+
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="course-item">
-              <img src="assets/img/art.jpg" class="img-fluid" alt="...">
+              <img src="{{$course->course_image}}" class="img-fluid" alt="...">
               <div class="course-content">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4>ART</h4>
+                  <h4>{{$course->course_category}}</h4>
                   <p class="price">Free</p>
                 </div>
 
-                <h3><a href="course-details.html">আর্টের হাতেখড়ি</a></h3>
-                <p>হ্যালো বন্ধুরা, আর্টের হাতেখড়ি  কোর্সে তোমাদের স্বাগতম জানাচ্ছি। এই কোর্সটিতে তোমরা শিখতে পারবে কিভাবে তুমি খুব সহজে বিভিন্ন ধরণের ফুল এবং ফল আঁকতে এবং রঙ করতে পারবে</p>
-                <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
-                    <span>Asfia Tabassum Borna</span>
-                  </div>
-                  <div class="trainer-rank d-flex align-items-center">
-                    <i class="bx bx-user"></i>&nbsp;50
-                    &nbsp;&nbsp;
-                    <i class="bx bx-heart"></i>&nbsp;65
-                  </div>
-                </div>
+                <h3><a href="course_detail?course={{$course->course_id}}">{{$course->course_name}}</a></h3>
+            
               </div>
             </div>
-          </div> <!-- End Course Item-->
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-            <div class="course-item">
-              <img src="assets/img/c-programming.jpg" class="img-fluid" alt="...">
-              <div class="course-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4>C Programming</h4>
-                  <p class="price">Free</p>
-                </div>
-
-                <h3><a href="course-details.html">সহজে সি প্রোগ্রামিং</a></h3>
-                <p>সি প্রোগ্রামিং হচ্ছে একটি জনপ্রিয় প্রোগ্রামিং ল্যাঙ্গুয়েজ।  এই কোর্সটিতে গল্পের মাধ্যমে সি প্রোগ্রামিং সম্পর্কে ধারণা দেয়া হয়েছে।</p>
-                <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="assets/img/trainers/trainer-2.jpg" class="img-fluid" alt="">
-                    <span>Hussain Rifat</span>
-                  </div>
-                  <div class="trainer-rank d-flex align-items-center">
-                    <i class="bx bx-user"></i>&nbsp;35
-                    &nbsp;&nbsp;
-                    <i class="bx bx-heart"></i>&nbsp;42
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> <!-- End Course Item-->
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-            <div class="course-item">
-              <img src="assets/img/hand-shape-art.jpg" class="img-fluid" alt="...">
-              <div class="course-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4>Art</h4>
-                  <p class="price">Free</p>
-                </div>
-
-                <h3><a href="course-details.html">হাত দিয়ে যায় আঁকা</a></h3>
-                <p>হ্যালো বন্ধুরা, আর্টের হাতেখড়ি কোর্সে তোমাদের স্বাগতম জানাচ্ছি। এই কোর্সটিতে তোমরা শিখতে পারবে কিভাবে তুমি খুব সহজে বিভিন্ন ধরণের ফুল এবং ফল আঁকতে এবং রঙ করতে পারবে</p>
-                <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="assets/img/trainers/trainer-3.jpg" class="img-fluid" alt="">
-                    <span>Brandon</span>
-                  </div>
-                  <div class="trainer-rank d-flex align-items-center">
-                    <i class="bx bx-user"></i>&nbsp;20
-                    &nbsp;&nbsp;
-                    <i class="bx bx-heart"></i>&nbsp;85
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> <!-- End Course Item-->
+          </div> 
+          <!-- End Course Item-->
+          @endforeach
 
         </div>
 
       </div>
     </section><!-- End Popular Courses Section -->
 
-    <!-- ======= Trainers Section ======= -->
-    <section id="trainers" class="trainers">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Trainers</h2>
-          <p>Our Professional Trainers</p>
-        </div>
-
-        <div class="row" data-aos="zoom-in" data-aos-delay="100">
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
-              <div class="member-content">
-                <h4>Walter White</h4>
-                <span>Web Development</span>
-                <p>
-                  Magni qui quod omnis unde et eos fuga et exercitationem. Odio veritatis perspiciatis quaerat qui aut aut aut
-                </p>
-                <div class="social">
-                  <a href=""><i class="icofont-twitter"></i></a>
-                  <a href=""><i class="icofont-facebook"></i></a>
-                  <a href=""><i class="icofont-instagram"></i></a>
-                  <a href=""><i class="icofont-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <img src="assets/img/trainers/trainer-2.jpg" class="img-fluid" alt="">
-              <div class="member-content">
-                <h4>Sarah Jhinson</h4>
-                <span>Marketing</span>
-                <p>
-                  Repellat fugiat adipisci nemo illum nesciunt voluptas repellendus. In architecto rerum rerum temporibus
-                </p>
-                <div class="social">
-                  <a href=""><i class="icofont-twitter"></i></a>
-                  <a href=""><i class="icofont-facebook"></i></a>
-                  <a href=""><i class="icofont-instagram"></i></a>
-                  <a href=""><i class="icofont-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <img src="assets/img/trainers/trainer-3.jpg" class="img-fluid" alt="">
-              <div class="member-content">
-                <h4>William Anderson</h4>
-                <span>Content</span>
-                <p>
-                  Voluptas necessitatibus occaecati quia. Earum totam consequuntur qui porro et laborum toro des clara
-                </p>
-                <div class="social">
-                  <a href=""><i class="icofont-twitter"></i></a>
-                  <a href=""><i class="icofont-facebook"></i></a>
-                  <a href=""><i class="icofont-instagram"></i></a>
-                  <a href=""><i class="icofont-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Trainers Section -->
+   
 
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
 
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>OFK</h3>
-            <p>
-              OFK Studio <br>
-              Chawkbazar<br>
-              Chattogrm <br><br>
-              <strong>Phone:</strong> +880 1521 401 703<br>
-              <strong>Email:</strong> support@ofkbd.com<br>
-            </p>
-          </div>
-
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Populer Courses</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Art</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Craft</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Calligraphy</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Robotics</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Programming</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Join Our Newsletter</h4>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-          </div>
-
-        </div>
-      </div>
-    </div>
+  
 
     <div class="container d-md-flex py-4">
 

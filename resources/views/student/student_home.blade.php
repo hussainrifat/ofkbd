@@ -44,12 +44,7 @@
                             @endforeach
 
 
-
-
-
-
                           {{-- course item end here --}}
-
 
 
                     

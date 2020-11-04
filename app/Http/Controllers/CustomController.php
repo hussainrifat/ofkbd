@@ -20,7 +20,31 @@ class CustomController extends Controller
 
 
     public function home(){
-        return view('home');
+
+
+        
+        $response = array();
+
+        $course= course::
+        orderBy('id','desc')
+        ->take(3)
+        ->get();
+        for($i=0;$i<sizeof($course);$i++)
+        {
+            $ins_id = $course[$i]->instructor_id;
+            $instructor_name = User::where('id',$ins_id)->first()->name;
+            array_push($response,
+            ['course_id'=>$course[$i]->id,
+            'course_name'=>$course[$i]->course_name,
+            'course_duration'=>$course[$i]->course_time_duration,
+            'course_image'=>$course[$i]->course_image,
+            'course_category'=>$course[$i]->course_category,
+            'instructor_name'=>$instructor_name]);   
+        }
+        $course = json_decode(json_encode($response));
+        // file_put_contents('course.txt',json_encode($response));
+        return view('home',['course'=>$course,]);
+        // return view('home');
     }
 
     public function register(){
@@ -107,9 +131,7 @@ class CustomController extends Controller
 
         // Student Function
         public function student_home(){
-            // $user_name= Session::get('user_name');
-            // $user_email= Session::get('user_email');
-
+     
             $response = array();
 
         

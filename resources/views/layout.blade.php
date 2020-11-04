@@ -119,53 +119,6 @@
    <!-- ======= Footer ======= -->
    <footer id="footer">
 
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>OFK</h3>
-            <p>
-              OFK Studio <br>
-              Chawkbazar<br>
-              Chattogrm <br><br>
-              <strong>Phone:</strong> +880 1521 401 703<br>
-              <strong>Email:</strong> support@ofkbd.com<br>
-            </p>
-          </div>
-
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Populer Courses</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Art</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Craft</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Calligraphy</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Robotics</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Programming</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Join Our Newsletter</h4>
-            <form action="" method="post">
-              {{-- <input type="email" name="email"><input type="submit" value="Subscribe"> --}}
-            </form>
-          </div>
-
-        </div>
-      </div>
-    </div>
 
     <div class="container d-md-flex py-4">
 
