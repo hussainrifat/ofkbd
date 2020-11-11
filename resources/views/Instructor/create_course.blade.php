@@ -3,8 +3,20 @@
 
 
 <head>
+
+       <link href="{{asset('assets')}}/css\texteditor.css?{{time()}}" rel="stylesheet">
+        <link href="{{asset('assets')}}/css\jquery-te-1.4.0.css?{{time()}}" rel="stylesheet"> 
+        {{-- <link href="{{asset('assets')}}/js\jquery-te-1.4.0.min.js?{{time()}}" rel="stylesheet">  --}}
     <link href="{{asset('assets')}}/frontend\css\instructor-dashboard.css?{{time()}}" rel="stylesheet">
-	<link href="{{asset('assets')}}/frontend\css\instructor-responsive.css?{{time()}}" rel="stylesheet">
+    <link href="{{asset('assets')}}/frontend\css\instructor-responsive.css?{{time()}}" rel="stylesheet">
+        <link href="{{asset('assets')}}/frontend\css\instructor-responsive.css?{{time()}}" rel="stylesheet">
+
+        <script src="{{asset('assets')}}/js\jquery-te-1.4.0.min.js?{{time()}}"></script>
+    
+
+
+
+
 
 
 
@@ -43,7 +55,10 @@
                                                                 <div class="ui form swdh339">
                                                                     <div class="field">
 
-                                                                        <textarea rows="5" name="description" id="course_description" placeholder="Insert your course description"></textarea>
+                                                                        <textarea name="textarea" class="jqte-test" id="course_description" ></textarea>
+
+
+                                                                        {{-- <textarea rows="5" name="description" id="course_description" placeholder="Insert your course description"></textarea> --}}
                                                                     </div>
                                                                 </div>										
                                                             </div>

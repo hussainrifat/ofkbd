@@ -12,10 +12,9 @@
                         <div class="col-xl-4 col-lg-5 col-md-6">						
                             <div class="preview_video">						
                                 <a href="{{$course_details->course_image}}" class="fcrse_img" data-toggle="modal" data-target="#videoModal">
-                                    <img src="{{$course_details->course_image}}" alt="">
+                                    <img onclick="window.location.href='course_view?id=9'" src="{{$course_details->course_image}}" alt="">
                                     <div class="course-overlay">
-                                        <span class="play_btn1"><i class="uil uil-play"></i></span>
-                                        <span class="_215b02">Preview this course</span>
+                                        <span onclick="window.location.href='course_view?id=9'" class="_215b02">Preview this course</span>
                                     </div>
                                 </a>
                             </div>
@@ -39,9 +38,11 @@
                                 Last updated {{$course_details->updated_at}}
                             </div>
                             <ul class="_215b31">										
-                        
+                                  @if($enroll ==0)
                                 <button  onclick="StudentCourseEnrollment({{$course_details->id}})" class="subscribe-btn">Enroll Now</button>
-
+                                    @else
+                                    <button  onclick="window.location.href='course_view?id=9'" class="subscribe-btn">Course View</button>
+                                    @endif
                       
                                                        </ul>
 
@@ -226,19 +227,33 @@
                                         </div>												
                                     </div>
                                     <div class="col-lg-7">
-                                        <div class="review_right">
-                                            <div class="review_right_heading">
-                                                <h3>Reviews</h3>
-                                                <div class="review_search">
-                                                    <input class="rv_srch" type="text" placeholder="Search reviews...">
-                                                    <button class="rvsrch_btn"><i class='uil uil-search'></i></button>
+
+
+                                        <div class="col-lg-12 col-md-12">
+                                            <div class="course_des_textarea mt-30 lbel25">
+                                                <label>Add Review</label>
+                                                <div class="course_des_bg">
+                                            
+                                                    <div class="textarea_dt">															
+                                                        <div class="ui form swdh339">
+                                                            <div class="field">
+
+                                                                <textarea name="textarea" class="jqte-test" id="course_description" ></textarea>
+
+
+                                                                {{-- <textarea rows="5" name="description" id="course_description" placeholder="Insert your course description"></textarea> --}}
+                                                            </div>
+                                                        </div>										
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="review_all120">
+
+                                       
+                                       
+                                        <div class="col-lg-12 col-md-12">
                                             <div class="review_item">
                                                 <div class="review_usr_dt">
-                                                    <img src="images/left-imgs/img-1.jpg" alt="">
                                                     <div class="rv1458">
                                                         <h4 class="tutor_name1">John Doe</h4>
                                                         <span class="time_145">2 hour ago</span>
@@ -252,26 +267,12 @@
                                                     <span class="rating-star half-star"></span>
                                                 </div>
                                                 <p class="rvds10">Nam gravida elit a velit rutrum, eget dapibus ex elementum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce lacinia, nunc sit amet tincidunt venenatis.</p>
-                                                <div class="rpt100">
-                                                    <span>Was this review helpful?</span>
-                                                    <div class="radio--group-inline-container">
-                                                        <div class="radio-item">
-                                                            <input id="radio-1" name="radio" type="radio">
-                                                            <label for="radio-1" class="radio-label">Yes</label>
-                                                        </div>
-                                                        <div class="radio-item">
-                                                            <input id="radio-2" name="radio" type="radio">
-                                                            <label  for="radio-2" class="radio-label">No</label>
-                                                        </div>
-                                                    </div>
-                                                    <a href="#" class="report145">Report</a>
-                                                </div>
+                                          
                                             </div>
-                                            
-                                            <div class="review_item">
-                                                <a href="#" class="more_reviews">See More Reviews</a>
-                                            </div>
+
                                         </div>
+
+                                        
                                     </div>
                                 </div>
                             </div>

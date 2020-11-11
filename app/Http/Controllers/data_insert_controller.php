@@ -43,14 +43,20 @@ class data_insert_controller extends Controller
         ]);
 
 
-        $user_id = User::where("email",$email)->first()->id;
+        $user = User::where("email",$email)->first();
+        $user_id = $user->id;
         Session::put('user_id',$user_id);
-        $this->send_otp($user_id);
+        $otp_req = json_decode($this->send_otp2($user->contact_number));
+        $otp = $otp_req->otp;
+        $this->send_otp($otp,$user_id);
+    
+
 
         std_registration::create([
             'std_institute'=>$std_institute,
             'user_id'=>$user_id,
             'std_class'=>$std_class]);
+            
     }
 
 
@@ -71,10 +77,16 @@ class data_insert_controller extends Controller
         'email'=>$email,        
         'password' =>$password,
         ]);
-        $user_id = User::where("email",$email)->first()->id;
+        $user = User::where("email",$email)->first();
+        $user_id = $user->id;
+
+    
+
+
         Session::put('user_id',$user_id);
-      
-        $this->send_otp($user_id);
+        $otp_req = json_decode($this->send_otp2($user->contact_number));
+        $otp = $otp_req->otp;
+        $this->send_otp($otp,$user_id);
 
 
 
@@ -94,9 +106,9 @@ class data_insert_controller extends Controller
         // OTP Match Start Here
 
 
-   function send_otp($user_id)
+   function send_otp($otp,$user_id)
    {
-    $otp=mt_rand(1000,9999); 
+    
      if(otp::where('user_id',$user_id)->first())
      {
          otp::where('user_id',$user_id)->update(['otp'=>$otp]);
@@ -162,41 +174,98 @@ class data_insert_controller extends Controller
 
     }
 
+    public function send_otp2($mobile_number)
+    {
+        
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+            CURLOPT_URL => "http://13.250.7.83/exam/api/send_sms",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"msisdn\"\r\n\r\n".$mobile_number."\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"msg\"\r\n\r\ntest\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--",
+            CURLOPT_HTTPHEADER => array(
+                "cache-control: no-cache",
+                "content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW",
+                "postman-token: 24205d22-b04d-11ff-d75e-37564e566b5c"
+            ),
+            ));
+
+            $response = curl_exec($curl);
+            return $response;
+
+    }
+
+
     // Registration Email And Mobile Number Check Ends Here
 
 
 
     public function login_check(Request $request){
-        $contact_number=$request->contact_number;
-        $password=$request->password;
+        $credentials = array(
+            'contact_number' => $request->contact_number,
+            'password'=>$request->password
+            );
+
+        $user = user::where('contact_number',$request->contact_number)->first();
+        if ($user) {
+                if (auth()->attempt($credentials)) {
+                    //return redirect('');
+                    $user_id = $user->id;
+                    $user_email = $user->email;
+                    $user_name = $user->name;
+                    Session::put('user_id',$user_id);
+                 Session::put('user_name',$user_name);
+                 Session::put('user_email',$user_email);
+                 if (ins_registraion::where('user_id', $user_id)->first()) {
+                    echo "instructor";
+                } 
+                
+                else if(std_registration::where('user_id', $user_id)->first()) {
+    
+                    echo "student";
+                } 
 
 
-        if (user::where('contact_number', $contact_number)->where('password', $password)->first()) {
-
-            $user_id= User::where("contact_number",$contact_number)->first()->id;
-            $user_email= User::where("contact_number",$contact_number)->first()->email;
-            $user_name= User::where("contact_number",$contact_number)->first()->name;
-
-            Session::put('user_id',$user_id);
-            Session::put('user_name',$user_name);
-            Session::put('user_email',$user_email);
-            file_put_contents("session.txt",$user_name);
-
-
-
-            if (ins_registraion::where('user_id', $user_id)->first()) {
-                echo "instructor";
-            } 
-            
-            else if(std_registration::where('user_id', $user_id)->first()) {
-
-                echo "student";
-            } 
-            
+                }else{
+                    session()->flash('message', 'Invalid credentials');
+                    return redirect()->back();
+                }
         }
-        else {
-            echo "information Doesn't Matched";
+        else{
+            session()->flash('message', 'Invalid credentials');
+            return redirect()->back();
         }
+
+
+        // if (user::where('contact_number', $contact_number)->where('password', $password)->first()) {
+
+        //     $user_id= User::where("contact_number",$contact_number)->first()->id;
+        //     $user_email= User::where("contact_number",$contact_number)->first()->email;
+        //     $user_name= User::where("contact_number",$contact_number)->first()->name;
+
+            
+        //     file_put_contents("session.txt",$user_name);
+
+
+
+        //     if (ins_registraion::where('user_id', $user_id)->first()) {
+        //         echo "instructor";
+        //     } 
+            
+        //     else if(std_registration::where('user_id', $user_id)->first()) {
+
+        //         echo "student";
+        //     } 
+            
+        // }
+        // else {
+        //     echo "information Doesn't Matched";
+        // }
     }
 
 

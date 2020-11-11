@@ -48,15 +48,11 @@
 			<a href="{{url('instructor_home')}}"><img src="assets\frontend\images\logo.png" style="width:80px" alt=""></a>
 			<a href="instructor_home"><img class="logo-inverse" src="assets\frontend\images\ct_logo.svg" alt=""></a>
 		</div>
+
+
 	
-		<div class="search120">
-			<div class="ui search">
-			  <div class="ui left icon input swdh10">
-				<input class="prompt srch10" type="text" placeholder="Learn Anything From OFK For Free">
-				<i class='uil uil-search-alt icon icon1'></i>
-			  </div>
-			</div>
-		</div>
+	
+		
 		<div class="header_right">
 			<ul>
 			

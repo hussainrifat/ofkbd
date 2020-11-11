@@ -47,15 +47,27 @@
 			<a href="{{url('student_home')}}"><img src="assets\frontend\images\logo.png" style="width:80px" alt=""></a>
 			<a href="student_home"><img class="logo-inverse" src="assets\frontend\images\ct_logo.svg" alt=""></a>
 		</div>
-	
-		<div class="search120">
-			<div class="ui search">
-			  <div class="ui left icon input swdh10">
-				<input class="prompt srch10" type="text" placeholder="Learn Anything From OFK For Free">
-				<i class='uil uil-search-alt icon icon1'></i>
-			  </div>
+
+		<div class="top-category">
+			<div class="ui compact menu cate-dpdwn">
+				<div class="ui simple dropdown item">
+					<a href="#" class="option_links p-0" title="categories"><i class="uil uil-apps"></i></a>
+					<div class="menu dropdown_category5">
+						<a href="{{url('courses')}}" class="item channel_item">Explore New Course</a>
+						<a href="{{url('course?name=art')}}" class="item channel_item">Art</a>
+						<a href="{{url('course?name=craft')}}" class="item channel_item">Craft</a>
+						<a href="{{url('course?name=calligraphy')}}" class="item channel_item">Calligraphy</a>
+						<a href="{{url('course?name=robotics')}}" class="item channel_item">Robotics</a>
+						<a href="{{url('course?name=programming')}}" class="item channel_item">Programming Language</a>
+						<a href="{{url('course?name=web_design')}}" class="item channel_item">Web Design</a>
+						<a href="{{url('course?name=case_solving')}}" class="item channel_item">Case Solving</a>
+						<a href="{{url('course?name=rubiks_cube_solving')}}" class="item channel_item">Rubiks Cube</a>
+					</div>
+				</div>
 			</div>
 		</div>
+	
+	
 		<div class="header_right">
 			<ul>
 			
@@ -122,15 +134,15 @@
 						</a>
 					</li>
 
-					<li class="menu--item">
+					{{-- <li class="menu--item">
 						<a href="{{url('courses')}}" class="menu--link" title="Courses">
 							<i class='uil uil-book-alt menu--icon'></i>
 							<span class="menu--label">All Courses</span>
 						</a>
-					</li>
+					</li> --}}
 
 					<li class="menu--item">
-						<a href="{{url('courses')}}" class="menu--link" title="Courses">
+						<a href="{{url('student_courses')}}" class="menu--link" title="Courses">
 							<i class='uil uil-bookmark-full menu--icon'></i>
 							<span class="menu--label">My Courses</span>
 						</a>

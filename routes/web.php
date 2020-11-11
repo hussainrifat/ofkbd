@@ -44,6 +44,8 @@ Route::get('student_home','CustomController@student_home');
 Route::get('student_layout','CustomController@student_layout');
 Route::get('student_dashboard','CustomController@student_dashboard');
 Route::post('ReportToAdmin','CustomController@ReportToAdmin');
+Route::get('student_courses','CustomController@student_courses');
+
 
 
 

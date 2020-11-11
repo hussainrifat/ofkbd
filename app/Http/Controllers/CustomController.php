@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\course;
+use App\ins_registraion;
 use App\std_registration;
 use App\stu_course;
 use App\User;
@@ -80,7 +81,6 @@ class CustomController extends Controller
 
         $response = array();
 
-        // $course= course::all()->sortByDesc();
                 $course= course::
                 orderBy('id','desc')
                 ->take(5)
@@ -120,12 +120,46 @@ class CustomController extends Controller
     
         $course = Course::where('instructor_id',$instructor_id)
         -> orderBy('id','desc')
-        ->take(5)
         ->get();
         $user_name= User::where('id',$instructor_id)->first()->name;
     
         
         return view('instructor/instructor_courses',['courses'=>$course,'user_name'=>$user_name]);
+
+    }
+
+
+    
+    public function student_courses(){
+
+        {
+            $user_id = Session::get('user_id');
+            $data = array();
+            $enroll= stu_course::where('user_id',$user_id)->get();
+
+            for($i=0;$i<sizeof($enroll);$i++)
+            {
+                $course_id=$enroll[$i]->course_id;
+                $course_info= course::where('id',$course_id)->first();
+
+                file_put_contents('course.txt',$course_info);
+
+                $instructor_id=$course_info->instructor_id;
+                $instructor_name= user::where('id',$instructor_id)->first()->name;
+        
+                $course_id=$course_info->id;
+                $course_name=$course_info->course_name;
+                $course_image=$course_info->course_image;
+                $course_category=$course_info->course_category;
+                $course_time_duration=$course_info->course_time_duration;
+        
+                array_push($data,['instructor_name'=>$instructor_name,'course_id'=>$course_id,'course_image'=>$course_image,'course_name'=>$course_name,'course_category'=>$course_category,'course_time_duration'=>$course_time_duration,'course_name'=>$course_name]);
+                
+            }
+        
+            return view('student/student_courses',['courses'=>json_decode(json_encode($data))]);
+        }
+        
     }
 
 
@@ -137,6 +171,7 @@ class CustomController extends Controller
         
         $course= course::
         orderBy('id','desc')
+        ->take(5)
         ->get();
         for($i=0;$i<sizeof($course);$i++)
         {
@@ -164,18 +199,37 @@ class CustomController extends Controller
             $student_class= std_registration::where('user_id',$student_id)->first()->std_class;
             $student_institute= std_registration::where('user_id',$student_id)->first()->std_institute;
 
-            return view('student/student_dashboard',['student'=>$student_info,'std_class'=>$student_class,'std_institute'=>$student_institute]);
+
+
+            $student_id = Session::get('user_id');
+            $data = array();
+            $enroll= stu_course::where('user_id',$student_id)->get();
+
+            for($i=0;$i<sizeof($enroll);$i++)
+            {
+                $course_id=$enroll[$i]->course_id;
+                $course_info= course::where('id',$course_id)->first();
+
+                file_put_contents('course.txt',$course_info);
+
+                $instructor_id=$course_info->instructor_id;
+                $instructor_name= user::where('id',$instructor_id)->first()->name;
+        
+                $course_id=$course_info->id;
+                $course_name=$course_info->course_name;
+                $course_image=$course_info->course_image;
+                $course_category=$course_info->course_category;
+                $course_time_duration=$course_info->course_time_duration;
+        
+                array_push($data,['instructor_name'=>$instructor_name,'course_id'=>$course_id,'course_image'=>$course_image,'course_name'=>$course_name,'course_category'=>$course_category,'course_time_duration'=>$course_time_duration,'course_name'=>$course_name]);
+                
+            }
+
+
+
+
+            return view('student/student_dashboard',['student'=>$student_info,'std_class'=>$student_class,'std_institute'=>$student_institute,'courses'=>json_decode(json_encode($data))]);
         }
-
-
-
-        // public function instructor_home_layout(){
-
-        //     $user_name= Session::get('user_name');
-        //     $user_email= Session::get('user_email');
-        //     return view('instructor_home_layout',['user_name'=>$user_name,'user_email'=>$user_email]);
-
-        // }
 
 
 
@@ -220,15 +274,23 @@ class CustomController extends Controller
     // Student Single Course Content Controller
 
     public function course_detail(Request $request){
+        $user_id = auth()->user()->id;
 
         $course_id=$request->course;
         $course_details= course::where('id',$course_id)->first();
         $instructor_id=$course_details->instructor_id;
         $instructor_name = User::where('id',$instructor_id)->first()->name;
         $videos= $course_details->videoes;
+        if(stu_course::where('user_id',$user_id)->where('course_id',$course_id)->first())
+        {
+            $enroll = 1;
+        }
+        else
+        {
+            $enroll = 0;
+        }
 
-
-        return view('course/course_detail',['course_details'=>$course_details,'instructor_name'=>$instructor_name,'videoes'=>$videos]);
+        return view('course/course_detail',['course_details'=>$course_details,'instructor_name'=>$instructor_name,'videoes'=>$videos,'enroll'=>$enroll]);
 
     }
 

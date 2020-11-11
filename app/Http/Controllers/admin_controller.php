@@ -11,6 +11,8 @@ use App\ins_registraion;
 use App\video;
 use App\admin_login;
 use app\Report_admin;
+use Illuminate\Support\Facades\Hash;
+
 
 use function GuzzleHttp\json_decode;
 
@@ -172,21 +174,7 @@ class admin_controller extends Controller
             }
 
 
-            // Admin Report Start Here
-
-            // public function admin_all_report(){
-
-            //     $data=array();
-            //     $reports= report_admin::get();               
-            //         $course_id=$reports->course_id;
-            //         $report_description=$reports->course_id;
-            //         array_push($data,['course_id'=>$course_id,'report_description'=>$report_description]);
-            
-            //         return view('admin/admin_all_report',['reports'=>json_decode(json_encode($data))]);
-            //     }
-
-
-
+      
 
             //Instructor Profile Start Here
 
@@ -227,6 +215,9 @@ class admin_controller extends Controller
                 }
 
 
+                // Student Profile
+
+
                 public function viewStudentDashboardProfileInfo(Request $request){
 
                     $student= std_registration::where('user_id',$request->id)->first();
@@ -257,18 +248,31 @@ class admin_controller extends Controller
                     public function updatestudentPasswordInfo(Request $request)
                     {
                       
-                        file_put_contents("password.txt",$request->oldpassword);
     
-                        if(user::where('id',$request->id)->where('password',$request->oldpassword)->first())
-                        {
-                            user::where('id',$request->id)->update(['password'=>$request->newpassword]);
+                    //     if(user::where('id',$request->id)->where('password',$request->oldpassword)->first())
+                        //     {
+                        //         user::where('id',$request->id)->update(['password'=>$request->newpassword]);
                   
-                       echo "ok"; }
+                        //    echo "ok"; }
                        
-                          else {
-                              echo "not ok";
-                          }
-    
+                        //       else {
+                        //           echo "not ok";
+                        //       }
+
+                        $data= (user::where('id', $request->id)->first());
+
+                        if (user::where('id', $request->id)->where('password', $request->oldpassword)->first()) {
+                            if (!Hash::check($data['password'], $request->oldpassword)) {
+                                user::where('id', $request->id)->update(['password'=>$request->newpassword]);
+                    
+                                echo "ok";
+                            } 
+                        
+                        }
+
+                        else {
+                            echo "not ok";
+                        }
                     }
 
 
