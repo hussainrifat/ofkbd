@@ -11,6 +11,7 @@ use App\ins_registraion;
 use App\video;
 use App\admin_login;
 use app\Report_admin;
+use App\parents_information;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -230,6 +231,8 @@ class admin_controller extends Controller
                     $std_class=$student->std_class;
                     $std_institute=$student->std_institute;
 
+                    // file_put_contents('dashboard.txt',$std_institute);
+
                     return json_encode(['id'=>$request->id,'name'=>$name,'email'=>$email,'contact_number'=>$contact_number,'std_class'=>$std_class,'std_institute'=>$std_institute]);
 
                         
@@ -274,6 +277,45 @@ class admin_controller extends Controller
                             echo "not ok";
                         }
                     }
+
+
+                    
+    public function updateStudentParentsInfo(Request $request)
+    {
+
+        $user_id= $request->id;
+        $father_name= $request->father_name;
+        $mother_name= $request->mother_name;
+        $father_contact_number= $request->father_contact_number;
+        $mother_contact_number= $request->mother_contact_number;
+        $present_address= $request->present_address;
+
+
+        if(parents_information::where('user_id',$user_id)->first())
+        {
+            parents_information::where('user_id',$user_id)->update([
+                'father_name'=>$father_name, 
+                'mother_name'=>$mother_name, 
+                'father_contact_number'=>$father_contact_number, 
+                'mother_contact_number'=>$mother_contact_number, 
+                'present_address'=>$present_address, 
+                ]);
+        }
+        else{
+            parents_information::create([
+                'user_id'=>$user_id, 
+                'father_name'=>$father_name, 
+                'mother_name'=>$mother_name, 
+                'father_contact_number'=>$father_contact_number, 
+                'mother_contact_number'=>$mother_contact_number, 
+                'present_address'=>$present_address, 
+                ]);
+        } 
+
+
+
+
+    }
 
 
 

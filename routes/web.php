@@ -127,6 +127,8 @@ Route::post('updateInstructorPasswordInfo','admin_controller@updateInstructorPas
 Route::post('viewStudentDashboardProfileInfo','admin_controller@viewStudentDashboardProfileInfo');
 Route::post('updateStudentProfileInfo','admin_controller@updateStudentProfileInfo');
 Route::post('updatestudentPasswordInfo','admin_controller@updatestudentPasswordInfo');
+Route::post('updateStudentParentsInfo','admin_controller@updateStudentParentsInfo');
+
 
 
 // Edit And Update Video Content Instructor Dashboard

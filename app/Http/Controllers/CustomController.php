@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\course;
 use App\ins_registraion;
+use App\parents_information;
 use App\std_registration;
 use App\stu_course;
 use App\User;
@@ -199,9 +200,16 @@ class CustomController extends Controller
             $student_class= std_registration::where('user_id',$student_id)->first()->std_class;
             $student_institute= std_registration::where('user_id',$student_id)->first()->std_institute;
 
+            // file_put_contents('course.txt',$student_class);
+
+            $parents_info= parents_information::where('user_id',$student_id)->first();
+            $father_name=$parents_info->father_name;
+            $father_contact_number=$parents_info->father_contact_number;
+            $mother_name=$parents_info->mother_name;
+            $mother_contact_number=$parents_info->mother_contact_number;
+            $present_address=$parents_info->present_address;
 
 
-            $student_id = Session::get('user_id');
             $data = array();
             $enroll= stu_course::where('user_id',$student_id)->get();
 
@@ -210,7 +218,7 @@ class CustomController extends Controller
                 $course_id=$enroll[$i]->course_id;
                 $course_info= course::where('id',$course_id)->first();
 
-                file_put_contents('course.txt',$course_info);
+                // file_put_contents('course.txt',$course_info);
 
                 $instructor_id=$course_info->instructor_id;
                 $instructor_name= user::where('id',$instructor_id)->first()->name;
@@ -221,14 +229,17 @@ class CustomController extends Controller
                 $course_category=$course_info->course_category;
                 $course_time_duration=$course_info->course_time_duration;
         
-                array_push($data,['instructor_name'=>$instructor_name,'course_id'=>$course_id,'course_image'=>$course_image,'course_name'=>$course_name,'course_category'=>$course_category,'course_time_duration'=>$course_time_duration,'course_name'=>$course_name]);
+                array_push($data,['instructor_name'=>$instructor_name,'course_id'=>$course_id,'course_image'=>$course_image,'course_name'=>$course_name,'course_category'=>$course_category,'course_time_duration'=>$course_time_duration,'course_name'=>$course_name,
+              
+                ]);
                 
             }
 
 
 
 
-            return view('student/student_dashboard',['student'=>$student_info,'std_class'=>$student_class,'std_institute'=>$student_institute,'courses'=>json_decode(json_encode($data))]);
+            return view('student/student_dashboard',['student'=>$student_info,'std_class'=>$student_class,'std_institute'=>$student_institute,  'father_name'=>$father_name,'mother_name'=>$mother_name,'father_contact_number'=>$father_contact_number,'mother_contact_number'=>$mother_contact_number,
+            'present_address'=>$present_address,'courses'=>json_decode(json_encode($data))]);
         }
 
 

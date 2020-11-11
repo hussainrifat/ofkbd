@@ -41,8 +41,8 @@
                               <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold">{{$student->name}}</h2>
                         
 
-                              <button class="btn btn-primary btn-sm" onclick="editStudentDashboardProfileInfo({{$student->id}})" data-toggle="modal" data-target="#editModal"  >Edit Your Information</button>
-
+                              <button class="btn btn-danger btn-sm" onclick="editStudentDashboardProfileInfo({{$student->id}})" data-toggle="modal" data-target="#editModal"  >Edit Your Information</button>
+                              
 
                               
                             
@@ -125,16 +125,16 @@
                                   <hr />
                                   <div class="row">
                                       <div class="col-sm-3 col-md-2 col-5">
-                                          <label style="font-weight:bold;">Institute Name</label>
+                                          <label style="font-weight:bold;">Class</label>
                                       </div>
                                       <div class="col-md-8 col-6">
-                                        {{$std_institute}}
+                                        {{$std_class}}
                                       </div>
                                   </div>
                                   <hr />
                                   <div class="row">
                                       <div class="col-sm-3 col-md-2 col-5">
-                                          <label style="font-weight:bold;">Class</label>
+                                          <label style="font-weight:bold;">Institute Name</label>
                                       </div>
                                       <div class="col-md-8 col-6">
                                         {{$std_institute}}
@@ -157,7 +157,7 @@
                                       <label style="font-weight:bold;">Father's Name</label>
                                   </div>
                                   <div class="col-md-8 col-6">
-                                    {{$student->name}}
+                                    {{$father_name}}
                                   </div>
                               </div>
                               <hr />
@@ -165,23 +165,49 @@
                               
                               <div class="row">
                                 <div class="col-sm-3 col-md-2 col-5">
-                                    <label style="font-weight:bold;">Mother's Name</label>
+                                    <label style="font-weight:bold;">Father's Contact Number</label>
                                 </div>
                                 <div class="col-md-8 col-6">
-                                  {{$student->name}}
+                                  {{$father_contact_number}}
                                 </div>
                             </div>
                             <hr />
 
                             <div class="row">
                               <div class="col-sm-3 col-md-2 col-5">
-                                  <label style="font-weight:bold;">Present Address</label>
+                                  <label style="font-weight:bold;">Mother's Name</label>
                               </div>
                               <div class="col-md-8 col-6">
-                                {{$student->name}}
+                                {{$mother_name}}
                               </div>
                           </div>
                           <hr />
+
+                          <div class="row">
+                            <div class="col-sm-3 col-md-2 col-5">
+                                <label style="font-weight:bold;">Mother's Contact Number</label>
+                            </div>
+                            <div class="col-md-8 col-6">
+                              {{$mother_contact_number}}
+                            </div>
+                        </div>
+                        <hr />
+
+                          <div class="row">
+                            <div class="col-sm-3 col-md-2 col-5">
+                                <label style="font-weight:bold;">Present Address</label>
+                            </div>
+                            <div class="col-md-8 col-6">
+                              {{$present_address}}
+                            </div>
+                        </div>
+                        <hr />
+
+                        <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#editParentsModal"  >Edit Parents Information</button>
+
+
+                  
+                      <hr />
 
                             </div>
 
@@ -276,7 +302,6 @@
                               <div class="tab-pane fade" id="changePassword" role="tabpanel" aria-labelledby="changePassword-tab">
                                 <div class="form-group">
                                   <input type="hidden" id="edit-student-id" placeholder="Enter Your ID" class="form-control">
-                  
                               </div>
                            
                             <div class="form-group">
@@ -295,13 +320,12 @@
 
                           </div>
                 
-                
-                         
-                            
                       
                           </div>
                       </div>
                   </div>
+
+
 
 
                   <div class="modal" id="editModal">
@@ -351,7 +375,70 @@
               
               
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-danger" onclick="updateStudentProfileInfo()"  >Update</button>
+                          <button type="button" class="btn btn-danger" onclick="updateStudentProfileInfo({{$student->id}})"  >Update</button>
+                        </div>
+              
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                  <div class="modal" id="editParentsModal">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+              
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                          <h4 class="modal-title">Student Parents Information</h4>
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+              
+                        <!-- Modal body -->
+                        <div class="modal-body">
+
+
+                          <div class="form-group">
+                            <input type="hidden" id="id" value={{$student->id}} placeholder="Enter Your ID" class="form-control">
+                        </div>
+      
+                           
+                         
+                          <div class="form-group">
+                              <label>Enter Your Father Name</label>
+                              <input type="text" id="father-name" placeholder="Enter Your Father Name" class="form-control">
+              
+                          </div>
+
+                          <div class="form-group">
+                            <label>Enter Your Father's Contact Number</label>
+                            <input type="text" id="father-contact_number" placeholder="Enter Your Father's Contact Number" class="form-control">
+            
+                        </div>
+
+                          <div class="form-group">
+                            <label>Enter Your Mother Name</label>
+                            <input type="text" id="mother-name" placeholder="Enter Your Mother Name" class="form-control">
+            
+                        </div>
+
+                        <div class="form-group">
+                          <label>Enter Your Mother's Contact Number</label>
+                          <input type="text" id="mother-contact_number" placeholder="Enter Your Mother's Contact Number" class="form-control">
+          
+                      </div>
+
+                        <div class="form-group">
+                          <label>Present Address</label>
+                          <input type="text" id="present_address" placeholder="Enter Your Present Address" class="form-control">
+          
+                      </div>
+              
+                        </div>
+              
+              
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" onclick="updateStudentParentsInfo()"  >Update</button>
                         </div>
               
                       </div>
@@ -368,45 +455,7 @@
         
 
 
-            {{-- <div class="modal" id="changePasswordModal">
-              <div class="modal-dialog">
-                <div class="modal-content">
         
-                  <!-- Modal Header -->
-                  <div class="modal-header">
-                    <h4 class="modal-title">Change Password</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  </div>
-        
-                  <!-- Modal body -->
-                  <div class="modal-body">
-
-                      <div class="form-group">
-                          <input type="hidden" id="edit-student-id" placeholder="Enter Your ID" class="form-control">
-          
-                      </div>
-                   
-                    <div class="form-group">
-                        <label>Enter Your Old Password</label>
-                        <input type="text" id="edit-student-old-password" class="form-control">
-        
-                    </div>
-        
-                     <div class="form-group">
-                        <label>Enter Your New Password</label>
-                        <input type="text" id="edit-student-new-password"  class="form-control" >
-                    </div>
-                  
-                  </div>
-        
-        
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" onclick="updatestudentPasswordInfo(({{$student->id}}))"  >Update</button>
-                  </div>
-        
-                </div>
-              </div>
-            </div> --}}
 
 
 </div>

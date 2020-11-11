@@ -20,7 +20,7 @@
         email = $("#edit-student-email").val(a.email);
         contact_number = $("#edit-student-contact_number").val(a.contact_number);
         std_class = $("#edit-student-student_class").val(a.std_class);
-        std_institute= $("edit-student-student_institute").val(a.std_institute);
+        std_institute= $("#edit-student-student_institute").val(a.std_institute);
 
       }
 
@@ -36,7 +36,7 @@
     formdata.append('email',$("#edit-student-email").val());
     formdata.append('contact_number',$("#edit-student-contact_number").val());
     formdata.append('std_class',$("#edit-student-student_class").val());
-    formdata.append('std_institute',$("edit-student-student_institute").val());
+    formdata.append('std_institute',$("#edit-student-student_institute").val());
 
 
     $.ajax({
@@ -47,6 +47,42 @@
       url:"updateStudentProfileInfo",
       success:function(data)
       {
+        location.reload();
+      }
+    });
+  }
+
+
+  function updateStudentParentsInfo() {
+
+    var id=$("#id").val();
+    var mother_name=$("#mother-name").val();
+    var father_name=$("#father-name").val();
+    var father_contact_number=$("#father-contact_number").val();
+    var mother_contact_number=$("#mother-contact_number").val();
+    var present_address=$("#present-address").val();
+
+
+
+    var formdata= new FormData;
+    formdata.append('id',$("#id").val());
+    formdata.append('mother_name',$("#mother-name").val());
+    formdata.append('father_name',$("#father-name").val());
+    formdata.append('father_contact_number',$("#father-contact_number").val());
+    formdata.append('mother_contact_number',$("#mother-contact_number").val());
+    formdata.append('present_address',$("#present_address").val());
+
+
+    $.ajax({
+      processData:false,
+      contentType:false,
+      data:formdata,
+      type:"post",
+      url:"updateStudentParentsInfo",
+      success:function(data)
+      {
+
+        alert("Information Updated Successfully");
         location.reload();
       }
     });
