@@ -140,7 +140,9 @@
           url:"StudentCourseEnrollment",
           success:function(data)
           {
-            window.location.href='course_view?id='+id;
+            // window.location.href='course_view?id='+id;
+            window.location.href='student_courses';
+
             
           }
         });

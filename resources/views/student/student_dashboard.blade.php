@@ -211,13 +211,6 @@
 
                             </div>
 
-
-
-                             
-                        
-
-
-
                               <div class="tab-pane fade" id="myCourses" role="tabpanel" aria-labelledby="myCourses-tab">
                                 <div class="col-md-12">
                                   <div class="_14d25">

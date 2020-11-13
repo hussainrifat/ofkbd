@@ -30,7 +30,7 @@
                                     <div class="eps_dots more_dropdown">
                                         <a href="#"><i class='uil uil-ellipsis-v'></i></a>
                                         <div class="dropdown-content">
-                                            <span  data-toggle="modal" data-target="#reporttoadmin" > <i class="uil uil-windsock"></i>Report To Admin</span>
+                                            <span  data-toggle="modal" data-target="#reporttoadmin" > <i class="uil uil-windsock"></i>Feedback To Admin</span>
                                          </div>																										
                                     </div>
                                   
@@ -70,7 +70,7 @@
                             
                             
                                     <div class="modal-footer">
-                                      <button type="button" class="btn btn-danger" onclick="SendReportToAdmin({{$course->course_id}})"  >Report To Admin</button>
+                                      <button type="button" class="btn btn-danger" onclick="SendReportToAdmin({{$course->course_id}})"  >Give Your Feedback</button>
                                     </div>
                             
                                   </div>

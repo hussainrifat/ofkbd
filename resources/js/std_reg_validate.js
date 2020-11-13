@@ -208,9 +208,6 @@ $(function(){
      }
 
       }
-
-
-
      }
 
        });
@@ -231,7 +228,44 @@ $(function(){
            $('#ins_name_error').hide();
    
        });
-   
+
+
+
+    
+       $("#ins_password").focusout(function()
+       {
+
+       if($("#ins_password").val().length == 0)
+
+      {
+         $("#ins_password_error").html("password field is required");
+          $("#ins_password_error").show();
+     } 
+     else
+     {
+
+      if( $("#ins_password").val().length<8)
+      {
+        $("#ins_password_error").html("Minimum 8 character required");
+          $("#ins_password_error").show();
+        //$("#pass_error").hide();
+      }
+      else
+      {
+       var password_reg_ex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])");
+       if(!password_reg_ex.test($("#ins_password").val())) {
+      $("#ins_password_error").html("password should contain One Uppercase, One lowercase,one number,one special character");
+      $("#ins_password_error").show();
+      //return false;
+    }
+    else{
+       $("#ins_password_error").hide();
+     }
+
+      }
+     }
+
+       });
 
 
 

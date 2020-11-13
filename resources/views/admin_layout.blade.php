@@ -48,50 +48,11 @@
 			<a href="student_home"><img class="logo-inverse" src="assets\frontend\images\ct_logo.svg" alt=""></a>
 		</div>
 
-		<div class="search120">
-			<div class="ui search">
-			  <div class="ui left icon input swdh10">
-				<input class="prompt srch10" type="text" placeholder="Learn Anything From OFK For Free">
-				<i class='uil uil-search-alt icon icon1'></i>
-			  </div>
-			</div>
-		</div>
+		
 		<div class="header_right">
 			<ul>
 			
-			
-			
-				
-				<li class="ui dropdown">
-					<a href="#" class="opts_account" title="Account">
-						<img src="assets\frontend\images\user.png" alt="">
-					</a>
-					<div class="menu dropdown_account">
-						<div class="channel_my">
-							<div class="profile_link">
-								<img src="assets\frontend\images\user.png" alt="">
-								<div class="pd_content">
-									<div class="rhte85">
-										<h6>admin</h6>
-										<div class="mef78" title="Verify">
-											<i class='uil uil-check-circle'></i>
-										</div>
-									</div>
-									<span>admin@mail.com</span>
-								</div>							
-							</div>
-						</div>
-						<div class="night_mode_switch__btn">
-							<a href="#" id="night-mode" class="btn-night-mode">
-								<i class="uil uil-moon"></i> Night mode
-								<span class="btn-night-mode-switch">
-									<span class="uk-switch-button"></span>
-								</span>
-							</a>
-						</div>
-						<a href="{{url('sign_out')}}" class="item channel_item">Sign Out</a>
-					</div>
-				</li>
+		
 			</ul>
 		</div>
 	</header>
@@ -140,7 +101,7 @@
 					<li class="menu--item">
 						<a href="{{url('admin_all_report')}}" class="menu--link" title="Reviews">
 						  <i class='uil uil-fast-mail menu--icon'></i>
-						  <span class="menu--label">All Reports</span>
+						  <span class="menu--label">All Feedback</span>
 						</a>
 					</li>
 

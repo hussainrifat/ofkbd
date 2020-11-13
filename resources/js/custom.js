@@ -215,6 +215,40 @@ $(function(){
 
     });
 
+
+    $("#create_post").on('click',function()
+    {
+
+
+    var blog_title=$("#blog_title").val();
+    var blog_description=$("#blog_description").val();
+    var blog_category=$("#blog_category").val();
+    // alert(blog_title+' '+blog_description+' '+blog_category);
+
+
+
+    var formdata= new FormData();
+    formdata.append('blog_title',blog_title);
+    formdata.append('blog_description',blog_description);
+    formdata.append('blog_category',blog_category);
+    formdata.append('blog_image',$('#blog_image')[0].files[0]);
+
+    $.ajax({
+      processData:false,
+      contentType:false,
+      data:formdata,
+      type:"post",
+      url:"create_post",
+      success:function(data)
+      {
+        alert("Your Blog Post Created Succesfully");
+        window.location.href ="instructor_blog_view"
+      }
+    });
+   
+
+    });
+
     $("#add_content").on('click',function()
     {
 
@@ -272,6 +306,31 @@ function readURL(input) {
   }
 }
 
+
+function readURL(input) {
+  if (input.files && input.files[0]) {
+
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+
+      $('.insert_blog_image').attr('src', e.target.result);
+
+      $('.insert_course_image_label').html(input.files[0].name);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+
+  } else {
+    removeUpload();
+  }
+}
+
+
+
+
+
+
 function videoIMG(input) {
   if (input.files && input.files[0]) {
 
@@ -292,7 +351,6 @@ function videoIMG(input) {
 }
 
 
-// Instructor Course Delete
 
 
 

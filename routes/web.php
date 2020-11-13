@@ -30,21 +30,43 @@ Route::get('instructor_home_layout','CustomController@instructor_home_layout');
 
 
 // Instructor Pages
-Route::get('instructor_home','CustomController@instructor_home');
-Route::get('instructor_home_layout','CustomController@instructor_home_layout');
-Route::get('instructor_dahsboard','CustomController@instructor_dahsboard');
-Route::get('create_course','CustomController@create_course');
-Route::get('instructor_courses','CustomController@instructor_courses');
+Route::get('instructor_home','InstructorController@instructor_home');
+Route::get('instructor_dahsboard','InstructorController@instructor_dahsboard');
+Route::get('create_course','InstructorController@view_create_course');
+Route::get('create_post','InstructorController@view_create_post');
+Route::get('instructor_courses','InstructorController@instructor_courses');
+
+// Adding New Courses
+Route::post('create_course','data_insert_controller@create_course');
+Route::post('create_post','blog_Controller@create_post');
+
+
+// Edit And Update Instructor Profile Information
+
+Route::post('viewInstructorProfileInfo','InstructorController@viewInstructorProfileInfo');
+Route::post('updateInstructorProfileInfo','InstructorController@updateInstructorProfileInfo');
+Route::post('updateInstructorPasswordInfo','InstructorController@updateInstructorPasswordInfo');
+
+
 
 
 
 
 // Student Pages
-Route::get('student_home','CustomController@student_home');
-Route::get('student_layout','CustomController@student_layout');
-Route::get('student_dashboard','CustomController@student_dashboard');
+Route::get('student_home','studentController@student_home');
+Route::get('student_dashboard','studentController@student_dashboard');
 Route::post('ReportToAdmin','CustomController@ReportToAdmin');
-Route::get('student_courses','CustomController@student_courses');
+Route::get('student_courses','studentController@student_courses');
+
+
+// Edit And Update Student Dahsboard
+
+Route::post('viewStudentDashboardProfileInfo','studentController@viewStudentDashboardProfileInfo');
+Route::post('updateStudentProfileInfo','studentController@updateStudentProfileInfo');
+Route::post('updatestudentPasswordInfo','studentController@updatestudentPasswordInfo');
+Route::post('updateStudentParentsInfo','studentController@updateStudentParentsInfo');
+
+
 
 
 
@@ -54,6 +76,14 @@ Route::get('add_content','CustomController@add_content');
 Route::post('insert_content','data_insert_controller@insert_content');
 Route::get('courses','CustomController@courses');
 Route::get('course','CustomController@course');
+
+
+// Blog Pages
+Route::get('instructor_blog_view','Blog_Controller@instructor_blog_view');
+Route::get('blog_details','Blog_Controller@blog_details');
+Route::get('student_blog_view','Blog_Controller@student_blog_view');
+Route::get('student_blog_details','Blog_Controller@student_blog_details');
+
 
 
 Route::get('course_view','CustomController@course_view');
@@ -77,8 +107,6 @@ Route::post('number_check','data_insert_controller@number_check');
 Route::post('login_check','data_insert_controller@login_check');
 
 
-// Adding Video & Courses
-Route::post('create_course','data_insert_controller@create_course');
 
 
 
@@ -87,7 +115,7 @@ Route::post('create_course','data_insert_controller@create_course');
 Route::get('admin_all_instructors','admin_controller@view_admin_all_instructors');
 Route::get('admin_all_students','admin_controller@admin_all_students');
 Route::get('admin_all_courses','admin_controller@admin_all_courses');
-Route::get('admin_all_report','CustomController@admin_all_report');
+Route::get('admin_all_report','admin_controller@admin_all_report');
 
 Route::get('admin_login','admin_controller@admin_login');
 Route::post('admin_login_check','admin_controller@admin_login_check');
@@ -115,19 +143,7 @@ Route::post('deleteCourseInfo','admin_controller@deleteCourseInfo');
 
 
 
-// Edit And Update Instructor Dahsboard
 
-Route::post('viewInstructorProfileInfo','admin_controller@viewInstructorProfileInfo');
-Route::post('updateInstructorProfileInfo','admin_controller@updateInstructorProfileInfo');
-Route::post('updateInstructorPasswordInfo','admin_controller@updateInstructorPasswordInfo');
-
-
-// Edit And Update Student Dahsboard
-
-Route::post('viewStudentDashboardProfileInfo','admin_controller@viewStudentDashboardProfileInfo');
-Route::post('updateStudentProfileInfo','admin_controller@updateStudentProfileInfo');
-Route::post('updatestudentPasswordInfo','admin_controller@updatestudentPasswordInfo');
-Route::post('updateStudentParentsInfo','admin_controller@updateStudentParentsInfo');
 
 
 

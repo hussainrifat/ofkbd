@@ -6,7 +6,7 @@
     <div class="container-fluid">			
         <div class="row">
                     <div class="crse_content">
-                        <h1>Report From Students</h1>
+                        <h1>Feedback From Students</h1>
                         <div class="col-lg-12 col-md-12">
                                 <table class="table ucp-table">
                                     <thead class="thead-s">

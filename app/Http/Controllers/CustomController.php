@@ -13,6 +13,7 @@ use App\video;
 use Session;
 use App\stu_courses;
 use App\Report_admin;
+use App\blog;
 
 
 class CustomController extends Controller
@@ -24,7 +25,6 @@ class CustomController extends Controller
     public function home(){
 
 
-        
         $response = array();
 
         $course= course::
@@ -49,6 +49,9 @@ class CustomController extends Controller
         // return view('home');
     }
 
+
+
+
     public function register(){
         return view('registration/register');
     }
@@ -72,184 +75,9 @@ class CustomController extends Controller
     
 
 
-
-    // Instructor Function
-    public function instructor_home(Request $request){
-        $user_name= Session::get('user_name');
-        $user_email= Session::get('user_email');
-
-        file_put_contents("session.txt",$user_name);
-
-        $response = array();
-
-                $course= course::
-                orderBy('id','desc')
-                ->take(5)
-                ->get();
-
-        for($i=0;$i<sizeof($course);$i++)
-        {
-            $ins_id = $course[$i]->instructor_id;
-            $instructor_name = User::where('id',$ins_id)->first()->name;
-            array_push($response,
-            ['id'=>$course[$i]->id,
-            'course_name'=>$course[$i]->course_name,
-            'course_time_duration'=>$course[$i]->course_time_duration,
-            'course_image'=>$course[$i]->course_image,
-            'course_category'=>$course[$i]->course_category,
-            'instructor_name'=>$instructor_name]);   
-        }
-
-        $course = json_decode(json_encode($response));
-        return view('instructor/instructor_home',
-        ['course'=>$course,'user_name'=>$user_name,'user_email'=>$user_email]);
-    }
-
-    public function instructor_dahsboard(){
-
-        $instructor_id=Session::get('user_id');
-        $instructor_info= user::where('id',$instructor_id)->first();
-        $course_number=course::get();
-        $instructor_temp_id= course::where('instructor_id',$instructor_id)->first();
-
-        return view('instructor/instructor_dahsboard',['instructor'=>$instructor_info]);
-    }
-
-    public function instructor_courses(){
-
-        $instructor_id = Session::get('user_id');
-    
-        $course = Course::where('instructor_id',$instructor_id)
-        -> orderBy('id','desc')
-        ->get();
-        $user_name= User::where('id',$instructor_id)->first()->name;
-    
-        
-        return view('instructor/instructor_courses',['courses'=>$course,'user_name'=>$user_name]);
-
-    }
-
-
-    
-    public function student_courses(){
-
-        {
-            $user_id = Session::get('user_id');
-            $data = array();
-            $enroll= stu_course::where('user_id',$user_id)->get();
-
-            for($i=0;$i<sizeof($enroll);$i++)
-            {
-                $course_id=$enroll[$i]->course_id;
-                $course_info= course::where('id',$course_id)->first();
-
-                file_put_contents('course.txt',$course_info);
-
-                $instructor_id=$course_info->instructor_id;
-                $instructor_name= user::where('id',$instructor_id)->first()->name;
-        
-                $course_id=$course_info->id;
-                $course_name=$course_info->course_name;
-                $course_image=$course_info->course_image;
-                $course_category=$course_info->course_category;
-                $course_time_duration=$course_info->course_time_duration;
-        
-                array_push($data,['instructor_name'=>$instructor_name,'course_id'=>$course_id,'course_image'=>$course_image,'course_name'=>$course_name,'course_category'=>$course_category,'course_time_duration'=>$course_time_duration,'course_name'=>$course_name]);
-                
-            }
-        
-            return view('student/student_courses',['courses'=>json_decode(json_encode($data))]);
-        }
-        
-    }
-
-
-        // Student Function
-        public function student_home(){
-     
-            $response = array();
-
-        
-        $course= course::
-        orderBy('id','desc')
-        ->take(5)
-        ->get();
-        for($i=0;$i<sizeof($course);$i++)
-        {
-            $ins_id = $course[$i]->instructor_id;
-            $instructor_name = User::where('id',$ins_id)->first()->name;
-            array_push($response,
-            ['course_id'=>$course[$i]->id,
-            'course_name'=>$course[$i]->course_name,
-            'course_duration'=>$course[$i]->course_time_duration,
-            'course_image'=>$course[$i]->course_image,
-            'course_category'=>$course[$i]->course_category,
-            'instructor_name'=>$instructor_name]);   
-        }
-        $course = json_decode(json_encode($response));
-        // file_put_contents('course.txt',json_encode($response));
-        return view('student/student_home',['course'=>$course,]);
-        }
-
-
-
-        public function student_dashboard(){
-
-            $student_id=Session::get('user_id');
-            $student_info= user::where('id',$student_id)->first();
-            $student_class= std_registration::where('user_id',$student_id)->first()->std_class;
-            $student_institute= std_registration::where('user_id',$student_id)->first()->std_institute;
-
-            // file_put_contents('course.txt',$student_class);
-
-            $parents_info= parents_information::where('user_id',$student_id)->first();
-            $father_name=$parents_info->father_name;
-            $father_contact_number=$parents_info->father_contact_number;
-            $mother_name=$parents_info->mother_name;
-            $mother_contact_number=$parents_info->mother_contact_number;
-            $present_address=$parents_info->present_address;
-
-
-            $data = array();
-            $enroll= stu_course::where('user_id',$student_id)->get();
-
-            for($i=0;$i<sizeof($enroll);$i++)
-            {
-                $course_id=$enroll[$i]->course_id;
-                $course_info= course::where('id',$course_id)->first();
-
-                // file_put_contents('course.txt',$course_info);
-
-                $instructor_id=$course_info->instructor_id;
-                $instructor_name= user::where('id',$instructor_id)->first()->name;
-        
-                $course_id=$course_info->id;
-                $course_name=$course_info->course_name;
-                $course_image=$course_info->course_image;
-                $course_category=$course_info->course_category;
-                $course_time_duration=$course_info->course_time_duration;
-        
-                array_push($data,['instructor_name'=>$instructor_name,'course_id'=>$course_id,'course_image'=>$course_image,'course_name'=>$course_name,'course_category'=>$course_category,'course_time_duration'=>$course_time_duration,'course_name'=>$course_name,
-              
-                ]);
-                
-            }
-
-
-
-
-            return view('student/student_dashboard',['student'=>$student_info,'std_class'=>$student_class,'std_institute'=>$student_institute,  'father_name'=>$father_name,'mother_name'=>$mother_name,'father_contact_number'=>$father_contact_number,'mother_contact_number'=>$mother_contact_number,
-            'present_address'=>$present_address,'courses'=>json_decode(json_encode($data))]);
-        }
-
-
-
-
     // Instructor Course Add Content Controller
 
-    public function create_course(){
-        return view('instructor/create_course');
-    }
+  
 
     public function add_content(){
         return view('instructor/add_content');
@@ -260,7 +88,6 @@ class CustomController extends Controller
         $instructor_id=Session::get('user_id');
         file_put_contents("Course_id.txt",$course_id);
         $course=course::where('instructor_id',$instructor_id)->where('id',$course_id)->delete();
-
     }
 
 
@@ -331,9 +158,11 @@ class CustomController extends Controller
         // file_put_contents('course.txt',json_encode($response));
         return view('course/course',['courses'=>$course]);
 
-
-
     }
+
+
+
+  
 
 
     public function StudentCourseEnrollment(Request $request)
@@ -363,28 +192,6 @@ class CustomController extends Controller
     }
 
 
-    public function admin_all_report(){
-
-        $data=array();
-        $reports= report_admin::get();  
-        
-        
-        for($i=0;$i<sizeof($reports);$i++)
-        {
-            $course_id=$reports[$i]->course_id;
-            $course_name= course::where('id',$course_id)->first()->course_name; 
-            $course_category= course::where('id',$course_id)->first()->course_category; 
-
-            // file_put_contents("report.txt",$reports);
-            $report_description=$reports[$i]->report_description;
-            array_push($data,['course_id'=>$course_id,'course_name'=>$course_name,'course_category'=>$course_category,'report_description'=>$report_description]);
-
-
-        }
-    
-    
-            return view('admin/admin_all_report',['reports'=>json_decode(json_encode($data))]);
-        }
 
 
 

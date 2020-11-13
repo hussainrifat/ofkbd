@@ -3,8 +3,9 @@
 <div class="sa4d25">
     <div class="container-fluid">			
         <div class="row">
+
+
             <div class="col-xl-9 col-lg-8">
-       
                 <div class="section3125 mt-50">
                     <h4 class="item_title">Courses</h4>
                 <a href="{{url('courses')}}" class="see150">Explore all</a>
@@ -13,7 +14,6 @@
                             
                             {{-- course item start from here --}}
                             @foreach($course as $course)
-
 
                             <div class="item">
                                 <div class="fcrse_1 mb-20">
@@ -42,18 +42,58 @@
                                 </div>
                             </div>
                             @endforeach
-
-
                           {{-- course item end here --}}
-
-
-                    
                         </div>
                     </div>
                 </div>
-                
-
             </div>
+
+
+
+            <div class="col-xl-9 col-lg-8">
+                <div class="section3125 mt-50">
+                    <h4 class="item_title">Blog</h4>
+                <a href="{{url('student_blog_view')}}" class="see150">Explore all</a>
+                    <div class="la5lo1">
+                        <div class="owl-carousel featured_courses owl-theme">
+                            @foreach($blog as $blog)
+
+                            {{-- course item start from here --}}
+
+                            <div class="item">
+                                <div class="fcrse_1 mb-20">
+                                    <a href="" class="fcrse_img">
+                                        <img src="{{$blog->blog_image}}" alt="">
+                                       
+                                    </a>
+                                    <div class="fcrse_content">
+                                     
+                                       
+                                        <a href="student_blog_details?blog={{$blog->blog_id}}" class="crse14s">{{$blog->blog_title}}</a>
+                                        <a href="student_blog_details?blog={{$blog->blog_id}}" class="crse-cate">{{$blog->blog_categories}}</a>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                          {{-- course item end here --}}
+                          @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            
+
+
+            
+
+
+            
+
+
+
+
             <div class="col-xl-3 col-lg-4">
                 <div class="right_side">
                 

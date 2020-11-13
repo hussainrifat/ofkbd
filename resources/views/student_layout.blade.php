@@ -20,7 +20,6 @@
 		<link href="{{asset('assets')}}/frontend\css\vertical-responsive-menu.min.css?{{time()}}" rel="stylesheet">
 		<link href="{{asset('assets')}}/frontend\css\style2.css?{{time()}}" rel="stylesheet">
 		<link href="{{asset('assets')}}/frontend\css\responsive.css?{{time()}}" rel="stylesheet">
-		<link href="{{asset('assets')}}/frontend\css\night-mode.css?{{time()}}" rel="stylesheet">
 		
 		<!-- Vendor Stylesheets -->
 		<link href="{{asset('assets')}}/frontend\vendor\fontawesome-free\css\all.min.css?{{time()}}" rel="stylesheet">
@@ -66,6 +65,8 @@
 				</div>
 			</div>
 		</div>
+
+
 	
 	
 		<div class="header_right">
@@ -74,39 +75,10 @@
 				<li>
 					<a href="{{url('student_donation')}}" class="upload_btn" title="Donate Now">Donate Now</a>
 				</li>
+
+				
 			
 				
-				<li class="ui dropdown">
-					<a href="#" class="opts_account" title="Account">
-						<img src="assets\frontend\images\user.png" alt="">
-					</a>
-					<div class="menu dropdown_account">
-						<div class="channel_my">
-							<div class="profile_link">
-								<img src="assets\frontend\images\user.png" alt="">
-								<div class="pd_content">
-									<div class="rhte85">
-										<h6>{{Session::get('user_name')}}</h6>
-										<div class="mef78" title="Verify">
-											<i class='uil uil-check-circle'></i>
-										</div>
-									</div>
-									<h6>{{Session::get('user_email')}}</h6>
-								</div>							
-							</div>
-							<a href="{{url('student_dashboard')}}" class="dp_link_12">View Student Profile</a>						
-						</div>
-						<div class="night_mode_switch__btn">
-							<a href="#" id="night-mode" class="btn-night-mode">
-								<i class="uil uil-moon"></i> Night mode
-								<span class="btn-night-mode-switch">
-									<span class="uk-switch-button"></span>
-								</span>
-							</a>
-						</div>
-						<a href="{{url('sign_out')}}" class="item channel_item">Sign Out</a>
-					</div>
-				</li>
 			</ul>
 		</div>
 	</header>
@@ -165,6 +137,13 @@
 						</a>
 					</li>
 
+					<li class="menu--item">
+						<a href="{{url('sign_out')}}" class="menu--link" title="Reviews">
+						  <i class='uil uil-sign-out-alt menu--icon'></i>
+						  <span class="menu--label">Sign Out</span>
+						</a>
+					</li>
+
 				
 
 				
@@ -200,9 +179,10 @@
 	<script src="{{asset('assets')}}/frontend\vendor\semantic\semantic.min.js?{{time()}}"></script>
 	<script src="{{asset('assets')}}/frontend\js\custom.js?{{time()}}"></script>
 	{{-- <script src="{{asset('assets')}}/frontend\js\custom1.js?{{time()}}"></script> --}}
-	<script src="{{asset('assets')}}/frontend\js\night-mode.js?{{time()}}"></script>
 	<script src="resources\js\custom.js?{{time()}}"></script>
 	<script src="resources\js\student.js?{{time()}}"></script>
+
+	
 
 	
 </body>
