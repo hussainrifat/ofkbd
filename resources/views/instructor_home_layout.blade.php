@@ -48,16 +48,20 @@
 			<a href="instructor_home"><img class="logo-inverse" src="assets\frontend\images\ct_logo.svg" alt=""></a>
 		</div>
 
-
-	
-	
 		
+
 		<div class="header_right">
 			<ul>
+
+				<li>
+					<a href="{{url('instructor_blog_view')}}" class="upload_btn" title="Donate Now">Explore Blog</a>
+				</li>
 			
 				<li>
 					<a href="{{url('instructor_donation')}}" class="upload_btn" title="Donate Now">Donate Now</a>
 				</li>
+
+				
 			
 				
 				{{-- <li class="ui dropdown">
@@ -115,6 +119,13 @@
 						<a href="{{url('instructor_courses')}}" class="menu--link" title="Courses">
 							<i class='uil uil-book-alt menu--icon'></i>
 							<span class="menu--label">My Courses</span>
+						</a>
+					</li>
+
+					<li class="menu--item">
+						<a href="{{url('instructor_blog')}}" class="menu--link" title="Courses">
+							<i class='uil uil-book-alt menu--icon'></i>
+							<span class="menu--label">My Blog</span>
 						</a>
 					</li>
 

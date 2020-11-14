@@ -152,12 +152,13 @@
                               <div class="tab-pane fade" id="parentsInformation" role="tabpanel" aria-labelledby="parentsInformation-tab">
 
                                 
+                                @if($parents_info)
                                 <div class="row">
                                   <div class="col-sm-3 col-md-2 col-5">
                                       <label style="font-weight:bold;">Father's Name</label>
                                   </div>
                                   <div class="col-md-8 col-6">
-                                    {{$father_name}}
+                                    {{$parents_info->father_name}}
                                   </div>
                               </div>
                               <hr />
@@ -168,7 +169,7 @@
                                     <label style="font-weight:bold;">Father's Contact Number</label>
                                 </div>
                                 <div class="col-md-8 col-6">
-                                  {{$father_contact_number}}
+                                  {{$parents_info->father_contact_number}}
                                 </div>
                             </div>
                             <hr />
@@ -178,7 +179,7 @@
                                   <label style="font-weight:bold;">Mother's Name</label>
                               </div>
                               <div class="col-md-8 col-6">
-                                {{$mother_name}}
+                                {{$parents_info->mother_name}}
                               </div>
                           </div>
                           <hr />
@@ -188,7 +189,7 @@
                                 <label style="font-weight:bold;">Mother's Contact Number</label>
                             </div>
                             <div class="col-md-8 col-6">
-                              {{$mother_contact_number}}
+                              {{$parents_info->mother_contact_number}}
                             </div>
                         </div>
                         <hr />
@@ -198,13 +199,67 @@
                                 <label style="font-weight:bold;">Present Address</label>
                             </div>
                             <div class="col-md-8 col-6">
-                              {{$present_address}}
+                              {{$parents_info->present_address}}
                             </div>
                         </div>
                         <hr />
-
+                        
                         <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#editParentsModal"  >Edit Parents Information</button>
+                        @else
+                        <div class="row">
+                          <div class="col-sm-3 col-md-2 col-5">
+                              <label style="font-weight:bold;">Father's Name</label>
+                          </div>
+                          <div class="col-md-8 col-6">
+                            
+                          </div>
+                      </div>
+                      <hr />
 
+                      
+                      <div class="row">
+                        <div class="col-sm-3 col-md-2 col-5">
+                            <label style="font-weight:bold;">Father's Contact Number</label>
+                        </div>
+                        <div class="col-md-8 col-6">
+
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div class="row">
+                      <div class="col-sm-3 col-md-2 col-5">
+                          <label style="font-weight:bold;">Mother's Name</label>
+                      </div>
+                      <div class="col-md-8 col-6">
+                       
+                      </div>
+                  </div>
+                  <hr />
+
+                  <div class="row">
+                    <div class="col-sm-3 col-md-2 col-5">
+                        <label style="font-weight:bold;">Mother's Contact Number</label>
+                    </div>
+                    <div class="col-md-8 col-6">
+                      
+                    </div>
+                </div>
+                <hr />
+
+                  <div class="row">
+                    <div class="col-sm-3 col-md-2 col-5">
+                        <label style="font-weight:bold;">Present Address</label>
+                    </div>
+                    <div class="col-md-8 col-6">
+                      
+                    </div>
+                </div>
+                <hr />
+                
+                <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#editParentsModal"  >Edit Parents Information</button>
+                  
+                  @endif
 
                   
                       <hr />

@@ -35,10 +35,13 @@ Route::get('instructor_dahsboard','InstructorController@instructor_dahsboard');
 Route::get('create_course','InstructorController@view_create_course');
 Route::get('create_post','InstructorController@view_create_post');
 Route::get('instructor_courses','InstructorController@instructor_courses');
+Route::get('instructor_blog','InstructorController@instructor_blog');
 
 // Adding New Courses
 Route::post('create_course','data_insert_controller@create_course');
 Route::post('create_post','blog_Controller@create_post');
+Route::post('delete_course','InstructorController@delete_course');
+Route::post('delete_blog','InstructorController@delete_blog');
 
 
 // Edit And Update Instructor Profile Information
@@ -57,6 +60,7 @@ Route::get('student_home','studentController@student_home');
 Route::get('student_dashboard','studentController@student_dashboard');
 Route::post('ReportToAdmin','CustomController@ReportToAdmin');
 Route::get('student_courses','studentController@student_courses');
+Route::post('add_review','studentController@add_review');
 
 
 // Edit And Update Student Dahsboard
@@ -77,6 +81,9 @@ Route::post('insert_content','data_insert_controller@insert_content');
 Route::get('courses','CustomController@courses');
 Route::get('course','CustomController@course');
 
+Route::get('course_details','CustomController@course_details');
+Route::get('course_detail','CustomController@course_detail');
+
 
 // Blog Pages
 Route::get('instructor_blog_view','Blog_Controller@instructor_blog_view');
@@ -90,9 +97,7 @@ Route::get('course_view','CustomController@course_view');
 Route::post('StudentCourseEnrollment','CustomController@StudentCourseEnrollment');
 
 
-Route::post('delete_course','CustomController@delete_course');
-Route::get('course_details','CustomController@course_details');
-Route::get('course_detail','CustomController@course_detail');
+
 
 
 Route::post('std_data_insert','data_insert_controller@std_data_insert');
@@ -105,9 +110,6 @@ Route::post('match_otp','data_insert_controller@match_otp');
 Route::post('email_check','data_insert_controller@email_check');
 Route::post('number_check','data_insert_controller@number_check');
 Route::post('login_check','data_insert_controller@login_check');
-
-
-
 
 
 

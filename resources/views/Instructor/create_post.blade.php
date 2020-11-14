@@ -81,7 +81,9 @@
                                                         <label>Blog Category*</label>
                                                     </div>
                                                     <select class="ui hj145 dropdown cntry152 prompt srch_explore" id="blog_category">
-                                                        <option value="">Select Category</option>
+                                                        <option value="inspiring">Inspiring Story</option>
+                                                        <option value="parenting">Moral Parenting</option>
+                                                        <option value="social_cause">Social Cause</option>
                                                         <option value="art">Art</option>
                                                         <option value="craft">Craft</option>
                                                         <option value="calligraphy">Calligraphy</option>
@@ -90,7 +92,7 @@
                                                         <option value="web_design">Web Design</option>
                                                         <option value="case_solving">Case Solving</option>
                                                         <option value="rubiks_cube_solving">Rubiks Cube Solving</option>
-
+                                                       
                                                 
                                                     </select>
                                                 </div>
@@ -150,7 +152,15 @@
             </div>
         </div>
     </div> 
- 
+
+
+
+    <script src="resources\js\ck\ckeditor.js?{{time()}}"></script>
+    <script>
+CKEDITOR.replace('textarea');
+</script>
+
+
 
     
 @endsection

@@ -25,6 +25,30 @@ function delete_course(id){
 }
 
 
+function delete_blog(id){
+
+  var id=id;
+  
+  var formdata= new FormData;
+  formdata.append('id',id);
+
+  $.ajax({
+    processData:false,
+    contentType:false,
+    data:formdata,
+    type:"post",
+    url:"delete_blog",
+    success:function(data)
+    {
+      window.location.href ="instructor_blog"
+      alert("Are You Sure You Want to Delete This Post?");
+
+    }
+  });
+
+}
+
+
 
 // Instructor Course Content Edit & Update
 
@@ -48,7 +72,6 @@ function editCourseModal(id){
       video_time_duration = $("#edit-video-time-description").val(a.video_time_duration);
       video_embed = $("#edit-video-embed").val(a.video_embed);
       video_description = $("#edit-video-description").val(a.video_description);
-
     }
   });
 
@@ -95,7 +118,7 @@ function updateCourseContentInfo() {
         url:"deleteCourseContentInfo",
         success:function(data)
         {
-          window.location.href ="course_details"
+          window.location.reload();
           alert("Are You Sure You Want to Delete This Video?");
     
         }
@@ -188,3 +211,7 @@ function editInstructorProfileInfo(id){
       }
     });
   }
+
+
+
+  

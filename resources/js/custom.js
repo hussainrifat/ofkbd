@@ -73,6 +73,8 @@ $(function(){
        alert("Student Registration Completed");
      window.location.href ="otp"
       }
+
+      
     });
 
   });
@@ -223,7 +225,7 @@ $(function(){
     var blog_title=$("#blog_title").val();
     var blog_description=$("#blog_description").val();
     var blog_category=$("#blog_category").val();
-    // alert(blog_title+' '+blog_description+' '+blog_category);
+    alert(blog_description);
 
 
 
@@ -312,11 +314,11 @@ function readURL(input) {
 
     var reader = new FileReader();
 
-    reader.onload = function(e) {
+    reader.onload = function(f) {
 
-      $('.insert_blog_image').attr('src', e.target.result);
+      $('.insert_blog_image').attr('src', f.target.result);
 
-      $('.insert_course_image_label').html(input.files[0].name);
+      $('.insert_blog_image_label').html(input.files[0].name);
     };
 
     reader.readAsDataURL(input.files[0]);

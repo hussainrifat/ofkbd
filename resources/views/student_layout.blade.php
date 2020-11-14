@@ -66,11 +66,17 @@
 			</div>
 		</div>
 
+	
+
 
 	
 	
 		<div class="header_right">
 			<ul>
+
+				<li>
+					<a href="{{url('student_blog_view')}}" class="upload_btn" title="Donate Now">Explore Blog</a>
+				</li>
 			
 				<li>
 					<a href="{{url('student_donation')}}" class="upload_btn" title="Donate Now">Donate Now</a>
@@ -122,12 +128,6 @@
 
 
 
-					<li class="menu--item">
-						<a href="instructor_all_reviews.html" class="menu--link" title="Reviews">
-						  <i class='uil uil-star menu--icon'></i>
-						  <span class="menu--label">Reviews</span>
-						</a>
-					</li>
 
 					
 					<li class="menu--item">

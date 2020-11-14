@@ -180,13 +180,13 @@
                            
                             <div class="form-group">
                                 <label>Enter Your Old Password</label>
-                                <input type="text" id="edit-student-old-password" class="form-control">
+                                <input type="text" id="edit-instructor-old-password" class="form-control">
                 
                             </div>
                 
                              <div class="form-group">
                                 <label>Enter Your New Password</label>
-                                <input type="text" id="edit-student-new-password"  class="form-control" >
+                                <input type="text" id="edit-instructor-new-password"  class="form-control" >
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-danger" onclick="updateInstructorPasswordInfo(({{$instructor->id}}))"  >Update</button>

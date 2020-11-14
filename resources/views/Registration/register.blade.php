@@ -131,7 +131,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <span>Enter Your Name</span>
-                                    <input type="text" value="sample name" class="form-control" id="ins_name"  placeholder="Your Name" value="" />
+                                    <input type="text"  class="form-control" id="ins_name"  placeholder="Your Name" value="" />
                                     <span style="color: red" id="ins_name_error"> </span>
 
                                 </div>
@@ -140,14 +140,14 @@
                                 
                                 <div class="form-group">
                                     <span>Enter Your Contact Number</span>
-                                    <input type="text" value="sample number" minlength="11" maxlength="11" id="ins_contact_number"   class="form-control" placeholder="Your Mobile Number" value="" />
+                                    <input type="text" minlength="11" maxlength="11" id="ins_contact_number"   class="form-control" placeholder="Your Mobile Number" value="" />
                                     <span style="color: red" id="ins_number_error"> </span>
 
                                 </div>
                                 <div class="form-group">
                                     <span>Enter Your Email</span>
 
-                                    <input type="email" value="sample@email.com" class="form-control" id="ins_email"   placeholder="Your Email" value="" />
+                                    <input type="email"  class="form-control" id="ins_email"   placeholder="Your Email" value="" />
                                     <span style="color: red" id="ins_email_error"> </span>
 
                                 </div>
@@ -161,7 +161,7 @@
 
                                 <div class="form-group">
                                     <span>Enter Your Password</span>
-                                    <input type="password" value="aasd!23AD" class="form-control" id="ins_password"   placeholder="Password" value="" />
+                                    <input type="password"  class="form-control" id="ins_password"   placeholder="Password" value="" />
                                     <span style="color: red" id="ins_password_error"> </span>
 
                                 </div>
@@ -172,12 +172,15 @@
                                     <span>Please Select Your Expertise</span>
                                     <select class="form-control" id="expertise"  >
                                         
-                                        <option class="hidden"  selected disabled>Please select your Expertise</option>
                                         <option>Art</option>
                                         <option>Craft</option>
                                         <option>Calligraphy</option>
                                         <option>Programming</option>
                                         <option>Robotics</option>
+                                        <option>Web Design</option>
+                                        <option>Case Solving</option>
+                                        <option>Rubiks Cube Solving</option>
+
 
                                     </select>
                                     <span style="color: red" id="ins_expertise_error"> </span>

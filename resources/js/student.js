@@ -176,3 +176,38 @@
     });
   
   }
+
+
+
+  function add_review(id) {
+
+
+    var student_rating=$("#student_rating").val();
+    var student_review=$("#student_review").val();
+
+
+    var formdata= new FormData;
+    formdata.append('student_rating',student_rating);
+    formdata.append('student_review',student_review);
+    formdata.append('id',id);
+
+    
+
+    $.ajax({
+      processData:false,
+      contentType:false,
+      data:formdata,
+      type:"post",
+      url:"add_review",
+      success:function(data)
+      {
+        alert("Dear Student, Thanks For Your Feedback.  ");
+        location.reload();
+
+
+      }
+
+    });
+
+  
+  }

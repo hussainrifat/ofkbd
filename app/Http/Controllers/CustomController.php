@@ -14,6 +14,8 @@ use Session;
 use App\stu_courses;
 use App\Report_admin;
 use App\blog;
+use App\course_feedback;
+
 
 
 class CustomController extends Controller
@@ -83,12 +85,7 @@ class CustomController extends Controller
         return view('instructor/add_content');
     }
 
-    public function delete_course(Request $request){
-        $course_id=$request->course_id;
-        $instructor_id=Session::get('user_id');
-        file_put_contents("Course_id.txt",$course_id);
-        $course=course::where('instructor_id',$instructor_id)->where('id',$course_id)->delete();
-    }
+  
 
 
 
@@ -102,9 +99,46 @@ class CustomController extends Controller
         $instructor_name = User::where('id',$instructor_id)->first()->name;
         // file_put_contents("test.txt",$instructor_name);
         $videos= $course_details->videoes;
+        $user_id = auth()->user()->id;
 
 
-        return view('course/course_details',['course_details'=>$course_details,'instructor_name'=>$instructor_name,'videoes'=>$videos]);
+        if($instructor_id==$user_id)
+        {
+            $match = 1;
+        }
+        else
+        {
+            $match = 0;
+        }
+
+        $review_info= course_feedback::where('course_id',$course_id)
+        ->  orderBy('id','desc')
+        ->get();
+
+
+        $response= array();
+        for($i=0;$i<sizeof($review_info);$i++)
+        {
+            // $rating= $review_info[$i]->rating;
+            // $review=$review_info[$i]->review;
+            $student_id=$review_info[$i]->student_id;
+            $student_name= User::where('id',$student_id)->first()->name;
+             file_put_contents('review.txt',$student_name);
+
+
+            array_push($response,
+            ['rating'=> $review_info[$i]->rating,
+            'review'=>$review_info[$i]->review,
+            'student_name'=>$student_name
+            ]);
+
+        }
+
+        $review = json_decode(json_encode($response));
+
+
+
+        return view('course/course_details',['course_details'=>$course_details,'instructor_name'=>$instructor_name,'videoes'=>$videos,'match'=>$match,'review'=>$review]);
 
     }
 
@@ -119,6 +153,8 @@ class CustomController extends Controller
         $instructor_id=$course_details->instructor_id;
         $instructor_name = User::where('id',$instructor_id)->first()->name;
         $videos= $course_details->videoes;
+
+
         if(stu_course::where('user_id',$user_id)->where('course_id',$course_id)->first())
         {
             $enroll = 1;
@@ -128,7 +164,36 @@ class CustomController extends Controller
             $enroll = 0;
         }
 
-        return view('course/course_detail',['course_details'=>$course_details,'instructor_name'=>$instructor_name,'videoes'=>$videos,'enroll'=>$enroll]);
+        $review_info= course_feedback::where('course_id',$course_id)
+        ->  orderBy('id','desc')
+        ->get();
+
+        
+
+     $response= array();
+        for($i=0;$i<sizeof($review_info);$i++)
+        {
+            // $rating= $review_info[$i]->rating;
+            // $review=$review_info[$i]->review;
+            $student_id=$review_info[$i]->student_id;
+            $student_name= User::where('id',$student_id)->first()->name;
+             file_put_contents('review.txt',$student_name);
+
+
+            array_push($response,
+            ['rating'=> $review_info[$i]->rating,
+            'review'=>$review_info[$i]->review,
+            'student_name'=>$student_name
+            ]);
+
+        }
+
+        $review = json_decode(json_encode($response));
+
+
+        
+
+        return view('course/course_detail',['course_details'=>$course_details,'instructor_name'=>$instructor_name,'videoes'=>$videos,'enroll'=>$enroll,'review'=>$review]);
 
     }
 
@@ -154,6 +219,9 @@ class CustomController extends Controller
             $instructor_name = User::where('id',$ins_id)->first()->name;
             array_push($response,['course_id'=>$course[$i]->id,'course_name'=>$course[$i]->course_name,'course_duration'=>$course[$i]->course_time_duration,'course_image'=>$course[$i]->course_image,'course_category'=>$course[$i]->course_category,'instructor_name'=>$instructor_name]);   
         }
+
+
+
         $course = json_decode(json_encode($response));
         // file_put_contents('course.txt',json_encode($response));
         return view('course/course',['courses'=>$course]);

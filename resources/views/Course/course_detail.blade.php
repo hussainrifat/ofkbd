@@ -1,6 +1,70 @@
 @extends('student_layout')
 @section('student_content')
 
+<style>
+    
+.leave-rating {
+	height: 24px;
+	float: left;
+	position: relative
+}
+
+.leave-rating:hover input[type=radio]:checked~label {
+	color: #dadada
+}
+
+.leave-rating input[type=radio] {
+	display: inline-block;
+	width: 1px;
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+	height: 100%;
+	margin-left: 50%;
+	left: 0;
+	top: 0;
+	transform: translateX(-50%)
+}
+
+.leave-rating input[type=radio]:checked~label {
+	color: #ffc600
+}
+
+.leave-rating label {
+	font-size: 24px;
+	float: right;
+	letter-spacing: 0;
+	color: #dadada;
+	cursor: pointer;
+	transition: .3s
+}
+
+.leave-rating label:hover,
+.leave-rating label:hover~label {
+	color: #ffc600!important
+}
+
+.leave-rating-title {
+	display: block;
+	margin: 0 0 4px
+}
+
+.welcome-text .leave-rating-container {
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 15px;
+	left: 50%;
+	width: 100%;
+	display: block
+}
+
+.welcome-text .leave-rating {
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%) scale(1.2)
+}
+</style>
+
 <div class="_215b01">
     {{-- @foreach($course_details as $course) --}}
 
@@ -12,9 +76,9 @@
                         <div class="col-xl-4 col-lg-5 col-md-6">						
                             <div class="preview_video">						
                                 <a href="{{$course_details->course_image}}" class="fcrse_img" data-toggle="modal" data-target="#videoModal">
-                                    <img onclick="window.location.href='course_view?id=9'" src="{{$course_details->course_image}}" alt="">
+                                    <img onclick="window.location.href='course_view?id={{$course_details->id}}'" src="{{$course_details->course_image}}" alt="">
                                     <div class="course-overlay">
-                                        <span onclick="window.location.href='course_view?id=9'" class="_215b02">Preview this course</span>
+                                        <span onclick="window.location.href='course_view?id={{$course_details->id}}'" class="_215b02">Preview this course</span>
                                     </div>
                                 </a>
                             </div>
@@ -41,7 +105,7 @@
                                   @if($enroll ==0)
                                 <button  onclick="StudentCourseEnrollment({{$course_details->id}})" class="subscribe-btn">Enroll Now</button>
                                     @else
-                                    <button  onclick="window.location.href='course_view?id=9'" class="subscribe-btn">Course View</button>
+                                    <button  onclick="window.location.href='course_view?id={{$course_details->id}}'" class="subscribe-btn">Course View</button>
                                     @endif
                       
                                                        </ul>
@@ -143,138 +207,89 @@
                         <div class="tab-pane fade" id="nav-reviews" role="tabpanel">
                             <div class="student_reviews">
                                 <div class="row">
-                                    <div class="col-lg-5">
-                                        <div class="reviews_left">
-                                            <h3>Student Feedback</h3>
-                                            <div class="total_rating">
-                                                <div class="_rate001">4.6</div>														
-                                                <div class="rating-box">
-                                                    <span class="rating-star full-star"></span>
-                                                    <span class="rating-star full-star"></span>
-                                                    <span class="rating-star full-star"></span>
-                                                    <span class="rating-star full-star"></span>
-                                                    <span class="rating-star half-star"></span>
-                                                </div>
-                                                <div class="_rate002">Course Rating</div>	
-                                            </div>
-                                            <div class="_rate003">
-                                                <div class="_rate004">
-                                                    <div class="progress progress1">
-                                                        <div class="progress-bar w-70" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <span class="rating-star full-star"></span>
-                                                        <span class="rating-star full-star"></span>
-                                                        <span class="rating-star full-star"></span>
-                                                        <span class="rating-star full-star"></span>
-                                                        <span class="rating-star full-star"></span>
-                                                    </div>
-                                                    <div class="_rate002">70%</div>
-                                                </div>
-                                                <div class="_rate004">
-                                                    <div class="progress progress1">
-                                                        <div class="progress-bar w-30" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <span class="rating-star full-star"></span>
-                                                        <span class="rating-star full-star"></span>
-                                                        <span class="rating-star full-star"></span>
-                                                        <span class="rating-star full-star"></span>
-                                                        <span class="rating-star empty-star"></span>
-                                                    </div>
-                                                    <div class="_rate002">40%</div>
-                                                </div>
-                                                <div class="_rate004">
-                                                    <div class="progress progress1">
-                                                        <div class="progress-bar w-5" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <span class="rating-star full-star"></span>
-                                                        <span class="rating-star full-star"></span>
-                                                        <span class="rating-star full-star"></span>
-                                                        <span class="rating-star empty-star"></span>
-                                                        <span class="rating-star empty-star"></span>
-                                                    </div>
-                                                    <div class="_rate002">5%</div>
-                                                </div>
-                                                <div class="_rate004">
-                                                    <div class="progress progress1">
-                                                        <div class="progress-bar w-2" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <span class="rating-star full-star"></span>
-                                                        <span class="rating-star full-star"></span>
-                                                        <span class="rating-star empty-star"></span>
-                                                        <span class="rating-star empty-star"></span>
-                                                        <span class="rating-star empty-star"></span>
-                                                    </div>
-                                                    <div class="_rate002">1%</div>
-                                                </div>
-                                                <div class="_rate004">
-                                                    <div class="progress progress1">
-                                                        <div class="progress-bar w-1" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                    <div class="rating-box">
-                                                        <span class="rating-star full-star"></span>
-                                                        <span class="rating-star empty-star"></span>
-                                                        <span class="rating-star empty-star"></span>
-                                                        <span class="rating-star empty-star"></span>
-                                                        <span class="rating-star empty-star"></span>
-                                                    </div>
-                                                    <div class="_rate002">1%</div>
-                                                </div>
-                                            </div>
-                                        </div>												
-                                    </div>
+                                   
                                     <div class="col-lg-7">
 
 
+                                        @if($enroll ==1)
+
                                         <div class="col-lg-12 col-md-12">
                                             <div class="course_des_textarea mt-30 lbel25">
-                                                <label>Add Review</label>
+                                                <label>Add Ratings</label>
+                                                
                                                 <div class="course_des_bg">
                                             
                                                     <div class="textarea_dt">															
                                                         <div class="ui form swdh339">
                                                             <div class="field">
+                                                                <input type="number" name="" min="1" max="5" value="1" id="student_rating">
 
-                                                                <textarea name="textarea" class="jqte-test" id="course_description" ></textarea>
-
-
-                                                                {{-- <textarea rows="5" name="description" id="course_description" placeholder="Insert your course description"></textarea> --}}
                                                             </div>
                                                         </div>										
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
+                                                <label>Add Review</label>
+                                                
+                                                <div class="course_des_bg">
+                                            
+                                                    <div class="textarea_dt">															
+                                                        <div class="ui form swdh339">
+                                                            <div class="field">
+                                                                <textarea name="textarea" class="jqte-test" id="student_review" ></textarea>
 
-                                       
-                                       
-                                        <div class="col-lg-12 col-md-12">
-                                            <div class="review_item">
-                                                <div class="review_usr_dt">
-                                                    <div class="rv1458">
-                                                        <h4 class="tutor_name1">John Doe</h4>
-                                                        <span class="time_145">2 hour ago</span>
+                                                            </div>
+                                                        </div>										
                                                     </div>
                                                 </div>
-                                                <div class="rating-box mt-20">
-                                                    <span class="rating-star full-star"></span>
-                                                    <span class="rating-star full-star"></span>
-                                                    <span class="rating-star full-star"></span>
-                                                    <span class="rating-star full-star"></span>
-                                                    <span class="rating-star half-star"></span>
-                                                </div>
-                                                <p class="rvds10">Nam gravida elit a velit rutrum, eget dapibus ex elementum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce lacinia, nunc sit amet tincidunt venenatis.</p>
-                                          
+
                                             </div>
 
+                                            <button type="button" class="btn btn-danger" onclick="add_review({{$course_details->id}})"  >Add Review</button>
+
+
                                         </div>
+                                        <br>
+
+                                    
+                                        
+                                            @else
+                                            <label> <strong>To Add Course Review Please Enroll This Course First </strong> </label>
 
                                         
-                                    </div>
+                                            @endif
+
+                                  
+                                    
                                 </div>
+
+                                
+            <div class="col-xl-12 col-lg-12">
+                <div class="section3125 mt-30">
+                    <h4 class="item_title">Course Review</h4>
+                    <div class="la5lo1">
+                        <div class="owl-carousel Student_says owl-theme">
+                            @foreach ($review as $review)
+
+                            <div class="item">
+                                <div class="fcrse_4 mb-20">
+                                    <p> Student Rating : {{$review->rating}} <i class="fas fa fa-star"></i></p>
+
+
+                                    <div class="say_content">
+                                        <p> {{$review->review}}</p>
+                                    </div>
+                                    <div class="st_group">
+                                        
+                                        <h4>Student Name: {{$review->student_name}}</h4>
+                                    </div>											
+                                </div>
+                            </div>
+                            @endforeach
+
+                        </div>
+                    </div>
+                </div>
+            </div>
                             </div>
                         </div>
                     </div>

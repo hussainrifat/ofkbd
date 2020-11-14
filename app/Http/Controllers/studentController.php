@@ -14,6 +14,9 @@ use App\video;
 use Session;
 use App\stu_courses;
 use App\Report_admin;
+use App\course_feedback;
+use Illuminate\Support\Facades\Hash;
+
 
 class studentController extends Controller
 {
@@ -80,12 +83,9 @@ class studentController extends Controller
 
 
     $parents_info= parents_information::where('user_id',$student_id)->first();
+    
 
-    $father_name=$parents_info->father_name;
-    $father_contact_number=$parents_info->father_contact_number;
-    $mother_name=$parents_info->mother_name;
-    $mother_contact_number=$parents_info->mother_contact_number;
-    $present_address=$parents_info->present_address;
+    
 
 
 
@@ -116,8 +116,7 @@ class studentController extends Controller
 
 
 
-        return view('student/student_dashboard',['student'=>$student_info,'std_class'=>$student_class,'std_institute'=>$student_institute,  'father_name'=>$father_name,'mother_name'=>$mother_name,'father_contact_number'=>$father_contact_number,'mother_contact_number'=>$mother_contact_number,
-        'present_address'=>$present_address,'courses'=>json_decode(json_encode($data))]);
+        return view('student/student_dashboard',['parents_info'=>$parents_info,'student'=>$student_info,'std_class'=>$student_class,'std_institute'=>$student_institute,  'courses'=>json_decode(json_encode($data))]);
     }
 
 
@@ -153,6 +152,28 @@ class studentController extends Controller
             return view('student/student_courses',['courses'=>json_decode(json_encode($data))]);
         }
         
+    }
+
+
+    public function add_review(Request $request)
+    {
+        $course_id=$request->id;
+        $student_rating=$request->student_rating;
+        $student_review=$request->student_review;
+        $student_id = auth()->user()->id;
+        $instructor_id= course::where('id',$course_id)->first()->instructor_id;
+
+
+        // file_put_contents("review.txt",$instructor_id);
+
+
+       course_feedback::create([
+            'course_id'=>$course_id, 
+            'student_id'=>$student_id, 
+            'instructor_id'=>$instructor_id, 
+            'rating'=>$student_rating, 
+            'review'=>$student_review, 
+            ]);
     }
 
 
@@ -192,17 +213,17 @@ class studentController extends Controller
             public function updatestudentPasswordInfo(Request $request)
             {
               
-
                 $data= (user::where('id', $request->id)->first());
 
-                if (user::where('id', $request->id)->where('password', $request->oldpassword)->first()) {
-                    if (!Hash::check($data['password'], $request->oldpassword)) {
-                        user::where('id', $request->id)->update(['password'=>$request->newpassword]);
+           
+
+                    if (Hash::check($request->oldpassword, $data['password'])) {
+                        user::where('id', $request->id)->update(['password'=>Hash::make($request->newpassword)]);
             
                         echo "ok";
-                    } 
+                    }
                 
-                }
+              
 
                 else {
                     echo "not ok";

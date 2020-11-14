@@ -5,7 +5,7 @@
         <div class="row">
 
 
-            <div class="col-xl-9 col-lg-8">
+            <div class="col-xl-12 col-lg-12">
                 <div class="section3125 mt-50">
                     <h4 class="item_title">Courses</h4>
                 <a href="{{url('courses')}}" class="see150">Explore all</a>
@@ -20,11 +20,8 @@
                                     <a href="course_detail?course={{$course->course_id}}" class="fcrse_img">
                                         <img src="{{$course->course_image}}" alt="">
                                         <div class="course-overlay">
-                                            <div class="badge_seller">Featured</div>
-                                            <div class="crse_reviews">
-                                                <i class='uil uil-star'></i>3.8
-                                            </div>
-                                            <span class="play_btn1"><i class="uil uil-play"></i></span>
+                                            <div class="badge_seller">Newest Course</div>
+                                           
                                             <div class="crse_timer">
                                                 Duration: {{$course->course_duration}} Minutes
                                             </div>
@@ -50,7 +47,7 @@
 
 
 
-            <div class="col-xl-9 col-lg-8">
+            <div class="col-xl-12 col-lg-12">
                 <div class="section3125 mt-50">
                     <h4 class="item_title">Blog</h4>
                 <a href="{{url('student_blog_view')}}" class="see150">Explore all</a>
@@ -86,29 +83,11 @@
             
 
 
-            
 
-
-            
-
-
-
-
-            <div class="col-xl-3 col-lg-4">
+            <div class="col-xl-12 col-lg-12">
                 <div class="right_side">
                 
-                    <div class="fcrse_3">
-                        <div class="cater_ttle">
-                            <h4>Top Categories</h4>
-                        </div>
-                        <ul class="allcate15">
-                            <li><a href="{{url('course?name=art')}}" class="ct_item"><i class='uil uil-arrow'></i>Art</a></li>
-                            <li><a href="{{url('course?name=craft')}}" class="ct_item"><i class='uil uil-graph-bar'></i>Craft</a></li>
-                            <li><a href="{{url('course?name=robotics')}}" class="ct_item"><i class='uil uil-monitor'></i>Robotics</a></li>
-                            <li><a href="{{url('course?name=programming')}}" class="ct_item"><i class='uil uil-ruler'></i>Programming</a></li>
-                
-                        </ul>
-                    </div>
+             
                     <div class="strttech120">
                         <h4>Become an Instructor</h4>
                         <p>Start Your Instructor Journey With OFK.</p>

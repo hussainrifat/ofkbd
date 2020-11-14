@@ -304,35 +304,7 @@ class data_insert_controller extends Controller
 
 
 
-    public function create_post(Request $request)
-    {
-                // course::create($request->all());
-                $blog_title= $request->blog_title;
-                $blog_description= $request->blog_description;
-                $blog_category= $request->blog_category;
-                //$course_image= $request->course_image;
 
-                $instructor_id = Session::get('user_id');
-                // file_put_contents("test.txt",$instructor_id);
-
-                $blog_image = time().'.'.request()->blog_image->getClientOriginalExtension();               
-               request()->blog_image->move(base_path('blog_image'), $blog_image);
-      
-
-                blog::create([
-                    'user_id'=>$instructor_id,
-                    'blog_title'=>$blog_title, 
-                    'blog_description'=>$blog_description, 
-                    'blog_categories'=>$blog_category, 
-                    'blog_image'=>"blog_image/".$blog_image, 
-                    ]);
-
-                    // $course_id=course::where('course_name',$course_name)->first()->id;
-                    // session::put('course_id',$course_id);
-                    // file_put_contents("Course_id.txt",$course_id);
-       
-
-    }
 
 
    

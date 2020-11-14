@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\blog;
 use Illuminate\Http\Request;
 use App\course;
 use App\ins_registraion;
@@ -13,6 +14,7 @@ use App\video;
 use Session;
 use App\stu_courses;
 use App\Report_admin;
+use Illuminate\Support\Facades\Hash;
 
 
 class InstructorController extends Controller
@@ -85,6 +87,37 @@ class InstructorController extends Controller
 
     }
 
+    
+
+
+    public function delete_course(Request $request){
+        $course_id=$request->course_id;
+        $instructor_id=Session::get('user_id');
+        file_put_contents("Course_id.txt",$course_id);
+        $course=course::where('instructor_id',$instructor_id)->where('id',$course_id)->delete();
+    }
+
+    public function delete_blog(Request $request){
+        $id=$request->id;
+        $instructor_id=Session::get('user_id');
+        $blog=blog::where('user_id',$instructor_id)->where('id',$id)->delete();
+    }
+
+
+    public function instructor_blog(){
+
+        $instructor_id = Session::get('user_id');
+    
+        $blog = blog::where('user_id',$instructor_id)
+        -> orderBy('id','desc')
+        ->get();
+        $user_name= User::where('id',$instructor_id)->first()->name;
+    
+        
+        return view('instructor/instructor_blog',['blogs'=>$blog,'user_name'=>$user_name]);
+
+    }
+
     public function view_create_course(){
         return view('instructor/create_course');
     }
@@ -121,17 +154,22 @@ class InstructorController extends Controller
     public function updateInstructorPasswordInfo(Request $request)
     {
       
-        file_put_contents("password.txt",$request->oldpassword);
+    
+          $data= (user::where('id', $request->id)->first());
+          file_put_contents("oldpasswword.txt",$request->oldpassword);
 
-        if(user::where('id',$request->id)->where('password',$request->oldpassword)->first())
-        {
-            user::where('id',$request->id)->update(['password'=>$request->newpassword]);
+
+          if (Hash::check($request->oldpassword, $data['password'])) {
+              user::where('id', $request->id)->update(['password'=>Hash::make($request->newpassword)]);
   
-       echo "ok"; }
-       
-          else {
-              echo "not ok";
+              echo "ok";
           }
+      
+    
+
+      else {
+          echo "not ok";
+      }
 
     }
 
