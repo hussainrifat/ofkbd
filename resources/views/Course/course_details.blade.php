@@ -14,8 +14,7 @@
                                 <a href="{{$course_details->course_image}}" class="fcrse_img" data-toggle="modal" data-target="#videoModal">
                                     <img src="{{$course_details->course_image}}" alt="">
                                     <div class="course-overlay">
-                                        <span class="play_btn1"><i class="uil uil-play"></i></span>
-                                        <span class="_215b02">Preview this course</span>
+  
                                     </div>
                                 </a>
                             </div>
@@ -29,9 +28,9 @@
                             </div>
                             <div class="_215b05">
                                 <div class="crse_reviews mr-2">
-                                    <i class="uil uil-star"></i>4.5
+                                    <i class="uil uil-star"></i> {{round($average_rating,1)}}
                                 </div>
-                                (8 ratings)
+                                ({{$total_rating}} ratings)
                             </div>
                           
                             
@@ -171,7 +170,7 @@
                                                         <div class="modal-body">
                                       
                                                             <div class="form-group">
-                                                                <input type="text" id="edit-video-id" placeholder="Enter Your ID" class="form-control">
+                                                                <input type="hidden" id="edit-video-id" placeholder="Enter Your ID" class="form-control">
                                                 
                                                             </div>
                                                          

@@ -92,9 +92,10 @@
                             </div>
                             <div class="_215b05">
                                 <div class="crse_reviews mr-2">
-                                    <i class="uil uil-star"></i>4.5
+                                    <i class="uil uil-star"></i> {{round($average_rating,1)}}
                                 </div>
-                                (8 ratings)
+                                ({{$total_rating}} ratings)
+
                             </div>
                           
                             
@@ -102,7 +103,7 @@
                                 Last updated {{$course_details->updated_at}}
                             </div>
                             <ul class="_215b31">										
-                                  @if($enroll ==0)
+                                  @if($enroll ==0 )
                                 <button  onclick="StudentCourseEnrollment({{$course_details->id}})" class="subscribe-btn">Enroll Now</button>
                                     @else
                                     <button  onclick="window.location.href='course_view?id={{$course_details->id}}'" class="subscribe-btn">Course View</button>
@@ -211,7 +212,9 @@
                                     <div class="col-lg-7">
 
 
-                                        @if($enroll ==1)
+                                        @if($enroll == 1)
+                                          @if ($give == 1)
+                                            
 
                                         <div class="col-lg-12 col-md-12">
                                             <div class="course_des_textarea mt-30 lbel25">
@@ -249,14 +252,18 @@
 
                                         </div>
                                         <br>
+                                        @else
+                                        <label> <strong>Review Already Given </strong> </label>
 
-                                    
+                                        @endif
+
                                         
                                             @else
                                             <label> <strong>To Add Course Review Please Enroll This Course First </strong> </label>
 
                                         
                                             @endif
+
 
                                   
                                     

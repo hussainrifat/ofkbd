@@ -1,0 +1,1 @@
+{"id":52,"instructor_id":237,"course_name":"Ssdaasdssssssssssssssssssssssssssssssssa","course_description":"sadasasdas","course_time_duration":"erwer","course_image":"course_image\/1605621551.jpg","course_category":"calligraphy","course_active_status":null,"course_delete_status":null,"created_at":"2020-11-17T13:59:11.000000Z","updated_at":"2020-11-17T13:59:11.000000Z"}

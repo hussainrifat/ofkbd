@@ -6,7 +6,7 @@
             <div class="col-xl-12 col-lg-12">
        
                 <div class="section3125 mt-50">
-                    <h4 class="item_title">Courses</h4>
+                    <h4 class="item_title">Latest Courses</h4>
                     <div class="la5lo1">
                         <div class="owl-carousel featured_courses owl-theme">
                             
@@ -19,11 +19,7 @@
                                     <a href="course_details?course={{$course->id}}" class="fcrse_img">
                                         <img src="{{$course->course_image}}" alt="">
                                         <div class="course-overlay">
-                                            <div class="badge_seller">Featured</div>
-                                            <div class="crse_reviews">
-                                                <i class='uil uil-star'></i>3.8
-                                            </div>
-                                            <span class="play_btn1"><i class="uil uil-play"></i></span>
+                                           
                                             <div class="crse_timer">
                                                 Duration: {{$course->course_time_duration}} Minutes
                                             </div>

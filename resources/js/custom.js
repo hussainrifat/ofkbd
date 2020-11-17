@@ -256,7 +256,7 @@ $(function(){
 });
 
 
-function readURL(input) {
+function readPOST(input) {
   if (input.files && input.files[0]) {
 
     var reader = new FileReader();

@@ -14,6 +14,8 @@ use App\video;
 use Session;
 use App\stu_courses;
 use App\Report_admin;
+use App\course_feedback;
+
 use Illuminate\Support\Facades\Hash;
 
 
@@ -71,6 +73,32 @@ class InstructorController extends Controller
     }
 
 
+    public function add_content(){
+        return view('instructor/add_content');
+    }
+
+
+    public function insert_content(Request $request){
+
+        $video_name=$request->video_name;
+        $video_link=$request->video_link;
+        $video_description= $request->video_description;
+        $video_time_duration= $request->video_time_duration;
+        $course_id=$request->course_id;
+
+
+                   file_put_contents("video.txt",$course_id);
+
+                   video::create([
+                    'video_title'=>$video_name, 
+                    'video_embed'=>$video_link, 
+                    'video_description'=>$video_description, 
+                    'video_time_duration'=>$video_time_duration, 
+                    'course_id'=>$course_id, 
+                    ]);
+                }
+
+
 
 
     public function instructor_courses(){
@@ -86,6 +114,94 @@ class InstructorController extends Controller
         return view('instructor/instructor_courses',['courses'=>$course,'user_name'=>$user_name]);
 
     }
+
+
+    
+        // Instructor Single Course Content Controller
+
+        public function course_details(Request $request){
+
+            $course_id=$request->course;
+            $course_details= course::where('id',$course_id)->first();
+            $instructor_id=$course_details->instructor_id;
+            $instructor_name = User::where('id',$instructor_id)->first()->name;
+            // file_put_contents("test.txt",$instructor_name);
+            $videos= $course_details->videoes;
+            $user_id = auth()->user()->id;
+    
+    
+            if($instructor_id==$user_id)
+            {
+                $match = 1;
+            }
+            else
+            {
+                $match = 0;
+            }
+    
+            $review_info= course_feedback::where('course_id',$course_id)
+            ->  orderBy('id','desc')
+            ->get();
+    
+    
+            $average_ratings= course_feedback::where('course_id',$course_id)->get();
+    
+            $sum=0;
+    
+            if(sizeof($average_ratings)==0)
+            {
+                $average_rating='No Rating Yet';
+                $total_rating="0";
+    
+            }
+            else
+    
+            {
+                for($i=0;$i<sizeof($average_ratings);$i++)
+    
+                {
+                    $rating=$average_ratings[$i]->rating;
+                    $sum= ($sum+$rating);
+        
+                }
+                $average_rating=$sum/sizeof($average_ratings);
+    
+    
+               
+                    $total_rating=sizeof($average_ratings);
+      
+            }
+    
+    
+    
+            $response= array();
+            for($i=0;$i<sizeof($review_info);$i++)
+            {
+                // $rating= $review_info[$i]->rating;
+                // $review=$review_info[$i]->review;
+                $student_id=$review_info[$i]->student_id;
+                $student_name= User::where('id',$student_id)->first()->name;
+                 file_put_contents('review.txt',$student_name);
+    
+    
+                array_push($response,
+                ['rating'=> $review_info[$i]->rating,
+                'review'=>$review_info[$i]->review,
+                'student_name'=>$student_name
+                ]);
+    
+            }
+    
+            $review = json_decode(json_encode($response));
+    
+    
+    
+            return view('course/course_details',['course_details'=>$course_details,'instructor_name'=>$instructor_name,'videoes'=>$videos,'match'=>$match,'review'=>$review,
+            'average_rating'=>$average_rating,'total_rating'=>$total_rating]);
+    
+        }
+    
+        
 
     
 

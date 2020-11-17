@@ -120,7 +120,7 @@
                                                                 <div class="upload__input">
                                                                     <div class="input-group">
                                                                         <div class="custom-file">
-                                                                            <input type="file" class="custom-file-input" id="course_image" onchange="readURL(this)">
+                                                                            <input type="file" class="custom-file-input" id="course_image" onchange="readPOST(this)">
                                                                             <label class="custom-file-label insert_course_image_label" for="inputGroupFile04">No Choose file</label>
                                                                         </div>
                                                                     </div>

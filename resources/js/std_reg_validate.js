@@ -260,7 +260,7 @@ $(function(){
        if(!password_reg_ex.test($("#password").val())) {
       $("#std_password_error").html("password should contain One Uppercase, One lowercase,one number,one special character");
       $("#std_password_error").show();
-      error= true;
+          error= true;
 
       //return false;
     }

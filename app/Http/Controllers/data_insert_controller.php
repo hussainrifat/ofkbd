@@ -243,11 +243,13 @@ class data_insert_controller extends Controller
                     Session::put('user_id',$user_id);
 
                 if (user::where('id', $user_id)->where('mobile_verification','1')->first()) {
-                    if (ins_registraion::where('user_id', $user_id)->first()) {
+                    if (auth()->user()->instructor) {
+                    // if (ins_registraion::where('user_id', $user_id)->first()) {
                         echo "instructor";
                     } 
                     
-                    else if(std_registration::where('user_id', $user_id)->first()) {
+                    else if(auth()->user()->student) {
+                    // else if(std_registration::where('user_id', $user_id)->first()) {
         
                         echo "student";
                     } 
@@ -314,25 +316,7 @@ class data_insert_controller extends Controller
    
 
 
-    public function insert_content(Request $request){
-
-        $video_name=$request->video_name;
-        $video_link=$request->video_link;
-        $video_description= $request->video_description;
-        $video_time_duration= $request->video_time_duration;
-        $course_id=$request->course_id;
-
-
-                   file_put_contents("video.txt",$course_id);
-
-                   video::create([
-                    'video_title'=>$video_name, 
-                    'video_embed'=>$video_link, 
-                    'video_description'=>$video_description, 
-                    'video_time_duration'=>$video_time_duration, 
-                    'course_id'=>$course_id, 
-                    ]);
-                }
+ 
 
 
 

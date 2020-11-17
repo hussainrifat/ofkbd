@@ -26,8 +26,12 @@
     <div class="main-w3layouts wrapper">
 		<div class="main-agileinfo">
 			<div class="agileits-top">
+
                 <p style="font-size: 30px;font-weight:600">Good to see you again! </p>
                 <p>By logging into OFK, you agree to our Terms of use and Privacy Policy.</p>
+                @if (session('authErrors'))
+                    {{session('authErrors')}}
+                @endif
 				<form action="#" method="post">
 					<input class="text email" type="number" id="contact_number" placeholder="Enter Your Number" required="">
 					<input class="text" type="password" id="password" placeholder="Password" required="">

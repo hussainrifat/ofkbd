@@ -14,21 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-// Registration Pages
+Route::group(['middleware' => 'instructor'], function () {
 
-Route::get('/','CustomController@home');
-Route::get('register','CustomController@register');
-Route::get('/login','CustomController@login');
-Route::get('/main','CustomController@main');
-Route::get('otp','CustomController@otp');
-Route::get('resend_otp','data_insert_controller@resend_otp');
-Route::post('resend_otp_check','data_insert_controller@resend_otp_check');
-
-Route::get('sign_out','CustomController@sign_out');
-
-
-
-// Layout Pages
+    // Layout Pages
 Route::get('instructor_home_layout','CustomController@instructor_home_layout');
 
 
@@ -47,6 +35,14 @@ Route::post('delete_course','InstructorController@delete_course');
 Route::post('delete_blog','InstructorController@delete_blog');
 
 
+// Course Pages
+Route::get('add_content','InstructorController@add_content');
+Route::get('course_details','InstructorController@course_details');
+
+// Course Pages video adding
+Route::post('insert_content','InstructorController@insert_content');
+
+
 // Edit And Update Instructor Profile Information
 
 Route::post('viewInstructorProfileInfo','InstructorController@viewInstructorProfileInfo');
@@ -54,50 +50,83 @@ Route::post('updateInstructorProfileInfo','InstructorController@updateInstructor
 Route::post('updateInstructorPasswordInfo','InstructorController@updateInstructorPasswordInfo');
 
 
+// Blog Pages
+Route::get('instructor_blog_view','Blog_Controller@instructor_blog_view');
+Route::get('blog_details','Blog_Controller@blog_details');
+
+
+// Edit And Update Video Content Instructor Dashboard
+
+Route::post('viewCourseContentInfo','admin_controller@viewCourseContentInfo');
+Route::post('updateCourseContentInfo','admin_controller@updateCourseContentInfo');
+Route::post('deleteCourseContentInfo','admin_controller@deleteCourseContentInfo');
+
+Route::get('course_view','StudentController@course_view');
+
+    
+});
 
 
 
 
+// Student Middleware
+
+Route::group(['middleware' => 'student'], function () {
+
+
+    
 // Student Pages
 Route::get('student_home','studentController@student_home');
 Route::get('student_dashboard','studentController@student_dashboard');
-Route::post('ReportToAdmin','CustomController@ReportToAdmin');
+Route::post('ReportToAdmin','studentController@ReportToAdmin');
 Route::get('student_courses','studentController@student_courses');
 Route::post('add_review','studentController@add_review');
 
 
-// Edit And Update Student Dahsboard
 
+// Edit And Update Student Dahsboard
 Route::post('viewStudentDashboardProfileInfo','studentController@viewStudentDashboardProfileInfo');
 Route::post('updateStudentProfileInfo','studentController@updateStudentProfileInfo');
 Route::post('updatestudentPasswordInfo','studentController@updatestudentPasswordInfo');
 Route::post('updateStudentParentsInfo','studentController@updateStudentParentsInfo');
 
 
+Route::get('courses','StudentController@courses');
+Route::get('course','StudentController@course');
+// Student Single Course View
+Route::get('course_detail','StudentController@course_detail');
 
-
-
-
-// Course Pages
-Route::get('add_content','CustomController@add_content');
-Route::post('insert_content','data_insert_controller@insert_content');
-Route::get('courses','CustomController@courses');
-Route::get('course','CustomController@course');
-
-Route::get('course_details','CustomController@course_details');
-Route::get('course_detail','CustomController@course_detail');
-
+Route::get('course_view','StudentController@course_view');
+Route::post('StudentCourseEnrollment','StudentController@StudentCourseEnrollment');
 
 // Blog Pages
-Route::get('instructor_blog_view','Blog_Controller@instructor_blog_view');
-Route::get('blog_details','Blog_Controller@blog_details');
 Route::get('student_blog_view','Blog_Controller@student_blog_view');
 Route::get('student_blog_details','Blog_Controller@student_blog_details');
 
 
+    
+});
 
-Route::get('course_view','CustomController@course_view');
-Route::post('StudentCourseEnrollment','CustomController@StudentCourseEnrollment');
+
+
+
+// Registration Pages
+
+Route::get('/','CustomController@home');
+Route::get('register','CustomController@register');
+Route::get('/login','CustomController@login');
+Route::get('/main','CustomController@main');
+Route::get('otp','CustomController@otp');
+Route::get('resend_otp','data_insert_controller@resend_otp');
+Route::post('resend_otp_check','data_insert_controller@resend_otp_check');
+
+Route::get('sign_out','CustomController@sign_out');
+
+
+
+
+
+
 
 
 
@@ -128,35 +157,32 @@ Route::post('admin_login_check','admin_controller@admin_login_check');
 
 // Edit And Update
 
-// Edit And Update Admin All Student Dahsboard
+// Edit And Update in Admin All Student Dahsboard
 
 Route::post('editStudentProfileInfo','admin_controller@editStudentProfileInfo');
 Route::post('updateStudentInfo','admin_controller@updateStudentInfo');
 Route::post('deleteStudentInfo','admin_controller@deleteStudentInfo');
 
 
-// Edit And Update Admin All Instructor Dahsboard
+// Edit And Update in Admin All Instructor Dahsboard
 
 Route::post('editInstructorInfo','admin_controller@editInstructorInfo');
 Route::post('updateInstructorInfo','admin_controller@updateInstructorInfo');
 Route::post('deleteInstructorInfo','admin_controller@deleteInstructorInfo');
 
 
-// Edit And Update Admin All Course Dahsboard
 
+
+
+// Edit And Update Admin All Course Dahsboard
+Route::post('editAdminCourseInfo','admin_controller@editAdminCourseInfo');
+Route::post('updateAdminCourseInfo','admin_controller@updateAdminCourseInfo');
+Route::post('deleteCourseInfo','admin_controller@deleteCourseInfo');
 Route::post('deleteCourseInfo','admin_controller@deleteCourseInfo');
 
 
-
-
-
-
-
-// Edit And Update Video Content Instructor Dashboard
-
-Route::post('viewCourseContentInfo','admin_controller@viewCourseContentInfo');
-Route::post('updateCourseContentInfo','admin_controller@updateCourseContentInfo');
-Route::post('deleteCourseContentInfo','admin_controller@deleteCourseContentInfo');
+Route::post('ViewCourseActiveStatus','admin_controller@ViewCourseActiveStatus');
+Route::post('updateCourseActiveStatus','admin_controller@updateCourseActiveStatus');
 
 
 
