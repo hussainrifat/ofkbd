@@ -4,6 +4,7 @@ $(function(){
   var arr = [10];
   var i=0;
   var numCheack =0;
+  var passCheack =0;
 
   for(var k =0;k<10;k++){
     arr[k]=0;
@@ -80,6 +81,7 @@ $(function(){
       }
       else{
          $("#ins_password_error").hide();
+         passCheack = 5;
          insError= false;
          
        }
@@ -191,7 +193,7 @@ $(function(){
         $("#ins_email_error").html("Invalid Email Address");
         $("#ins_email_error").show();
         insError= true;
-        //return false;
+        
       }
       else
       {
@@ -226,7 +228,6 @@ $(function(){
             $("#ins_email_error").hide();
             insError= false;
          }
-         //alert('ok');
        }
    });
   
@@ -274,7 +275,7 @@ $(function(){
     
         if( i == 6 ) {
     
-          if( numCheack == 5){
+          if( numCheack == passCheack){
 
             if(error== false){
 
@@ -284,14 +285,6 @@ $(function(){
         var ins_password=$("#ins_password").val();
         var ins_expertise=$("#expertise").val();
       
-        // alert(ins_name+' '+ins_email+' '+expertise+' '+ins_password+' '+ins_name);
-      
-    
-    
-        if(ins_password == ""){
-          alert('Any Field Cannot be empty');
-         }
-         else{
     
       var formdata= new FormData();
       formdata.append('ins_name',ins_name);
@@ -313,7 +306,7 @@ $(function(){
          window.location.href ="otp"
         }
       });
-    }
+    
 
 
 

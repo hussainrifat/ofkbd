@@ -4,6 +4,7 @@ $(function(){
   var arr = [10];
   var i=0;
   var numCheack =0;
+  var passCheack =0;
 
   for(var k =0;k<10;k++){
     arr[k]=0;
@@ -248,6 +249,7 @@ $(function(){
 
       if( $("#password").val().length<8)
       {
+        error= true;
         $("#std_password_error").html("Minimum 8 character required");
           $("#std_password_error").show();
           error= true;
@@ -258,6 +260,7 @@ $(function(){
       {
        var password_reg_ex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])");
        if(!password_reg_ex.test($("#password").val())) {
+        error= true;
       $("#std_password_error").html("password should contain One Uppercase, One lowercase,one number,one special character");
       $("#std_password_error").show();
           error= true;
@@ -267,7 +270,7 @@ $(function(){
     else{
        $("#std_password_error").hide();
        error= false;
-
+       passCheack =5;
      }
 
       }
@@ -295,8 +298,8 @@ $(function(){
 
     if( i == 7 ) {
 
-      if( numCheack == 5){
-        if(error== false)
+      if( numCheack == passCheack ){
+        if(error == false)
 
     {
 
