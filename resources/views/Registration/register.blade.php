@@ -203,4 +203,7 @@
 
 </body> 
 
+<script src="resources\js\std_reg_validate.js?{{time()}}"></script>
+<script src="resources\js\ins_reg_validate.js?{{time()}}"></script>
+
 @endsection

@@ -1,5 +1,7 @@
 
 $(function(){
+
+ 
   $.ajaxSetup({
     headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -7,77 +9,55 @@ $(function(){
 }); 
 
 
-  $("#registerinstructor").on('click',function()
-  {
-  
-  
-    var ins_name=$("#ins_name").val();
-    var ins_number=$("#ins_contact_number").val();
-    var ins_email=$("#ins_email").val();
-    var ins_password=$("#ins_password").val();
-    var ins_expertise=$("#expertise").val();
-  
-    // alert(ins_name+' '+ins_email+' '+expertise+' '+ins_password+' '+ins_name);
-  
-  
-  var formdata= new FormData();
-  formdata.append('ins_name',ins_name);
-  formdata.append('ins_number',ins_number);
-  formdata.append('ins_email',ins_email);
-  formdata.append('ins_password',ins_password);
-  formdata.append('ins_expertise',ins_expertise);
-  
-  
-  $.ajax({
-    processData:false,
-    contentType:false,
-    data:formdata,
-    type:"post",
-    url:"insert_instructor_data",
-    success:function(data)
-    {
-     alert("Instructor Registration Completed");
-     window.location.href ="otp"
-    }
-  });
-  
-  
-  });
+ 
+  // $("#registerstudent").on('click',function()
+  // {
+    
+  //   // alert("Student");
+  //   var name=$("#name").val();
+  //   var std_institute= $("#std_institute").val();
+  //   var std_class= $("#std_class").val();
+  //   var contact_number=$("#contact_number").val();
+  //   var email=$("#email").val();
+  //   var password=$("#password").val();
 
-  $("#registerstudent").on('click',function()
-  {
-    // alert("Student");
-    var name=$("#name").val();
-    var std_institute= $("#std_institute").val();
-    var std_class= $("#std_class").val();
-    var contact_number=$("#contact_number").val();
-    var email=$("#email").val();
-    var password=$("#password").val();
+  //   if(password == ""){
+  //     alert('Any Field Cannot be empty');
+  //    }
+
   
-    var formdata= new FormData();
-    formdata.append('name',name);
-    formdata.append('institute',std_institute);
-    formdata.append('class',std_class);
-    formdata.append('contact_number',contact_number);
-    formdata.append('email',email);
-    formdata.append('password',password);
+  //    else{
 
-    $.ajax({
-      processData:false,
-      contentType:false,
-      data:formdata,
-      type:"post",
-      url:"std_data_insert",
-      success:function(data)
-      {
-       alert("Student Registration Completed");
-     window.location.href ="otp"
-      }
+  //   var formdata= new FormData();
+  //   formdata.append('name',name);
+  //   formdata.append('institute',std_institute);
+  //   formdata.append('class',std_class);
+  //   formdata.append('contact_number',contact_number);
+  //   formdata.append('email',email);
+  //   formdata.append('password',password);
 
+
+  
+
+  //   $.ajax({
+  //     processData:false,
+  //     contentType:false,
+  //     data:formdata,
+  //     type:"post",
+  //     url:"std_data_insert",
+  //     success:function(data)
+  //     {
+        
+  //      alert("Student Registration Completed");
+  //    window.location.href ="otp"
+  //     }
       
-    });
+  //   });
 
-  });
+   
+  // }
+
+  // });
   
   $("#login").on('click',function()
   {
@@ -108,8 +88,43 @@ $(function(){
           window.location.href ="instructor_home"
         }
 
+        else if(msg=='otp_error')
+        {
+          alert("Mobile Verification is Required");
+          window.location.href ="resend_otp"
+
+        }
+
         else 
         alert("Contact Number and Password Doesn't Matched")
+      }
+    });
+  });
+
+
+
+  $("#resend_otp").on('click',function()
+  {
+
+  
+
+    var contact_number=$("#contact_number").val();
+    alert(contact_number);
+    var formdata= new FormData();
+    formdata.append('contact_number',contact_number);
+
+    $.ajax({
+      processData:false,
+      contentType:false,
+      data:formdata,
+      type:"post",
+      url:"resend_otp_check",
+      success:function(data)
+      {
+
+        window.location.href ="otp"
+
+       
       }
     });
   });

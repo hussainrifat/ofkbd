@@ -21,6 +21,9 @@ Route::get('register','CustomController@register');
 Route::get('/login','CustomController@login');
 Route::get('/main','CustomController@main');
 Route::get('otp','CustomController@otp');
+Route::get('resend_otp','data_insert_controller@resend_otp');
+Route::post('resend_otp_check','data_insert_controller@resend_otp_check');
+
 Route::get('sign_out','CustomController@sign_out');
 
 

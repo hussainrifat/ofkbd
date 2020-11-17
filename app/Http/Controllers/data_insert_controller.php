@@ -101,6 +101,27 @@ class data_insert_controller extends Controller
         
     }
 
+    public function resend_otp_check(Request $request){
+
+        $contact_number=$request->contact_number;
+
+        $user_id= user::where('contact_number',$contact_number)->first()->id;
+        $user= user::where('contact_number',$contact_number)->first();
+
+        Session::put('user_id',$user_id);
+
+
+
+        $otp_req = json_decode($this->send_otp2($user->contact_number));
+        $otp = $otp_req->otp;
+        $this->send_otp($otp,$user_id);
+
+    }
+
+    public function resend_otp(){
+        return view('registration/resend_otp');
+    }
+
         // Student And Instructor Registration Ends Here
 
 
@@ -130,6 +151,9 @@ class data_insert_controller extends Controller
 
     if(otp::where('user_id',$user_id)->where('otp',$user_otp)->first())
       {
+
+
+        user::where('id',$user_id)->update(['mobile_verification'=>'1']);
 
      echo "ok"; }
      
@@ -215,24 +239,29 @@ class data_insert_controller extends Controller
         $user = user::where('contact_number',$request->contact_number)->first();
         if ($user) {
                 if (auth()->attempt($credentials)) {
-                    //return redirect('');
                     $user_id = $user->id;
-                    $user_email = $user->email;
-                    $user_name = $user->name;
                     Session::put('user_id',$user_id);
-                 Session::put('user_name',$user_name);
-                 Session::put('user_email',$user_email);
-                 if (ins_registraion::where('user_id', $user_id)->first()) {
-                    echo "instructor";
-                } 
-                
-                else if(std_registration::where('user_id', $user_id)->first()) {
-    
-                    echo "student";
-                } 
+
+                if (user::where('id', $user_id)->where('mobile_verification','1')->first()) {
+                    if (ins_registraion::where('user_id', $user_id)->first()) {
+                        echo "instructor";
+                    } 
+                    
+                    else if(std_registration::where('user_id', $user_id)->first()) {
+        
+                        echo "student";
+                    } 
 
 
-                }else{
+                        
+                    } 
+                    else
+                    echo "otp_error";
+
+
+
+                }
+                else{
                     session()->flash('message', 'Invalid credentials');
                     return redirect()->back();
                 }
@@ -242,31 +271,6 @@ class data_insert_controller extends Controller
             return redirect()->back();
         }
 
-
-        // if (user::where('contact_number', $contact_number)->where('password', $password)->first()) {
-
-        //     $user_id= User::where("contact_number",$contact_number)->first()->id;
-        //     $user_email= User::where("contact_number",$contact_number)->first()->email;
-        //     $user_name= User::where("contact_number",$contact_number)->first()->name;
-
-            
-        //     file_put_contents("session.txt",$user_name);
-
-
-
-        //     if (ins_registraion::where('user_id', $user_id)->first()) {
-        //         echo "instructor";
-        //     } 
-            
-        //     else if(std_registration::where('user_id', $user_id)->first()) {
-
-        //         echo "student";
-        //     } 
-            
-        // }
-        // else {
-        //     echo "information Doesn't Matched";
-        // }
     }
 
 

@@ -54,12 +54,12 @@
 			<ul>
 
 				<li>
-					<a href="{{url('instructor_blog_view')}}" class="upload_btn" title="Donate Now">Explore Blog</a>
+					<a href="{{url('instructor_blog_view')}}" class="upload_btn" title="">Explore Blog</a>
 				</li>
 			
-				<li>
+				{{-- <li>
 					<a href="{{url('instructor_donation')}}" class="upload_btn" title="Donate Now">Donate Now</a>
-				</li>
+				</li> --}}
 
 				
 			
@@ -143,20 +143,15 @@
 						</a>
 					</li>
 
-					<li class="menu--item">
-						<a href="instructor_all_reviews.html" class="menu--link" title="Reviews">
-						  <i class='uil uil-star menu--icon'></i>
-						  <span class="menu--label">Reviews</span>
-						</a>
-					</li>
+			
 			
 
-					<li class="menu--item">
+					{{-- <li class="menu--item">
 						<a href="{{url('instructor_donation')}}" class="menu--link" title="Reviews">
 						  <i class='uil uil-money-withdraw menu--icon'></i>
 						  <span class="menu--label">Donate Now</span>
 						</a>
-					</li>
+					</li> --}}
 
 					<li class="menu--item">
 						<a href="{{url('sign_out')}}" class="menu--link" title="Reviews">
@@ -250,6 +245,7 @@
 	{{-- <script src="{{asset('assets')}}/frontend\js\custom1.js?{{time()}}"></script> --}}
 	<script src="resources\js\custom.js?{{time()}}"></script>
 	<script src="resources\js\instructor.js?{{time()}}"></script>
+
 
 
 	
