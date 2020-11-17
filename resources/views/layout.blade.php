@@ -167,7 +167,7 @@
 
          
 
- <script src="resources\js\std_reg_validate.js?{{time()}}"></script>
+ {{-- <script src="resources\js\std_reg_validate.js?{{time()}}"></script> --}}
 <script src="resources\js\custom.js?{{time()}}"></script>
 
 </html>

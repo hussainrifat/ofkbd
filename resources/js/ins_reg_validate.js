@@ -1,8 +1,13 @@
 $(function(){
 
-    var error= false;
-    var arr = [10];
-    var i=0;
+  var insError= false;
+  var arr = [10];
+  var i=0;
+  var numCheack =0;
+
+  for(var k =0;k<10;k++){
+    arr[k]=0;
+  }
   
   //  fetch_expertise();
     
@@ -26,15 +31,17 @@ $(function(){
   
          $('#ins_name').focusout(function()
          {
-          
+          arr[0]= 1;
   
              if($('#ins_name').val().length==0)
              {
                  $('#ins_name_error').html("Name Field Is Required");
                  $('#ins_name_error').show();
+                         insError= true;
              }
              else
              $('#ins_name_error').hide();
+                       insError= false;
      
          });
   
@@ -43,12 +50,14 @@ $(function(){
       
          $("#ins_password").focusout(function()
          {
+          arr[1]= 1;
   
          if($("#ins_password").val().length == 0)
   
         {
            $("#ins_password_error").html("password field is required");
             $("#ins_password_error").show();
+                 insError= true;
        } 
        else
        {
@@ -57,7 +66,8 @@ $(function(){
         {
           $("#ins_password_error").html("Minimum 8 character required");
             $("#ins_password_error").show();
-          //$("#pass_error").hide();
+        
+                insError= true;
         }
         else
         {
@@ -65,10 +75,13 @@ $(function(){
          if(!password_reg_ex.test($("#ins_password").val())) {
         $("#ins_password_error").html("password should contain One Uppercase, One lowercase,one number,one special character");
         $("#ins_password_error").show();
-        //return false;
+             insError= true;
+  
       }
       else{
          $("#ins_password_error").hide();
+         insError= false;
+         
        }
   
         }
@@ -80,11 +93,36 @@ $(function(){
   
          $('#ins_contact_number').focusout(function()
       {
+        arr[2]= 1;
+
+         var numValue=$('#ins_contact_number').val();
+
+         var numPattern=/^(0)(1)[0-9]*[]?[0-9]*$/;
+
           if($('#ins_contact_number').val().length==0)
           {
               $('#ins_number_error').html("Number Field Is Required");
               $('#ins_number_error').show();
+              insError= true;
           }
+
+          else if(!numPattern.test(numValue)){ 
+            
+            $("#ins_number_error").html( "Phone number isn't valid");
+            $("#ins_number_error").show();
+                 insError= true;
+      
+          }
+
+          else if($('#ins_contact_number').val().length!=11)
+          {
+              $('#ins_number_error').html("Phone number must be 11");
+              $('#ins_number_error').show();
+              insError= true;
+          }
+
+
+
           else
           {
       
@@ -111,10 +149,13 @@ $(function(){
              {
            $("#ins_number_error").html("Contact Number Already Exist");
            $("#ins_number_error").show();
+           insError= true;
              }
              else
              {
                 $("#ins_number_error").hide();
+                     insError= false;
+                      numCheack=5;
              }
              //alert('ok');
            }
@@ -129,6 +170,7 @@ $(function(){
   
       $("#ins_email").focusout(function()
       {
+        arr[3]= 1;
   
        //alert("ok")
   
@@ -137,6 +179,7 @@ $(function(){
         {
            $("#ins_email_error").html("Email field is required");
             $("#ins_email_error").show();
+            insError= true;
        }
   
       else{
@@ -147,6 +190,7 @@ $(function(){
    if(!pattern.test($("#ins_email").val())) {
         $("#ins_email_error").html("Invalid Email Address");
         $("#ins_email_error").show();
+        insError= true;
         //return false;
       }
       else
@@ -175,10 +219,12 @@ $(function(){
          {
        $("#ins_email_error").html("Email Already Exist");
        $("#ins_email_error").show();
+       insError= true;
          }
          else
          {
             $("#ins_email_error").hide();
+            insError= false;
          }
          //alert('ok');
        }
@@ -190,13 +236,49 @@ $(function(){
          
       });
   
+      $('#expertise').focusout(function()
+    {
+      arr[4]= 1;
+
+        if($('#expertise').val().length==0)
+        {
+            $('#ins_expertise_error').html("Field Is Required");
+            $('#ins_expertise_error').show();
+            insError= true;
   
+        }
+        else
+        {$('#ins_expertise_error').hide();
+         insError= false;}
+          
+
+
+    });
   
+    $('#cheackBox2').focusout(function()
+    
+    {
+      arr[5]= 1;
+        error= false;
+
+    });
   
       $("#registerinstructor").on('click',function()
       {
+
+        for(var j =0;j<6;j++){
+          if(arr[j] == 1)
+              i++;
+        }
     
-        var ins_name=$("#ins_name").val();
+    
+        if( i == 6 ) {
+    
+          if( numCheack == 5){
+
+            if(error== false){
+
+              var ins_name=$("#ins_name").val();
         var ins_number=$("#ins_contact_number").val();
         var ins_email=$("#ins_email").val();
         var ins_password=$("#ins_password").val();
@@ -232,9 +314,36 @@ $(function(){
         }
       });
     }
-      
-      
+
+
+
+            }
+    
+      else
+        {
+          alert("All Field is must be valid");
+       window.location.reload();
+        Event.stopPropagation();
+      }
+    
+          }
+    
+          else{
+            alert("All Field is must be valid with number");
+            window.location.reload();
+           Event.stopPropagation();
+          }
+           
+    
+    }
+    else
+           {alert("All Field Is Required");
+         
+           window.location.reload();
+           Event.stopPropagation();}
       });
+
+      
     
 
   

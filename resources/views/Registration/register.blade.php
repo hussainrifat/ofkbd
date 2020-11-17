@@ -117,6 +117,11 @@
                                     <span style="color: red" id="std_password_error"> </span>
 
                                 </div>
+
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="cheackBox">
+                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                  </div>
                               
                              
                                 <span>Already Registered? <a href="{{url('/login')}}"> Sign In </a> From Here</span>
@@ -125,6 +130,12 @@
                             </div>
                         </div>
                     </div> 
+
+
+                    
+                    {{-- Instructor Reg --}}
+
+
                     <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <h3  class="register-heading">Apply as a Instructor</h3>
                         <div class="row register-form">
@@ -140,7 +151,7 @@
                                 
                                 <div class="form-group">
                                     <span>Enter Your Contact Number</span>
-                                    <input type="text" minlength="11" maxlength="11" id="ins_contact_number"   class="form-control" placeholder="Your Mobile Number" value="" />
+                                    <input  type="text" minlength="11" maxlength="11" id="ins_contact_number"   class="form-control" placeholder="Your Mobile Number" value="" />
                                     <span style="color: red" id="ins_number_error"> </span>
 
                                 </div>
@@ -171,7 +182,8 @@
                                 <div class="form-group">
                                     <span>Please Select Your Expertise</span>
                                     <select class="form-control" id="expertise"  >
-                                        
+
+                                        <option class="hidden"  selected disabled>Please select your Expertise</option>
                                         <option>Art</option>
                                         <option>Craft</option>
                                         <option>Calligraphy</option>
@@ -186,6 +198,12 @@
                                     <span style="color: red" id="ins_expertise_error"> </span>
 
                                 </div>
+
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="cheackBox2">
+                                    <label class="form-check-label" for="exampleCheck">Check me out</label>
+                                  </div> 
+                                  
                               <span>Already Registered? <a href="{{url('/login')}}"> Sign In </a> From Here</span>
                                 <button id="registerinstructor" class="btnRegister">Sign Up</button>
                             </div>

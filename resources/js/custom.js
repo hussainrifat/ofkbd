@@ -9,55 +9,6 @@ $(function(){
 }); 
 
 
- 
-  // $("#registerstudent").on('click',function()
-  // {
-    
-  //   // alert("Student");
-  //   var name=$("#name").val();
-  //   var std_institute= $("#std_institute").val();
-  //   var std_class= $("#std_class").val();
-  //   var contact_number=$("#contact_number").val();
-  //   var email=$("#email").val();
-  //   var password=$("#password").val();
-
-  //   if(password == ""){
-  //     alert('Any Field Cannot be empty');
-  //    }
-
-  
-  //    else{
-
-  //   var formdata= new FormData();
-  //   formdata.append('name',name);
-  //   formdata.append('institute',std_institute);
-  //   formdata.append('class',std_class);
-  //   formdata.append('contact_number',contact_number);
-  //   formdata.append('email',email);
-  //   formdata.append('password',password);
-
-
-  
-
-  //   $.ajax({
-  //     processData:false,
-  //     contentType:false,
-  //     data:formdata,
-  //     type:"post",
-  //     url:"std_data_insert",
-  //     success:function(data)
-  //     {
-        
-  //      alert("Student Registration Completed");
-  //    window.location.href ="otp"
-  //     }
-      
-  //   });
-
-   
-  // }
-
-  // });
   
   $("#login").on('click',function()
   {
@@ -109,7 +60,7 @@ $(function(){
   
 
     var contact_number=$("#contact_number").val();
-    alert(contact_number);
+    
     var formdata= new FormData();
     formdata.append('contact_number',contact_number);
 
@@ -121,7 +72,8 @@ $(function(){
       url:"resend_otp_check",
       success:function(data)
       {
-
+        
+        alert("A otp has been sent in your mobile.");
         window.location.href ="otp"
 
        

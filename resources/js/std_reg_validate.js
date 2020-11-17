@@ -3,6 +3,8 @@ $(function(){
   var error= false;
   var arr = [10];
   var i=0;
+  var numCheack =0;
+
   for(var k =0;k<10;k++){
     arr[k]=0;
   }
@@ -17,11 +19,6 @@ $(function(){
     $('#std_email_error').hide();
     $('#std_password_error').hide();
    
-
- 
-
-
-
 
 // student data validation
 
@@ -64,6 +61,7 @@ $(function(){
     $('#std_class').focusout(function()
     {
       arr[2]= 1;
+
         if($('#std_class').val().length==0)
         {
             $('#std_class_error').html("Class Field Is Required");
@@ -73,7 +71,7 @@ $(function(){
         }
         else
         $('#std_class_error').hide();
-        error= false;
+             error= false;
 
 
     });
@@ -82,6 +80,10 @@ $(function(){
     $('#contact_number').focusout(function()
     {
       arr[3]= 1;
+      var numValue=$('#contact_number').val();
+
+      var numPattern=/^(0)(1)[0-9]*[]?[0-9]*$/;
+
         if($('#contact_number').val().length==0)
         {
             $('#std_number_error').html("Number Field Is Required");
@@ -89,6 +91,24 @@ $(function(){
             error= true;
 
         }
+
+        else if(!numPattern.test(numValue)){ 
+            
+          $("#std_number_error").html( "Phone number isn't valid");
+          $("#std_number_error").show();
+          error= true;
+    
+        }
+
+        else if($('#contact_number').val().length!=11)
+        {
+            $('#std_number_error').html("Phone number must be 11");
+            $('#std_number_error').show();
+            error= true;
+        }
+
+
+
         else
 
         {
@@ -114,15 +134,17 @@ $(function(){
           
                  if(msg =='match')
                  {
+                  error= true;
                $("#std_number_error").html("Contact Number Already Exist");
                $("#std_number_error").show();
-               error= true;
+                        
 
                  }
                  else
                  {
                     $("#std_number_error").hide();
-                    error= false;
+                          error= false;
+                          numCheack=5;
 
                  }
                  //alert('ok');
@@ -156,10 +178,11 @@ $(function(){
 
      var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
 
- if(!pattern.test($("#email").val())) {
+       if(!pattern.test($("#email").val())) {
+       
       $("#std_email_error").html("Invalid Email Address");
       $("#std_email_error").show();
-      error= true;
+      error = true;
 
       //return false;
     }
@@ -188,7 +211,7 @@ $(function(){
          {
        $("#std_email_error").html("Email Already Exist");
        $("#std_email_error").show();
-       error= true;
+             error= true;
 
          }
          else
@@ -252,19 +275,29 @@ $(function(){
 
        });
 
+       
+       $('#cheackBox').focusout(function()
+       {
+         arr[6]= 1;
+           error= false;
+   
+       });
+
  
   $("#registerstudent").on('click',function()
   {
 
-    for(var j =0;j<6;j++){
+    for(var j =0;j<7;j++){
       if(arr[j] == 1)
           i++;
     }
 
 
-    if( i == 6 )
+    if( i == 7 ) {
 
-        { if(error== false)
+      if( numCheack == 5){
+        if(error== false)
+
     {
 
     
@@ -275,12 +308,7 @@ $(function(){
     var email=$("#email").val();
     var password=$("#password").val();
 
-    // if(password == ""){
-    //   alert('Any Field Cannot be empty');
-    //  }
-
   
-     
 
     var formdata= new FormData();
     formdata.append('name',name);
@@ -290,8 +318,6 @@ $(function(){
     formdata.append('email',email);
     formdata.append('password',password);
 
-
-  
 
     $.ajax({
       processData:false,
@@ -314,11 +340,27 @@ $(function(){
   }
 
   else
-    alert("All Field Is Required for eroor");
+    {
+      alert("All Field is must be valid");
+   window.location.reload();
+    Event.stopPropagation();
+  }
+
+      }
+
+      else{
+        alert("All Field is must be valid with number");
+        window.location.reload();
+       Event.stopPropagation();
+      }
+       
 
 }
 else
-       alert("All Field Is Required for click");
+       {alert("All Field Is Required");
+     
+       window.location.reload();
+       Event.stopPropagation();}
   });
 
 
