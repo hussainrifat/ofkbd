@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
-    
-<head> 
+
+<head>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> --}}
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -57,7 +57,7 @@
                                     <span style="color: red" id="std_institute_error"> </span>
 
                                 </div>
-                                
+
                                 {{-- <div class="form-group">
                                     <span>Enter Your Class</span>
                                     <input type="text" value="" class="form-control" name="std_class" id="std_class" placeholder="Your Class" value="" />
@@ -68,7 +68,7 @@
                                 <div class="form-group">
                                     <span>Please Select Your Class</span>
                                     <select class="form-control" id="std_class"  >
-                                        
+
                                         <option class="hidden"  selected disabled>Please select your Class</option>
                                         <option>Class 1</option>
                                         <option>Class 2</option>
@@ -91,20 +91,20 @@
 
 
 
-                                
-                                
-                                
+
+
+
                             </div>
                             <div class="col-md-6">
-                              
+
                                 <div class="form-group">
                                     <span>Enter Your Contact Number</span>
                                     <input type="text" value="" minlength="11" maxlength="11" name="contact_number" id="contact_number" name="txtEmpPhone" class="form-control" placeholder="Your Mobile Number" value="" />
                                     <span style="color: red" id="std_number_error"> </span>
 
                                 </div>
-                                
-                              
+
+
                                 <div class="form-group">
                                     <span>Enter Your Email</span>
                                     <input type="email" value="" class="form-control" name="email" id="email" placeholder="Your Email" value="" />
@@ -118,21 +118,23 @@
 
                                 </div>
 
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="cheackBox">
-                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                  </div>
-                              
-                             
+                                <div class="form-group">
+                                    <span>Retype Your Password</span>
+                                    <input type="password" value="" class="form-control" id="rePassword" placeholder="Password" value="" />
+                                    <span style="color: red" id="std_rePassword_error"> </span>
+
+                                </div>
+
+
                                 <span>Already Registered? <a href="{{url('/login')}}"> Sign In </a> From Here</span>
                                 <button id="registerstudent" class="btnRegister">Sign Up</button>
 
                             </div>
                         </div>
-                    </div> 
+                    </div>
 
 
-                    
+
                     {{-- Instructor Reg --}}
 
 
@@ -146,9 +148,9 @@
                                     <span style="color: red" id="ins_name_error"> </span>
 
                                 </div>
-                                
-                                
-                                
+
+
+
                                 <div class="form-group">
                                     <span>Enter Your Contact Number</span>
                                     <input  type="text" minlength="11" maxlength="11" id="ins_contact_number"   class="form-control" placeholder="Your Mobile Number" value="" />
@@ -162,13 +164,13 @@
                                     <span style="color: red" id="ins_email_error"> </span>
 
                                 </div>
-                          
+
 
 
                             </div>
                             <div class="col-md-6">
 
-                    
+
 
                                 <div class="form-group">
                                     <span>Enter Your Password</span>
@@ -176,9 +178,14 @@
                                     <span style="color: red" id="ins_password_error"> </span>
 
                                 </div>
-                               
-                                
-                                
+
+                                <div class="form-group">
+                                    <span>Retype Your Password</span>
+                                    <input type="password" value="" class="form-control" id="ins_rePassword" placeholder="Password" value="" />
+                                    <span style="color: red" id="ins_rePassword_error"> </span>
+
+                                </div>
+
                                 <div class="form-group">
                                     <span>Please Select Your Expertise</span>
                                     <select class="form-control" id="expertise"  >
@@ -199,11 +206,8 @@
 
                                 </div>
 
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="cheackBox2">
-                                    <label class="form-check-label" for="exampleCheck">Check me out</label>
-                                  </div> 
-                                  
+
+
                               <span>Already Registered? <a href="{{url('/login')}}"> Sign In </a> From Here</span>
                                 <button id="registerinstructor" class="btnRegister">Sign Up</button>
                             </div>
@@ -212,14 +216,14 @@
                 </div>
             </div>
         </div>
-       
-  
+
+
     </div>
 
-    
+
 </section>
 
-</body> 
+</body>
 
 <script src="resources\js\std_reg_validate.js?{{time()}}"></script>
 <script src="resources\js\ins_reg_validate.js?{{time()}}"></script>

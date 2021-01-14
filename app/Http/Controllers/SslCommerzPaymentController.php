@@ -14,7 +14,7 @@ class SslCommerzPaymentController extends Controller
         return view('exampleEasycheckout');
     }
 
-    public function instructor_donation()
+    public function visitor_donation()
     {
         return view('instructor/instructor_donation');
     }

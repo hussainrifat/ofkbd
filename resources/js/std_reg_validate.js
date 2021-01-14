@@ -11,7 +11,7 @@ $(function(){
   }
 
 //  fetch_expertise();
-  
+
 
     $('#std_name_error').hide();
     $('#std_institute_error').hide();
@@ -19,7 +19,10 @@ $(function(){
     $('#std_number_error').hide();
     $('#std_email_error').hide();
     $('#std_password_error').hide();
-   
+    $('#std_rePassword_error').hide();
+     //rePassword
+
+
 
 // student data validation
 
@@ -93,12 +96,12 @@ $(function(){
 
         }
 
-        else if(!numPattern.test(numValue)){ 
-            
+        else if(!numPattern.test(numValue)){
+
           $("#std_number_error").html( "Phone number isn't valid");
           $("#std_number_error").show();
           error= true;
-    
+
         }
 
         else if($('#contact_number').val().length!=11)
@@ -120,7 +123,7 @@ $(function(){
                 var formData = new FormData();
                 formData.append('contact_number',contact_number);
                 formData.append('number_check','number_check');
-          
+
               $.ajax({
                processData:false,
                contentType:false,
@@ -130,15 +133,15 @@ $(function(){
                success:function(data)
                {
                  var msg  = $.trim(data);
-          
+
                 //  alert(msg);
-          
+
                  if(msg =='match')
                  {
                   error= true;
                $("#std_number_error").html("Contact Number Already Exist");
                $("#std_number_error").show();
-                        
+
 
                  }
                  else
@@ -153,7 +156,7 @@ $(function(){
            });
         }
 
-    
+
     });
 
 
@@ -180,7 +183,7 @@ $(function(){
      var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
 
        if(!pattern.test($("#email").val())) {
-       
+
       $("#std_email_error").html("Invalid Email Address");
       $("#std_email_error").show();
       error = true;
@@ -190,7 +193,7 @@ $(function(){
     else
     {
      $("#std_email_error").hide();
-        
+
         var email = $("#email").val();
         var formData = new FormData();
         formData.append('email',email);
@@ -228,7 +231,7 @@ $(function(){
     }
   }
 
-       
+
     });
 
 
@@ -243,7 +246,7 @@ $(function(){
           $("#std_password_error").show();
           error= true;
 
-     } 
+     }
      else
      {
 
@@ -278,15 +281,41 @@ $(function(){
 
        });
 
-       
-       $('#cheackBox').focusout(function()
+
+                                         //retype pass
+                                       //  $('#std_rePassword_error').hide();
+     //rePassword
+        $("#rePassword").focusout(function()
        {
-         arr[6]= 1;
-           error= false;
-   
+
+        arr[6]= 1;
+
+
+        if($("#rePassword").val().length == 0)
+
+         {
+            $("#std_rePassword_error").html("Password field is required");
+             $("#std_rePassword_error").show();
+             error= true;
+        }
+        else
+        {
+          if($("#password").val() != $("#rePassword").val())
+          {
+           $("#std_rePassword_error").html("Password not match");
+             $("#std_rePassword_error").show();
+             error= true;
+          }
+          else
+          {
+            $("#std_rePassword_error").hide();
+              error = false;
+          }
+        }
+
        });
 
- 
+
   $("#registerstudent").on('click',function()
   {
 
@@ -303,7 +332,7 @@ $(function(){
 
     {
 
-    
+
     var name=$("#name").val();
     var std_institute= $("#std_institute").val();
     var std_class= $("#std_class").val();
@@ -311,7 +340,7 @@ $(function(){
     var email=$("#email").val();
     var password=$("#password").val();
 
-  
+
 
     var formdata= new FormData();
     formdata.append('name',name);
@@ -330,15 +359,15 @@ $(function(){
       url:"std_data_insert",
       success:function(data)
       {
-        
+
        alert("Student Registration Completed");
      window.location.href ="otp"
       }
-      
+
     });
 
-   
-  
+
+
 
   }
 
@@ -356,12 +385,12 @@ $(function(){
         window.location.reload();
        Event.stopPropagation();
       }
-       
+
 
 }
 else
        {alert("All Field Is Required");
-     
+
        window.location.reload();
        Event.stopPropagation();}
   });

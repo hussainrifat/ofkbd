@@ -127,9 +127,9 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        
-                                                
                                                     </div>
+
+                                                    
                                                     <div class="col-lg-2 col-md-12">
                                                         <button class="part_btn_save prt-sv" type="button" id="create_course">Add New Course</button>
                                                     </div>

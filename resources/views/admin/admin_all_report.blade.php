@@ -30,7 +30,9 @@
                                             <td class="text-center">{{$report->report_description}} </td>  
                                             <td class="text-center">
 
-                                            <button onclick="window.location.href='admin_all_courses'"   class="gray-s"><i class="uil uil-edit-alt"></i></button>
+                                         
+
+                                            <button onclick="window.location.href='admin_all_courses'"   type="button" class="btn btn-primary btn-sm">Take Action</button>
                                                 </td>
                                             
                                         </tr>  

@@ -107,6 +107,10 @@
                                 <button  onclick="StudentCourseEnrollment({{$course_details->id}})" class="subscribe-btn">Enroll Now</button>
                                     @else
                                     <button  onclick="window.location.href='course_view?id={{$course_details->id}}'" class="subscribe-btn">Course View</button>
+
+
+                                    <button type="button" onclick="window.location.href='{{url('quiz',$course_details->id)}}'" class="subscribe-btn" style="margin-left: 20px">Take A Quiz</button>
+                                   
                                     @endif
                       
                                                        </ul>
@@ -223,12 +227,38 @@
                                                 <div class="course_des_bg">
                                             
                                                     <div class="textarea_dt">															
-                                                        <div class="ui form swdh339">
+                                                        {{-- <div class="ui form swdh339">
                                                             <div class="field">
                                                                 <input type="number" name="" min="1" max="5" value="1" id="student_rating">
 
                                                             </div>
-                                                        </div>										
+                                                        </div> --}}
+
+                                                        <div class="form-group">
+                                                            <span>Please Rate This Course</span>  <i class="uil uil-star"></i> 
+
+                                                            <select class="form-control" id="student_rating"  >
+                        
+                                                                <option >1</option>
+                                                                <option>2</option>
+                                                                <option>3</option>
+                                                                <option>4</option>
+                                                                <option>5</option>
+
+                                                          
+
+                        
+                                                            </select>
+                                                            
+                        
+                                                        </div>
+                                                        
+                                                        
+
+
+
+
+
                                                     </div>
                                                 </div>
                                                 <label>Add Review</label>

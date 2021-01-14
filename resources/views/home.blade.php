@@ -37,6 +37,8 @@
 
 
   <!--bootstrap CDN -->
+  <link rel="stylesheet" href="https://cdnjs.com/libraries/ekko-lightbox" >
+
   <!-- CSS only -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
 
@@ -46,6 +48,12 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
 
 </head>
+
+<style>
+  .row {
+  margin: 15px;
+}
+</style>
 
 <body>
 
@@ -64,13 +72,13 @@
           <li><a href="#why-us">About Us</a></li>
      
           <li><a href="{{url('/login')}}">Sign In</a></li>
-
-
+          
 
         </ul>
       </nav><!-- .nav-menu -->
 
       <a href="{{url('register')}}" class="btn btn-warning btn-large" style="margin-left:20px">New Here? Register</a>
+      <a href="{{url('visitor_donation')}}" class="btn btn-warning btn-large" style="margin-left:20px">Donate Now</a>
 
     </div>
   </header><!-- End Header -->
@@ -81,7 +89,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <h5 style="text-align: center">Opportunities For Kids</h5>
           <p style="text-align: center; color:white; font-size:25px; font-weight:300">A Free Online Learning Platform For Kids & Teenagers in Bangladesh</p>
-          <p style="text-align: center; color:#753475"><a href="#" class="btn btn-warning btn-large">Start Learning From Here</a></p>
+        <p style="text-align: center; color:#753475"><a href="{{url('student_home')}}" class="btn btn-warning btn-large">Start Learning From Here</a></p>
         </div>
       </div>
     </div>
@@ -120,7 +128,7 @@
               <li><i class="icofont-check-circled"> Inspiring Training Session</i>
 
             </ul>
-            <a href="about.html" class="learn-more-btn">Join Now</a>
+            <a href="{{url('student_home')}}" class="learn-more-btn">Join Now</a>
           </div>
         </div>
 
@@ -136,25 +144,25 @@
 
           <div class="col-lg-3 col-6 text-center">
             <img src="assets\img\tutorial.png" style="height: 80px" alt="Tutorial">
-            <span data-toggle="counter-up">100</span>
-            <p>Video Tutorials</p>
+            <span data-toggle="counter-up">{{$total_course}}</span>
+            <p>Course</p>
           </div>
 
           <div class="col-lg-3 col-6 text-center">
             <img src="assets\img\instructor.png" style="height: 80px" alt="Instructor">
-            <span data-toggle="counter-up">25</span>
+            <span data-toggle="counter-up">{{$total_instructor}}</span>
             <p>Instructors</p>
           </div>
 
           <div class="col-lg-3 col-6 text-center">
             <img src="assets\img\blog.png" style="height: 80px" alt="Blog">
-            <span data-toggle="counter-up">50</span>
+            <span data-toggle="counter-up">{{$total_blog}}</span>
             <p>Blogs</p>
           </div>
 
           <div class="col-lg-3 col-6 text-center">
             <img src="assets\img\students.png" style="height: 80px" alt="Student">
-            <span data-toggle="counter-up">27600</span>
+            <span data-toggle="counter-up">{{$total_student}}</span>
             <p>Online Students</p>
           </div>
 
@@ -162,6 +170,34 @@
 
       </div>
     </section><!-- End Counts Section -->
+
+
+    
+    <div class="container">
+      <div class="row">
+        <a href="field_work\bg1.jpeg" data-toggle="lightbox" data-gallery="gallery" class="col-md-4">
+          <img src="field_work\bg1.jpeg" class="img-fluid rounded">
+        </a>
+        <a href="field_work\bg2.jpg" data-toggle="lightbox" data-gallery="gallery" class="col-md-4">
+          <img src="field_work\bg2.jpg" class="img-fluid rounded">
+        </a>
+        <a href="field_work\bg3.jpg" data-toggle="lightbox" data-gallery="gallery" class="col-md-4">
+          <img src="field_work\bg3.jpg" class="img-fluid rounded">
+        </a>
+      </div>
+      <div class="row">
+        <a href="field_work\bg4.jpg" data-toggle="lightbox" data-gallery="gallery" class="col-md-4">
+          <img src="field_work\bg4.jpg" class="img-fluid rounded">
+        </a>
+        <a href="field_work\bg5.jpg" data-toggle="lightbox" data-gallery="gallery" class="col-md-4">
+          <img src="field_work\bg5.jpg" class="img-fluid rounded">
+        </a>
+        <a href="field_work\bg6.jpg" data-toggle="lightbox" data-gallery="gallery" class="col-md-4">
+          <img src="field_work\bg6.jpg" class="img-fluid rounded">
+        </a>
+      </div>
+    </div>
+    
 
     <!-- ======= Why Us Section ======= -->
     <section id="why-us" class="why-us">
@@ -174,9 +210,7 @@
               <p style="font-size: 15px; font-weight:300">Opportunities for Kids is trying to create a digital classroom for children and teens with the tagline of “শিখো, শেখাও এবং দেখাও তোমার প্রতিভা সারা বিশ্বকে” where they can learn what they want to learn outside of the traditional classroom syllabus & showcase their talents by exploring their creativity. There are Art videos for those who want to learn Art, there are Craft videos for those who want to learn craft with 12 more different skills. We use one more tagline in addition to this one, “When You Do Something With Passion, Age Is No Bar”.
 
               </p>
-              <div class="text-center">
-                <a href="about.html" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
-              </div>
+              
             </div>
           </div>
           <div class="col-lg-8 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
@@ -226,49 +260,49 @@
           <div class="col-lg-3 col-md-4">
             <div class="icon-box">
               <i class="fa fa-paint-brush" style="color: #ffbb2c;"></i>
-              <h3><a href="">Art</a></h3>
+              <h3>Art</h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
             <div class="icon-box">
               <i class="fa fa-scissors" style="color: #5578ff;"></i>
-              <h3><a href="">Craft</a></h3>
+              <h3>Craft</h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
             <div class="icon-box">
               <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
-              <h3><a href="">Calligraphy</a></h3>
+              <h3>Calligraphy</h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
             <div class="icon-box">
               <i class="fa fa-code" style="color: #e361ff;"></i>
-              <h3><a href="">Programming</a></h3>
+              <h3>Programming</h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4">
             <div class="icon-box">
               <i class="fa fa-linode" style="color: #47aeff;"></i>
-              <h3><a href="">Robotics</a></h3>
+              <h3>Robotics</h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4">
             <div class="icon-box">
               <i class="fa fa-cube" style="color: #ffa76e;"></i>
-              <h3><a href="">Rubiks Cube Solving</a></h3>
+              <h3>Rubiks Cube Solving</h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4">
             <div class="icon-box">
               <i class="fa fa-lightbulb-o" style="color: #11dbcf;"></i>
-              <h3><a href="">Critical Thinking</a></h3>
+              <h3>Critical Thinking</h3>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 mt-4">
             <div class="icon-box">
               <i class="fa fa-html5" style="color: #4233ff;"></i>
-              <h3><a href="">Web Design</a></h3>
+              <h3>Web Design</h3>
             </div>
           </div>
           
@@ -305,7 +339,7 @@
               <li><i class="icofont-check-circled"> You Can Share Your Talented Work With Others     </i>
 
             </ul>
-            <a href="about.html" class="learn-more-btn">Join Now</a>
+            <a href="{{url('student_home')}}" class="learn-more-btn">Join Now</a>
           </div>
         </div>
 
@@ -344,10 +378,15 @@
 
         </div>
 
+
+
       </div>
     </section><!-- End Popular Courses Section -->
 
-   
+
+
+    
+
 
   </main><!-- End #main -->
 
@@ -371,11 +410,9 @@
         </div>
       </div>
       <div class="social-links text-center text-md-right pt-3 pt-md-0">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        <a href="https://www.facebook.com/OfkbdOfficial/" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="https://www.instagram.com/Ofkbd/" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="https://www.youtube.com/opportunitiesforkids" class="youtube"><i class="bx bxl-youtube"></i></a>
       </div>
     </div>
   </footer><!-- End Footer -->
@@ -395,6 +432,17 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+
+
+
 </body>
+
+<script>
+  $(document).on("click", '[data-toggle="lightbox"]', function(event) {
+event.preventDefault();
+$(this).ekkoLightbox();
+});
+</script>
 
 </html>

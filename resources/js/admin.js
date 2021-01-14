@@ -273,3 +273,28 @@ function updateCourseStatusInfo() {
     }
   });
 }
+
+
+
+function deleteBlog(blog_id){
+
+  var blog_id=blog_id;
+
+  var formdata= new FormData;
+  formdata.append('blog_id',blog_id);
+
+  $.ajax({
+    processData:false,
+    contentType:false,
+    data:formdata,
+    type:"post",
+    url:"deleteBlog",
+    success:function(data)
+    {
+      window.location.href ="admin_all_blog"
+      confirm("Are You Sure You Want to Delete This Blog?");
+
+    }
+  });
+
+}

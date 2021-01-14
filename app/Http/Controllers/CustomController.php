@@ -46,9 +46,21 @@ class CustomController extends Controller
             'instructor_name'=>$instructor_name]);   
         }
         $course = json_decode(json_encode($response));
-        // file_put_contents('course.txt',json_encode($response));
-        return view('home',['course'=>$course,]);
-        // return view('home');
+
+
+        $total_student=sizeof(std_registration::get());
+        $total_instructor=sizeof(ins_registraion::get());
+        $total_course=sizeof(course::get());
+        $total_blog=sizeof(blog::get());
+
+
+
+        return view('home',['course'=>$course,
+        'total_student'=>$total_student,
+        'total_instructor'=>$total_instructor,
+        'total_course'=>$total_course,
+        'total_blog'=>$total_blog,
+        ]);
     }
 
 
@@ -75,14 +87,6 @@ class CustomController extends Controller
     }
 
     
-
-
-    // Instructor Course Add Content Controller
-
-  
-
-
- 
 
 
     public function sign_out(Request $request){

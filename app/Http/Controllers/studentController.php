@@ -68,8 +68,6 @@ class studentController extends Controller
     $course = json_decode(json_encode($response));
 
 
-
-
     return view('student/student_home',['course'=>$course,'blog'=>$blog]);
     }
 
@@ -98,7 +96,6 @@ class studentController extends Controller
             $course_id=$enroll[$i]->course_id;
             $course_info= course::where('id',$course_id)->first();
 
-            // file_put_contents('course.txt',$course_info);
 
             $instructor_id=$course_info->instructor_id;
             $instructor_name= user::where('id',$instructor_id)->first()->name;
@@ -121,6 +118,7 @@ class studentController extends Controller
 
 
 
+    // Student My Course Page (Enrolled)
       
     public function student_courses(){
 
@@ -134,7 +132,6 @@ class studentController extends Controller
                 $course_id=$enroll[$i]->course_id;
                 $course_info= course::where('id',$course_id)->first();
 
-                file_put_contents('course.txt',$course_info);
 
                 $instructor_id=$course_info->instructor_id;
                 $instructor_name= user::where('id',$instructor_id)->first()->name;
@@ -216,7 +213,6 @@ class studentController extends Controller
    
    
            $course = json_decode(json_encode($response));
-           // file_put_contents('course.txt',json_encode($response));
            return view('course/course',['courses'=>$course]);
    
        }
@@ -303,7 +299,6 @@ class studentController extends Controller
             // $review=$review_info[$i]->review;
             $student_id=$review_info[$i]->student_id;
             $student_name= User::where('id',$student_id)->first()->name;
-             file_put_contents('review.txt',$student_name);
 
 
             array_push($response,
@@ -333,7 +328,6 @@ class studentController extends Controller
         $id=$request->id;
 
         $video_view=video::where('course_id',$id)->get();
-        file_put_contents('content.txt',$video_view);
 
         $response = array();
 
@@ -343,7 +337,6 @@ class studentController extends Controller
             $video_time_duration=$video_view[$i]->video_time_duration;
             $video_embed=$video_view[$i]->video_embed;
 
-            // file_put_contents('content.txt',$video_name);
 
             array_push($response,['video_title'=>$video_title,'video_time_duration'=>$video_time_duration,'video_embed'=>$video_embed]);
         }
@@ -359,6 +352,7 @@ class studentController extends Controller
 
 
 
+    // Student  Course Enroll Function
 
     public function StudentCourseEnrollment(Request $request)
     {
@@ -372,12 +366,14 @@ class studentController extends Controller
     }
 
 
+        // Student  Feedback to admin
+
+
     public function ReportToAdmin(Request $request)
     {
         $course_id=$request->course_id;
         $user_id=Session::get('user_id');
         $report_description=$request->report_description;
-        file_put_contents("report.txt",$course_id);
 
 
         Report_admin::create([
@@ -396,10 +392,6 @@ class studentController extends Controller
         $student_id = auth()->user()->id;
         $instructor_id= course::where('id',$course_id)->first()->instructor_id;
 
-
-        // file_put_contents("review.txt",$instructor_id);
-
-
        course_feedback::create([
             'course_id'=>$course_id, 
             'student_id'=>$student_id, 
@@ -411,7 +403,7 @@ class studentController extends Controller
 
 
 
-           // Student Profile Information Edit Update
+           // Student Profile Information Edit Update (CRUD)
 
 
            public function viewStudentDashboardProfileInfo(Request $request){
@@ -426,7 +418,6 @@ class studentController extends Controller
             $std_class=$student->std_class;
             $std_institute=$student->std_institute;
 
-            // file_put_contents('dashboard.txt',$std_institute);
 
             return json_encode(['id'=>$request->id,'name'=>$name,'email'=>$email,'contact_number'=>$contact_number,'std_class'=>$std_class,'std_institute'=>$std_institute]);
 
@@ -495,6 +486,23 @@ class studentController extends Controller
                         ]);
                 } 
         
+            }
+
+
+            function quiz($id)
+            {
+                $course_id=$id;
+                return view('student.art_quiz',['course_id'=>$course_id]);
+            }
+
+           public function testDataInsert(Request $request)
+            {
+                $test=$request->test;
+                $course_id=$request->id;
+                file_put_contents('text.txt',$course_id);
+
+                return dd($test,$course_id);
+
             }
 
 

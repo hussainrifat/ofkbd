@@ -179,8 +179,8 @@
 	<script src="{{asset('assets')}}/frontend\vendor\semantic\semantic.min.js?{{time()}}"></script>
 	<script src="{{asset('assets')}}/frontend\js\custom.js?{{time()}}"></script>
 	{{-- <script src="{{asset('assets')}}/frontend\js\custom1.js?{{time()}}"></script> --}}
-	<script src="resources\js\custom.js?{{time()}}"></script>
-	<script src="resources\js\student.js?{{time()}}"></script>
+	<script src="{{asset('resources')}}/js\custom.js?{{time()}}"></script>
+	<script src="{{asset('resources')}}/js\student.js?{{time()}}"></script>
 
 	
 

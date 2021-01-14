@@ -176,7 +176,7 @@ $(function(){
       url:"create_course",
       success:function(data)
       {
-        alert("Your Course Created Succesfully");
+        alert("Your Course Created Succesfully & Waiting For Admin Approval");
         window.location.href ="instructor_courses"
       }
     });
@@ -192,7 +192,7 @@ $(function(){
     var blog_title=$("#blog_title").val();
     var blog_description=$("#blog_description").val();
     var blog_category=$("#blog_category").val();
-    alert(blog_description);
+    
 
 
 

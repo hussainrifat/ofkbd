@@ -72,8 +72,12 @@
 
                         <button type="button" onclick="goBack()" class="btn btn-primary btn-sm" style="margin-left: 20px">Back To Course</button>
 
+                        
+
 
                     </div>
+
+                    
                     
                     <div class="course-sidebar-container" data-simplebar>
 
@@ -110,62 +114,31 @@
 
                     </div>
 
+                    
+
                 </div>
 
             </div>
+            
 
 
 
         </div>
 
-
-        <script>
-            (function (window, document, undefined) {
-                'use strict';
-                if (!('localStorage' in window)) return;
-                var nightMode = localStorage.getItem('gmtNightMode');
-                if (nightMode) {
-                    document.documentElement.className += ' night-mode';
-                }
-            })(window, document);
+        
 
 
-            (function (window, document, undefined) {
-
-                'use strict';
-
-                // Feature test
-                if (!('localStorage' in window)) return;
-
-                // Get our newly insert toggle
-                var nightMode = document.querySelector('#night-mode');
-                if (!nightMode) return;
-
-                // When clicked, toggle night mode on or off
-                nightMode.addEventListener('click', function (event) {
-                    event.preventDefault();
-                    document.documentElement.classList.toggle('night-mode');
-                    if (document.documentElement.classList.contains('night-mode')) {
-                        localStorage.setItem('gmtNightMode', true);
-                        return;
-                    }
-                    localStorage.removeItem('gmtNightMode');
-                }, false);
-
-            })(window, document);
-        </script>
+        
 
         <script src="{{asset('assets')}}/frontend\course_js\jquery-2.2.4.min.js"></script>
         <script>
+
+
             function make_button_active(tab) {
                 //Get item siblings
                 var siblings = tab.siblings();
 
-                /* Remove active class on all buttons
-                siblings.each(function(){
-                    $(this).removeClass('active');
-                }) */
-
+                
                 //Add the clicked button class
                 tab.addClass('watched');
             }

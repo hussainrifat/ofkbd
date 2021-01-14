@@ -23,11 +23,13 @@ class InstructorController extends Controller
 {
 
 
+
+    // Instructor Home Page View
+
     public function instructor_home(Request $request){
         $user_name= Session::get('user_name');
         $user_email= Session::get('user_email');
 
-        file_put_contents("session.txt",$user_name);
 
         $response = array();
 
@@ -57,7 +59,8 @@ class InstructorController extends Controller
 
 
 
-    
+        // Instructor Dashboard View
+
     public function instructor_dahsboard(){
 
         $instructor_id=Session::get('user_id');
@@ -73,30 +76,50 @@ class InstructorController extends Controller
     }
 
 
-    public function add_content(){
-        return view('instructor/add_content');
+
+    
+    //Instructor Profile Information CRUD Start Here
+
+    public function  viewInstructorProfileInfo(Request $request){
+        $instructors= ins_registraion::where('user_id',$request->id)->first();
+        $user_info= user::where('id',$request->id)->first();
+        $name=$user_info->name;
+        $email=$user_info->email;
+        $contact_number=$user_info->contact_number;
+        $password=$user_info->password;
+
+        return json_encode(['id'=>$request->id,'name'=>$name,'email'=>$email,'contact_number'=>$contact_number,'password'=>$password]);
     }
 
 
-    public function insert_content(Request $request){
-
-        $video_name=$request->video_name;
-        $video_link=$request->video_link;
-        $video_description= $request->video_description;
-        $video_time_duration= $request->video_time_duration;
-        $course_id=$request->course_id;
+    public function updateInstructorProfileInfo(Request $request)
+    {
+        user::where('id',$request->id)->update(['name'=>$request->name,'contact_number'=>$request->contact_number,'email'=>$request->email,'password'=>$request->password]);
+    }
 
 
-                   file_put_contents("video.txt",$course_id);
+    public function updateInstructorPasswordInfo(Request $request)
+    {
+      
+    
+          $data= (user::where('id', $request->id)->first());
 
-                   video::create([
-                    'video_title'=>$video_name, 
-                    'video_embed'=>$video_link, 
-                    'video_description'=>$video_description, 
-                    'video_time_duration'=>$video_time_duration, 
-                    'course_id'=>$course_id, 
-                    ]);
-                }
+
+          if (Hash::check($request->oldpassword, $data['password'])) {
+              user::where('id', $request->id)->update(['password'=>Hash::make($request->newpassword)]);
+  
+              echo "ok";
+          }
+      
+    
+
+      else {
+          echo "not ok";
+      }
+
+    }
+
+
 
 
 
@@ -125,8 +148,8 @@ class InstructorController extends Controller
             $course_details= course::where('id',$course_id)->first();
             $instructor_id=$course_details->instructor_id;
             $instructor_name = User::where('id',$instructor_id)->first()->name;
-            // file_put_contents("test.txt",$instructor_name);
             $videos= $course_details->videoes;
+            
             $user_id = auth()->user()->id;
     
     
@@ -181,7 +204,6 @@ class InstructorController extends Controller
                 // $review=$review_info[$i]->review;
                 $student_id=$review_info[$i]->student_id;
                 $student_name= User::where('id',$student_id)->first()->name;
-                 file_put_contents('review.txt',$student_name);
     
     
                 array_push($response,
@@ -200,16 +222,42 @@ class InstructorController extends Controller
             'average_rating'=>$average_rating,'total_rating'=>$total_rating]);
     
         }
-    
-        
 
-    
 
+        public function create_course(Request $request)
+        {
+                    $course_name= $request->course_name;
+                    $course_description= $request->course_description;
+                    $course_time_duration= $request->course_time_duration;
+                    $course_category= $request->course_category;
+                    //$course_image= $request->course_image;
+    
+                    $instructor_id = Session::get('user_id');
+    
+                    $course_image = time().'.'.request()->course_image->getClientOriginalExtension();               
+                   request()->course_image->move(base_path('course_image'), $course_image);
+          
+    
+                    course::create([
+                        'instructor_id'=>$instructor_id,
+                        'course_name'=>$course_name, 
+                        'course_description'=>$course_description, 
+                        'course_time_duration'=>$course_time_duration, 
+                        'course_category'=>$course_category, 
+                        'course_image'=>"course_image/".$course_image, 
+                        ]);
+    
+                        $course_id=course::where('course_name',$course_name)->first()->id;
+                        session::put('course_id',$course_id);
+           
+    
+        }
+    
+    
 
     public function delete_course(Request $request){
         $course_id=$request->course_id;
         $instructor_id=Session::get('user_id');
-        file_put_contents("Course_id.txt",$course_id);
         $course=course::where('instructor_id',$instructor_id)->where('id',$course_id)->delete();
     }
 
@@ -218,6 +266,90 @@ class InstructorController extends Controller
         $instructor_id=Session::get('user_id');
         $blog=blog::where('user_id',$instructor_id)->where('id',$id)->delete();
     }
+
+
+    public function add_content(){
+        return view('instructor/add_content');
+    }
+
+
+    public function insert_content(Request $request){
+
+        $video_name=$request->video_name;
+        $video_link=$request->video_link;
+        $video_description= $request->video_description;
+        $video_time_duration= $request->video_time_duration;
+        $course_id=$request->course_id;
+
+                   video::create([
+                    'video_title'=>$video_name, 
+                    'video_embed'=>$video_link, 
+                    'video_description'=>$video_description, 
+                    'video_time_duration'=>$video_time_duration, 
+                    'course_id'=>$course_id, 
+                    ]);
+                }
+
+
+                
+
+
+    public function course_view(Request $request){
+
+        $id=$request->id;
+
+        $video_view=video::where('course_id',$id)->get();
+
+        $response = array();
+
+        for($i=0;$i<sizeof($video_view);$i++)
+        {
+            $video_title=$video_view[$i]->video_title;            
+            $video_time_duration=$video_view[$i]->video_time_duration;
+            $video_embed=$video_view[$i]->video_embed;
+
+
+            array_push($response,['video_title'=>$video_title,'video_time_duration'=>$video_time_duration,'video_embed'=>$video_embed]);
+        }
+        
+        $content = json_decode(json_encode($response));
+
+
+        return view('course/course_view',['contents'=>$content]);
+
+
+    }
+
+
+        // Video Modal Content View
+        public function viewCourseContentInfo(Request $request){
+
+            $id=$request->id;
+            $video_info= video::where('id',$request->id)->first();
+            $video_title=$video_info->video_title;
+            $video_time_duration=$video_info->video_time_duration;
+            $video_embed=$video_info->video_embed;
+            $video_description=$video_info->video_description;
+                    $video_description=$video_info->video_description;
+    
+    
+            return json_encode(['id'=>$id,'video_title'=>$video_title,'video_time_duration'=>$video_time_duration,'video_embed'=>$video_embed,'video_description'=>$video_description,]);
+        }
+
+
+    public function updateCourseContentInfo(Request $request)
+    {
+
+        video::where('id',$request->id)->update(['video_title'=>$request->video_title,'video_description'=>$request->video_description,'video_time_duration'=>$request->video_time_duration,'video_embed'=>$request->video_embed]);
+    }
+
+
+    public function deleteCourseContentInfo(Request $request){
+        $id=$request->id;
+        $id=video::where('id',$id)->delete();
+    }
+
+
 
 
     public function instructor_blog(){
@@ -243,52 +375,6 @@ class InstructorController extends Controller
 
         return view('instructor/create_post');
     }
-
-
-
-    //Instructor Profile Start Here
-
-
-    public function  viewInstructorProfileInfo(Request $request){
-        $instructors= ins_registraion::where('user_id',$request->id)->first();
-        $user_info= user::where('id',$request->id)->first();
-        $name=$user_info->name;
-        $email=$user_info->email;
-        $contact_number=$user_info->contact_number;
-        $password=$user_info->password;
-
-        return json_encode(['id'=>$request->id,'name'=>$name,'email'=>$email,'contact_number'=>$contact_number,'password'=>$password]);
-    }
-
-
-    public function updateInstructorProfileInfo(Request $request)
-    {
-        user::where('id',$request->id)->update(['name'=>$request->name,'contact_number'=>$request->contact_number,'email'=>$request->email,'password'=>$request->password]);
-    }
-
-
-    public function updateInstructorPasswordInfo(Request $request)
-    {
-      
-    
-          $data= (user::where('id', $request->id)->first());
-          file_put_contents("oldpasswword.txt",$request->oldpassword);
-
-
-          if (Hash::check($request->oldpassword, $data['password'])) {
-              user::where('id', $request->id)->update(['password'=>Hash::make($request->newpassword)]);
-  
-              echo "ok";
-          }
-      
-    
-
-      else {
-          echo "not ok";
-      }
-
-    }
-
 
 
 }

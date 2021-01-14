@@ -29,7 +29,7 @@ Route::get('instructor_courses','InstructorController@instructor_courses');
 Route::get('instructor_blog','InstructorController@instructor_blog');
 
 // Adding New Courses
-Route::post('create_course','data_insert_controller@create_course');
+Route::post('create_course','InstructorController@create_course');
 Route::post('create_post','blog_Controller@create_post');
 Route::post('delete_course','InstructorController@delete_course');
 Route::post('delete_blog','InstructorController@delete_blog');
@@ -57,11 +57,11 @@ Route::get('blog_details','Blog_Controller@blog_details');
 
 // Edit And Update Video Content Instructor Dashboard
 
-Route::post('viewCourseContentInfo','admin_controller@viewCourseContentInfo');
-Route::post('updateCourseContentInfo','admin_controller@updateCourseContentInfo');
-Route::post('deleteCourseContentInfo','admin_controller@deleteCourseContentInfo');
+Route::post('viewCourseContentInfo','InstructorController@viewCourseContentInfo');
+Route::post('updateCourseContentInfo','InstructorController@updateCourseContentInfo');
+Route::post('deleteCourseContentInfo','InstructorController@deleteCourseContentInfo');
 
-Route::get('course_view','StudentController@course_view');
+Route::get('instructor_course_view','InstructorController@course_view');
 
     
 });
@@ -81,6 +81,8 @@ Route::get('student_dashboard','studentController@student_dashboard');
 Route::post('ReportToAdmin','studentController@ReportToAdmin');
 Route::get('student_courses','studentController@student_courses');
 Route::post('add_review','studentController@add_review');
+Route::get('quiz/{id}','studentController@quiz');
+Route::post('test_insert','studentController@testDataInsert')->name("test_insert");
 
 
 
@@ -125,13 +127,6 @@ Route::get('sign_out','CustomController@sign_out');
 
 
 
-
-
-
-
-
-
-
 Route::post('std_data_insert','data_insert_controller@std_data_insert');
 Route::post('insert_instructor_data','data_insert_controller@insert_instructor_data');
 Route::post('send_otp','data_insert_controller@send_otp');
@@ -144,18 +139,16 @@ Route::post('number_check','data_insert_controller@number_check');
 Route::post('login_check','data_insert_controller@login_check');
 
 
+Route::group(['middleware' => 'admin'], function () {
 
-// Admin Pages
 Route::get('admin_all_instructors','admin_controller@view_admin_all_instructors');
 Route::get('admin_all_students','admin_controller@admin_all_students');
 Route::get('admin_all_courses','admin_controller@admin_all_courses');
 Route::get('admin_all_report','admin_controller@admin_all_report');
+Route::get('admin_all_blog','admin_controller@admin_all_blog');
 
-Route::get('admin_login','admin_controller@admin_login');
-Route::post('admin_login_check','admin_controller@admin_login_check');
+Route::get('admin_log_out','admin_controller@admin_log_out');
 
-
-// Edit And Update
 
 // Edit And Update in Admin All Student Dahsboard
 
@@ -171,9 +164,6 @@ Route::post('updateInstructorInfo','admin_controller@updateInstructorInfo');
 Route::post('deleteInstructorInfo','admin_controller@deleteInstructorInfo');
 
 
-
-
-
 // Edit And Update Admin All Course Dahsboard
 Route::post('editAdminCourseInfo','admin_controller@editAdminCourseInfo');
 Route::post('updateAdminCourseInfo','admin_controller@updateAdminCourseInfo');
@@ -184,11 +174,26 @@ Route::post('deleteCourseInfo','admin_controller@deleteCourseInfo');
 Route::post('ViewCourseActiveStatus','admin_controller@ViewCourseActiveStatus');
 Route::post('updateCourseActiveStatus','admin_controller@updateCourseActiveStatus');
 
+// Edit And Update Admin All Blog Dahsboard
+// Route::post('editAdminCourseInfo','admin_controller@editAdminCourseInfo');
+// Route::post('updateAdminCourseInfo','admin_controller@updateAdminCourseInfo');
+Route::post('deleteBlog','admin_controller@deleteBlog');
+
+
+    
+});
+// Admin Pages
+Route::get('admin_login','admin_controller@admin_login');
+Route::post('admin_login_check','admin_controller@admin_login_check');
+
+
+// Edit And Update
+
 
 
 // SSLCOMMERZ Start
 Route::get('/example1', 'SslCommerzPaymentController@exampleEasyCheckout');
-Route::get('/instructor_donation', 'SslCommerzPaymentController@instructor_donation');
+Route::get('/visitor_donation', 'SslCommerzPaymentController@visitor_donation');
 Route::get('/student_donation', 'SslCommerzPaymentController@student_donation');
 
 Route::post('/pay', 'SslCommerzPaymentController@index');

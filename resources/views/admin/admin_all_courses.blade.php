@@ -34,17 +34,29 @@
                                             <td class="text-center">{{$course->instructor_name}} </td>
                                             <td class="text-center">
 
-                                            <button onclick="editCourseInfo({{$course->course_id}})"  data-toggle="modal" data-target="#editModal" title="Edit" class="gray-s"><i class="uil uil-edit-alt"></i></button>
+                                            <button style="color: green;   border-color:green" onclick="editCourseInfo({{$course->course_id}})"  data-toggle="modal" data-target="#editModal" title="Edit" class="gray-s"><i class="uil uil-edit-alt"></i></button>
                                             </td>
 
                                             <td class="text-center">
-                                                <button onclick="deleteCourseInfo({{$course->course_id}})"  data-toggle="modal" data-target="#deleteStudentModal" title="delete" class="gray-s"><i class="uil uil-trash-alt">
+                                                <button style="color: red; border-color:red" onclick="deleteCourseInfo({{$course->course_id}})"  data-toggle="modal" data-target="#deleteStudentModal" title="delete" class=""><i class="uil uil-trash-alt">
                                                     </i></button>
                                             </td>
 
                                             <td class="text-center">
-                                                <button onclick="ViewCourseActiveStatus({{$course->course_id}})"  data-toggle="modal" data-target="#CourseStatusModal" class="gray-s">{{$course->course_active_status}}<i class="uil ">
-                                                    </i></button>
+                                                {{-- <button onclick="ViewCourseActiveStatus({{$course->course_id}})"  data-toggle="modal" data-target="#CourseStatusModal" class="gray-s">{{$course->course_active_status}}<i class="uil ">
+                                                    </i></button> --}}
+
+                                                    @if($course->course_active_status=='Approved')
+
+                                                    <button onclick="ViewCourseActiveStatus({{$course->course_id}})"  data-toggle="modal" data-target="#CourseStatusModal" type="button" class="btn btn-primary btn-sm">{{$course->course_active_status}}</button>
+
+                                                    @else
+                                                    <button onclick="ViewCourseActiveStatus({{$course->course_id}})"  data-toggle="modal" data-target="#CourseStatusModal" type="button" class="btn btn-danger btn-sm">{{$course->course_active_status}}</button>
+
+                                                    @endif
+
+                                                 
+
 
 
 
@@ -76,17 +88,17 @@
 
                                       </div>
                                       <div class="form-group">
-                                          <label>Enter Your Course Name</label>
+                                          <label>Edit Course Name</label>
                                           <input type="text" id="edit-course-name" placeholder="Enter Your Course Name" class="form-control">
 
                                       </div>
 
                                        <div class="form-group">
-                                          <label>Enter Your Course Category</label>
+                                          <label>Edit Course Category</label>
                                           <input type="text" id="edit-course-category" placeholder="Enter Your Course Category" class="form-control">
                                       </div>
                                        <div class="form-group">
-                                          <label>Enter Your Course Time Duration</label>
+                                          <label>Edit Course Time Duration</label>
                                           <input type="text" id="edit-course-time-duration" placeholder="Enter Your Course Time Duration" class="form-control">
                                       </div>
 
@@ -124,10 +136,19 @@
 
 
 
-                                          <div class="form-group">
-                                            <label>Course Status</label>
-                                            <input type="text" id="edit-course-active-status" placeholder="Enter Your Course Status" class="form-control">
-                                        </div>
+                                     
+
+                                        {{-- <div class="form-group">
+                                          <label>Course Status</label>
+                                          <input type="text" id="edit-course-active-status" placeholder="Enter Your Course Status" class="form-control">
+                                      </div> --}}
+
+                                      <select  id="edit-course-active-status">
+                                        <option value="Approved">Approved</option>
+                                        <option value="Not Approved">Not Approved</option>
+                                      </select>
+
+                                   
 
                                     </div>
 

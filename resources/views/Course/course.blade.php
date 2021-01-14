@@ -21,7 +21,6 @@
                                         <div class="crse_reviews mr-2">
                                             <i class="uil uil-star"></i> {{round($course->average_rating,1)}}
                                         </div>
-                                        <span class="play_btn1"><i class="uil uil-play"></i></span>
                                         <div class="crse_timer">
                                            Duration: {{$course->course_duration}} Minutes
                                             

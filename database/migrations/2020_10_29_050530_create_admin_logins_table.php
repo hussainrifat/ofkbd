@@ -18,6 +18,8 @@ class CreateAdminLoginsTable extends Migration
             $table->string('username')->unique();
             $table->string('password');
             $table->timestamps();
+
+       
         });
     }
 

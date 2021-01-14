@@ -91,17 +91,26 @@
 
 
 
-					<li class="menu--item">
-						<a href="{{url('admin_all_reviews')}}" class="menu--link" title="Reviews">
-						  <i class='uil uil-star menu--icon'></i>
-						  <span class="menu--label">All Reviews</span>
-						</a>
-					</li>
+			
 
 					<li class="menu--item">
 						<a href="{{url('admin_all_report')}}" class="menu--link" title="Reviews">
 						  <i class='uil uil-fast-mail menu--icon'></i>
 						  <span class="menu--label">All Feedback</span>
+						</a>
+					</li>
+
+					<li class="menu--item">
+						<a href="{{url('admin_all_blog')}}" class="menu--link" title="Reviews">
+						  <i class='uil uil-book-alt menu--icon'></i>
+						  <span class="menu--label">All Blog</span>
+						</a>
+					</li>
+
+					<li class="menu--item">
+						<a href="{{url('admin_log_out')}}" class="menu--link" title="Reviews">
+						  <i class='uil uil-sign-out-alt menu--icon'></i>
+						  <span class="menu--label">Sign Out</span>
 						</a>
 					</li>
 

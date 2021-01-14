@@ -30,11 +30,11 @@
                                             <td class="text-center">{{$instructor->contact_number}}</td>
                                             <td class="text-center">
 
-                                            <button onclick="editInstructorInfo({{$instructor->id}})"  data-toggle="modal" data-target="#editModal" title="Edit" class="gray-s"><i class="uil uil-edit-alt"></i></button>
+                                            <button style="color: green;   border-color:green"  onclick="editInstructorInfo({{$instructor->id}})"  data-toggle="modal" data-target="#editModal" title="Edit" class="gray-s"><i class="uil uil-edit-alt"></i></button>
                                             </td>
 
                                             <td class="text-center">
-                                                <button onclick="deleteInstructorInfo({{$instructor->id}})"  data-toggle="modal" data-target="#deleteStudentModal" title="delete" class="gray-s"><i class="uil uil-trash-alt">
+                                                <button style="color: red; border-color:red" onclick="deleteInstructorInfo({{$instructor->id}})"  data-toggle="modal" data-target="#deleteStudentModal" title="delete" class="gray-s"><i class="uil uil-trash-alt">
                                                     </i></button>
 
                                                 
@@ -67,18 +67,18 @@
                                         </div>
                                      
                                       <div class="form-group">
-                                          <label>Enter Your Name</label>
+                                          <label>Edit Name</label>
                                           <input type="text" id="edit-instructor-name" placeholder="Enter Your Name" class="form-control">
                           
                                       </div>
                           
                                        <div class="form-group">
-                                          <label>Enter Your Email</label>
+                                          <label>Edit Email</label>
                                           <input type="text" id="edit-instructor-email" placeholder="Enter Your Roll" class="form-control">
                                       </div>
                                        <div class="form-group">
-                                          <label>Enter Your Contact Number</label>
-                                          <input type="text" id="edit-instructor-contact_number" placeholder="Enter Contact Number" class="form-control">
+                                          <label>Edit Contact Number</label>
+                                          <input type="text" disabled id="edit-instructor-contact_number" placeholder="Enter Contact Number" class="form-control">
                                       </div>
                           
                                      

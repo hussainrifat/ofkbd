@@ -15,6 +15,9 @@ class Blog_Controller extends Controller
 {
 
 
+        // Instructor Adding New Blog Post
+
+
     public function create_post(Request $request)
     {
                 // course::create($request->all());
@@ -24,7 +27,6 @@ class Blog_Controller extends Controller
                 //$course_image= $request->course_image;
 
                 $instructor_id = Session::get('user_id');
-                // file_put_contents("test.txt",$instructor_id);
 
                 $blog_image = time().'.'.request()->blog_image->getClientOriginalExtension();               
                request()->blog_image->move(base_path('blog_image'), $blog_image);
@@ -38,9 +40,12 @@ class Blog_Controller extends Controller
                     'blog_image'=>"blog_image/".$blog_image, 
                     ]);
 
-       
-
+    
     }
+
+
+       // Instructor All Blog Post Show
+
 
     public function instructor_blog_view(Request $request){
 
@@ -68,6 +73,8 @@ class Blog_Controller extends Controller
    }
 
 
+  // Instructor Single Blog Post Show
+
    public function blog_details(Request $request){
 
     $blog_id=$request->blog;
@@ -82,6 +89,9 @@ class Blog_Controller extends Controller
         ]);
 
 }
+
+
+  // Student All Blog Post Show
 
 public function student_blog_view(Request $request){
 
@@ -107,6 +117,8 @@ public function student_blog_view(Request $request){
    return view('blog/student_blog_view',['blogs'=>$blog]);
 
 }
+
+  // Student Single Blog Post Show
 
 
 public function student_blog_details(Request $request){

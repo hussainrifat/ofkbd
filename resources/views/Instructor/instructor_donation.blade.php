@@ -1,6 +1,5 @@
-
-@extends('instructor_home_layout')
-@section('instructor_content')
+@extends('layout')
+@section('content')
 
 
 
@@ -38,7 +37,7 @@
 <div class="container">
     
 
-    <div class="row">
+    <div class="row" style="padding-top:120px">
      
         <div class="col-md-8 order-md-1">
             <h4 class="mb-3"><b>Give the gift of life-changing education!  </b></h4>

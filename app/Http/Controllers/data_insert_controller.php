@@ -21,8 +21,11 @@ use Illuminate\Http\Request;
 class data_insert_controller extends Controller
 {
 
+    // Student, Instructor Registration Section 01
+    //
 
-    // Student And Instructor Registration Start Here
+
+    // Section 01 Student And Instructor Registration Start Here
     public function std_data_insert(Request $request)
     {
         
@@ -33,7 +36,6 @@ class data_insert_controller extends Controller
         $email= $request->email;
         $password=Hash::make($request->password);
         // $password=$request->password;
-
 
 
         User::create([
@@ -47,6 +49,8 @@ class data_insert_controller extends Controller
         $user = User::where("email",$email)->first();
         $user_id = $user->id;
         Session::put('user_id',$user_id);
+
+        
         $otp_req = json_decode($this->send_otp2($user->contact_number));
         $otp = $otp_req->otp;
         $this->send_otp($otp,$user_id);
@@ -64,7 +68,6 @@ class data_insert_controller extends Controller
     
     public function insert_instructor_data(Request $request)
     {
-        // ins_registration::create($request->all());
 
         $name= $request->ins_name;
         $contact_number= $request->ins_number;
@@ -96,10 +99,55 @@ class data_insert_controller extends Controller
             'expertise'=>$expertise,
             ]);
 
-            //file_put_contents("tes.txt",Session::get('user_id'));
-        
         
     }
+
+
+
+       // Section 02 : OTP
+
+    
+   function send_otp($otp,$user_id)
+   {
+    
+     if(otp::where('user_id',$user_id)->first())
+     {
+         otp::where('user_id',$user_id)->update(['otp'=>$otp]);
+     }
+     else{
+        otp::create([
+            'user_id'=>$user_id,
+            'otp'=>$otp,
+        ]);
+     }  
+   }
+
+
+
+   public function match_otp(Request $request)
+   {
+      $user_otp= $request->user_otp;
+      $user_id= Session::get('user_id');
+
+
+    if(otp::where('user_id',$user_id)->where('otp',$user_otp)->first())
+      {
+
+        user::where('id',$user_id)->update(['mobile_verification'=>'1']);
+
+     echo "ok"; }
+     
+        else {
+            echo "not ok";
+        }
+   }
+
+
+   public function resend_otp(){
+    return view('registration/resend_otp');
+}
+
+
 
     public function resend_otp_check(Request $request){
 
@@ -118,56 +166,13 @@ class data_insert_controller extends Controller
 
     }
 
-    public function resend_otp(){
-        return view('registration/resend_otp');
-    }
-
-        // Student And Instructor Registration Ends Here
-
-
-        // OTP Match Start Here
-
-
-   function send_otp($otp,$user_id)
-   {
-    
-     if(otp::where('user_id',$user_id)->first())
-     {
-         otp::where('user_id',$user_id)->update(['otp'=>$otp]);
-     }
-     else{
-        otp::create([
-            'user_id'=>$user_id,
-            'otp'=>$otp,
-        ]);
-     }  
-   }
-
-   public function match_otp(Request $request)
-   {
-      $user_otp= $request->user_otp;
-      $user_id= Session::get('user_id');
-
-
-    if(otp::where('user_id',$user_id)->where('otp',$user_otp)->first())
-      {
-
-
-        user::where('id',$user_id)->update(['mobile_verification'=>'1']);
-
-     echo "ok"; }
+   
+       
      
-        else {
-            echo "not ok";
-        }
-   }
-
-           // OTP Match Ends Here
-
-    
-           // Registration Email And Mobile Number Check Start Here
 
 
+
+     //Registration Duplicate Email Check
 
     public function email_check(Request $request)
     {
@@ -184,6 +189,11 @@ class data_insert_controller extends Controller
 
     }
 
+
+
+        //Registration Duplicate Contact Number Check
+
+
     public function number_check(Request $request)
     {
         $contact_number= $request->contact_number;
@@ -199,6 +209,8 @@ class data_insert_controller extends Controller
 
     }
 
+
+    //BD apps API for OTP send
     public function send_otp2($mobile_number)
     {
         
@@ -226,11 +238,12 @@ class data_insert_controller extends Controller
     }
 
 
-    // Registration Email And Mobile Number Check Ends Here
 
-
+    // Student & Instructor Login Check
 
     public function login_check(Request $request){
+
+
         $credentials = array(
             'contact_number' => $request->contact_number,
             'password'=>$request->password
@@ -244,25 +257,20 @@ class data_insert_controller extends Controller
 
                 if (user::where('id', $user_id)->where('mobile_verification','1')->first()) {
                     if (auth()->user()->instructor) {
-                    // if (ins_registraion::where('user_id', $user_id)->first()) {
                         echo "instructor";
                     } 
                     
                     else if(auth()->user()->student) {
-                    // else if(std_registration::where('user_id', $user_id)->first()) {
-        
                         echo "student";
                     } 
 
-
-                        
                     } 
                     else
                     echo "otp_error";
 
 
-
                 }
+
                 else{
                     session()->flash('message', 'Invalid credentials');
                     return redirect()->back();
@@ -276,47 +284,9 @@ class data_insert_controller extends Controller
     }
 
 
-    public function create_course(Request $request)
-    {
-                // course::create($request->all());
-                $course_name= $request->course_name;
-                $course_description= $request->course_description;
-                $course_time_duration= $request->course_time_duration;
-                $course_category= $request->course_category;
-                //$course_image= $request->course_image;
-
-                $instructor_id = Session::get('user_id');
-                // file_put_contents("test.txt",$instructor_id);
-
-                $course_image = time().'.'.request()->course_image->getClientOriginalExtension();               
-               request()->course_image->move(base_path('course_image'), $course_image);
-      
-
-                course::create([
-                    'instructor_id'=>$instructor_id,
-                    'course_name'=>$course_name, 
-                    'course_description'=>$course_description, 
-                    'course_time_duration'=>$course_time_duration, 
-                    'course_category'=>$course_category, 
-                    'course_image'=>"course_image/".$course_image, 
-                    ]);
-
-                    $course_id=course::where('course_name',$course_name)->first()->id;
-                    session::put('course_id',$course_id);
-                    // file_put_contents("Course_id.txt",$course_id);
-       
-
-    }
 
 
 
-
-
-
-   
-
-
- 
 
 
 
