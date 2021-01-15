@@ -217,7 +217,7 @@
 
 
                                         @if($enroll == 1)
-                                          @if ($give == 1)
+                                          @if ($give == 0)
                                             
 
                                         <div class="col-lg-12 col-md-12">

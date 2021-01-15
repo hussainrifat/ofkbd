@@ -104,7 +104,9 @@ Route::post('StudentCourseEnrollment','StudentController@StudentCourseEnrollment
 // Blog Pages
 Route::get('student_blog_view','Blog_Controller@student_blog_view');
 Route::get('student_blog_details','Blog_Controller@student_blog_details');
-
+Route::view('student_files','student.student_attachment');
+Route::POST('submit_attachment','studentController@submit_attachment');
+Route::get('student_work','studentController@student_work');
 
     
 });

@@ -19,6 +19,12 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\ins_registraion');
     }
+
+
+    public function getStudentData()
+    {
+        return $this->hasOne(User::class,'student_id','id');
+    }
     
 
 

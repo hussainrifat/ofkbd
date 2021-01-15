@@ -77,6 +77,10 @@
 				<li>
 					<a href="{{url('student_blog_view')}}" class="upload_btn" title="Donate Now">Explore Blog</a>
 				</li>
+
+				<li>
+					<a href="{{url('student_work')}}" class="upload_btn" title="Donate Now">Explore Students Gallery</a>
+				</li>
 			
 				<li>
 					<a href="{{url('student_donation')}}" class="upload_btn" title="Donate Now">Donate Now</a>
@@ -123,6 +127,13 @@
 						<a href="{{url('student_courses')}}" class="menu--link" title="Courses">
 							<i class='uil uil-bookmark-full menu--icon'></i>
 							<span class="menu--label">My Courses</span>
+						</a>
+					</li>
+
+					<li class="menu--item">
+						<a href="{{url('student_files')}}" class="menu--link" title="Create Course">
+							<i class='uil uil-plus-circle menu--icon'></i>
+							<span class="menu--label">Add New Work</span>
 						</a>
 					</li>
 

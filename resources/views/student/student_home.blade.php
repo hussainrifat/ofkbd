@@ -80,6 +80,40 @@
             </div>
 
 
+            <div class="col-xl-12 col-lg-12">
+                <div class="section3125 mt-50">
+                    <h4 class="item_title">Student Gallery</h4>
+                <a href="{{url('student_work')}}" class="see150">Explore all</a>
+                    <div class="la5lo1">
+                        <div class="owl-carousel featured_courses owl-theme">
+                            @foreach($files as $file)
+
+                            {{-- course item start from here --}}
+
+                            <div class="item">
+                                <div class="fcrse_1 mb-20">
+                                    <a href="" class="fcrse_img">
+                                        <img src="{{$file->image}}" style="height: 250px" alt="">
+                                       
+                                    </a>
+                                    <div class="fcrse_content">
+                                     
+                                       
+                                        <a href="" class="crse14s"> Title: {{$file->title}}</a>
+                                        <a href="" class="crse14s"> Student Name: {{$file->getStudentData->name}}</a>
+
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                          {{-- course item end here --}}
+                          @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
             
 
 

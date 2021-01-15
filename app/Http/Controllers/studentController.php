@@ -16,25 +16,22 @@ use App\stu_courses;
 use App\Report_admin;
 use App\course_feedback;
 use Illuminate\Support\Facades\Hash;
+use App\student_attachment;
 
 
 class studentController extends Controller
 {
     public function student_home(){
      
-        $response = array();
+    $response = array();
 
+    $course= course::orderBy('id','desc')->take(5)->where('course_active_status','Approved')->get();
 
-    
-    $course= course::
-    orderBy('id','desc')
-    ->take(5)
-    ->where('course_active_status','Approved')
-    ->get();
     for($i=0;$i<sizeof($course);$i++)
     {
         $ins_id = $course[$i]->instructor_id;
         $instructor_name = User::where('id',$ins_id)->first()->name;
+        
         array_push($response,
         ['course_id'=>$course[$i]->id,
         'course_name'=>$course[$i]->course_name,
@@ -46,10 +43,7 @@ class studentController extends Controller
 
     $blog_response = array();
 
-    $blog= blog::
-    orderBy('id','desc')
-    ->take(5)
-    ->get();
+    $blog= blog::orderBy('id','desc')->take(5)->get();
 
     for($i=0;$i<sizeof($blog);$i++)
     {
@@ -67,8 +61,10 @@ class studentController extends Controller
 
     $course = json_decode(json_encode($response));
 
+    $files= student_attachment::with('getStudentData')->get();
 
-    return view('student/student_home',['course'=>$course,'blog'=>$blog]);
+
+    return view('student/student_home',['course'=>$course,'blog'=>$blog,'files'=>$files]);
     }
 
 
@@ -241,11 +237,11 @@ class studentController extends Controller
 
             if(course_feedback::where('student_id',$user_id)->where('course_id',$course_id)->first())
             {
-                $give=0;
+                $give=1;
             }
             
             else
-             $give = 1;
+             $give = 0;
         }
         else
         {
@@ -274,13 +270,14 @@ class studentController extends Controller
                 $sum= ($sum+$rating);
     
             }
+
+            // number of average ratings
             $average_rating=$sum/sizeof($average_ratings);
 
 
-           
+           // number of total ratings
                 $total_rating=sizeof($average_ratings);
 
-    
         }
 
        
@@ -502,6 +499,49 @@ class studentController extends Controller
                 file_put_contents('text.txt',$course_id);
 
                 return dd($test,$course_id);
+
+            }
+
+            public function submit_attachment(Request $request)
+            {
+              
+                if ($request->hasFile('image')) :
+                    $file = $request->file('image');
+                    $name = $file->getClientOriginalName();
+                    $EXT  = $file->getClientOriginalExtension();
+                    $imageFileName =  base64_encode($name);
+                    $imageFileName = $imageFileName . time() . "." . $EXT;
+                    $attachment_path =  'student_attachment/' . $imageFileName;
+                    $file->move('student_attachment/', $imageFileName);
+
+
+
+                endif;
+
+                $student_id = auth()->user()->id;
+
+            
+                student_attachment::create([
+                    'student_id'=>$student_id, 
+                    'title'=>$request->title, 
+                    'description'=>$request->description,
+                    'categories'=>$request->category, 
+                    'image'=>$attachment_path, 
+
+ 
+                 
+                    ]);
+
+                    return back();
+
+
+            }
+
+
+            public function student_work()
+            {
+                $files= student_attachment::with('getStudentData')->get();
+                return view('student.student_work',['files'=>$files]);
 
             }
 
