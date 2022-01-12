@@ -20,7 +20,7 @@ Now create an account and explore it.<br>
 
 # Built With
 Language : HTML, CSS, JavaScript <br>
-Framework: aravel - Back-End<br>
+Framework: Laravel - Back-End<br>
 Library: Jquery<br>
 Database: Mysql<br>
 Editor: VS Code <br>
